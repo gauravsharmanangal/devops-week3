@@ -1,0 +1,416 @@
+epfo--Chanchal@6899
+ajay.sood.ext@nokia.com
+Akay@6899
+k$bJpu9g
+ajaykumar.a2610@gmai.com
+Akay@6899
+
+GWC---01244159952
+
+NDNOKIA2610
+v@987(6 digit otp)
+NDNOKIA2610
+ajay@987
+RMI
+10.149.24.77
+ajay@987
+ ----outlook pst path----
+ C:\Users\ch-e05025\AppData\Local\Microsoft\Outlook
+ 
+ tail -1000 2020111910-system-error.txt|awk -F "#" '{print $1}'|sort|uniq -c	
+rsync -avr --exclude="home_35bkp"  --exclude="*.txt" --exclude="*.csv"  --exclude="core.*" --exclude="*.zip"  --exclude="*.log" --exclude="*.gz" --exclude="*.tgz" --exclude="*.tar"  /home/bsnlpromo/ root@10.68.55.219:/home/bsnlpromo/
+rsync -avr root@10.68.55.201:/data1/DBA/fullbackup_197/2021-02-15/ /nfs2/all_servers_config_backup/55_197/DBA/
+rsync -av -f"+ */" -f"- *" /home/sdlsupport/MDeep/ /nfs2/deep/             (to copy directory structure only)
+
+scp *_201912*.gz root@192.168.9.212:/home/bsnlpromo/AppLogs/JobsToRun/PurgeTableToFile/CampaignManager_WEST/dec_2019
+scp *_201904*.gz root@192.168.9.214:/home/bsnlpromo/AppLogs/JobsToRun/PurgeTableToFile/CampaignManager_SOUTH/april_2019
+scp *_2019-07*.gz root@192.168.9.212:/home/bsnlpromo/AppLogs/JobsToRun/PurgeTableToFile/CampaignManager_NORTH/july_2019
+scp *_2020-03*.gz root@192.168.9.212:/home/bsnlpromo/AppLogs/JobsToRun/PurgeTableToFile/CampaignManager_EAST/mar_2020
+scp *_2020-04*.gz root@192.168.9.212:/var/CampaignManager_EAST/apr_2020
+scp -r aug_2019 root@192.168.9.212:/home/bsnlpromo/AppLogs/JobsToRun/PurgeTableToFile/CampaignManager_NORTH/
+mv *_2019-08*.gz aug_2019
+
+
+for i in `cat diff`
+do
+grep $i SIMDump_20220624.csv|awk '{print $2,$3,$4}' >>/RTDB_DUMP/dump/akay.txt
+
+done
+!!!!!!!!!!!! Router commands!!!!!!
+
+A:SZ_MATED_R1# history
+   1 show port
+   2 show port 1/1/15 detail
+   3 show port
+   4 show port 1/1/21 detail
+   5 show port 1/1/22 detail
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+------------------------------------
+To enable FTP Service in ATCA
+
+!=============================!
+
+service vsftpd status
+
+service vsftpd start
+
+service vsftpd stop
+
+-----to convert doc to unix
+dos2unix filename
+
+-----------remove----------
+find . -name ".pcap" -mmin  +300 -exec rm {} \;
+find /log -name ".pcap" -mmin  +300 -exec rm {} \;
+find /log -name ".pcap" -mmin  +300 -exec echo {} \;
+find . -name ".pcap" -mtime +1 -exec echo {} \;  (find and remove last day logs)
+rm -rf *_2010-01*.gz
+rm -rf 202011{01..24}
+ls -ltrh 202011{01..23}*.txt     (to list sepecific format of date)
+
+fgrep -vf blade_nok blade_list >blade  (it wiil exclude the file A content from file B)
+--------------Sar-----------
+/var/log/sa   (sar files)
+sar -f /var/log/sa/sa21|grep "Average"|sort -k 8|head -1|awk '{print 100-$NF}'
+load average
+-----------external hdd mount and unmount---
+fdisk -l
+mount /dev/ssd /mnt
+umount /mnt
+--------------to check mem chashed status----
+ service memcached status   
+ service memcached start
+ watch -n1 'memcached-tool 127.0.0.1:11211 sizes'
+ ------------------to get which smmp user taking memory--------------- 
+ 
+  ps -eo pid -eo pcpu -eo command | grep smpp_server| sort -k 2 -r | grep -v PID | head -n 1
+ ps -aux --sort -rss |head  (to get what procces taking memory)
+ --------------to find out which prosess using this file------------
+ 
+ fuser <file_name>
+ 
+ 
+ ---------------
+  ./smppTpsHandler -c /home/sms/BMG/smppTpsHandler/conf/tps_handler_insert.cfg -u30 &>/dev/null &
+  ./expiryModule -c /home/sms/BMG/expiryModule/conf/expiryModule.cfg &>/dev/null &
+ mutt -e "set content_type=text/html" -s "test" -a $ATTACHMENTS  --  ajay.kumar5@digispice.com 
+ntpdate -u 192.168.9.15
+ ntpq -p (to check ntp time)
+ /etc/ntp.conf
+ service ntpd start
+ service ntpd status
+ 
+watch -n15 'ps -ef | grep 2694'
+ipcs -q | grep "0x00000000" | wc -l        (to check empty queue)
+for i in `ipcs -q | grep "0x00000000" | awk -F " " '{print $2}'` ; do ipcrm -q $i ; done
+
+watch 'ipcs -q|grep -v " \0"'
+sh /home/sms/scripts/VISPL.sh
+ lsof |wc -l  (to check descriptor count and scriptys is health check)
+ lsof|grep "/tmp"|grep "(deleted)"
+du -sh *|grep G
+----------to delet blank lines from file------------
+grep -Ev "^#|^$"
+:g/^$/d
+:%s/WORKSPACE/TRACE_DUMP/g ----to findd and replace in files----
+:%s/Nth1OCS4/Nth1OCS3/g
+
+sed -i 's/\r//' commandlog.sh
+----------
+Source: https://frameboxxindore.com/linux/how-do-i-remove-spaces-in-linux.html
+###################grep ##################
+mount /mnt 
+grep -Ev "^#|^$" 24082022_atca3.csv >24082022_wospace_atca3.csv           (to remove blank line from file)
+
+ps -ef | egrep '1415|2378|2538|2559|2758|' | grep -Eiv 'smpp_server|DNDModule_DLT|smppClientSms|grep'
+egrep '(6680|6857|6681|6683)'  (to grep multiple things)
+ egrep '7274|SCL1VIS4HRT01' /home/sms/BMG/*/conf/*
+ ps -ef | grep '7024\|7025'
+  ps -ef| pgrep -f SCL1QGS4MNO02   (to get pid of process)
+ipcs  -q          (to check the quee)
+ipcrm -q  32769   ;  (to flush the quee)
+sysctl -p  -----(to check quee size or define)
+iostat -dx 1 5   (to check read and write opertions)
+iostat -y 2  (to check io wait time )
+df -i   (to check inodes)
+ tar cvzf OMlog_Oct2022.tgz OMlog*Oct*
+ tar xvzf 20201208.tgz 2020120814*
+ gzip debuglog*Dec{1..15}* 
+ ls -lrth debuglog*Dec{2..15}*|more
+wmic bios get serial number
+killall smmpp_server;server monitor.sh
+netstat -antp
+dmidecode | more (to find the info about your system)
+------------------------------------to capture pcap in selfcare----------------
+
+/usr/sbin/tshark -i any -b filesize:1000000 -w /dev/shm/Trace_116_2.pcap
+
+/usr/sbin/tshark -i any -b filesize:1000000 -w /dev/shm/Trace_117_2.pcap
+
+
+9412751937
+ 
+
+USSD Search String:
+
+ 9412000220 alok sdo
+
+gsm_map.address.digits == "919412751937"
+
+
+
+#####################tcp######################10.199.32.82
+tcpdump -i any -s0 host 10.199.32.82 -w 29july.cap &>/dev/null & (for TCP trace)
+tcpdump -i any -s0 port 5016 -w 16july_5016.cap  &>/dev/null &
+tcpdump -i any -s0 host ucc-bsnl1.tanla.net -w tcpdump_north.cap
+tcpdump -i any -s0 host 10.179.17.106 -w /PLATsoftware/cust_use/home/5_4.pcap
+
+nohup /usr/sbin/tshark -i eth4.7 -w /PLATsoftware/cust_use/home/Nth1oth1_CTOP-0-0-4.pcap -b filesize:300000 host 10.149.4.94 or 10.149.129.18 or 10.149.129.13 or 10.147.137.142
+/usr/sbin/tshark -i eth5.8 -w /PLATsoftware/cust_use/home/MCAS1_004_58.pcap -b filesize:1000000
+/usr/sbin/tshark -i eth4.7 -w /PLATsoftware/cust_use/home/MCAS1_004_47.pcap -b filesize:1000000
+
+/usr/sbin/tshark -i eth5.8 -w /PLATsoftware/cust_use/home/MCAS1_0012_58.pcap -b filesize:1000000
+/usr/sbin/tshark -i eth4.7 -w /PLATsoftware/cust_use/home/MCAS1_0012_47.pcap -b filesize:1000000
+
+
+nohup /usr/sbin/tshark -i eth4.7 -b filesize:600000 -w /PLATsoftware/cust_use/home/47_004.pcap(sigtran)
+nohup /usr/sbin/tshark -i eth5.8 -b filesize:600000 -w /PLATsoftware/cust_use/home/58_004.pcap(sigtran
+
+traceroute IP
+0-0-4
+4.7&5.8  for  sigtron (need to capture on both io)
+4.9 dimeter (it will captuer on active io blade)
+
+------------
+#!/bin/sh
+LOG_PATH=/log/tcpdump
+SMSC_NAME=DLT
+SECONDS=900
+PORT=7002
+IP=172.17.208.118
+tcpdump -iany -s0 host $IP -C 15 -W 350  -w $LOG_PATH"$SMSC_NAME"_`date +%Y%m%d%H%M`.pcap -Z root
+------------------------
+/usr/sbin/tshark -f "port 5016" -i any -b filesize:1000000 -w /PLATsoftware/cust_use/home/test1.pcap
+nohup /usr/sbin/tshark -f "port 5016" -i any -b filesize:1000000 -w /PLATsoftware/cust_use/home/NZ_SMPP.pcap &
+
+/usr/sbin/tshark -i 10.179.17.106 -b filesize:1000000 -w /PLATsoftware/cust_use/home/assoc_5_4.pcap
+
+/usr/sbin/tshark -i any  -b filesize:1000000 -w /PLATsoftware/cust_use/home/call_004_1.pcap
+/usr/sbin/tshark -i any  -b filesize:1000000 -w /PLATsoftware/cust_use/home/call_0012_l.pcap 
+
+
+ 
+/usr/sbin/tshark -i any -f 'ip dst 10.179.17.106 or dst 10.179.25.106' -w /PLATsoftware/cust_use/home/Test1.pcap
+
+nohup /usr/sbin/tshark -f "port 5016" -i any -b filesize:1000000 -w /PLATsoftware/cust_use/home/Nz1OCS5_04_SMPP.pcap &
+
+sccp.calling.digits == "919415111644"
+frame[293:6] == 19:08:40:47:89:65
+e164.calling_party_number.digits == "9415111644"
+e164.calling_party_number.digits == "919415003663"||tcap.otid == 57:00:96:a0 ||tcap.dtid == 57:00:96:a0||tcap.otid == 04:11:32:51||tcap.dtid == 04:11:32:51
+=================================camel pcap trace analysis=============================================================
+1. camel
+2. e164.calling_party_number.digits == "91"
+3. Check service Key from camel
+3. filter initial idp release packet
+4. filter with otid & dtid at TCAP packet 
+   tcap.otid == 0.0.17.773.1.1.1||tcap.dtid == 0.0.17.773.1.1.1
+   
+   
+   
+   
+ -------------------diameter traces filterout----------------  
+ pcrf14.cdotpcrf6.epc.mnc034.mcc404.3gppnetwork.org;1672034306;194764;24772608
+ Comand Code:275
+   diameter.Subscription-Id-Data=="919412484983"
+   diameter.Session-Id == "pcrf07.pcrf.nz.epc.mnc053.mcc404.3gppnetwork.org;661214899;1539132254;4236;1611" ||diameter.Session-Id == "GGZCHD3.OCS1;1697613190;3458953916;38033100"
+   
+   
+   diameter.Session-Id =="vPGW_EPCAMB_6;1663424262;478504;6_162194"
+   strings *20221226*.pcap |grep "4203800229"
+   grep 4203800229 *2022122*.pcap
+   vPGW_EPCAMB_6;1663424262;478504;6_162194
+   
+(diameter.Session-Id == "N1-A2P-ivas-unidb;3891511753;96077014") || (diameter.Session-Id == "CTOPUP;6666;3067230275")
+   
+----------------------------------------------
+###################Single number Trace or SubTrace###################
+snd:text="QRY:SUBTRACE",rk="PPSIMOMKey";     (to check how many numbers  subtraces are on)
+snd:text="SET:SUBTRACE,MSISDN=917589045526,mode=1179,1170,1178,1208,1192,IDTYPE=S",rk=PPSIMOMKey;
+tailer d | tee ATCA3_0612_17_1.tra
+
+snd:text="SET:SUBTRACE,MSISDN=919464922325,mode=1179,1170,1178,1208,1192,IDTYPE=S",rk=PPSIMOMKey;
+ From Active pilot blade:
+ (go to root user)
+Cd /workspace
+ tailer d >919464922325_ak.tra
+Make call
+./LogCMB 919464922325.tra
+ From Subshl
+ snd:text="SET:SUBTRACE,MSISDN=917589595660,mode=off",rk=PPSIMOMKey;
+ 
+ 918988399575","919466810115
+snd:text="SET:SUBTRACE,MSISDN=918988399575,mode=1179,1170,1178,1208,1192,IDTYPE=S",rk="IMOMauditkey";
+snd:text="SET:SUBTRACE,MSISDN=919466810115,mode=1179,1170,1178,1208,1192,IDTYPE=S",rk="IMOMauditkey";
+
+
+snd:text="QRY:SUBTRACE",rk="IMOMauditkey";
+ 
+9415003663
+!!!!!!!!!!!!!!!!!!1
+4.9
+===============================CLEAR HANG SESSION==================================================
+snd:text="CLR:SESS,MSISDN_MIN=917589045526,MSISDN_MAX=917589045526",rk=PPSIMOMKey;
+snd:text="RESET:PPCALLS,MSISDN=917589045526",rk=PPSIMOMKey;
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 pcap trace!!!!!
+
+editcap -A '2021-11-26 16:28:00' -B '2021-11-26 16:30:00' ATCA1_47_09917_20211126161951.pcap  test1.pcap
+editcap -A '2021-11-26 16:28:00' -B '2021-11-26 16:30:00' CAP1247_09143_20211126160744.pcap  test2.pcap
+editcap -A '2021-11-26 16:28:00' -B '2021-11-26 16:30:00' ATCA1_58_03725_20211126142530.pcap  test3.pcap
+editcap -A '2021-11-26 16:28:00' -B '2021-11-26 16:30:00' CAP1258_03364_20211126155801.pcap  test4.pcap
+
+mergecap -w new_merged.pcap file1.pcap file2.pcap test3.pcap test4.pcap
+
+mergecap -w new_4g.pcap 4GPOC_MaATCA6_44953_20220918003027.pcap 4GPOC_MaATCA6_44954_20220918003035.pcap 4GPOC_MaATCA6_44956_20220918003051.pcap 4GPOC_MaATCA6_44957_20220918003100.pcap
+
+---------------------------------
+!!!!!!!!!!!!!!pcapTrace in IO Blade for !!!!!
+
+Sz1OCS1-0-0-4 (IO Blade):/root-# cd /PLATsoftware/cust_use/home/
+
+
+/usr/sbin/tshark -i eth4.9      -b filesize:1000000 -w /PLATsoftware/cust_use/home/49.pcap
+/usr/sbin/tshark -i eth5.8      -b filesize:1000000 -w /PLATsoftware/cust_use/home/58.pcap
+
+/usr/sbin/tshark -i eth4.7 -b filesize:1000000 -w /PLATsoftware/cust_use/home/1247.pcap
+/usr/sbin/tshark -i eth5.8 -b filesize:1000000 -w /PLATsoftware/cust_use/home/1258.pcap
+
+
+Submitsm req
+smpp.destination_addr == "919984376910"
+Deliversm
+smpp.source_addr == "917499860701"
+
+smpp.sequence_number == "17911"
+############table on script#####
+/u/ainet/bin/
+DEBUG:SPA=EPAY29C,CLIENT=1,machine=0-0-5,source="/u/ainet/bin/EPAY29C-0125-tableon.bp",ucl;
+-----------------trace off---------------
+TRACE:PROC=EPAY29C,MODE=OFF
+TRACE:PROC=EPAY29C,MODE=OFF,client=all
+quit;
+TRACE:PROC=DROUTER29C,MODE=OFF
+TRACE:PROC=DROUTER29C,MODE=OFF,client=all
+-------------------to off traces------
+DEBUG:SPA=DROUTER29C,source="/u/ainet/bin/printlineoff",ucl;
+DEBUG:SPA=DROUTER29C,CLIENT=ALL,source="/u/ainet/bin/printlineoff",ucl;
+##########################################BP enable###########
+
+debug:spa=EPAY29C,source="/u/ainet/BSNL-NZ-EPAY29C-0124-SPRDSR-6279-client-V1-debug-20230104.bp",client=all,ucl
+##########################################
+mysqlcheck --user=root --password=sdredhat --auto-repair --optimize --all-databases >>/home/ajay_output.txt|awk
+mysqlcheck --user=root --password=sdredhat --auto-repair --optimize --all-databases >>/home/ajay_output.txt|awk
+ sh no_response.sh /home/bsnlpromo/SIP_Manager/bin/Logs/ >> noresp.txt
+service crond stop   (to stop or start crontab)
+cat "$var_log_path"clientReqLog_$var_log_date.txt|awk -F"#" '{print $1}'|awk -F" " '{print $2}'|awk -F":" '{print $1}'| grep "$i"|wc -l`
+zcat TBL_BSNL_SUBMIT_URL_BKP_BKP_201912*.txt.gz|grep -v "~CGR~" |awk -F "~" '{print substr($1,1,06),$4,$5,$11}'|sort |uniq -c >ajay.txt
+./smppClient_north_premium srvc_north_premium 
+
+ 91  rsync -avr --exclude="home_35bkp"  --exclude="*.txt" --exclude="*.csv"  --exclude="core.*" --exclude="*.zip"  --exclude="*.log" --exclude="*.gz" --exclude="*.tgz" --exclude="*.tar" /home/bsnlpromo/ /home/35_bkp/
+   96  rsync -avr --exclude="home_35bkp"  --exclude="*.sql" --exclude="*.txt" --exclude="*.csv"  --exclude="core.*" --exclude="*.zip"  --exclude="*.log" --exclude="*.gz" --exclude="*.tgz" --exclude="*.tar" /home/bsnlpromo/ /home/35_bkp/
+  104  rsync -avr --exclude="home_35bkp"  --exclude="*.sql" --exclude="*.txt" --exclude="*.csv"  --exclude="core.*" --exclude="*.zip"  --exclude="*.log" --exclude="*.gz" --exclude="*.tgz" --exclude="*.tar" /home/bsnlpromo/ /home/35_bkp/
+  112  rsync -avr --exclude="home_35bkp"  --exclude="*.sql" --exclude="*.txt" --exclude="*.csv"  --exclude="core.*" --exclude="*.zip"  --exclude="*.log" --exclude="*.gz" --exclude="*.tgz" --exclude="*.tar" /home/bsnlpromo/ /home/35_bkp/
+  116  rsync -avr --exclude="home_35bkp"  --exclude="*.sql" --exclude="*.txt" --exclude="*.csv"  --exclude="core.*" --exclude="*.zip"  --exclude="*.log" --exclude="*.gz" --exclude="*.tgz" --exclude="*.tar" /home/bsnlpromo/ /home/35_bkp
+##################To compare##############
+awk '{print $2, " ", $27}' SubscriberDump_20210927_MainATCA3.csv > /workspace/SIMDB_Main3.csv------> Data extraction
+sort SIMDB_Mated2.csv > SIMDB_Mated2_New.csv-----> Sort the data
+comm -13 SIMDB_Main4_New.csv SIMDB_Mated4_New.csv > SIM_Diff.csv ---> Comparision from file to file
+comm -23 SIMDB_Main4_New.csv SIMDB_Mated4_New.csv > SIM_Diff1.csv-----> Reverse Comparision from file to file
+#################
+-----------RTDBXFER add-------------------
+a) Add host name in the /etc/hosts file:
+/opt/config/lib/manage_hosts addblock rtdbxfer
+/opt/config/lib/manage_hosts addentry rtdbxfer 10.147.136.20 Nth2OCS5 rtdbxfer
+
+b) Set up the ssh keys in the following way:
+-- Check if the /root/.ssh/id_rsa.pub exists. If not, use the ssh-keygen –t rsa to create.
+-- Update the content of id_rsa.pub information in the remote host /root/.ssh/authorized_keys file.
+-- After both the sides are updated, run the following command on both the sides:
+
+ssh -o StrictHostKeyChecking=no rtdbxfer
+
+scp 2022236.gz rtdbxfer:/ubilling/CDR_issue
+---------------------------
+
+slr--1st msg  from pcrf to in
+sla---in return response
+ccr---ggsn send to IN
+CCA---IN to GGSN
+snr--IN gives it to PCRF
+sna---PCRF send it to IN
+
+
+
+ping -c 5 10.147.128.8
+ping -c 5 10.147.128.11
+ping -c 5 10.147.128.14
+ping -c 5 10.147.128.17
+ping -c 5 10.147.128.20
+ping -c 5 10.147.128.23
+ping -c 5 10.147.128.56
+ping -c 5 10.147.136.8
+ping -c 5 10.147.136.11
+ping -c 5 10.147.136.14
+ping -c 5 10.147.136.17
+ping -c 5 10.147.136.20
+ping -c 5 10.147.136.23 
+ping -c 5 10.147.136.56
+esm
+ping 10.147.128.8  -n 5
+ping 10.147.128.11 -n 5
+ping 10.147.128.14 -n 5
+ping 10.147.128.17 -n 5
+ping 10.147.128.20 -n 5
+ping 10.147.128.23 -n 5
+ping 10.147.136.8  -n 5
+ping 10.147.136.11 -n 5
+ping 10.147.136.14 -n 5
+ping 10.147.136.17 -n 5
+ping 10.147.136.20 -n 5
+ping 10.147.136.23 -n 5 
+
+ls -lrth /snlog/userlog/ainet.*|more
+ls -lrth //ubilling/Userlogs_session/ainet.*|more
+
+ping -c 5 10.179.17.66
+ping -c 5 10.179.25.66
+ping -c 5 10.179.17.130
+ping -c 5 10.179.25.130
+ping -c 5 10.179.17.162
+ping -c 5 10.179.25.162
+ping -c 5 10.179.17.98
+ping -c 5 10.179.25.98
+ping -c 5 10.179.17.74
+ping -c 5 10.179.25.74
+ping -c 5 10.179.17.138
+ping -c 5 10.179.25.138
+ping -c 5 10.179.17.170
+ping -c 5 10.179.25.170
+ping -c 5 10.179.17.106
+ping -c 5 10.179.25.106
+
+ping -c 5 10.179.25.130
+ping -c 5 10.179.17.130
+ping -c 5 10.179.17.98
+ping -c 5 10.179.25.98
+ping -c 5 10.179.17.66
+ping -c 5 10.179.25.66
+ping -c 5 10.179.17.138
+ping -c 5 10.179.25.138
+ping -c 5 10.179.17.106
+ping -c 5 10.179.25.106
+ping -c 5 10.179.17.74
+ping -c 5 10.179.25.74
+

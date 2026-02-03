@@ -1,0 +1,452 @@
+dimnesing document
+
+
+Gas Gauge is inactive --need to make active
+
+
+10: User Session Administration
+
+
+/repsysdata/meas_files
+
+
+!====================================================!
+! PRE CHECK COMMANDS !
+!====================================================!
+/etc/init.d/xinetd status
+service vsftpd status
+ps -ef|grep CEP
+SvcMgr -query all |grep telnet
+grep named /opt/config/data/services.cfg => There should not be any named
+cat /etc/resolv.conf			 => It should not exist
+cat /etc/nsswitch.conf | grep dns	 => There should not be any dns
+ListExtNetwork
+ls -lrth /billtemp
+ls -lrth /billtemp/backup
+cd /billbackup/processed
+ls -ltrh
+cd /snlog
+ls -lrth /snlog/OMlog*
+ls -ltrh /snlog/debuglog*
+ls -ltrh /snlog/measlog*
+ls -ltrh /snlog/snmplog*
+ls -ltrh /snlog/SMI*
+grep EPPSA29C_ `ls -rt meas*`|grep 300|tail -20
+grep EPAY29C_ `ls -rt meas*`|grep 300|tail -20
+cd /Custom_Log_Bkup1/
+ls -ltrh OMlog*
+ls -ltrh debuglog*
+ls -ltrh measlog*
+ls -ltrh snmplog*
+ls -ltrh SMI*
+cd /billbackup/dump/
+ls -ltrh
+cd /workspace/TRACES
+ls -ltrh
+
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS"
+
+cd /repsysdata/meas_files/
+awk -F "," '{if ($5 >=0) print $4 "," $5 "," $6}' SA_SPAPROCMEAS.thursday | grep EPAY29C | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.friday | grep EPAY29J   | sort -k 2 | uniq  | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.friday | grep EPPSA29J   | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.friday | grep ENWTPPS29J | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.friday | grep NWTCOM109  | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.friday | grep NWTGSM066  | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.saturday | grep DROUTER29J | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.saturday | grep DUMMY29J   | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.saturday | grep NWTGSM066  | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.saturday | grep ECGS299    | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.saturday | grep ECTRL29J   | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.saturday | grep ENWTPPS29J | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.saturday | grep EPPSM29J   | sort -k 2 | uniq | more
+awk -F "," '{print $4 "," $5}' SA_SPAPROCMEAS.saturday | grep NWTCOM109  | sort -k 2 | uniq | more
+
+subshl
+op:status,assoc=all;
+op:status,assoc=all,m3ua;
+OP:AMA,STATUS;
+op:status,smi;
+OP:SMICORCQ,STATUS;
+OP:SMIQ,STATUS;
+OP:STATUS,OSS=ALL;
+OP:STATUS,SOCKET;
+OP:STATUS,SSNALL;
+OP:STATUS,FEAT=ALL;
+op:status,state=oos;
+op:status,state=all; 
+op:status,machine=all; 
+OP:STATUS,SWBLADE=0-0-7; 
+OP:STATUS,SWBLADE=0-0-8; 
+OP:STATUS,SWBLADE=0-1-7; 
+OP:STATUS,SWBLADE=0-1-8; 
+op:almtable;
+op:status,mateupd;
+op:status,db=all;      
+op:status,spa=all;
+op:status,dataview=all;
+op:status,assoc=all;
+op:status,smi;
+
+op:init;
+#op:version;
+#op:version,history;
+op:sched;
+op:rtgtbl,all;
+op:meas=TRFC5,table="MS_PERF_MEAS"; 
+op:meas=TRFC5,TABLE="SA_SPAMEAS";
+quit;
+ntpq -p
+ntpstat
+HELPME platform
+HELPME srvrconf        
+HELPME ip      
+HELPME disks               
+HELPME ft              
+HELPME init    
+
+HELPME log             
+HELPME bill            
+HELPME rtdb            
+HELPME sigtran         
+HELPME snmp            
+HELPME spman           
+HELPME s7sch           
+
+#HELPME asr             
+#HELPME DIAMSCH         
+#HELPME measjob         
+#HELPME tt  
+            
+df -kh
+/cs/sn/bin/DisplayAll
+/cs/sn/ft/FTlsicli -a 0-0 show drives
+/cs/sn/ft/FTlsicli -a 0-0 show all
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray healthStatus;'
+/usr/bin/SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allControllers ;'
+/usr/bin/SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allVolumes reservations;'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN0 -c 'save storageArray firmwareInventory file="/workspace/fwInventoryfile_30-06-2020.txt";'
+
+ssh 0-0-SHMC
+date
+clia fans
+exit
+
+ssh 0-1-SHMC
+date
+clia fans
+exit
+-----
+cd /TRACE_DUMP/
+
+Nth2OCS4-0-0-1:/TRACE_DUMP-# cat ports.txt
+SFP0
+SFP1
+SFP3
+SFP5
+SFP9
+SFP10
+SFP11
+SFP12
+
+for i in `cat ports.txt`
+do
+echo $i ; /opt/config/bin/SwitchPortStats 0-0-7 $i |grep "Speed (Mbps)";
+echo $i ; /opt/config/bin/SwitchPortStats 0-0-8 $i |grep "Speed (Mbps)";
+echo $i ; /opt/config/bin/SwitchPortStats 0-1-8 $i |grep "Speed (Mbps)";
+echo $i ; /opt/config/bin/SwitchPortStats 0-1-7 $i |grep "Speed (Mbps)";
+done 
+
+!=============================================!
+1. To check Break Point on all blades
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; ls -ltrh /PLATsoftware/cs/snsps/EPAY29C/breakpoints/ | wc -l;"
+done 
+
+
+for i in {0,1}
+do
+for j in {1..14}
+do
+ssh -q 0-$i-$j "hostname; ls -ltrh /PLATsoftware/cs/snsps/EPAY29C/breakpoints/ | wc -l;"
+done
+done
+
+
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; ls -ltrh /PLATsoftware/cs/snsps/EPPSA29J/breakpoints/ | wc -l;"
+done 
+
+!=============================================!
+2. To check Root Partition disk space on root
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; /bin/df /;"
+done 
+
+!=============================================!
+3. To check Other Partition disk space on all blades
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; /bin/df -kh;"
+done 
+
+!=============================================!
+4. To check Crontab on all blades
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; /usr/bin/crontab -l;"
+done 
+
+!=============================================!
+5. To check service named status
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "service named status"
+done 
+
+!=============================================!
+6. To check Memory status
+!=============================================!
+
+for i in {0,1}
+do
+for j in {1..14}
+do
+ssh -q 0-$i-$j "hostname; cat /proc/meminfo|grep MemTotal";
+done
+done
+
+
+
+
+!=============================================!
+7. To check Memory status
+!=============================================!
+
+#####Value Should be 200000000#####
+
+for i in {0,1}
+do
+for j in {2,3,10,11}
+do
+ssh -q 0-$i-$j "hostname; cat /proc/sys/vm/dirty_bytes";
+done
+done
+
+#####Value should be 100000000#####
+
+for i in {0,1}
+do
+for j in {2,3,10,11}
+do
+ssh -q 0-$i-$j "hostname; cat /proc/sys/vm/dirty_background_bytes";
+done
+done
+
+#####Value should be 0 - For DB Blades & IO Blades#####
+
+for i in {0,1}
+do
+for j in {2,3,4,10,11,12}
+do
+ssh -q 0-$i-$j "hostname; cat /proc/sys/vm/swappiness";
+done
+done
+
+########################################################
+The value should be like as below:
+MAX_SAVE_DB           12
+MAX_WRITE_THROUGHPUT  40
+#=======================================================#
+
+ssh 0-0-9
+cat /sysdata1/RDB/RDBconfigData
+exit
+
+ssh 0-0-1
+cat /sysdata1/RDB/RDBconfigData
+exit
+
+########################################################
+The value should be 11
+#=======================================================#
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "cat /sn/init/initlist | grep network_timeout"
+done 
+
+########################################################
+The value should be 10
+#=======================================================
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "cat /sn/init/initlist | grep aru_timer"
+done 
+
+########################################################
+The value should be 10
+#=======================================================
+Sz1OTH1-0-0-9:/workspace-# grep -A6 "# Tokens #" /tmp/rtdb_config
+
+              _numTokens=0
+              _maxTokens=12
+              _writeFreq=26
+           _maxWriteSize=40
+         _writeWaitCount=1
+        SAVEDBTHROTTLING=TRUE
+Sz1OTH1-0-0-9:/workspace-#
+
+
+
+!=============================================!
+8. To check Uptime status
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; uptime";
+done 
+
+!=============================================!
+! Alarm Checking !
+!=============================================!
+
+op:almtable;
+op:almtable,index=137; 
+op:almtable,index=3641; 
+
+SND:ALCLEAR,ALINDEX=7162; 
+SND:ALCLEAR,ALINDEX=124; 
+
+!=============================================!
+! SwitchPortStatus Checking !
+!=============================================!
+
+SwitchPortStats 0-0-7 sfp0
+SwitchPortStats 0-0-7 sfp1
+SwitchPortStats 0-0-8 sfp0
+SwitchPortStats 0-0-8 sfp1
+
+op:meas=TRFC5,TABLE="SA_SPAMEAS"
+
+
+!=============================================================!
+
+cd /cust_use/healthcheck/bin/;
+cd /cust_use/healthcheck/bin/;./health cores
+cd /cust_use/healthcheck/bin/;./health cpu_usage
+cd /cust_use/healthcheck/bin/;./health dns
+cd /cust_use/healthcheck/bin/;./health ram_usage 
+cd /cust_use/healthcheck/bin/;./health spas
+cd /cust_use/healthcheck/bin/;./health sigtran
+cd /cust_use/healthcheck/bin/;./health alarm
+cd /cust_use/healthcheck/bin/;./health disk_usage 
+cd /cust_use/healthcheck/bin/;./health equipage_info
+cd /cust_use/healthcheck/bin/;./health helpme
+cd /cust_use/healthcheck/bin/;./health meas
+cd /cust_use/healthcheck/bin/;./health machines
+cd /cust_use/healthcheck/bin/;./health version
+cd /cust_use/healthcheck/bin/;./health ethernet  
+cd /cust_use/healthcheck/bin/;./health inventory
+cd /cust_use/healthcheck/bin/;./health last_restart -t 24 
+cd /cust_use/healthcheck/bin/;./health ssnlink  
+cd /cust_use/healthcheck/bin/;./health alarm BE 
+cd /cust_use/healthcheck/bin/;./health alarm FE 
+
+!=============================================================!
+cd /cust_use/healthcheck/bin/;./health disk_usage|grep '[7-9][5-9]%'
+cd /cust_use/healthcheck/bin/;./health ethernet|egrep -A 6 "eth4|eth5" |grep "state DOWN"
+
+for i in {0,1}
+do
+for j in {1..14}
+do
+ssh -q 0-$i-$j "hostname; free -g";
+done
+done
+
+cd /cust_use/healthcheck/bin/;./health cores
+
+for i in {1..16}
+do
+cd "/sncore/EPAY29C_$i";
+rm core*;
+done
+
+
+0-1-5
+0-1-6
+0-1-11
+0-1-12
+
+
+
+
+for i in {1..16}
+do
+cd "/sncore/EPAY29C_$i";
+ls -lrth;
+done
+
+
+
+for i in {0,1}
+do
+for j in {1..14}
+do
+ssh -q 0-$i-$j "hostname; uptime";
+done
+done
+
+
+for i in `cat blade`; do ssh $i "find /PLATsoftware/cust_use/home/ -type f -name "MCAS2*.pcap" -size +500M"; done 2> /dev/null>list;"
+for i in `cat blade`; do ssh $i "top -b | head -5 | grep -w top  " ; done 2> /dev/null  >tmp
+
+for j in {0-0-4,0-0-12}
+do
+ssh -q $j "hostname; ls -lrth /u/ainet/bin;crontab -l";
+done
+
+for j in {0-0-4,0-0-12}
+do
+ssh -q $j "hostname;  crontab -l";
+done
+
+
+
+
+Nth1OCS4-0-0-2
+MemTotal:       41143564 kB
+Nth1OCS4-0-0-10
+MemTotal:       41143564 kB
+Nth1OCS4-0-0-12
+MemTotal:       41143564 kB
+
+
+Nth1OCS1-0-0-14
+MemTotal:       41143564 kB
+
+Nth1OCS2-0-1-12
+MemTotal:       41143564 kB
+Nth1OCS2-0-1-9
+MemTotal:       41143564 kB
+
+Nth1OCS2-0-0-12
+MemTotal:       41143564 kB

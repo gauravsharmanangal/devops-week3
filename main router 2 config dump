@@ -1,0 +1,1989 @@
+login as: admin
+Pre-authentication banner message from server:
+| TiMOS-B-6.0.R7 both/mpc ALCATEL SAS-M 7210 Copyright (c) 2000-2014 Alcatel-Lu
+> cent.
+| All rights reserved. All use subject to applicable license agreements.
+| Built on Fri Oct 31 13:17:29 IST 2014 by builder in /home/builder/6.0B1/R7/pa
+> nos/main
+|
+End of banner message from server
+admin@10.147.128.3's password:
+
+
+A:SAS_NRTH_R2# admin display-config
+# TiMOS-B-6.0.R7 both/mpc ALCATEL SAS-M 7210 Copyright (c) 2000-2014 Alcatel-Lucent.
+# All rights reserved. All use subject to applicable license agreements.
+# Built on Fri Oct 31 13:17:29 IST 2014 by builder in /home/builder/6.0B1/R7/panos/main
+
+# Generated MON OCT 09 12:18:31 2023 UTC
+
+exit all
+configure
+#--------------------------------------------------
+echo "System Configuration"
+#--------------------------------------------------
+    system
+        name "SAS_NRTH_R2"
+        alarm-contact-input 1
+            shutdown
+        exit
+        alarm-contact-input 2
+            shutdown
+        exit
+        alarm-contact-input 3
+            shutdown
+        exit
+        alarm-contact-input 4
+            shutdown
+        exit
+        qos
+        exit
+        resource-profile
+            ingress-internal-tcam
+                qos-sap-ingress-resource 5
+                exit
+                acl-sap-ingress 5
+                exit
+            exit
+            egress-internal-tcam
+            exit
+            router
+            exit
+            decommission
+            exit
+        exit
+        ptp
+            shutdown
+        exit
+        snmp
+            shutdown
+        exit
+        time
+            sntp
+                shutdown
+            exit
+            zone IST 05:30
+        exit
+        thresholds
+            rmon
+            exit
+        exit
+    exit
+#--------------------------------------------------
+echo "System Security Configuration"
+#--------------------------------------------------
+    system
+        security
+            telnet-server
+            ftp-server
+            profile "bsnl"
+                entry 1
+                    match "ping"
+                    action permit
+                exit
+                entry 2
+                    match "traceroute"
+                    action permit
+                exit
+                entry 3
+                    match "exit"
+                    action permit
+                exit
+                entry 4
+                    match "telnet"
+                    action permit
+                exit
+                entry 5
+                    match "ssh"
+                    action permit
+                exit
+                entry 6
+                    match "configure port"
+                    action permit
+                exit
+            exit
+            profile "alcatel"
+                entry 1
+                    match "ping"
+                    action permit
+                exit
+                entry 2
+                    match "traceroute"
+                    action permit
+                exit
+                entry 3
+                    match "exit"
+                    action permit
+                exit
+                entry 4
+                    match "telnet"
+                    action permit
+                exit
+                entry 5
+                    match "ssh"
+                    action permit
+                exit
+                entry 6
+                    match "configure port"
+                    action permit
+                exit
+                entry 7
+                    match "configure router static-route"
+                    action permit
+                exit
+                entry 8
+                    match "admin display-config"
+                    action permit
+                exit
+                entry 9
+                    match "admin save"
+                    action permit
+                exit
+            exit
+            user "admin"
+                password "ksk3WoGDUSb1lk8Pf3HuGU" hash2
+                access console ftp
+                console
+                    member "administrative"
+                exit
+            exit
+            user "alcatel"
+                password "3G60.VKVMW.9ZAzNT3uXH." hash2
+                access console
+                console
+                    member "default"
+                    member "alcatel"
+                exit
+            exit
+            user "alu"
+                password "VjGLuK4kLVyUcz0v8g2zo." hash2
+                access console ftp snmp
+            exit
+            user "bsnl"
+                password "Dbwy8xtNlcAhAxhPE/DI6k" hash2
+                access console ftp snmp
+                console
+                    member "default"
+                    member "bsnl"
+                exit
+            exit
+        exit
+    exit
+#--------------------------------------------------
+echo "Log Configuration"
+#--------------------------------------------------
+    log
+    exit
+#--------------------------------------------------
+echo "QoS Policy Configuration"
+#--------------------------------------------------
+    qos
+#--------------------------------------------------
+echo "Frame Based Accounting Configuration"
+#--------------------------------------------------
+    exit
+#--------------------------------------------------
+echo "Card Configuration"
+#--------------------------------------------------
+    card 1
+        mda 1
+            no shutdown
+        exit
+        no shutdown
+    exit
+#--------------------------------------------------
+echo "System loopback-port Configuration"
+#--------------------------------------------------
+    system
+    exit
+#--------------------------------------------------
+echo "QoS Policy Configuration"
+#--------------------------------------------------
+    qos
+    exit
+#--------------------------------------------------
+echo "Port Configuration"
+#--------------------------------------------------
+    port 1/1/1
+        ethernet
+            encap-type dot1q
+        exit
+        no shutdown
+    exit
+    port 1/1/2
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/3
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/4
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/5
+        ethernet
+        exit
+        no shutdown
+    exit
+    port 1/1/6
+        ethernet
+        exit
+        no shutdown
+    exit
+    port 1/1/7
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/8
+        ethernet
+        exit
+        no shutdown
+    exit
+    port 1/1/9
+        ethernet
+            mode access
+            access
+            exit
+        exit
+        no shutdown
+    exit
+    port 1/1/10
+        ethernet
+        exit
+        no shutdown
+    exit
+    port 1/1/11
+        ethernet
+            encap-type dot1q
+        exit
+        no shutdown
+    exit
+    port 1/1/12
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/13
+        ethernet
+            encap-type dot1q
+        exit
+        no shutdown
+    exit
+    port 1/1/14
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/15
+        ethernet
+            no autonegotiate
+        exit
+        no shutdown
+    exit
+    port 1/1/16
+        ethernet
+            no autonegotiate
+        exit
+        no shutdown
+    exit
+    port 1/1/17
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/18
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/19
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/20
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/21
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/22
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/23
+        shutdown
+        ethernet
+        exit
+    exit
+    port 1/1/24
+        shutdown
+        ethernet
+        exit
+    exit
+#--------------------------------------------------
+echo "System Sync-If-Timing Configuration"
+#--------------------------------------------------
+    system
+        sync-if-timing
+            begin
+            ref1
+                shutdown
+            exit
+            ref2
+                shutdown
+            exit
+            ptp
+                shutdown
+            exit
+            commit
+        exit
+    exit
+#--------------------------------------------------
+echo "LAG Configuration"
+#--------------------------------------------------
+    lag 2
+        port 1/1/15
+        port 1/1/16
+        lacp active administrative-key 32768
+        no shutdown
+    exit
+#--------------------------------------------------
+echo "Router (Network Side) Configuration"
+#--------------------------------------------------
+    router
+        interface "ALU_RTR2_DIA"
+            address 10.147.131.29/30
+            port 1/1/1:809
+            no shutdown
+        exit
+        interface "ALU_RTR2_OAM"
+            address 10.147.131.25/30
+            port 1/1/1:808
+            no shutdown
+        exit
+        interface "ALU_RTR2_Z_NET"
+            address 10.147.131.65/30
+            port 1/1/1:810
+            icmp
+                no redirects
+            exit
+            no shutdown
+        exit
+        interface "ALU_Selfcare_Mob"
+            address 10.147.131.85/30
+            port 1/1/11:200
+            icmp
+                no redirects
+            exit
+            no shutdown
+        exit
+        interface "IN_DIA_MAIN"
+            address 10.147.129.131/26
+            port 1/1/6
+            no shutdown
+            vrrp 15
+                backup 10.147.129.129
+                ping-reply
+                standby-forwarding
+            exit
+        exit
+        interface "IN_OAM_MAIN"
+            address 10.147.128.3/25
+            port 1/1/5
+            icmp
+                no redirects
+            exit
+            no shutdown
+            vrrp 10
+                backup 10.147.128.1
+                ping-reply
+                standby-forwarding
+            exit
+        exit
+        interface "LAG-2"
+            address 10.147.131.34/30
+            description "TO_R1"
+            port lag-2
+            no shutdown
+        exit
+        interface "REPORTING_MAIN"
+            address 10.147.128.195/26
+            port 1/1/10
+            no shutdown
+            vrrp 60
+                backup 10.147.128.193
+                ping-reply
+                standby-forwarding
+            exit
+        exit
+        interface "SR2-to-SRP/VPN_SW2"
+            address 10.147.131.73/30
+            port 1/1/8
+            no shutdown
+        exit
+        interface "TEMP"
+            address 2.2.2.2/24
+            port 1/1/17
+            no shutdown
+        exit
+        interface "loopback"
+            address 10.147.131.42/32
+            loopback
+            no shutdown
+        exit
+        interface "port"
+            no shutdown
+        exit
+        interface "shutdown"
+            no shutdown
+        exit
+        interface "system"
+            address 10.147.131.43/32
+            no shutdown
+        exit
+#--------------------------------------------------
+echo "Static Route Configuration"
+#--------------------------------------------------
+        static-route 0.0.0.0/0 next-hop 10.147.131.62
+        static-route 10.0.0.0/24 next-hop 10.147.131.26
+        static-route 10.68.2.98/32 next-hop 10.147.131.26
+        static-route 10.68.2.168/32 next-hop 10.147.131.26
+        static-route 10.68.16.233/32 next-hop 10.147.131.26
+        static-route 10.68.20.134/32 next-hop 10.147.131.26
+        static-route 10.68.21.35/32 next-hop 10.147.131.26
+        static-route 10.68.21.51/32 next-hop 10.147.131.26
+        static-route 10.68.21.88/32 next-hop 10.147.131.26
+        static-route 10.68.21.155/32 next-hop 10.147.131.26
+        static-route 10.68.21.156/32 next-hop 10.147.131.26
+        static-route 10.68.32.118/32 next-hop 10.147.131.18
+        static-route 10.68.32.118/32 next-hop 10.147.131.26
+        static-route 10.68.32.126/32 next-hop 10.147.131.26
+        static-route 10.68.104.2/32 next-hop 10.147.131.26
+        static-route 10.68.104.80/32 next-hop 10.147.131.26
+        static-route 10.68.104.85/32 next-hop 10.147.131.26
+        static-route 10.68.104.165/32 next-hop 10.147.131.26
+        static-route 10.68.104.169/32 next-hop 10.147.131.26
+        static-route 10.68.104.207/32 next-hop 10.147.131.26
+        static-route 10.68.104.232/32 next-hop 10.147.131.26
+        static-route 10.68.104.245/32 next-hop 10.147.131.26
+        static-route 10.68.104.253/32 next-hop 10.147.131.26
+        static-route 10.68.105.15/32 next-hop 10.147.131.26
+        static-route 10.68.105.18/32 next-hop 10.147.131.26
+        static-route 10.68.105.30/32 next-hop 10.147.131.26
+        static-route 10.68.105.52/32 next-hop 10.147.131.26
+        static-route 10.68.105.58/32 next-hop 10.147.131.26
+        static-route 10.68.105.77/32 next-hop 10.147.131.26
+        static-route 10.68.105.79/32 next-hop 10.147.131.26
+        static-route 10.68.105.100/32 next-hop 10.147.131.26
+        static-route 10.68.105.101/32 next-hop 10.147.131.26
+        static-route 10.68.105.162/32 next-hop 10.147.131.26
+        static-route 10.68.105.226/32 next-hop 10.147.131.26
+        static-route 10.68.105.237/32 next-hop 10.147.131.26
+        static-route 10.68.105.242/32 next-hop 10.147.131.26
+        static-route 10.68.106.216/32 next-hop 10.147.131.26
+        static-route 10.68.106.231/32 next-hop 10.147.131.26
+        static-route 10.68.106.241/32 next-hop 10.147.131.26
+        static-route 10.68.107.102/32 next-hop 10.147.131.26
+        static-route 10.68.107.104/32 next-hop 10.147.131.26
+        static-route 10.68.107.105/32 next-hop 10.147.131.26
+        static-route 10.68.107.107/32 next-hop 10.147.131.26
+        static-route 10.68.107.111/32 next-hop 10.147.131.26
+        static-route 10.68.107.113/32 next-hop 10.147.131.26
+        static-route 10.68.107.114/32 next-hop 10.147.131.26
+        static-route 10.68.107.116/32 next-hop 10.147.131.26
+        static-route 10.68.107.118/32 next-hop 10.147.131.26
+        static-route 10.68.107.119/32 next-hop 10.147.131.26
+        static-route 10.68.107.121/32 next-hop 10.147.131.26
+        static-route 10.68.107.125/32 next-hop 10.147.131.26
+        static-route 10.68.108.15/32 next-hop 10.147.131.26
+        static-route 10.68.108.16/32 next-hop 10.147.131.26
+        static-route 10.68.109.9/32 next-hop 10.147.131.26
+        static-route 10.68.109.19/32 next-hop 10.147.131.26
+        static-route 10.68.109.20/32 next-hop 10.147.131.26
+        static-route 10.68.109.21/32 next-hop 10.147.131.26
+        static-route 10.68.109.22/32 next-hop 10.147.131.26
+        static-route 10.68.109.34/32 next-hop 10.147.131.26
+        static-route 10.68.109.37/32 next-hop 10.147.131.26
+        static-route 10.68.109.41/32 next-hop 10.147.131.26
+        static-route 10.68.109.46/32 next-hop 10.147.131.26
+        static-route 10.68.109.55/32 next-hop 10.147.131.26
+        static-route 10.68.109.56/32 next-hop 10.147.131.26
+        static-route 10.68.109.232/32 next-hop 10.147.131.18
+        static-route 10.68.111.20/32 next-hop 10.147.131.18
+        static-route 10.68.111.96/32 next-hop 10.147.131.18
+        static-route 10.68.111.117/32 next-hop 10.147.131.18
+        static-route 10.68.138.177/32 next-hop 10.147.131.26
+        static-route 10.68.188.3/32 next-hop 10.147.131.26
+        static-route 10.68.188.69/32 next-hop 10.147.131.26
+        static-route 10.68.188.194/32 next-hop 10.147.131.26
+        static-route 10.68.188.196/32 next-hop 10.147.131.26
+        static-route 10.68.188.201/32 next-hop 10.147.131.26
+        static-route 10.68.189.34/32 next-hop 10.147.131.26
+        static-route 10.68.189.165/32 next-hop 10.147.131.26
+        static-route 10.68.205.21/32 next-hop 10.147.131.26
+        static-route 10.69.22.197/32 next-hop 10.147.131.26
+        static-route 10.69.203.174/32 next-hop 10.147.131.26
+        static-route 10.69.203.176/32 next-hop 10.147.131.26
+        static-route 10.69.203.199/32 next-hop 10.147.131.26
+        static-route 10.69.203.200/32 next-hop 10.147.131.26
+        static-route 10.69.204.178/32 next-hop 10.147.131.26
+        static-route 10.70.9.11/32 next-hop 10.147.131.26
+        static-route 10.70.9.12/32 next-hop 10.147.131.26
+        static-route 10.70.29.6/32 next-hop 10.147.131.26
+        static-route 10.70.52.1/32 next-hop 10.147.131.26
+        static-route 10.70.52.2/32 next-hop 10.147.131.26
+        static-route 10.70.52.5/32 next-hop 10.147.131.26
+        static-route 10.70.52.6/32 next-hop 10.147.131.26
+        static-route 10.70.52.7/32 next-hop 10.147.131.26
+        static-route 10.70.52.8/32 next-hop 10.147.131.26
+        static-route 10.70.52.9/32 next-hop 10.147.131.26
+        static-route 10.70.52.10/32 next-hop 10.147.131.26
+        static-route 10.70.52.11/32 next-hop 10.147.131.26
+        static-route 10.70.52.12/32 next-hop 10.147.131.26
+        static-route 10.70.52.15/32 next-hop 10.147.131.26
+        static-route 10.70.52.18/32 next-hop 10.147.131.26
+        static-route 10.70.52.32/32 next-hop 10.147.131.26
+        static-route 10.70.52.33/32 next-hop 10.147.131.26
+        static-route 10.70.52.34/32 next-hop 10.147.131.26
+        static-route 10.70.52.37/32 next-hop 10.147.131.26
+        static-route 10.70.52.38/32 next-hop 10.147.131.26
+        static-route 10.70.52.45/32 next-hop 10.147.131.26
+        static-route 10.70.52.55/32 next-hop 10.147.131.26
+        static-route 10.70.52.59/32 next-hop 10.147.131.26
+        static-route 10.70.52.100/32 next-hop 10.147.131.26
+        static-route 10.70.52.140/32 next-hop 10.147.131.26
+        static-route 10.70.53.1/32 next-hop 10.147.131.26
+        static-route 10.70.53.2/32 next-hop 10.147.131.26
+        static-route 10.70.53.3/32 next-hop 10.147.131.26
+        static-route 10.70.53.4/32 next-hop 10.147.131.26
+        static-route 10.70.53.5/32 next-hop 10.147.131.26
+        static-route 10.70.53.6/32 next-hop 10.147.131.26
+        static-route 10.70.53.7/32 next-hop 10.147.131.26
+        static-route 10.70.53.8/32 next-hop 10.147.131.26
+        static-route 10.70.53.9/32 next-hop 10.147.131.26
+        static-route 10.70.53.10/32 next-hop 10.147.131.26
+        static-route 10.70.53.11/32 next-hop 10.147.131.26
+        static-route 10.70.53.12/32 next-hop 10.147.131.26
+        static-route 10.70.53.13/32 next-hop 10.147.131.26
+        static-route 10.70.53.14/32 next-hop 10.147.131.26
+        static-route 10.70.54.3/32 next-hop 10.147.131.26
+        static-route 10.70.58.2/32 next-hop 10.147.131.26
+        static-route 10.70.58.5/32 next-hop 10.147.131.26
+        static-route 10.70.58.9/32 next-hop 10.147.131.26
+        static-route 10.70.58.10/32 next-hop 10.147.131.26
+        static-route 10.70.58.11/32 next-hop 10.147.131.26
+        static-route 10.70.58.13/32 next-hop 10.147.131.26
+        static-route 10.70.58.14/32 next-hop 10.147.131.26
+        static-route 10.70.58.16/32 next-hop 10.147.131.26
+        static-route 10.70.58.111/32 next-hop 10.147.131.26
+        static-route 10.70.58.117/32 next-hop 10.147.131.26
+        static-route 10.70.59.1/32 next-hop 10.147.131.26
+        static-route 10.70.59.2/32 next-hop 10.147.131.26
+        static-route 10.70.59.3/32 next-hop 10.147.131.26
+        static-route 10.70.60.2/32 next-hop 10.147.131.26
+        static-route 10.70.60.3/32 next-hop 10.147.131.26
+        static-route 10.70.60.13/32 next-hop 10.147.131.26
+        static-route 10.70.60.20/32 next-hop 10.147.131.26
+        static-route 10.70.60.21/32 next-hop 10.147.131.26
+        static-route 10.70.60.117/32 next-hop 10.147.131.26
+        static-route 10.70.62.3/32 next-hop 10.147.131.26
+        static-route 10.70.62.7/32 next-hop 10.147.131.26
+        static-route 10.70.62.12/32 next-hop 10.147.131.26
+        static-route 10.70.62.13/32 next-hop 10.147.131.26
+        static-route 10.70.62.16/32 next-hop 10.147.131.26
+        static-route 10.70.62.19/32 next-hop 10.147.131.26
+        static-route 10.70.62.20/32 next-hop 10.147.131.26
+        static-route 10.70.62.30/32 next-hop 10.147.131.26
+        static-route 10.70.62.31/32 next-hop 10.147.131.26
+        static-route 10.70.62.32/32 next-hop 10.147.131.26
+        static-route 10.70.62.33/32 next-hop 10.147.131.26
+        static-route 10.70.62.34/32 next-hop 10.147.131.26
+        static-route 10.70.62.35/32 next-hop 10.147.131.26
+        static-route 10.70.62.39/32 next-hop 10.147.131.26
+        static-route 10.70.62.40/32 next-hop 10.147.131.26
+        static-route 10.70.62.41/32 next-hop 10.147.131.26
+        static-route 10.70.62.47/32 next-hop 10.147.131.26
+        static-route 10.70.62.52/32 next-hop 10.147.131.26
+        static-route 10.70.62.53/32 next-hop 10.147.131.26
+        static-route 10.70.62.54/32 next-hop 10.147.131.26
+        static-route 10.70.62.55/32 next-hop 10.147.131.26
+        static-route 10.70.62.58/32 next-hop 10.147.131.26
+        static-route 10.70.62.61/32 next-hop 10.147.131.26
+        static-route 10.70.62.69/32 next-hop 10.147.131.26
+        static-route 10.70.62.75/32 next-hop 10.147.131.26
+        static-route 10.70.62.83/32 next-hop 10.147.131.26
+        static-route 10.70.62.85/32 next-hop 10.147.131.26
+        static-route 10.70.62.100/32 next-hop 10.147.131.26
+        static-route 10.70.64.2/32 next-hop 10.147.131.26
+        static-route 10.70.64.13/32 next-hop 10.147.131.26
+        static-route 10.70.65.2/32 next-hop 10.147.131.26
+        static-route 10.70.65.3/32 next-hop 10.147.131.26
+        static-route 10.70.65.4/32 next-hop 10.147.131.26
+        static-route 10.70.65.7/32 next-hop 10.147.131.26
+        static-route 10.70.65.9/32 next-hop 10.147.131.26
+        static-route 10.70.65.12/32 next-hop 10.147.131.26
+        static-route 10.70.65.15/32 next-hop 10.147.131.26
+        static-route 10.70.66.2/32 next-hop 10.147.131.26
+        static-route 10.70.66.4/32 next-hop 10.147.131.26
+        static-route 10.70.66.7/32 next-hop 10.147.131.26
+        static-route 10.70.66.8/32 next-hop 10.147.131.26
+        static-route 10.70.66.9/32 next-hop 10.147.131.26
+        static-route 10.70.66.15/32 next-hop 10.147.131.26
+        static-route 10.70.66.20/32 next-hop 10.147.131.26
+        static-route 10.70.66.29/32 next-hop 10.147.131.26
+        static-route 10.70.66.33/32 next-hop 10.147.131.26
+        static-route 10.70.66.34/32 next-hop 10.147.131.26
+        static-route 10.70.67.1/32 next-hop 10.147.131.26
+        static-route 10.70.67.3/32 next-hop 10.147.131.26
+        static-route 10.70.67.4/32 next-hop 10.147.131.26
+        static-route 10.70.67.6/32 next-hop 10.147.131.26
+        static-route 10.70.67.17/32 next-hop 10.147.131.26
+        static-route 10.70.67.18/32 next-hop 10.147.131.26
+        static-route 10.70.67.20/32 next-hop 10.147.131.26
+        static-route 10.70.67.22/32 next-hop 10.147.131.26
+        static-route 10.70.67.24/32 next-hop 10.147.131.26
+        static-route 10.70.67.25/32 next-hop 10.147.131.26
+        static-route 10.70.67.26/32 next-hop 10.147.131.26
+        static-route 10.70.67.27/32 next-hop 10.147.131.26
+        static-route 10.70.67.28/32 next-hop 10.147.131.26
+        static-route 10.70.67.32/32 next-hop 10.147.131.26
+        static-route 10.70.67.41/32 next-hop 10.147.131.26
+        static-route 10.70.67.42/32 next-hop 10.147.131.26
+        static-route 10.70.67.43/32 next-hop 10.147.131.26
+        static-route 10.70.67.44/32 next-hop 10.147.131.26
+        static-route 10.70.67.47/32 next-hop 10.147.131.26
+        static-route 10.70.67.55/32 next-hop 10.147.131.26
+        static-route 10.70.67.56/32 next-hop 10.147.131.26
+        static-route 10.70.67.60/32 next-hop 10.147.131.26
+        static-route 10.70.67.62/32 next-hop 10.147.131.26
+        static-route 10.70.67.63/32 next-hop 10.147.131.26
+        static-route 10.70.67.68/32 next-hop 10.147.131.26
+        static-route 10.70.67.72/32 next-hop 10.147.131.26
+        static-route 10.70.67.78/32 next-hop 10.147.131.26
+        static-route 10.70.67.79/32 next-hop 10.147.131.26
+        static-route 10.70.67.81/32 next-hop 10.147.131.26
+        static-route 10.70.70.0/24 next-hop 10.147.131.26
+        static-route 10.70.70.56/32 next-hop 10.147.131.26
+        static-route 10.70.70.140/32 next-hop 10.147.131.26
+        static-route 10.70.70.200/32 next-hop 10.147.131.26
+        static-route 10.70.70.211/32 next-hop 10.147.131.26
+        static-route 10.70.71.1/32 next-hop 10.147.131.26
+        static-route 10.70.71.2/32 next-hop 10.147.131.26
+        static-route 10.70.71.19/32 next-hop 10.147.131.26
+        static-route 10.70.71.21/32 next-hop 10.147.131.26
+        static-route 10.70.73.2/32 next-hop 10.147.131.26
+        static-route 10.70.73.3/32 next-hop 10.147.131.26
+        static-route 10.70.73.4/32 next-hop 10.147.131.26
+        static-route 10.70.73.9/32 next-hop 10.147.131.26
+        static-route 10.70.73.20/32 next-hop 10.147.131.26
+        static-route 10.70.73.81/32 next-hop 10.147.131.26
+        static-route 10.70.73.200/32 next-hop 10.147.131.26
+        static-route 10.70.73.201/32 next-hop 10.147.131.26
+        static-route 10.70.73.202/32 next-hop 10.147.131.26
+        static-route 10.70.76.2/32 next-hop 10.147.131.26
+        static-route 10.70.76.3/32 next-hop 10.147.131.26
+        static-route 10.70.76.4/32 next-hop 10.147.131.26
+        static-route 10.70.76.5/32 next-hop 10.147.131.26
+        static-route 10.70.76.7/32 next-hop 10.147.131.26
+        static-route 10.70.76.9/32 next-hop 10.147.131.26
+        static-route 10.70.76.12/32 next-hop 10.147.131.26
+        static-route 10.70.76.15/32 next-hop 10.147.131.26
+        static-route 10.70.76.37/32 next-hop 10.147.131.26
+        static-route 10.70.76.42/32 next-hop 10.147.131.26
+        static-route 10.71.125.39/32 next-hop 10.147.131.26
+        static-route 10.71.125.40/32 next-hop 10.147.131.26
+        static-route 10.78.81.82/32 next-hop 10.147.131.26
+        static-route 10.100.78.146/32 next-hop 10.147.131.26
+        static-route 10.108.2.196/32 next-hop 10.147.131.26
+        static-route 10.108.2.201/32 next-hop 10.147.131.26
+        static-route 10.108.2.250/32 next-hop 10.147.131.26
+        static-route 10.108.2.254/32 next-hop 10.147.131.26
+        static-route 10.108.3.0/24 next-hop 10.147.131.26
+        static-route 10.108.3.140/32 next-hop 10.147.131.26
+        static-route 10.108.3.150/32 next-hop 10.147.131.26
+        static-route 10.108.8.115/32 next-hop 10.147.131.26
+        static-route 10.108.8.124/32 next-hop 10.147.131.26
+        static-route 10.108.8.133/32 next-hop 10.147.131.26
+        static-route 10.108.9.209/32 next-hop 10.147.131.26
+        static-route 10.108.9.210/32 next-hop 10.147.131.26
+        static-route 10.108.10.11/32 next-hop 10.147.131.26
+        static-route 10.108.10.16/32 next-hop 10.147.131.26
+        static-route 10.108.10.76/32 next-hop 10.147.131.26
+        static-route 10.108.10.78/32 next-hop 10.147.131.26
+        static-route 10.108.10.98/32 next-hop 10.147.131.26
+        static-route 10.108.10.129/32 next-hop 10.147.131.26
+        static-route 10.108.10.136/32 next-hop 10.147.131.26
+        static-route 10.108.10.173/32 next-hop 10.147.131.26
+        static-route 10.108.10.175/32 next-hop 10.147.131.26
+        static-route 10.108.10.216/32 next-hop 10.147.131.26
+        static-route 10.108.10.229/32 next-hop 10.147.131.26
+        static-route 10.108.10.233/32 next-hop 10.147.131.26
+        static-route 10.108.10.243/32 next-hop 10.147.131.26
+        static-route 10.108.10.250/32 next-hop 10.147.131.26
+        static-route 10.108.11.98/32 next-hop 10.147.131.26
+        static-route 10.108.11.135/32 next-hop 10.147.131.26
+        static-route 10.108.30.0/24 next-hop 10.147.131.26
+        static-route 10.108.35.0/24 next-hop 10.147.131.26
+        static-route 10.108.36.0/24 next-hop 10.147.131.26
+        static-route 10.109.212.67/32 next-hop 10.147.131.26
+        static-route 10.109.212.68/32 next-hop 10.147.131.26
+        static-route 10.109.212.77/32 next-hop 10.147.131.26
+        static-route 10.109.212.92/32 next-hop 10.147.131.26
+        static-route 10.111.27.200/32 next-hop 10.147.131.26
+        static-route 10.111.27.201/32 next-hop 10.147.131.26
+        static-route 10.111.79.242/32 next-hop 10.147.131.26
+        static-route 10.111.232.136/32 next-hop 10.147.131.26
+        static-route 10.111.232.168/32 next-hop 10.147.131.26
+        static-route 10.111.234.30/32 next-hop 10.147.131.26
+        static-route 10.111.245.13/32 next-hop 10.147.131.26
+        static-route 10.111.245.14/32 next-hop 10.147.131.26
+        static-route 10.111.245.15/32 next-hop 10.147.131.26
+        static-route 10.111.251.161/32 next-hop 10.147.131.26
+        static-route 10.111.251.163/32 next-hop 10.147.131.26
+        static-route 10.112.66.65/32 next-hop 10.147.131.26
+        static-route 10.112.136.9/32 next-hop 10.147.131.26
+        static-route 10.112.136.19/32 next-hop 10.147.131.26
+        static-route 10.112.136.20/32 next-hop 10.147.131.26
+        static-route 10.112.136.95/32 next-hop 10.147.131.26
+        static-route 10.112.137.19/32 next-hop 10.147.131.26
+        static-route 10.112.137.20/32 next-hop 10.147.131.26
+        static-route 10.112.137.21/32 next-hop 10.147.131.26
+        static-route 10.112.137.57/32 next-hop 10.147.131.26
+        static-route 10.112.137.78/32 next-hop 10.147.131.26
+        static-route 10.112.138.4/32 next-hop 10.147.131.26
+        static-route 10.112.138.19/32 next-hop 10.147.131.26
+        static-route 10.112.138.79/32 next-hop 10.147.131.26
+        static-route 10.112.139.111/32 next-hop 10.147.131.26
+        static-route 10.112.139.120/32 next-hop 10.147.131.26
+        static-route 10.112.139.132/32 next-hop 10.147.131.26
+        static-route 10.112.139.143/32 next-hop 10.147.131.26
+        static-route 10.112.139.163/32 next-hop 10.147.131.26
+        static-route 10.112.139.193/32 next-hop 10.147.131.26
+        static-route 10.112.139.198/32 next-hop 10.147.131.26
+        static-route 10.112.145.3/32 next-hop 10.147.131.26
+        static-route 10.112.145.14/32 next-hop 10.147.131.26
+        static-route 10.112.145.16/32 next-hop 10.147.131.26
+        static-route 10.112.145.41/32 next-hop 10.147.131.26
+        static-route 10.112.145.68/32 next-hop 10.147.131.26
+        static-route 10.112.145.71/32 next-hop 10.147.131.26
+        static-route 10.112.145.74/32 next-hop 10.147.131.26
+        static-route 10.112.145.76/32 next-hop 10.147.131.26
+        static-route 10.112.145.77/32 next-hop 10.147.131.26
+        static-route 10.112.145.78/32 next-hop 10.147.131.26
+        static-route 10.112.145.96/32 next-hop 10.147.131.26
+        static-route 10.112.145.97/32 next-hop 10.147.131.26
+        static-route 10.112.145.114/32 next-hop 10.147.131.26
+        static-route 10.112.145.123/32 next-hop 10.147.131.26
+        static-route 10.112.147.18/32 next-hop 10.147.131.26
+        static-route 10.112.147.20/32 next-hop 10.147.131.26
+        static-route 10.112.147.21/32 next-hop 10.147.131.26
+        static-route 10.112.147.22/32 next-hop 10.147.131.26
+        static-route 10.112.147.23/32 next-hop 10.147.131.26
+        static-route 10.112.147.24/32 next-hop 10.147.131.26
+        static-route 10.112.147.70/32 next-hop 10.147.131.26
+        static-route 10.112.147.71/32 next-hop 10.147.131.26
+        static-route 10.112.147.72/32 next-hop 10.147.131.26
+        static-route 10.112.226.0/25 next-hop 10.147.131.26
+        static-route 10.114.33.56/29 next-hop 10.147.131.26
+        static-route 10.114.96.0/24 next-hop 10.147.131.26
+        static-route 10.114.97.0/24 next-hop 10.147.131.26
+        static-route 10.114.98.0/24 next-hop 10.147.131.26
+        static-route 10.114.99.0/24 next-hop 10.147.131.26
+        static-route 10.126.0.5/32 next-hop 10.147.131.26
+        static-route 10.128.0.153/32 next-hop 10.147.131.26
+        static-route 10.128.0.193/32 next-hop 10.147.131.26
+        static-route 10.128.0.202/32 next-hop 10.147.131.26
+        static-route 10.128.0.205/32 next-hop 10.147.131.26
+        static-route 10.128.0.206/32 next-hop 10.147.131.26
+        static-route 10.128.0.207/32 next-hop 10.147.131.26
+        static-route 10.128.0.210/32 next-hop 10.147.131.26
+        static-route 10.128.0.246/32 next-hop 10.147.131.26
+        static-route 10.128.3.34/32 next-hop 10.147.131.26
+        static-route 10.128.3.208/32 next-hop 10.147.131.26
+        static-route 10.128.3.250/32 next-hop 10.147.131.26
+        static-route 10.128.10.61/32 next-hop 10.147.131.26
+        static-route 10.128.10.253/32 next-hop 10.147.131.26
+        static-route 10.128.11.89/32 next-hop 10.147.131.26
+        static-route 10.128.12.148/32 next-hop 10.147.131.26
+        static-route 10.128.60.24/32 next-hop 10.147.131.26
+        static-route 10.128.60.25/32 next-hop 10.147.131.26
+        static-route 10.128.60.36/32 next-hop 10.147.131.26
+        static-route 10.128.60.37/32 next-hop 10.147.131.26
+        static-route 10.128.60.40/32 next-hop 10.147.131.26
+        static-route 10.128.60.41/32 next-hop 10.147.131.26
+        static-route 10.128.60.61/32 next-hop 10.147.131.26
+        static-route 10.128.192.65/32 next-hop 10.147.131.26
+        static-route 10.128.192.66/32 next-hop 10.147.131.26
+        static-route 10.128.192.71/32 next-hop 10.147.131.26
+        static-route 10.128.192.72/32 next-hop 10.147.131.26
+        static-route 10.128.192.77/32 next-hop 10.147.131.26
+        static-route 10.128.192.130/32 next-hop 10.147.131.26
+        static-route 10.128.192.132/32 next-hop 10.147.131.26
+        static-route 10.128.192.140/32 next-hop 10.147.131.26
+        static-route 10.128.193.150/32 next-hop 10.147.131.26
+        static-route 10.128.193.153/32 next-hop 10.147.131.26
+        static-route 10.128.225.152/32 next-hop 10.147.131.26
+        static-route 10.128.225.163/32 next-hop 10.147.131.26
+        static-route 10.129.20.67/32 next-hop 10.147.131.26
+        static-route 10.129.22.162/32 next-hop 10.147.131.26
+        static-route 10.129.35.60/32 next-hop 10.147.131.26
+        static-route 10.129.35.148/32 next-hop 10.147.131.26
+        static-route 10.129.42.113/32 next-hop 10.147.131.26
+        static-route 10.129.58.65/32 next-hop 10.147.131.26
+        static-route 10.129.58.74/32 next-hop 10.147.131.26
+        static-route 10.129.64.101/32 next-hop 10.147.131.26
+        static-route 10.129.65.99/32 next-hop 10.147.131.26
+        static-route 10.129.65.101/32 next-hop 10.147.131.26
+        static-route 10.129.65.151/32 next-hop 10.147.131.26
+        static-route 10.129.65.153/32 next-hop 10.147.131.26
+        static-route 10.129.65.157/32 next-hop 10.147.131.26
+        static-route 10.129.65.160/32 next-hop 10.147.131.26
+        static-route 10.129.77.189/32 next-hop 10.147.131.26
+        static-route 10.129.83.59/32 next-hop 10.147.131.26
+        static-route 10.129.83.101/32 next-hop 10.147.131.26
+        static-route 10.129.83.102/32 next-hop 10.147.131.26
+        static-route 10.129.83.103/32 next-hop 10.147.131.26
+        static-route 10.129.90.203/32 next-hop 10.147.131.26
+        static-route 10.129.147.9/32 next-hop 10.147.131.26
+        static-route 10.129.147.50/32 next-hop 10.147.131.26
+        static-route 10.129.147.51/32 next-hop 10.147.131.26
+        static-route 10.129.147.52/32 next-hop 10.147.131.26
+        static-route 10.129.147.53/32 next-hop 10.147.131.26
+        static-route 10.129.147.54/32 next-hop 10.147.131.26
+        static-route 10.129.147.55/32 next-hop 10.147.131.26
+        static-route 10.129.147.57/32 next-hop 10.147.131.26
+        static-route 10.129.149.20/32 next-hop 10.147.131.26
+        static-route 10.129.161.25/32 next-hop 10.147.131.26
+        static-route 10.129.161.27/32 next-hop 10.147.131.26
+        static-route 10.129.161.151/32 next-hop 10.147.131.26
+        static-route 10.129.161.152/32 next-hop 10.147.131.26
+        static-route 10.129.161.159/32 next-hop 10.147.131.26
+        static-route 10.129.179.0/24 next-hop 10.147.131.26
+        static-route 10.129.192.56/32 next-hop 10.147.131.26
+        static-route 10.129.192.57/32 next-hop 10.147.131.26
+        static-route 10.129.192.100/32 next-hop 10.147.131.26
+        static-route 10.129.200.117/32 next-hop 10.147.131.26
+        static-route 10.129.200.150/32 next-hop 10.147.131.26
+        static-route 10.129.209.99/32 next-hop 10.147.131.26
+        static-route 10.129.210.56/32 next-hop 10.147.131.26
+        static-route 10.129.210.57/32 next-hop 10.147.131.26
+        static-route 10.129.210.58/32 next-hop 10.147.131.26
+        static-route 10.129.210.61/32 next-hop 10.147.131.26
+        static-route 10.129.210.63/32 next-hop 10.147.131.26
+        static-route 10.129.210.123/32 next-hop 10.147.131.26
+        static-route 10.130.0.0/24 next-hop 10.147.131.26
+        static-route 10.130.1.18/32 next-hop 10.147.131.26
+        static-route 10.130.1.19/32 next-hop 10.147.131.26
+        static-route 10.130.1.20/32 next-hop 10.147.131.26
+        static-route 10.130.1.21/32 next-hop 10.147.131.26
+        static-route 10.130.16.0/20 next-hop 10.147.131.26
+        static-route 10.130.16.0/24 next-hop 10.147.131.26
+        static-route 10.130.17.254/32 next-hop 10.147.131.26
+        static-route 10.130.19.0/24 next-hop 10.147.131.26
+        static-route 10.130.20.41/32 next-hop 10.147.131.26
+        static-route 10.130.20.198/32 next-hop 10.147.131.26
+        static-route 10.130.21.8/32 next-hop 10.147.131.26
+        static-route 10.130.21.200/32 next-hop 10.147.131.26
+        static-route 10.130.22.0/24 next-hop 10.147.131.26
+        static-route 10.130.22.4/32 next-hop 10.147.131.26
+        static-route 10.130.23.101/32 next-hop 10.147.131.26
+        static-route 10.130.32.28/32 next-hop 10.147.131.26
+        static-route 10.130.32.53/32 next-hop 10.147.131.26
+        static-route 10.130.32.55/32 next-hop 10.147.131.26
+        static-route 10.130.32.97/32 next-hop 10.147.131.26
+        static-route 10.130.32.226/32 next-hop 10.147.131.26
+        static-route 10.130.32.240/32 next-hop 10.147.131.26
+        static-route 10.130.48.58/32 next-hop 10.147.131.26
+        static-route 10.130.48.78/32 next-hop 10.147.131.26
+        static-route 10.130.48.127/32 next-hop 10.147.131.26
+        static-route 10.130.48.154/32 next-hop 10.147.131.26
+        static-route 10.130.48.156/32 next-hop 10.147.131.26
+        static-route 10.130.48.157/32 next-hop 10.147.131.26
+        static-route 10.130.48.158/32 next-hop 10.147.131.26
+        static-route 10.130.48.159/32 next-hop 10.147.131.26
+        static-route 10.130.48.160/32 next-hop 10.147.131.26
+        static-route 10.130.48.161/32 next-hop 10.147.131.26
+        static-route 10.130.48.162/32 next-hop 10.147.131.26
+        static-route 10.130.48.163/32 next-hop 10.147.131.26
+        static-route 10.130.48.164/32 next-hop 10.147.131.26
+        static-route 10.130.48.165/32 next-hop 10.147.131.26
+        static-route 10.130.49.5/32 next-hop 10.147.131.26
+        static-route 10.130.49.6/32 next-hop 10.147.131.26
+        static-route 10.130.49.7/32 next-hop 10.147.131.26
+        static-route 10.130.49.8/32 next-hop 10.147.131.26
+        static-route 10.130.49.140/32 next-hop 10.147.131.26
+        static-route 10.130.49.141/32 next-hop 10.147.131.26
+        static-route 10.130.49.159/32 next-hop 10.147.131.26
+        static-route 10.130.80.33/32 next-hop 10.147.131.26
+        static-route 10.130.80.34/32 next-hop 10.147.131.26
+        static-route 10.130.80.39/32 next-hop 10.147.131.26
+        static-route 10.130.80.56/32 next-hop 10.147.131.26
+        static-route 10.130.80.59/32 next-hop 10.147.131.26
+        static-route 10.130.80.60/32 next-hop 10.147.131.26
+        static-route 10.130.80.65/32 next-hop 10.147.131.26
+        static-route 10.130.80.67/32 next-hop 10.147.131.26
+        static-route 10.130.80.73/32 next-hop 10.147.131.26
+        static-route 10.130.80.77/32 next-hop 10.147.131.26
+        static-route 10.130.80.78/32 next-hop 10.147.131.26
+        static-route 10.130.80.81/32 next-hop 10.147.131.26
+        static-route 10.130.80.82/32 next-hop 10.147.131.26
+        static-route 10.130.80.83/32 next-hop 10.147.131.26
+        static-route 10.130.80.84/32 next-hop 10.147.131.26
+        static-route 10.130.80.85/32 next-hop 10.147.131.26
+        static-route 10.130.80.86/32 next-hop 10.147.131.26
+        static-route 10.130.80.87/32 next-hop 10.147.131.26
+        static-route 10.130.80.173/32 next-hop 10.147.131.26
+        static-route 10.130.80.194/32 next-hop 10.147.131.26
+        static-route 10.130.80.200/32 next-hop 10.147.131.26
+        static-route 10.130.80.231/32 next-hop 10.147.131.26
+        static-route 10.130.80.232/32 next-hop 10.147.131.26
+        static-route 10.130.80.233/32 next-hop 10.147.131.26
+        static-route 10.130.80.234/32 next-hop 10.147.131.26
+        static-route 10.130.80.235/32 next-hop 10.147.131.26
+        static-route 10.130.80.236/32 next-hop 10.147.131.26
+        static-route 10.130.80.237/32 next-hop 10.147.131.26
+        static-route 10.130.81.76/32 next-hop 10.147.131.26
+        static-route 10.130.81.83/32 next-hop 10.147.131.26
+        static-route 10.130.81.90/32 next-hop 10.147.131.26
+        static-route 10.130.81.94/32 next-hop 10.147.131.26
+        static-route 10.130.81.100/32 next-hop 10.147.131.26
+        static-route 10.130.96.192/27 next-hop 10.147.131.26
+        static-route 10.130.146.0/24 next-hop 10.147.131.26
+        static-route 10.130.174.245/32 next-hop 10.147.131.26
+        static-route 10.131.11.27/32 next-hop 10.147.131.26
+        static-route 10.131.11.28/32 next-hop 10.147.131.26
+        static-route 10.131.11.29/32 next-hop 10.147.131.26
+        static-route 10.131.11.130/32 next-hop 10.147.131.26
+        static-route 10.131.11.131/32 next-hop 10.147.131.26
+        static-route 10.131.11.134/32 next-hop 10.147.131.26
+        static-route 10.131.11.164/32 next-hop 10.147.131.26
+        static-route 10.131.11.197/32 next-hop 10.147.131.26
+        static-route 10.131.11.198/32 next-hop 10.147.131.26
+        static-route 10.131.12.113/32 next-hop 10.147.131.26
+        static-route 10.131.12.115/32 next-hop 10.147.131.26
+        static-route 10.131.12.134/32 next-hop 10.147.131.26
+        static-route 10.131.13.61/32 next-hop 10.147.131.26
+        static-route 10.131.13.213/32 next-hop 10.147.131.26
+        static-route 10.131.25.0/24 next-hop 10.147.131.26
+        static-route 10.131.45.0/24 next-hop 10.147.131.26
+        static-route 10.131.81.0/24 next-hop 10.147.131.26
+        static-route 10.131.82.110/32 next-hop 10.147.131.26
+        static-route 10.131.82.121/32 next-hop 10.147.131.26
+        static-route 10.131.82.124/32 next-hop 10.147.131.26
+        static-route 10.131.82.133/32 next-hop 10.147.131.26
+        static-route 10.131.82.135/32 next-hop 10.147.131.26
+        static-route 10.131.153.11/32 next-hop 10.147.131.26
+        static-route 10.131.205.75/32 next-hop 10.147.131.26
+        static-route 10.131.205.174/32 next-hop 10.147.131.26
+        static-route 10.131.205.175/32 next-hop 10.147.131.26
+        static-route 10.131.205.176/32 next-hop 10.147.131.26
+        static-route 10.132.0.89/32 next-hop 10.147.131.26
+        static-route 10.132.0.201/32 next-hop 10.147.131.26
+        static-route 10.132.1.2/32 next-hop 10.147.131.26
+        static-route 10.132.1.20/32 next-hop 10.147.131.26
+        static-route 10.132.1.49/32 next-hop 10.147.131.26
+        static-route 10.132.1.90/32 next-hop 10.147.131.26
+        static-route 10.132.1.102/32 next-hop 10.147.131.26
+        static-route 10.132.1.115/32 next-hop 10.147.131.26
+        static-route 10.132.1.151/32 next-hop 10.147.131.26
+        static-route 10.132.4.0/24 next-hop 10.147.131.26
+        static-route 10.132.4.20/32 next-hop 10.147.131.26
+        static-route 10.132.4.151/32 next-hop 10.147.131.26
+        static-route 10.132.5.0/24 next-hop 10.147.131.26
+        static-route 10.132.5.49/32 next-hop 10.147.131.26
+        static-route 10.132.5.90/32 next-hop 10.147.131.26
+        static-route 10.132.5.102/32 next-hop 10.147.131.26
+        static-route 10.132.5.115/32 next-hop 10.147.131.26
+        static-route 10.132.11.152/32 next-hop 10.147.131.26
+        static-route 10.132.11.153/32 next-hop 10.147.131.26
+        static-route 10.132.11.156/32 next-hop 10.147.131.26
+        static-route 10.132.11.229/32 next-hop 10.147.131.26
+        static-route 10.132.12.50/32 next-hop 10.147.131.26
+        static-route 10.132.12.52/32 next-hop 10.147.131.26
+        static-route 10.132.12.136/32 next-hop 10.147.131.26
+        static-route 10.132.22.6/32 next-hop 10.147.131.26
+        static-route 10.132.22.130/32 next-hop 10.147.131.18
+        static-route 10.132.22.131/32 next-hop 10.147.131.18
+        static-route 10.132.22.140/32 next-hop 10.147.131.26
+        static-route 10.132.22.153/32 next-hop 10.147.131.26
+        static-route 10.132.22.159/32 next-hop 10.147.131.26
+        static-route 10.132.22.218/32 next-hop 10.147.131.26
+        static-route 10.132.22.240/32 next-hop 10.147.131.26
+        static-route 10.132.31.90/32 next-hop 10.147.131.26
+        static-route 10.132.31.92/32 next-hop 10.147.131.26
+        static-route 10.132.31.107/32 next-hop 10.147.131.26
+        static-route 10.132.31.108/32 next-hop 10.147.131.26
+        static-route 10.132.31.111/32 next-hop 10.147.131.26
+        static-route 10.132.31.115/32 next-hop 10.147.131.26
+        static-route 10.132.31.126/32 next-hop 10.147.131.26
+        static-route 10.132.31.128/32 next-hop 10.147.131.26
+        static-route 10.132.31.131/32 next-hop 10.147.131.26
+        static-route 10.132.31.137/32 next-hop 10.147.131.26
+        static-route 10.132.31.143/32 next-hop 10.147.131.26
+        static-route 10.132.31.145/32 next-hop 10.147.131.26
+        static-route 10.132.31.161/32 next-hop 10.147.131.26
+        static-route 10.132.31.201/32 next-hop 10.147.131.26
+        static-route 10.132.31.210/32 next-hop 10.147.131.26
+        static-route 10.132.31.226/32 next-hop 10.147.131.26
+        static-route 10.132.31.232/32 next-hop 10.147.131.26
+        static-route 10.132.31.233/32 next-hop 10.147.131.26
+        static-route 10.132.31.237/32 next-hop 10.147.131.26
+        static-route 10.132.31.241/32 next-hop 10.147.131.26
+        static-route 10.132.31.248/32 next-hop 10.147.131.26
+        static-route 10.132.33.72/32 next-hop 10.147.131.26
+        static-route 10.132.34.54/32 next-hop 10.147.131.26
+        static-route 10.132.34.70/32 next-hop 10.147.131.26
+        static-route 10.132.34.74/32 next-hop 10.147.131.26
+        static-route 10.132.34.134/32 next-hop 10.147.131.26
+        static-route 10.132.34.135/32 next-hop 10.147.131.26
+        static-route 10.132.34.144/32 next-hop 10.147.131.26
+        static-route 10.132.34.145/32 next-hop 10.147.131.26
+        static-route 10.132.35.70/32 next-hop 10.147.131.26
+        static-route 10.132.35.80/32 next-hop 10.147.131.26
+        static-route 10.132.36.98/32 next-hop 10.147.131.26
+        static-route 10.132.36.100/32 next-hop 10.147.131.26
+        static-route 10.132.36.101/32 next-hop 10.147.131.26
+        static-route 10.132.41.28/32 next-hop 10.147.131.26
+        static-route 10.132.41.38/32 next-hop 10.147.131.26
+        static-route 10.132.41.131/32 next-hop 10.147.131.26
+        static-route 10.132.41.183/32 next-hop 10.147.131.26
+        static-route 10.132.41.232/32 next-hop 10.147.131.26
+        static-route 10.132.42.13/32 next-hop 10.147.131.26
+        static-route 10.132.54.69/32 next-hop 10.147.131.26
+        static-route 10.132.54.70/32 next-hop 10.147.131.26
+        static-route 10.132.54.71/32 next-hop 10.147.131.26
+        static-route 10.132.54.72/32 next-hop 10.147.131.26
+        static-route 10.132.61.33/32 next-hop 10.147.131.26
+        static-route 10.132.61.52/32 next-hop 10.147.131.26
+        static-route 10.132.61.56/32 next-hop 10.147.131.26
+        static-route 10.132.61.64/32 next-hop 10.147.131.26
+        static-route 10.132.61.86/32 next-hop 10.147.131.26
+        static-route 10.132.61.96/32 next-hop 10.147.131.26
+        static-route 10.132.61.112/32 next-hop 10.147.131.26
+        static-route 10.132.61.116/32 next-hop 10.147.131.26
+        static-route 10.132.61.117/32 next-hop 10.147.131.26
+        static-route 10.132.61.123/32 next-hop 10.147.131.26
+        static-route 10.132.61.139/32 next-hop 10.147.131.26
+        static-route 10.132.61.154/32 next-hop 10.147.131.26
+        static-route 10.132.61.157/32 next-hop 10.147.131.26
+        static-route 10.132.61.161/32 next-hop 10.147.131.26
+        static-route 10.132.61.210/32 next-hop 10.147.131.26
+        static-route 10.132.61.243/32 next-hop 10.147.131.26
+        static-route 10.132.62.87/32 next-hop 10.147.131.26
+        static-route 10.132.63.4/32 next-hop 10.147.131.26
+        static-route 10.132.63.7/32 next-hop 10.147.131.26
+        static-route 10.132.63.52/32 next-hop 10.147.131.26
+        static-route 10.132.63.55/32 next-hop 10.147.131.26
+        static-route 10.132.63.68/32 next-hop 10.147.131.26
+        static-route 10.132.63.87/32 next-hop 10.147.131.26
+        static-route 10.132.63.114/32 next-hop 10.147.131.26
+        static-route 10.132.63.175/32 next-hop 10.147.131.26
+        static-route 10.132.63.194/32 next-hop 10.147.131.26
+        static-route 10.132.71.0/24 next-hop 10.147.131.26
+        static-route 10.132.71.0/27 next-hop 10.147.131.26
+        static-route 10.132.71.1/32 next-hop 10.147.131.26
+        static-route 10.132.71.25/32 next-hop 10.147.131.26
+        static-route 10.132.71.164/32 next-hop 10.147.131.26
+        static-route 10.132.71.168/32 next-hop 10.147.131.26
+        static-route 10.132.71.192/32 next-hop 10.147.131.26
+        static-route 10.132.72.0/24 next-hop 10.147.131.26
+        static-route 10.132.72.0/27 next-hop 10.147.131.26
+        static-route 10.132.72.24/32 next-hop 10.147.131.26
+        static-route 10.132.72.29/32 next-hop 10.147.131.26
+        static-route 10.132.72.131/32 next-hop 10.147.131.26
+        static-route 10.132.72.237/32 next-hop 10.147.131.26
+        static-route 10.132.73.0/24 next-hop 10.147.131.26
+        static-route 10.132.73.0/27 next-hop 10.147.131.26
+        static-route 10.132.73.106/32 next-hop 10.147.131.26
+        static-route 10.132.73.107/32 next-hop 10.147.131.26
+        static-route 10.132.74.0/24 next-hop 10.147.131.26
+        static-route 10.132.74.8/32 next-hop 10.147.131.26
+        static-route 10.132.74.224/27 next-hop 10.147.131.26
+        static-route 10.132.74.228/32 next-hop 10.147.131.26
+        static-route 10.132.75.0/24 next-hop 10.147.131.26
+        static-route 10.132.75.0/27 next-hop 10.147.131.26
+        static-route 10.132.78.0/24 next-hop 10.147.131.26
+        static-route 10.132.78.0/27 next-hop 10.147.131.26
+        static-route 10.132.81.22/32 next-hop 10.147.131.26
+        static-route 10.132.81.47/32 next-hop 10.147.131.26
+        static-route 10.132.81.57/32 next-hop 10.147.131.26
+        static-route 10.132.81.70/32 next-hop 10.147.131.26
+        static-route 10.132.81.71/32 next-hop 10.147.131.26
+        static-route 10.132.81.82/32 next-hop 10.147.131.26
+        static-route 10.132.81.85/32 next-hop 10.147.131.26
+        static-route 10.132.81.107/32 next-hop 10.147.131.26
+        static-route 10.132.82.35/32 next-hop 10.147.131.26
+        static-route 10.132.82.188/32 next-hop 10.147.131.26
+        static-route 10.132.82.214/32 next-hop 10.147.131.26
+        static-route 10.132.83.39/32 next-hop 10.147.131.26
+        static-route 10.132.83.41/32 next-hop 10.147.131.26
+        static-route 10.132.91.63/32 next-hop 10.147.131.26
+        static-route 10.132.91.71/32 next-hop 10.147.131.26
+        static-route 10.132.91.72/32 next-hop 10.147.131.26
+        static-route 10.132.91.73/32 next-hop 10.147.131.26
+        static-route 10.132.91.90/32 next-hop 10.147.131.26
+        static-route 10.132.91.91/32 next-hop 10.147.131.26
+        static-route 10.132.91.92/32 next-hop 10.147.131.26
+        static-route 10.132.91.93/32 next-hop 10.147.131.26
+        static-route 10.132.91.94/32 next-hop 10.147.131.26
+        static-route 10.132.91.95/32 next-hop 10.147.131.26
+        static-route 10.132.91.231/32 next-hop 10.147.131.26
+        static-route 10.132.92.134/32 next-hop 10.147.131.26
+        static-route 10.132.92.137/32 next-hop 10.147.131.26
+        static-route 10.132.92.156/32 next-hop 10.147.131.26
+        static-route 10.132.92.167/32 next-hop 10.147.131.26
+        static-route 10.132.92.188/32 next-hop 10.147.131.26
+        static-route 10.132.92.213/32 next-hop 10.147.131.26
+        static-route 10.132.92.237/32 next-hop 10.147.131.26
+        static-route 10.132.101.56/32 next-hop 10.147.131.26
+        static-route 10.132.101.57/32 next-hop 10.147.131.26
+        static-route 10.132.101.75/32 next-hop 10.147.131.26
+        static-route 10.132.101.80/32 next-hop 10.147.131.26
+        static-route 10.132.101.84/32 next-hop 10.147.131.26
+        static-route 10.132.101.105/32 next-hop 10.147.131.26
+        static-route 10.132.101.108/32 next-hop 10.147.131.26
+        static-route 10.132.101.113/32 next-hop 10.147.131.26
+        static-route 10.132.101.126/32 next-hop 10.147.131.26
+        static-route 10.132.102.18/32 next-hop 10.147.131.26
+        static-route 10.132.102.26/32 next-hop 10.147.131.26
+        static-route 10.132.102.83/32 next-hop 10.147.131.26
+        static-route 10.132.102.104/32 next-hop 10.147.131.26
+        static-route 10.132.102.105/32 next-hop 10.147.131.26
+        static-route 10.132.112.5/32 next-hop 10.147.131.26
+        static-route 10.132.112.8/32 next-hop 10.147.131.26
+        static-route 10.132.112.20/32 next-hop 10.147.131.26
+        static-route 10.132.114.3/32 next-hop 10.147.131.26
+        static-route 10.132.114.4/32 next-hop 10.147.131.26
+        static-route 10.132.114.5/32 next-hop 10.147.131.26
+        static-route 10.132.114.6/32 next-hop 10.147.131.26
+        static-route 10.132.114.8/32 next-hop 10.147.131.26
+        static-route 10.132.147.0/24 next-hop 10.147.131.26
+        static-route 10.132.148.0/24 next-hop 10.147.131.26
+        static-route 10.132.149.0/24 next-hop 10.147.131.26
+        static-route 10.132.151.21/32 next-hop 10.147.131.26
+        static-route 10.132.151.68/32 next-hop 10.147.131.26
+        static-route 10.132.152.171/32 next-hop 10.147.131.26
+        static-route 10.132.152.172/32 next-hop 10.147.131.26
+        static-route 10.132.152.173/32 next-hop 10.147.131.26
+        static-route 10.132.152.174/32 next-hop 10.147.131.26
+        static-route 10.132.152.175/32 next-hop 10.147.131.26
+        static-route 10.132.207.128/25 next-hop 10.147.131.26
+        static-route 10.132.207.208/32 next-hop 10.147.131.26
+        static-route 10.132.207.231/32 next-hop 10.147.131.26
+        static-route 10.132.207.251/32 next-hop 10.147.131.26
+        static-route 10.133.5.42/32 next-hop 10.147.131.26
+        static-route 10.133.5.49/32 next-hop 10.147.131.46
+        static-route 10.133.5.49/32 next-hop 10.147.131.26
+        static-route 10.133.5.50/32 next-hop 10.147.131.26
+        static-route 10.133.5.99/32 next-hop 10.147.131.26
+        static-route 10.133.7.1/32 next-hop 10.147.131.26
+        static-route 10.133.7.13/32 next-hop 10.147.131.26
+        static-route 10.133.7.19/32 next-hop 10.147.131.26
+        static-route 10.133.7.85/32 next-hop 10.147.131.26
+        static-route 10.133.9.33/32 next-hop 10.147.131.26
+        static-route 10.133.9.120/32 next-hop 10.147.131.26
+        static-route 10.133.9.121/32 next-hop 10.147.131.26
+        static-route 10.133.9.123/32 next-hop 10.147.131.26
+        static-route 10.133.9.140/32 next-hop 10.147.131.26
+        static-route 10.133.9.194/32 next-hop 10.147.131.26
+        static-route 10.133.10.23/32 next-hop 10.147.131.26
+        static-route 10.133.10.26/32 next-hop 10.147.131.26
+        static-route 10.133.10.31/32 next-hop 10.147.131.26
+        static-route 10.133.10.32/32 next-hop 10.147.131.26
+        static-route 10.133.10.52/32 next-hop 10.147.131.26
+        static-route 10.133.10.70/32 next-hop 10.147.131.26
+        static-route 10.133.10.71/32 next-hop 10.147.131.26
+        static-route 10.133.10.72/32 next-hop 10.147.131.26
+        static-route 10.133.10.74/32 next-hop 10.147.131.26
+        static-route 10.133.10.114/32 next-hop 10.147.131.26
+        static-route 10.133.10.124/32 next-hop 10.147.131.26
+        static-route 10.133.10.125/32 next-hop 10.147.131.26
+        static-route 10.133.10.126/32 next-hop 10.147.131.26
+        static-route 10.133.10.137/32 next-hop 10.147.131.26
+        static-route 10.133.10.140/32 next-hop 10.147.131.26
+        static-route 10.133.10.143/32 next-hop 10.147.131.26
+        static-route 10.133.10.145/32 next-hop 10.147.131.26
+        static-route 10.133.13.17/32 next-hop 10.147.131.26
+        static-route 10.133.13.41/32 next-hop 10.147.131.26
+        static-route 10.133.13.67/32 next-hop 10.147.131.26
+        static-route 10.133.13.74/32 next-hop 10.147.131.26
+        static-route 10.133.13.109/32 next-hop 10.147.131.26
+        static-route 10.133.14.10/32 next-hop 10.147.131.26
+        static-route 10.133.14.29/32 next-hop 10.147.131.26
+        static-route 10.133.14.33/32 next-hop 10.147.131.26
+        static-route 10.133.14.55/32 next-hop 10.147.131.26
+        static-route 10.133.14.111/32 next-hop 10.147.131.26
+        static-route 10.133.14.132/32 next-hop 10.147.131.26
+        static-route 10.133.14.208/32 next-hop 10.147.131.26
+        static-route 10.133.14.210/32 next-hop 10.147.131.26
+        static-route 10.133.14.227/32 next-hop 10.147.131.26
+        static-route 10.133.14.249/32 next-hop 10.147.131.26
+        static-route 10.133.32.87/32 next-hop 10.147.131.26
+        static-route 10.133.32.178/32 next-hop 10.147.131.26
+        static-route 10.133.32.252/32 next-hop 10.147.131.26
+        static-route 10.133.32.254/32 next-hop 10.147.131.26
+        static-route 10.133.33.249/32 next-hop 10.147.131.26
+        static-route 10.133.34.132/32 next-hop 10.147.131.26
+        static-route 10.133.34.164/32 next-hop 10.147.131.26
+        static-route 10.133.38.178/32 next-hop 10.147.131.26
+        static-route 10.133.38.179/32 next-hop 10.147.131.26
+        static-route 10.133.49.34/32 next-hop 10.147.131.26
+        static-route 10.133.49.52/32 next-hop 10.147.131.26
+        static-route 10.133.49.54/32 next-hop 10.147.131.26
+        static-route 10.133.49.106/32 next-hop 10.147.131.26
+        static-route 10.133.49.119/32 next-hop 10.147.131.26
+        static-route 10.133.49.126/32 next-hop 10.147.131.26
+        static-route 10.134.183.230/32 next-hop 10.147.131.26
+        static-route 10.147.6.0/28 next-hop 10.147.131.50
+        static-route 10.147.13.109/32 next-hop 10.147.131.26
+        static-route 10.147.17.9/32 next-hop 10.147.131.30
+        static-route 10.147.17.51/32 next-hop 10.147.131.30
+        static-route 10.147.44.0/24 next-hop 10.147.131.30
+        static-route 10.147.44.167/32 next-hop 10.147.131.58
+        static-route 10.147.44.167/32 next-hop 10.147.131.30
+        static-route 10.147.50.0/24 next-hop 10.147.131.26
+        static-route 10.147.52.17/32 next-hop 10.147.131.58
+        static-route 10.147.52.17/32 next-hop 10.147.131.30
+        static-route 10.147.52.89/32 next-hop 10.147.131.30
+        static-route 10.147.112.0/24 next-hop 10.147.131.26
+        static-route 10.147.112.45/32 next-hop 10.147.131.26
+        static-route 10.147.112.47/32 next-hop 10.147.131.18
+        static-route 10.147.112.47/32 next-hop 10.147.131.26
+        static-route 10.147.112.64/27 next-hop 10.147.131.26
+        static-route 10.147.112.121/32 next-hop 10.147.131.26
+        static-route 10.147.112.192/27 next-hop 10.147.131.26
+        static-route 10.147.128.128/27 next-hop 10.147.131.74
+        static-route 10.147.128.128/27 next-hop 10.147.131.33 metric 2
+        static-route 10.147.129.128/26 next-hop 10.147.129.129
+        static-route 10.147.129.192/28 next-hop 10.147.131.74
+        static-route 10.147.130.0/24 next-hop 10.147.129.133
+        static-route 10.147.132.0/25 next-hop 10.147.131.26
+        static-route 10.147.135.0/26 next-hop 10.147.131.26
+        static-route 10.147.135.192/27 next-hop 10.147.131.26
+        static-route 10.147.136.0/24 next-hop 10.147.131.26
+        static-route 10.147.137.128/25 next-hop 10.147.131.30
+        static-route 10.147.137.136/32 next-hop 10.147.131.26
+        static-route 10.147.137.139/32 next-hop 10.147.131.26
+        static-route 10.147.137.142/32 next-hop 10.147.131.26
+        static-route 10.147.137.145/32 next-hop 10.147.131.30
+        static-route 10.147.137.148/32 next-hop 10.147.131.26
+        static-route 10.147.160.103/32 next-hop 10.147.131.26
+        static-route 10.147.202.0/24 next-hop 10.147.131.30
+        static-route 10.147.204.0/24 next-hop 10.147.131.26
+        static-route 10.147.204.111/32 next-hop 10.147.131.26
+        static-route 10.147.204.112/32 next-hop 10.147.131.26
+        static-route 10.147.210.0/24 next-hop 10.147.131.30
+        static-route 10.147.211.0/24 next-hop 10.147.131.30
+        static-route 10.147.213.0/24 next-hop 10.147.131.30
+        static-route 10.147.214.211/32 next-hop 10.147.131.26
+        static-route 10.147.215.0/24 next-hop 10.147.131.30
+        static-route 10.147.217.0/24 next-hop 10.147.131.30
+        static-route 10.147.217.14/32 next-hop 10.147.131.30
+        static-route 10.147.220.160/32 next-hop 10.147.131.26
+        static-route 10.147.220.220/32 next-hop 10.147.131.30
+        static-route 10.147.221.0/25 next-hop 10.147.131.30
+        static-route 10.147.224.4/32 next-hop 10.147.131.26
+        static-route 10.147.224.5/32 next-hop 10.147.131.26
+        static-route 10.147.224.6/32 next-hop 10.147.131.26
+        static-route 10.147.224.7/32 next-hop 10.147.131.26
+        static-route 10.147.224.196/32 next-hop 10.147.131.30
+        static-route 10.147.224.231/32 next-hop 10.147.131.26
+        static-route 10.147.225.10/32 next-hop 10.147.131.26
+        static-route 10.147.225.11/32 next-hop 10.147.131.26
+        static-route 10.147.225.194/32 next-hop 10.147.131.26
+        static-route 10.147.225.197/32 next-hop 10.147.131.26
+        static-route 10.147.225.198/32 next-hop 10.147.131.26
+        static-route 10.147.225.201/32 next-hop 10.147.131.26
+        static-route 10.147.225.202/32 next-hop 10.147.131.26
+        static-route 10.147.225.203/32 next-hop 10.147.131.26
+        static-route 10.147.225.204/32 next-hop 10.147.131.26
+        static-route 10.147.225.205/32 next-hop 10.147.131.26
+        static-route 10.147.225.206/32 next-hop 10.147.131.26
+        static-route 10.147.225.207/32 next-hop 10.147.131.26
+        static-route 10.147.225.208/32 next-hop 10.147.131.26
+        static-route 10.147.225.209/32 next-hop 10.147.131.26
+        static-route 10.147.225.210/32 next-hop 10.147.131.26
+        static-route 10.147.225.212/32 next-hop 10.147.131.26
+        static-route 10.147.225.213/32 next-hop 10.147.131.26
+        static-route 10.147.225.214/32 next-hop 10.147.131.26
+        static-route 10.147.225.217/32 next-hop 10.147.131.26
+        static-route 10.147.225.218/32 next-hop 10.147.131.26
+        static-route 10.147.225.219/32 next-hop 10.147.131.26
+        static-route 10.147.225.221/32 next-hop 10.147.131.26
+        static-route 10.147.225.222/32 next-hop 10.147.131.26
+        static-route 10.147.225.226/32 next-hop 10.147.131.26
+        static-route 10.147.226.0/27 next-hop 10.147.131.30
+        static-route 10.147.226.4/32 next-hop 10.147.131.30
+        static-route 10.147.226.64/27 next-hop 10.147.131.30
+        static-route 10.147.226.66/32 next-hop 10.147.131.30
+        static-route 10.147.227.14/32 next-hop 10.147.131.26
+        static-route 10.147.227.163/32 next-hop 10.147.131.26
+        static-route 10.147.227.180/32 next-hop 10.147.131.26
+        static-route 10.147.227.233/32 next-hop 10.147.131.30
+        static-route 10.147.228.38/32 next-hop 10.147.131.26
+        static-route 10.147.228.39/32 next-hop 10.147.131.26
+        static-route 10.147.228.106/32 next-hop 10.147.131.26
+        static-route 10.147.228.231/32 next-hop 10.147.131.30
+        static-route 10.147.228.232/32 next-hop 10.147.131.30
+        static-route 10.147.228.233/32 next-hop 10.147.131.26
+        static-route 10.147.228.237/32 next-hop 10.147.131.26
+        static-route 10.147.229.0/27 next-hop 10.147.131.26
+        static-route 10.147.229.147/32 next-hop 10.147.131.26
+        static-route 10.147.229.243/32 next-hop 10.147.131.26
+        static-route 10.147.233.251/32 next-hop 10.147.131.26
+        static-route 10.147.233.252/32 next-hop 10.147.131.26
+        static-route 10.147.235.7/32 next-hop 10.147.131.26
+        static-route 10.147.235.8/32 next-hop 10.147.131.26
+        static-route 10.147.235.9/32 next-hop 10.147.131.26
+        static-route 10.147.235.10/32 next-hop 10.147.131.26
+        static-route 10.147.235.11/32 next-hop 10.147.131.26
+        static-route 10.147.235.21/32 next-hop 10.147.131.26
+        static-route 10.147.235.24/32 next-hop 10.147.131.26
+        static-route 10.147.235.25/32 next-hop 10.147.131.26
+        static-route 10.147.235.26/32 next-hop 10.147.131.26
+        static-route 10.147.236.81/32 next-hop 10.147.131.26
+        static-route 10.147.236.88/32 next-hop 10.147.131.26
+        static-route 10.147.250.45/32 next-hop 10.147.131.26
+        static-route 10.149.1.90/32 next-hop 10.147.131.30
+        static-route 10.149.1.91/32 next-hop 10.147.131.30
+        static-route 10.149.1.92/32 next-hop 10.147.131.30
+        static-route 10.149.1.93/32 next-hop 10.147.131.30
+        static-route 10.149.4.64/26 next-hop 10.147.131.30
+        static-route 10.149.4.82/32 next-hop 10.147.131.30
+        static-route 10.149.4.86/32 next-hop 10.147.131.30
+        static-route 10.149.4.90/32 next-hop 10.147.131.30
+        static-route 10.149.4.94/32 next-hop 10.147.131.30
+        static-route 10.149.4.96/32 next-hop 10.147.131.30
+        static-route 10.149.8.30/32 next-hop 10.147.131.26
+        static-route 10.149.8.122/32 next-hop 10.147.131.26
+        static-route 10.149.8.234/32 next-hop 10.147.131.26
+        static-route 10.149.24.74/32 next-hop 10.147.131.26
+        static-route 10.149.24.77/32 next-hop 10.147.131.26
+        static-route 10.149.60.8/32 next-hop 10.147.131.26
+        static-route 10.149.60.11/32 next-hop 10.147.131.26
+        static-route 10.149.60.13/32 next-hop 10.147.131.26
+        static-route 10.149.60.14/32 next-hop 10.147.131.26
+        static-route 10.149.61.120/32 next-hop 10.147.131.26
+        static-route 10.149.128.75/32 next-hop 10.147.131.26
+        static-route 10.149.128.76/32 next-hop 10.147.131.30
+        static-route 10.149.129.13/32 next-hop 10.147.131.30
+        static-route 10.149.129.18/32 next-hop 10.147.131.30
+        static-route 10.150.103.2/32 next-hop 10.147.131.26
+        static-route 10.152.25.251/32 next-hop 10.147.131.26
+        static-route 10.153.174.164/32 next-hop 10.147.131.26
+        static-route 10.165.172.0/24 next-hop 10.147.131.26
+        static-route 10.165.173.0/24 next-hop 10.147.131.26
+        static-route 10.165.174.0/24 next-hop 10.147.131.26
+        static-route 10.165.175.0/24 next-hop 10.147.131.26
+        static-route 10.171.2.19/32 next-hop 10.147.131.30
+        static-route 10.171.2.20/32 next-hop 10.147.131.30
+        static-route 10.171.2.149/32 next-hop 10.147.131.30
+        static-route 10.171.2.150/32 next-hop 10.147.131.30
+        static-route 10.176.4.208/32 next-hop 10.147.131.58
+        static-route 10.176.4.208/32 next-hop 10.147.131.26
+        static-route 10.190.2.54/32 next-hop 10.147.131.26
+        static-route 10.190.8.0/24 next-hop 10.147.131.26
+        static-route 10.190.8.7/32 next-hop 10.147.131.26
+        static-route 10.190.8.12/32 next-hop 10.147.131.18
+        static-route 10.190.8.14/32 next-hop 10.147.131.26
+        static-route 10.190.8.25/32 next-hop 10.147.131.26
+        static-route 10.190.8.34/32 next-hop 10.147.131.26
+        static-route 10.190.8.35/32 next-hop 10.147.131.26
+        static-route 10.190.8.51/32 next-hop 10.147.131.26
+        static-route 10.190.8.95/32 next-hop 10.147.131.26
+        static-route 10.190.8.104/32 next-hop 10.147.131.26
+        static-route 10.190.8.105/32 next-hop 10.147.131.26
+        static-route 10.190.9.36/32 next-hop 10.147.131.26
+        static-route 10.190.9.55/32 next-hop 10.147.131.26
+        static-route 10.190.9.82/32 next-hop 10.147.131.26
+        static-route 10.190.10.42/32 next-hop 10.147.131.54
+        static-route 10.190.10.51/32 next-hop 10.147.131.54
+        static-route 10.190.10.57/32 next-hop 10.147.131.26
+        static-route 10.190.14.139/32 next-hop 10.147.131.26
+        static-route 10.190.14.140/32 next-hop 10.147.131.26
+        static-route 10.190.14.141/32 next-hop 10.147.131.26
+        static-route 10.192.209.31/32 next-hop 10.147.131.26
+        static-route 10.192.220.13/32 next-hop 10.147.131.26
+        static-route 10.192.220.15/32 next-hop 10.147.131.26
+        static-route 10.192.220.203/32 next-hop 10.147.131.26
+        static-route 10.192.220.204/32 next-hop 10.147.131.26
+        static-route 10.192.220.205/32 next-hop 10.147.131.26
+        static-route 10.192.220.233/32 next-hop 10.147.131.26
+        static-route 10.192.220.240/29 next-hop 10.147.131.26
+        static-route 10.199.213.36/32 next-hop 10.147.131.26
+        static-route 10.199.213.37/32 next-hop 10.147.131.26
+        static-route 10.199.213.39/32 next-hop 10.147.131.26
+        static-route 10.207.247.0/24 next-hop 10.147.131.26
+        static-route 10.207.248.0/22 next-hop 10.147.131.26
+        static-route 10.210.11.18/32 next-hop 10.147.131.30
+        static-route 10.210.11.19/32 next-hop 10.147.131.30
+        static-route 10.210.11.23/32 next-hop 10.147.131.30
+        static-route 10.210.35.2/32 next-hop 10.147.131.30
+        static-route 10.210.35.3/32 next-hop 10.147.131.30
+        static-route 10.210.35.4/32 next-hop 10.147.131.30
+        static-route 10.218.0.0/19 next-hop 10.147.131.26
+        static-route 72.9.105.78/32 next-hop 10.147.131.26
+        static-route 106.51.120.158/32 next-hop 10.147.131.61
+        static-route 172.16.1.16/32 next-hop 10.147.131.26
+        static-route 172.16.1.40/32 next-hop 10.147.131.26
+        static-route 172.16.1.80/32 next-hop 10.147.131.26
+        static-route 172.16.1.89/32 next-hop 10.147.131.26
+        static-route 172.16.1.105/32 next-hop 10.147.131.26
+        static-route 172.16.63.11/32 next-hop 10.147.131.26
+        static-route 172.16.63.12/32 next-hop 10.147.131.26
+        static-route 172.16.63.41/32 next-hop 10.147.131.26
+        static-route 172.16.63.42/32 next-hop 10.147.131.26
+        static-route 172.16.68.11/32 next-hop 10.147.131.26
+        static-route 172.16.68.12/32 next-hop 10.147.131.26
+        static-route 172.16.68.41/32 next-hop 10.147.131.26
+        static-route 172.16.68.42/32 next-hop 10.147.131.26
+        static-route 172.16.254.4/32 next-hop 10.147.131.26
+        static-route 172.16.254.5/32 next-hop 10.147.131.26
+        static-route 172.16.254.22/32 next-hop 10.147.131.26
+        static-route 172.16.254.23/32 next-hop 10.147.131.26
+        static-route 172.16.254.29/32 next-hop 10.147.131.26
+        static-route 172.16.254.31/32 next-hop 10.147.131.26
+        static-route 172.16.254.32/32 next-hop 10.147.131.26
+        static-route 172.16.254.41/32 next-hop 10.147.131.26
+        static-route 172.16.254.42/32 next-hop 10.147.131.26
+        static-route 172.16.254.48/32 next-hop 10.147.131.26
+        static-route 172.16.254.59/32 next-hop 10.147.131.26
+        static-route 172.16.254.71/32 next-hop 10.147.131.26
+        static-route 172.16.254.72/32 next-hop 10.147.131.26
+        static-route 172.16.254.73/32 next-hop 10.147.131.26
+        static-route 172.16.254.75/32 next-hop 10.147.131.26
+        static-route 172.16.254.76/32 next-hop 10.147.131.26
+        static-route 172.16.254.77/32 next-hop 10.147.131.26
+        static-route 172.16.254.78/32 next-hop 10.147.131.26
+        static-route 172.16.254.79/32 next-hop 10.147.131.26
+        static-route 172.16.254.80/32 next-hop 10.147.131.26
+        static-route 172.16.254.81/32 next-hop 10.147.131.26
+        static-route 172.16.254.106/32 next-hop 10.147.131.26
+        static-route 172.16.254.110/32 next-hop 10.147.131.26
+        static-route 172.16.254.115/32 next-hop 10.147.131.26
+        static-route 172.16.254.116/32 next-hop 10.147.131.26
+        static-route 172.16.254.120/32 next-hop 10.147.131.26
+        static-route 172.16.254.121/32 next-hop 10.147.131.26
+        static-route 172.16.254.122/32 next-hop 10.147.131.26
+        static-route 172.16.254.123/32 next-hop 10.147.131.26
+        static-route 172.16.254.124/32 next-hop 10.147.131.26
+        static-route 172.16.254.129/32 next-hop 10.147.131.26
+        static-route 172.16.254.172/32 next-hop 10.147.131.26
+        static-route 172.16.254.185/32 next-hop 10.147.131.26
+        static-route 172.16.254.198/32 next-hop 10.147.131.26
+        static-route 172.16.254.200/32 next-hop 10.147.131.26
+        static-route 172.16.254.220/32 next-hop 10.147.131.26
+        static-route 172.16.254.241/32 next-hop 10.147.131.26
+        static-route 172.16.254.242/32 next-hop 10.147.131.26
+        static-route 172.16.254.244/32 next-hop 10.147.131.26
+        static-route 172.19.1.0/24 next-hop 10.147.131.26
+        static-route 172.19.1.0/32 next-hop 10.147.131.26
+        static-route 172.19.1.123/32 next-hop 10.147.131.26
+        static-route 172.19.1.132/32 next-hop 10.147.131.26
+        static-route 172.19.1.137/32 next-hop 10.147.131.26
+        static-route 172.19.3.0/24 next-hop 10.147.131.26
+        static-route 172.19.13.0/24 next-hop 10.147.131.26
+        static-route 172.19.15.0/24 next-hop 10.147.131.18
+        static-route 172.19.19.0/24 next-hop 10.147.131.26
+        static-route 172.19.21.0/24 next-hop 10.147.131.26
+        static-route 172.19.25.0/24 next-hop 10.147.131.26
+        static-route 172.19.28.0/24 next-hop 10.147.131.26
+        static-route 172.19.31.0/24 next-hop 10.147.131.26
+        static-route 172.19.32.0/24 next-hop 10.147.131.26
+        static-route 172.19.33.0/24 next-hop 10.147.131.18
+        static-route 172.19.36.0/24 next-hop 10.147.131.18
+        static-route 172.19.104.0/24 next-hop 10.147.131.26
+        static-route 172.20.2.40/32 next-hop 10.147.131.26
+        static-route 172.20.4.42/32 next-hop 10.147.131.26
+        static-route 172.20.4.43/32 next-hop 10.147.131.26
+        static-route 172.20.4.51/32 next-hop 10.147.131.26
+        static-route 172.20.4.52/32 next-hop 10.147.131.26
+        static-route 172.20.4.58/32 next-hop 10.147.131.26
+        static-route 172.20.4.69/32 next-hop 10.147.131.26
+        static-route 172.20.4.70/32 next-hop 10.147.131.26
+        static-route 172.20.4.71/32 next-hop 10.147.131.26
+        static-route 172.20.4.210/32 next-hop 10.147.131.26
+        static-route 172.20.4.222/32 next-hop 10.147.131.26
+        static-route 172.20.4.248/32 next-hop 10.147.131.26
+        static-route 172.20.5.41/32 next-hop 10.147.131.26
+        static-route 172.20.5.42/32 next-hop 10.147.131.26
+        static-route 172.20.6.41/32 next-hop 10.147.131.26
+        static-route 172.20.6.42/32 next-hop 10.147.131.26
+        static-route 172.20.8.41/32 next-hop 10.147.131.26
+        static-route 172.20.8.44/32 next-hop 10.147.131.26
+        static-route 172.20.9.37/32 next-hop 10.147.131.26
+        static-route 172.20.9.38/32 next-hop 10.147.131.26
+        static-route 172.20.9.39/32 next-hop 10.147.131.26
+        static-route 172.20.9.40/32 next-hop 10.147.131.26
+        static-route 172.20.9.41/32 next-hop 10.147.131.26
+        static-route 172.20.9.42/32 next-hop 10.147.131.26
+        static-route 172.20.9.44/32 next-hop 10.147.131.26
+        static-route 172.20.9.45/32 next-hop 10.147.131.26
+        static-route 172.20.9.47/32 next-hop 10.147.131.26
+        static-route 172.20.10.101/32 next-hop 10.147.131.26
+        static-route 172.20.14.6/32 next-hop 10.147.131.26
+        static-route 172.20.14.31/32 next-hop 10.147.131.26
+        static-route 172.20.14.40/32 next-hop 10.147.131.26
+        static-route 172.20.14.46/32 next-hop 10.147.131.26
+        static-route 172.20.14.56/32 next-hop 10.147.131.26
+        static-route 172.20.14.76/32 next-hop 10.147.131.26
+        static-route 172.20.14.86/32 next-hop 10.147.131.26
+        static-route 172.20.14.96/32 next-hop 10.147.131.26
+        static-route 172.20.15.4/32 next-hop 10.147.131.26
+        static-route 172.20.15.9/32 next-hop 10.147.131.26
+        static-route 172.20.17.41/32 next-hop 10.147.131.26
+        static-route 172.20.17.42/32 next-hop 10.147.131.26
+        static-route 172.20.17.43/32 next-hop 10.147.131.26
+        static-route 172.20.17.44/32 next-hop 10.147.131.26
+        static-route 172.20.17.45/32 next-hop 10.147.131.26
+        static-route 172.20.17.46/32 next-hop 10.147.131.26
+        static-route 172.20.19.40/32 next-hop 10.147.131.26
+        static-route 172.20.19.50/32 next-hop 10.147.131.26
+        static-route 172.20.20.27/32 next-hop 10.147.131.26
+        static-route 172.20.20.37/32 next-hop 10.147.131.26
+        static-route 172.20.20.38/32 next-hop 10.147.131.26
+        static-route 172.20.21.40/32 next-hop 10.147.131.26
+        static-route 172.20.21.41/32 next-hop 10.147.131.26
+        static-route 172.20.22.13/32 next-hop 10.147.131.26
+        static-route 172.20.22.21/32 next-hop 10.147.131.26
+        static-route 172.20.22.40/32 next-hop 10.147.131.26
+        static-route 172.20.22.41/32 next-hop 10.147.131.26
+        static-route 172.20.22.48/32 next-hop 10.147.131.26
+        static-route 172.20.22.50/32 next-hop 10.147.131.26
+        static-route 172.20.22.66/32 next-hop 10.147.131.26
+        static-route 172.20.22.90/32 next-hop 10.147.131.26
+        static-route 172.20.23.40/32 next-hop 10.147.131.26
+        static-route 172.20.23.41/32 next-hop 10.147.131.26
+        static-route 172.20.23.42/32 next-hop 10.147.131.26
+        static-route 172.20.23.44/32 next-hop 10.147.131.26
+        static-route 172.20.23.45/32 next-hop 10.147.131.26
+        static-route 172.20.23.117/32 next-hop 10.147.131.26
+        static-route 172.20.23.121/32 next-hop 10.147.131.26
+        static-route 172.20.23.146/32 next-hop 10.147.131.26
+        static-route 172.20.23.147/32 next-hop 10.147.131.26
+        static-route 172.20.23.155/32 next-hop 10.147.131.26
+        static-route 172.20.23.156/32 next-hop 10.147.131.26
+        static-route 172.20.23.218/32 next-hop 10.147.131.26
+        static-route 172.20.23.219/32 next-hop 10.147.131.26
+        static-route 172.20.23.226/32 next-hop 10.147.131.26
+        static-route 172.20.23.244/32 next-hop 10.147.131.26
+        static-route 172.20.24.41/32 next-hop 10.147.131.26
+        static-route 172.20.24.43/32 next-hop 10.147.131.26
+        static-route 172.20.24.44/32 next-hop 10.147.131.26
+        static-route 172.20.24.59/32 next-hop 10.147.131.26
+        static-route 172.20.24.61/32 next-hop 10.147.131.26
+        static-route 172.20.24.63/32 next-hop 10.147.131.26
+        static-route 172.20.24.65/32 next-hop 10.147.131.26
+        static-route 172.20.24.100/32 next-hop 10.147.131.26
+        static-route 172.20.25.35/32 next-hop 10.147.131.26
+        static-route 172.20.25.42/32 next-hop 10.147.131.26
+        static-route 172.20.25.91/32 next-hop 10.147.131.26
+        static-route 172.20.26.42/32 next-hop 10.147.131.26
+        static-route 172.20.26.49/32 next-hop 10.147.131.26
+        static-route 172.20.26.50/32 next-hop 10.147.131.26
+        static-route 172.20.26.51/32 next-hop 10.147.131.26
+        static-route 172.20.26.69/32 next-hop 10.147.131.26
+        static-route 172.20.27.47/32 next-hop 10.147.131.26
+        static-route 172.20.27.48/32 next-hop 10.147.131.26
+        static-route 172.20.27.49/32 next-hop 10.147.131.26
+        static-route 172.20.27.54/32 next-hop 10.147.131.26
+        static-route 172.20.29.41/32 next-hop 10.147.131.26
+        static-route 172.20.29.47/32 next-hop 10.147.131.26
+        static-route 172.20.31.41/32 next-hop 10.147.131.26
+        static-route 172.20.31.42/32 next-hop 10.147.131.26
+        static-route 172.20.31.46/32 next-hop 10.147.131.26
+        static-route 172.20.31.47/32 next-hop 10.147.131.26
+        static-route 172.20.32.43/32 next-hop 10.147.131.26
+        static-route 172.20.32.44/32 next-hop 10.147.131.26
+        static-route 172.20.33.31/32 next-hop 10.147.131.26
+        static-route 172.20.33.41/32 next-hop 10.147.131.26
+        static-route 172.20.50.206/32 next-hop 10.147.131.26
+        static-route 172.20.60.10/32 next-hop 10.147.131.26
+        static-route 172.20.60.19/32 next-hop 10.147.131.26
+        static-route 172.20.60.40/32 next-hop 10.147.131.26
+        static-route 172.20.60.49/32 next-hop 10.147.131.26
+        static-route 172.20.60.51/32 next-hop 10.147.131.26
+        static-route 172.20.60.54/32 next-hop 10.147.131.26
+        static-route 172.20.60.57/32 next-hop 10.147.131.26
+        static-route 172.20.62.77/32 next-hop 10.147.131.26
+        static-route 172.20.63.12/32 next-hop 10.147.131.26
+        static-route 172.20.63.122/32 next-hop 10.147.131.26
+        static-route 172.20.63.127/32 next-hop 10.147.131.26
+        static-route 172.20.63.151/32 next-hop 10.147.131.26
+        static-route 172.20.65.57/32 next-hop 10.147.131.26
+        static-route 172.20.70.47/32 next-hop 10.147.131.26
+        static-route 172.20.73.43/32 next-hop 10.147.131.26
+        static-route 172.20.77.41/32 next-hop 10.147.131.26
+        static-route 172.20.79.41/32 next-hop 10.147.131.26
+        static-route 172.20.82.27/32 next-hop 10.147.131.26
+        static-route 172.20.82.47/32 next-hop 10.147.131.26
+        static-route 172.20.83.3/32 next-hop 10.147.131.26
+        static-route 172.20.95.180/32 next-hop 10.147.131.26
+        static-route 172.21.1.25/32 next-hop 10.147.131.26
+        static-route 172.21.1.33/32 next-hop 10.147.131.26
+        static-route 172.21.1.73/32 next-hop 10.147.131.26
+        static-route 172.21.1.144/32 next-hop 10.147.131.26
+        static-route 172.21.1.146/32 next-hop 10.147.131.26
+        static-route 172.21.1.160/32 next-hop 10.147.131.26
+        static-route 172.21.1.161/32 next-hop 10.147.131.26
+        static-route 172.21.1.166/32 next-hop 10.147.131.26
+        static-route 172.21.1.172/32 next-hop 10.147.131.26
+        static-route 172.21.1.187/32 next-hop 10.147.131.26
+        static-route 172.21.1.191/32 next-hop 10.147.131.26
+        static-route 172.21.1.194/32 next-hop 10.147.131.26
+        static-route 172.21.1.211/32 next-hop 10.147.131.26
+        static-route 172.21.1.214/32 next-hop 10.147.131.26
+        static-route 172.21.1.215/32 next-hop 10.147.131.26
+        static-route 172.21.1.216/32 next-hop 10.147.131.26
+        static-route 172.21.1.221/32 next-hop 10.147.131.26
+        static-route 172.21.1.223/32 next-hop 10.147.131.26
+        static-route 172.21.1.230/32 next-hop 10.147.131.26
+        static-route 172.21.1.244/32 next-hop 10.147.131.26
+        static-route 172.21.2.49/32 next-hop 10.147.131.26
+        static-route 172.21.2.51/32 next-hop 10.147.131.26
+        static-route 172.21.2.56/32 next-hop 10.147.131.26
+        static-route 172.21.2.145/32 next-hop 10.147.131.26
+        static-route 172.21.2.146/32 next-hop 10.147.131.26
+        static-route 172.21.2.160/32 next-hop 10.147.131.26
+        static-route 172.21.2.161/32 next-hop 10.147.131.26
+        static-route 172.21.4.15/32 next-hop 10.147.131.26
+        static-route 172.21.4.48/32 next-hop 10.147.131.26
+        static-route 172.21.4.51/32 next-hop 10.147.131.26
+        static-route 172.21.4.61/32 next-hop 10.147.131.26
+        static-route 172.21.4.94/32 next-hop 10.147.131.26
+        static-route 172.21.4.101/32 next-hop 10.147.131.26
+        static-route 172.21.4.104/32 next-hop 10.147.131.26
+        static-route 172.21.8.51/32 next-hop 10.147.131.26
+        static-route 172.21.8.62/32 next-hop 10.147.131.26
+        static-route 172.21.8.162/32 next-hop 10.147.131.26
+        static-route 172.21.11.1/32 next-hop 10.147.131.26
+        static-route 172.21.11.26/32 next-hop 10.147.131.26
+        static-route 172.21.11.98/32 next-hop 10.147.131.26
+        static-route 172.21.12.41/32 next-hop 10.147.131.26
+        static-route 172.21.12.81/32 next-hop 10.147.131.26
+        static-route 172.21.13.52/32 next-hop 10.147.131.26
+        static-route 172.21.13.80/32 next-hop 10.147.131.26
+        static-route 172.21.13.85/32 next-hop 10.147.131.26
+        static-route 172.21.18.171/32 next-hop 10.147.131.26
+        static-route 172.21.18.172/32 next-hop 10.147.131.26
+        static-route 172.21.18.173/32 next-hop 10.147.131.26
+        static-route 172.21.18.174/32 next-hop 10.147.131.26
+        static-route 172.21.18.175/32 next-hop 10.147.131.26
+        static-route 172.21.18.176/32 next-hop 10.147.131.26
+        static-route 172.21.18.177/32 next-hop 10.147.131.26
+        static-route 172.21.18.178/32 next-hop 10.147.131.26
+        static-route 172.21.18.217/32 next-hop 10.147.131.26
+        static-route 172.21.18.218/32 next-hop 10.147.131.26
+        static-route 172.21.18.219/32 next-hop 10.147.131.26
+        static-route 172.21.18.228/32 next-hop 10.147.131.26
+        static-route 172.21.18.229/32 next-hop 10.147.131.26
+        static-route 172.21.19.131/32 next-hop 10.147.131.26
+        static-route 172.21.19.144/32 next-hop 10.147.131.26
+        static-route 172.21.19.149/32 next-hop 10.147.131.26
+        static-route 172.21.19.152/32 next-hop 10.147.131.26
+        static-route 172.21.20.44/32 next-hop 10.147.131.26
+        static-route 172.21.23.43/32 next-hop 10.147.131.26
+        static-route 172.21.24.24/32 next-hop 10.147.131.26
+        static-route 172.21.24.30/32 next-hop 10.147.131.26
+        static-route 172.21.24.32/32 next-hop 10.147.131.26
+        static-route 172.21.24.42/32 next-hop 10.147.131.26
+        static-route 172.21.24.43/32 next-hop 10.147.131.26
+        static-route 172.21.24.44/32 next-hop 10.147.131.26
+        static-route 172.21.24.45/32 next-hop 10.147.131.26
+        static-route 172.21.24.46/32 next-hop 10.147.131.26
+        static-route 172.21.24.49/32 next-hop 10.147.131.26
+        static-route 172.21.25.41/32 next-hop 10.147.131.26
+        static-route 172.21.25.86/32 next-hop 10.147.131.26
+        static-route 172.21.25.88/32 next-hop 10.147.131.26
+        static-route 172.21.25.89/32 next-hop 10.147.131.26
+        static-route 172.21.26.171/32 next-hop 10.147.131.26
+        static-route 172.21.26.172/32 next-hop 10.147.131.26
+        static-route 172.21.26.173/32 next-hop 10.147.131.26
+        static-route 172.21.26.174/32 next-hop 10.147.131.26
+        static-route 172.21.26.175/32 next-hop 10.147.131.26
+        static-route 172.21.26.176/32 next-hop 10.147.131.26
+        static-route 172.21.26.177/32 next-hop 10.147.131.26
+        static-route 172.21.26.178/32 next-hop 10.147.131.26
+        static-route 172.21.26.217/32 next-hop 10.147.131.26
+        static-route 172.21.26.219/32 next-hop 10.147.131.26
+        static-route 172.21.26.226/32 next-hop 10.147.131.26
+        static-route 172.21.26.228/32 next-hop 10.147.131.26
+        static-route 172.21.26.229/32 next-hop 10.147.131.26
+        static-route 172.21.27.13/32 next-hop 10.147.131.26
+        static-route 172.21.27.22/32 next-hop 10.147.131.26
+        static-route 172.21.27.245/32 next-hop 10.147.131.26
+        static-route 172.21.28.110/32 next-hop 10.147.131.26
+        static-route 172.21.30.108/32 next-hop 10.147.131.26
+        static-route 172.21.30.109/32 next-hop 10.147.131.26
+        static-route 172.21.30.110/32 next-hop 10.147.131.26
+        static-route 172.21.30.111/32 next-hop 10.147.131.26
+        static-route 172.21.30.112/32 next-hop 10.147.131.26
+        static-route 172.21.30.113/32 next-hop 10.147.131.26
+        static-route 172.21.30.114/32 next-hop 10.147.131.26
+        static-route 172.21.33.28/32 next-hop 10.147.131.26
+        static-route 172.21.33.46/32 next-hop 10.147.131.26
+        static-route 172.21.33.47/32 next-hop 10.147.131.26
+        static-route 172.21.33.49/32 next-hop 10.147.131.26
+        static-route 172.21.39.145/32 next-hop 10.147.131.26
+        static-route 172.21.41.80/32 next-hop 10.147.131.26
+        static-route 172.21.41.85/32 next-hop 10.147.131.26
+        static-route 172.21.41.88/32 next-hop 10.147.131.26
+        static-route 172.21.41.90/32 next-hop 10.147.131.26
+        static-route 172.21.41.92/32 next-hop 10.147.131.26
+        static-route 172.21.41.93/32 next-hop 10.147.131.26
+        static-route 172.21.42.44/32 next-hop 10.147.131.26
+        static-route 172.21.42.47/32 next-hop 10.147.131.26
+        static-route 172.21.42.48/32 next-hop 10.147.131.26
+        static-route 172.21.42.49/32 next-hop 10.147.131.26
+        static-route 172.21.42.61/32 next-hop 10.147.131.26
+        static-route 172.21.42.76/32 next-hop 10.147.131.26
+        static-route 172.21.44.55/32 next-hop 10.147.131.26
+        static-route 172.21.44.146/32 next-hop 10.147.131.26
+        static-route 172.21.44.188/32 next-hop 10.147.131.26
+        static-route 172.21.44.190/32 next-hop 10.147.131.26
+        static-route 172.21.44.191/32 next-hop 10.147.131.26
+        static-route 172.21.44.223/32 next-hop 10.147.131.26
+        static-route 172.21.44.244/32 next-hop 10.147.131.26
+        static-route 172.21.46.131/32 next-hop 10.147.131.26
+        static-route 172.21.46.132/32 next-hop 10.147.131.26
+        static-route 172.21.50.82/32 next-hop 10.147.131.26
+        static-route 172.21.50.85/32 next-hop 10.147.131.26
+        static-route 172.21.51.46/32 next-hop 10.147.131.26
+        static-route 172.21.53.95/32 next-hop 10.147.131.26
+        static-route 172.21.53.96/32 next-hop 10.147.131.26
+        static-route 172.21.53.100/32 next-hop 10.147.131.26
+        static-route 172.21.53.105/32 next-hop 10.147.131.26
+        static-route 172.21.53.107/32 next-hop 10.147.131.26
+        static-route 172.21.53.110/32 next-hop 10.147.131.26
+        static-route 172.21.54.42/32 next-hop 10.147.131.26
+        static-route 172.21.54.45/32 next-hop 10.147.131.26
+        static-route 172.21.54.48/32 next-hop 10.147.131.26
+        static-route 172.21.54.65/32 next-hop 10.147.131.26
+        static-route 172.21.54.67/32 next-hop 10.147.131.26
+        static-route 172.21.56.28/32 next-hop 10.147.131.26
+        static-route 172.21.56.55/32 next-hop 10.147.131.26
+        static-route 172.21.56.56/32 next-hop 10.147.131.26
+        static-route 172.21.56.57/32 next-hop 10.147.131.26
+        static-route 172.21.56.60/32 next-hop 10.147.131.26
+        static-route 172.21.58.41/32 next-hop 10.147.131.26
+        static-route 172.21.58.45/32 next-hop 10.147.131.26
+        static-route 172.21.58.99/32 next-hop 10.147.131.26
+        static-route 172.21.58.102/32 next-hop 10.147.131.26
+        static-route 172.21.60.49/32 next-hop 10.147.131.26
+        static-route 172.21.63.39/32 next-hop 10.147.131.26
+        static-route 172.21.63.41/32 next-hop 10.147.131.26
+        static-route 172.21.63.114/32 next-hop 10.147.131.26
+        static-route 172.21.63.144/32 next-hop 10.147.131.26
+        static-route 172.21.66.44/32 next-hop 10.147.131.26
+        static-route 172.21.66.45/32 next-hop 10.147.131.26
+        static-route 172.21.66.47/32 next-hop 10.147.131.26
+        static-route 172.21.66.48/32 next-hop 10.147.131.26
+        static-route 172.21.66.69/32 next-hop 10.147.131.26
+        static-route 172.21.69.40/32 next-hop 10.147.131.26
+        static-route 172.21.69.41/32 next-hop 10.147.131.26
+        static-route 172.21.69.42/32 next-hop 10.147.131.26
+        static-route 172.21.69.43/32 next-hop 10.147.131.26
+        static-route 172.21.69.45/32 next-hop 10.147.131.26
+        static-route 172.21.69.90/32 next-hop 10.147.131.26
+        static-route 172.21.74.41/32 next-hop 10.147.131.26
+        static-route 172.21.74.42/32 next-hop 10.147.131.26
+        static-route 172.21.81.102/32 next-hop 10.147.131.26
+        static-route 172.21.81.103/32 next-hop 10.147.131.26
+        static-route 172.21.81.105/32 next-hop 10.147.131.26
+        static-route 172.21.87.44/32 next-hop 10.147.131.26
+        static-route 172.21.87.45/32 next-hop 10.147.131.26
+        static-route 172.21.90.41/32 next-hop 10.147.131.26
+        static-route 172.29.225.241/32 next-hop 10.147.131.26
+        static-route 172.30.2.247/32 next-hop 10.147.131.26
+        static-route 172.30.3.45/32 next-hop 10.147.131.26
+        static-route 172.30.4.2/32 next-hop 10.147.131.26
+        static-route 172.30.4.3/32 next-hop 10.147.131.26
+        static-route 172.30.4.4/32 next-hop 10.147.131.26
+        static-route 172.30.4.8/32 next-hop 10.147.131.26
+        static-route 172.30.4.161/32 next-hop 10.147.131.26
+        static-route 172.30.5.55/32 next-hop 10.147.131.26
+        static-route 172.30.5.58/32 next-hop 10.147.131.26
+        static-route 172.30.5.100/32 next-hop 10.147.131.26
+        static-route 172.30.5.105/32 next-hop 10.147.131.26
+        static-route 172.30.6.106/32 next-hop 10.147.131.26
+        static-route 172.30.8.42/32 next-hop 10.147.131.26
+        static-route 172.30.8.43/32 next-hop 10.147.131.26
+        static-route 172.30.8.49/32 next-hop 10.147.131.26
+        static-route 172.30.8.50/32 next-hop 10.147.131.26
+        static-route 172.30.8.51/32 next-hop 10.147.131.26
+        static-route 172.30.8.54/32 next-hop 10.147.131.26
+        static-route 172.30.8.55/32 next-hop 10.147.131.26
+        static-route 172.30.8.56/32 next-hop 10.147.131.26
+        static-route 172.30.8.106/32 next-hop 10.147.131.26
+        static-route 172.30.9.42/32 next-hop 10.147.131.26
+        static-route 172.30.9.52/32 next-hop 10.147.131.26
+        static-route 172.30.11.44/32 next-hop 10.147.131.26
+        static-route 172.30.11.48/32 next-hop 10.147.131.26
+        static-route 172.30.11.65/32 next-hop 10.147.131.26
+        static-route 172.30.11.111/32 next-hop 10.147.131.26
+        static-route 172.30.11.112/32 next-hop 10.147.131.26
+        static-route 172.30.12.38/32 next-hop 10.147.131.26
+        static-route 172.30.12.40/32 next-hop 10.147.131.26
+        static-route 172.30.12.45/32 next-hop 10.147.131.26
+        static-route 172.30.12.49/32 next-hop 10.147.131.26
+        static-route 172.30.12.113/32 next-hop 10.147.131.26
+        static-route 172.30.12.132/32 next-hop 10.147.131.26
+        static-route 172.30.13.48/32 next-hop 10.147.131.26
+        static-route 172.30.13.51/32 next-hop 10.147.131.26
+        static-route 172.30.14.141/32 next-hop 10.147.131.26
+        static-route 172.30.14.143/32 next-hop 10.147.131.26
+        static-route 172.30.14.145/32 next-hop 10.147.131.26
+        static-route 172.30.15.43/32 next-hop 10.147.131.26
+        static-route 172.30.16.45/32 next-hop 10.147.131.26
+        static-route 172.30.16.130/32 next-hop 10.147.131.26
+        static-route 172.30.16.135/32 next-hop 10.147.131.26
+        static-route 172.30.16.136/32 next-hop 10.147.131.26
+        static-route 172.30.18.16/32 next-hop 10.147.131.26
+        static-route 172.30.19.154/32 next-hop 10.147.131.26
+        static-route 172.30.19.155/32 next-hop 10.147.131.26
+        static-route 172.30.19.156/32 next-hop 10.147.131.26
+        static-route 172.30.19.161/32 next-hop 10.147.131.26
+        static-route 172.30.19.167/32 next-hop 10.147.131.26
+        static-route 172.30.19.176/32 next-hop 10.147.131.26
+        static-route 172.30.19.177/32 next-hop 10.147.131.26
+        static-route 172.30.19.212/32 next-hop 10.147.131.26
+        static-route 172.30.20.83/32 next-hop 10.147.131.26
+        static-route 172.30.21.56/32 next-hop 10.147.131.26
+        static-route 172.30.22.23/32 next-hop 10.147.131.26
+        static-route 172.30.22.92/32 next-hop 10.147.131.26
+        static-route 172.30.22.93/32 next-hop 10.147.131.26
+        static-route 172.30.22.151/32 next-hop 10.147.131.26
+        static-route 172.30.26.16/32 next-hop 10.147.131.26
+        static-route 172.30.26.22/32 next-hop 10.147.131.26
+        static-route 172.30.26.41/32 next-hop 10.147.131.26
+        static-route 172.30.26.55/32 next-hop 10.147.131.26
+        static-route 172.30.27.55/32 next-hop 10.147.131.26
+        static-route 172.30.29.42/32 next-hop 10.147.131.26
+        static-route 172.30.32.41/32 next-hop 10.147.131.26
+        static-route 172.30.32.42/32 next-hop 10.147.131.26
+        static-route 172.30.34.41/32 next-hop 10.147.131.26
+        static-route 172.30.34.44/32 next-hop 10.147.131.26
+        static-route 172.30.36.5/32 next-hop 10.147.131.26
+        static-route 172.30.36.6/32 next-hop 10.147.131.26
+        static-route 172.30.36.7/32 next-hop 10.147.131.26
+        static-route 172.30.36.31/32 next-hop 10.147.131.26
+        static-route 172.30.36.40/32 next-hop 10.147.131.26
+        static-route 172.30.36.46/32 next-hop 10.147.131.26
+        static-route 172.30.36.56/32 next-hop 10.147.131.26
+        static-route 172.30.36.58/32 next-hop 10.147.131.26
+        static-route 172.30.38.10/32 next-hop 10.147.131.26
+        static-route 182.72.142.46/32 next-hop 10.147.131.61
+        static-route 210.212.40.162/32 next-hop 10.147.131.26
+        static-route 218.248.82.192/29 next-hop 10.147.128.110
+#--------------------------------------------------
+echo "Policy Configuration"
+#--------------------------------------------------
+        policy-options
+            begin
+            policy-statement "STATIC-to-OSPF"
+                entry 10
+                    from
+                        protocol static
+                    exit
+                    to
+                        protocol ospf
+                    exit
+                    action accept
+                    exit
+                exit
+                entry 20
+                    from
+                        protocol direct
+                    exit
+                    to
+                        protocol ospf
+                    exit
+                    action accept
+                    exit
+                exit
+            exit
+            commit
+        exit
+#--------------------------------------------------
+echo "Web Portal Protocol Configuration"
+#--------------------------------------------------
+    exit
+
+#--------------------------------------------------
+echo "Service Configuration"
+#--------------------------------------------------
+    service
+        customer 1 create
+            description "Default customer"
+        exit
+    exit
+#--------------------------------------------------
+echo "Router (Service Side) Configuration"
+#--------------------------------------------------
+    router
+#--------------------------------------------------
+echo "OSPFv2 Configuration"
+#--------------------------------------------------
+        ospf
+            asbr
+            export "STATIC-to-OSPF"
+            area 0.0.0.0
+                interface "system"
+                    interface-type point-to-point
+                    no shutdown
+                exit
+                interface "LAG-2"
+                    interface-type point-to-point
+                    no shutdown
+                exit
+                interface "loopback"
+                    interface-type point-to-point
+                    no shutdown
+                exit
+            exit
+        exit
+    exit
+
+#--------------------------------------------------
+echo "OAM Tests Configuration"
+#--------------------------------------------------
+    test-oam
+        twamp
+            server
+                shutdown
+            exit
+        exit
+    exit
+
+exit all
+
+# Finished MON OCT 09 12:20:06 2023 UTC
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#
+A:SAS_NRTH_R2#

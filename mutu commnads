@@ -1,0 +1,1005 @@
+To view the directory----> ls -lrth | grep ^d
+For unzip file-----> gunzip file.gz
+
+!!!!!!!!!!!! Router commands!!!!!!
+
+A:SZ_MATED_R1# history
+   1 show port
+   2 show port 1/1/15 detail
+   3 show port
+   4 show port 1/1/21 detail
+   5 show port 1/1/22 detail
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+To enable FTP Service in ATCA
+
+!=============================!
+
+service vsftpd status
+
+service vsftpd start
+
+service vsftpd stop
+
+
+!!!!!!!!!!!webdb!!
+
+run this file which is available in /u/ainet----> get_mas_db.sh and output file like 
+
+
+
+e164.calling_party_number.digits == "919443400996"
+
+*A:SZ_MATED_R1# show log log-id 99 (Router)
+
+grep 919443826114 SubscriberDump_20211129.csv----->single number dump
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+editcap -A '2021-11-26 16:28:00' -B '2021-11-26 16:30:00' ATCA1_47_09917_20211126161951.pcap  test1.pcap
+editcap -A '2021-11-26 16:28:00' -B '2021-11-26 16:30:00' CAP1247_09143_20211126160744.pcap  test2.pcap
+editcap -A '2021-11-26 16:28:00' -B '2021-11-26 16:30:00' ATCA1_58_03725_20211126142530.pcap  test3.pcap
+editcap -A '2021-11-26 16:28:00' -B '2021-11-26 16:30:00' CAP1258_03364_20211126155801.pcap  test4.pcap
+
+mergecap -w Learing_test2.pcap test1.pcap test2.pcap test3.pcap test4.pcap
+
+!!!!!!!!!!!!!!!!!!!!!!!!1
+
+rm *20211120*
+rm *20211120*
+
+op:meas=TRFC5,TABLE="SPA_EPPSA29J_MEAS1",DATE=20211122,TIME=0005;
+op:meas=TRFC5,TABLE="SPA_EPPSA29J_MEAS1",DATE=20211122,TIME=0010;
+op:meas=TRFC5,TABLE="SPA_EPPSA29J_MEAS1",DATE=20211122,TIME=0015;
+op:meas=TRFC15,TABLE="SPA_EPAY29J_MEAS8",DATE=20211122,TIME=0015;
+
+
+!!!!!!!Single number dump!!!!!
+
+BACKUP:DB=SIMDB28I,dest="/u/ainet/SIMDB_rec_919965152662_1",partialkey=919965152662;
+
+* ****
+*/1,*/3,*/5,*/7,*/9
+
+60/1==60
+60/3=20
+60/5=12
+60/7=8
+60/9=6
+sps111root#df -kh
+
+strings filename | grep msisdn
+
+Filesystem            Size  Used Avail Use% Mounted on
+
+/dev/cciss/c0d0p3     7.6G  4.9G  2.3G  69% /
+
+/dev/cciss/c0d0p6      34G   24G  8.6G  74% /var
+
+/dev/cciss/c0d0p7      12G  1.8G  9.0G  17% /tmp
+
+/dev/cciss/c0d0p2     191G  181G     0 100% /osp
+
+/dev/cciss/c0d0p1     965M   29M  888M   4% /boot
+
+tmpfs                  24G     0   24G   0% /dev/shm
+
+ 
+
+sps111root#du -sh /osp/tmp/selfcare/
+
+31G     /osp/tmp/selfcare/
+
+sps111root#cd /osp/tmp/selfcare/
+
+sps111root#ls -lrth|head
+
+total 31G
+
+-rwxrwxrwx 1 linus in   84 Apr 12 13:07 rmspay.sh
+
+-rw-r--r-- 1 linus in  21M Sep  8 13:00 spay_2021090813:00:01
+
+-rw-r--r-- 1 linus in  21M Sep  8 13:00 spay1_2021090813:00:05
+
+-rw-r--r-- 1 linus in  28M Sep  8 13:00 spay2_2021090813:00:09
+
+-rw-r--r-- 1 linus in  21M Sep  8 13:00 spay3_2021090813:00:14
+
+-rw-r--r-- 1 linus in  21M Sep  8 13:30 spay_2021090813:30:01
+
+-rw-r--r-- 1 linus in  21M Sep  8 13:30 spay1_2021090813:30:04
+
+-rw-r--r-- 1 linus in  28M Sep  8 13:30 spay2_2021090813:30:08
+
+-rw-r--r-- 1 linus in  21M Sep  8 13:30 spay3_2021090813:30:13
+
+sps111root#ls -lrth|tail
+
+-rw-r--r-- 1 linus in    0 Sep 16 12:00 spay3_2021091612:00:01
+
+-rw-r--r-- 1 linus in    0 Sep 16 12:30 spay_2021091612:30:02
+
+-rw-r--r-- 1 linus in    0 Sep 16 12:30 spay1_2021091612:30:02
+
+-rw-r--r-- 1 linus in    0 Sep 16 12:30 spay2_2021091612:30:02
+
+-rw-r--r-- 1 linus in    0 Sep 16 12:30 spay3_2021091612:30:02
+
+-rw-r--r-- 1 linus in    0 Sep 16 13:00 spay_2021091613:00:01
+
+-rw-r--r-- 1 linus in    0 Sep 16 13:00 spay1_2021091613:00:01
+
+-rw-r--r-- 1 linus in    0 Sep 16 13:00 spay2_2021091613:00:01
+
+-rw-r--r-- 1 linus in    0 Sep 16 13:00 spay3_2021091613:00:01
+
+drwxrwxrwx 2 linus in 4.0K Sep 16 13:00 logs
+
+ 
+
+These files contain as follows: -
+
+ 
+
+sps111root#tail spay3_2021091613:00:01
+
+sps111root#tail spay3_2021090813:30:13
+
+Aug 10, 2021 11:12:47 AM com.alcatel.osp.osptypes.ObjEncode addValue
+
+FINER: addValue : spare_str2
+
+Aug 10, 2021 11:12:47 AM com.alcatel.osp.osptypes.ObjEncode addValue
+
+FINER: addValue :
+
+Aug 10, 2021 11:12:47 AM com.alcatel.osp.osptypes.ObjEncode encodeString
+
+FINER: encoding spare_str3, value :
+
+Aug 10, 2021 11:12:47 AM com.alcatel.osp.osptypes.ObjEncode addValue
+
+FINER: addValue : spare_str3
+
+Aug 10, 2021 11:12:47 AM com.alcatel.osp.osptypes.ObjEncode addValue
+
+FINER: addValue :
+
+ 
+
+These files can be deleted to resolve the issue.
+
+Kindly confirm the same.
+
+ 
+
+scp
+In ESM, sqlplus
+Enter user-name: sms
+select * from S01_APDZ_TBL; 
+SQL> select * from tab;
+
+select * from S08_ROUTSIM
+select * from S04_SIM_RTDB
+select count(*) from S08_ROUTSIM;
+select count(*) from S04_SIM_RTDB;
+select count(*) FROM svcobj where OWNERNAME='corc';
+select count(*) FROM svcobj where OWNERNAME='root';
+
+
+Pls collect file "/etc/psp/ipm.cfg" from Active Pilot.
+Run "telnet" on Malban Switch host 0-0-7
+once you reach malban host 0-0-7 run:
+
+PVlan
+sfp -1  
+sfp 1 ena
+(wait for several seconds here)
+
+sfp -1
+ 
+
+See below how R&D team tested in local LAB:
+
+root@Malban-0-0-7:~# telnet localhost 2000
+Trying 127.0.0.1...
+Connected to localhost.localdomain.
+Escape character is '^]'.
+ 
+
+expander>PVlan
+Port ge0 default VLAN is 7
+Port ge1 default VLAN is 9
+Port ge2 default VLAN is 1
+Port ge3 default VLAN is 13
+Port ge4 default VLAN is 71
+ 
+
+expander>sfp -1   
+SFP[00] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[01] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-DN : xxxxx-HD  
+SFP[02] = ----------- (############) is not present 
+SFP[03] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[04] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[05] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+ 
+
+expander>sfp 1 ena
+SFP[01] = SFP is enable 
+ 
+(wait for several seconds here)
+ 
+expander>sfp -1   
+SFP[00] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[01] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[02] = ----------- (############) is not present 
+SFP[03] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+
+/usr/psp/sbin/ipm_cli -a dump -t status
+
+/opt/config/lib/config_netboot
+
+BACKUP:DB=SGLDB286,DEST="/billbackup/dump/SGL19Mar.csv"
+
+cat /sn/sps/*/version----> To check SPA version
+
+~~~~~~!!!!!!!!!!!!!!!!!!
+cd /cdr/ap/april/ccdb3
+ls -lrth
+cd /cdr/ap/april/ccdb4
+ls -lrth
+cd /cdr/tn/april/ccdb1
+ls -lrth
+cd /cdr/tn/april/ccdb2
+ls -lrth
+cd /cdr/ktk/april/ccdb6
+ls -lrth
+cd /cdr/ktk/april/ccdb9
+ls -lrth
+cd /cdr/ker/april/ccdb7
+ls -lrth
+cd /cdr/ker/april/ccdb8
+ls -lrth
+cd /cdr/ker/april/ccdb10
+ls -lrth
+
+!!!!!!!!!!!!!!!!
+cat /cdr/ap/april/ccdb3.txt
+cat /cdr/ap/april/ccdb4.txt
+cat /cdr/tn/april/ccdb1.txt
+cat /cdr/tn/april/ccdb2.txt
+cat /cdr/ktk/april/ccdb6.txt
+cat /cdr/ktk/april/ccdb9.txt
+cat /cdr/ker/april/ccdb7.txt
+cat /cdr/ker/april/ccdb8.txt
+cat /cdr/ker/april/ccdb10.txt
+
+
+
+
+!!!!!!!!!! Board Memory check!!!!!
+
+for i in {0,1}
+do
+for j in {1..14}
+do
+ssh -q 0-$i-$j "hostname; cat /proc/meminfo|grep MemTotal";
+done
+done
+
+!!!!!!
+
+op:meas=TRFC5,TABLE="SA_SPAMEAS";
+
+select * from tab where name like '%AP%';
+
+!!!!!!!!!!monitor link utilization in Router!!!!!!!
+
+monitor port 1/1/3 rate interval 3
+
+!!!!!!!!!!! HDD initialize!!!!!!!1
+
+/usr/bin/SMcli 169.254.104.1 169.254.168.1 -c 'start drive [0,12] initialize;'
+/usr/bin/SMcli 169.254.104.1 169.254.168.1 -c 'start drive [0,12] reconstruct;'
+
+ 
+
+Check the progress:
+
+ 
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld00_0"] actionProgress;'
+
+ 
+
+Then check the status in below command:
+
+ 
+
+/cs/sn/ft/FTlsicli -a 0-0 show drives
+
+chown billing:billing 2021265
+
+!!!!!!!!!!PRMlog & Message log!!!!!
+
+From Pilot blade, please run HELPME disks
+
+ 
+
+Then loginto 0-0-5 ( ssh 0-0-5) then collect below logs & share:
+
+ 
+
+PRMLog Path => /opt/sn/tmp/log
+
+/var/log---> ipmlog
+
+cd message
+
+ 
+
+Execute below commands and share. Collect the logs from putty output & reply to L2 team.
+
+ 
+
+smartctl -a /dev/sdb
+
+smartctl -a /dev/sda 
+
+!!!!!!!!!!!
+
+cd /snlog/
+ls -ltrh OMlog*
+ls -ltrh OMlog* | tail
+grep 918078162768 OMlog*Sep24*
+
+!!!!!!!!!!!!
+
+!!!CDR extract from same day single file!!!!!
+
+/ubilling/repository/20210922-
+
+nohup /ubilling/vignesh/decode_ama v28j -c -m 919444034146 /ubilling/repository/20211120/2021324 /cs/sn/bill/ama.filter 2048 | grep -v Decode | grep 919444034146 > /workspace/muthu/919444034146_NOV20.csv &
+
+/ubilling/repository
+
+ps -ef | grep 919400101007
+
+
+nohup /ubilling/vignesh/decode_ama v28j -c -m 919443826114 /ubilling/primary/2021332 /cs/sn/bill/ama.filter 2048 | grep -v Decode | grep 919443826114 > /workspace/muthu/919443826114_Nov28_1.csv &
+
+!!!!!SMPP TPS!!!!!
+op:meas=TRFC5,TABLE="SPA_EPPSA29J_MEAS1",DATE=20210924,TIME=0020;
+op:meas=TRFC5,TABLE="SPA_EPPSA29J_MEAS1",DATE=20210924,TIME=0025;
+op:meas=TRFC5,TABLE="SPA_EPPSA29J_MEAS1",DATE=20210924,TIME=0030;
+
+!!!!!!!!!!!!!!
+rcv:menu;
+!!!!!!!!!!!!
+
+!!!!!!!CDR Extract in single as per time based!!!!!!!!
+
+/ubilling/vignesh/decode_ama v28j -c -m 919444034146 /billbackup/processed/amabackup/20211120/mcas11.20211120215000.ama.1310 /cs/sn/bill/ama.filter 2048 | grep -v Decode | grep 919444034146 > /workspace/muthu/919444034146_201121.csv
+
+event label 2, event result 1
+
+!!!!!
+
+in mysql---> head -10 January-06-AP-ccdb3.csv > input.csv
+
+!!!!
+!!!!!!!!!!!! SIMRTDB Comparision b/w MAIN and MATED!!!!!
+
+awk '{print $2, " ", $27}' SubscriberDump_20210927_MainATCA3.csv > /workspace/SIMDB_Main3.csv
+
+awk '{print $2, " ", $27}' SubscriberDump_20210927_MatedATCA3.csv > /workspace/SIMDB_Mated3.csv
+
+ 
+
+sort SIMDB_Main4.csv  > SIMDB_Main4_New.csv
+
+
+sort SIMDB_Mated4.csv > SIMDB_Mated4_New.csv
+
+sort SIMDB_Mated2.csv > SIMDB_Mated2_New.csv
+
+
+
+Option1:
+
+cat /etc/hosts
+
+scp -p SIMRTDBUPD_20211025.csv.gz rtdbxfer:/billbackup/dump
+
+scp -p *SIMDB28I*.1126* 0-0-1:/workspace/muthu 
+
+Option2:
+
+scp -p SIMDB_Mated4_New.csv ainet@10.42.208.13:/workspace/
+
+ 
+
+comm -13 SIMDB_Main4_New.csv SIMDB_Mated4_New.csv > SIM_Diff.csv
+
+comm -23 SIMDB_Main4_New.csv SIMDB_Mated4_New.csv > SIM_Diff1.csv
+
+!!!!!!!!!!!!
+
+AUDITMON
+
+
+SPAY-0-0-1:/snlog-# ls -l /snlog/audit.log
+
+-rwxrwxrwx 1 root root 67315304 Sep 27 07:37 /snlog/audit.log
+
+ 
+
+ii)chmod 600 /snlog/audit.log
+
+ 
+service auditd status
+
+
+iii) service auditd start
+
+iv)  service auditd status
+
+ 
+
+go to subshl
+
+ 
+
+v) init:proc=AUDITMON,level=1,machine=0-0-1;
+
+ 
+
+vi) op:init,proc=AUDITMON;
+
+!!!!!!!!!!!
+
+hwclock -w -u --noadjfile
+
+!!!!! PRMLog!!!!!!
+
+Sz1OTH1-0-0-1:/opt/sn/tmp/log-# scp -p PRMlog* 0-0-9:/workspace/
+
+/opt/sn/tmp/log
+
+
+ scp -p PRMlog* 0-0-9:/workspace/
+ scp -p debuglog16 /workspace/muthu
+ ls -ltrh debuglog*
+ ssh 0-0-1
+ ssh 0-0-SHMC
+ ls -lrth | tail
+ mv muthu debuglog16---> Rename
+
+!!!!!!!!!!! 7210 Router commands!!!!!!!
+admin display-configuration
+show port
+monitor port 1/1/1 rate interval 3
+show port 1/1/1 detail
+logout
+
+!!!!!!!!!!!!!!!!!
+
+smartctl -a /dev/sdb
+
+smartctl -a /dev/sda
+!!!!!!!!!!!!!!!
+
+!!!!!!!!! UnTAR!!!!
+tar -xvf 20211120.tar
+
+nohup tar -xvf 20211028.tar &
+
+!!!!!!!
+
+logCat aol261.00.42 > aol261.00.42_1
+more aol261.00.42
+
+!!!North Zone In ESM, Provisioning!!!!!
+
+cd /sms/billing/archive_wsagentlog
+
+cd /sms/smslog/wsagent
+
+ls -lrt | wc -l
+
+grep specified wsagent_*.20211020*
+
+su - sms
+crontab -l
+soap.log file
+
+logCAT soap.log file name
+ls -lrt | more
+grep -i specified(key word) file name wsagent
+
+to check ESM Version: go to su - sms-->then give command smsvers
+
+
+!!!!!!!!!!!!!!!!!
+
+Hello Aarti/Anita,
+
+ 
+
+Please find the script attached and we have also kept the script on Selfcare PSMF. Few Details about the script are described below:
+
+ 
+
+Script Name : mv_refresh_check.sh
+
+Script Location : PSMF(PCS102) :  /osp/local/home/linus/ALU-ITEC
+
+Script Help Menu : Script help menu will guide you about the expectations the script expects.
+
+ 
+pcs102 linus> ksh mv_refresh_check.sh -H
+
+Thu Oct  7 16:53:26 IST 2021
+
+ 
+
+Usage:
+
+      ksh mv_refresh_check.sh -s <service_name> -h <hostname>
+
+ 
+
+Mandatory Arguments :
+
+        -s      Enter the Service Name
+
+        -h      Enter the hostname Name
+
+                Here you can input multiple hostnames using -h option repeatedly.
+
+        -H      Prints the HELP menu for this script
+
+ 
+
+ 
+
+For Example :
+
+        ksh mv_refresh_check.sh -s <service_name> -h <hostname>
+
+        ksh mv_refresh_check.sh -s <service_name> -h <host1> -h <host2> -h <host3>          
+
+ 
+
+Logging details :
+
+Log file is generated under /osp/local/var/log/monitor_mv_refresh.log
+
+ 
+
+Crontab Suggestions:
+
+We suggested to run this script at every 6 hours.
+
+ 
+
+Sample Output is pasted below as screenshot
+
+
+vi editor
+
+@@@@@@@@@@@@@ how to find correlation ID and ARI messages!!!!!!!!!!!!
+
+The steps to find correlation ID are:
+
+From ETC message take last four digits of AssistingSSIPRoutingAddress
+Ex:. 5390
+
+ 
+
+
+
+Flip flop the last four digits.
+Ex. 3509
+
+Now for ARI request search use below filter
+Ex: camel.correlationID == 00:80:1f:05:09
+
+!!!!!!!!!!!
+select * from S01_APDZ_TBL@esm
+
+1010000007 103 PSCall:bsnlpublic PSCall bsnlpublic czBSNLPUBLIC
+1010000007 103 GPRS_GID:bsnlnokia GPRS_GID bsnlnokia czBSNLNET
+1010000007 103 PSCall:bsnlnokia PSCall bsnlnokia czBSNLNET
+1010000007 103 PSCall:bsnltest PSCall bsnltest cz4GNET
+1010000007 103 PSCall:test PSCall test cztestAT
+1010000007 103 PSCall:4gtest PSCall 4gtest cz4GNET
+1010000007 103 GPRS_GID:test GPRS_GID test cztestAT
+1010000007 103 PSCall:bsnlcacms PSCall bsnlcacms czBSNLCACMS
+1010000007 103 PSCall:bsnllive PSCall bsnllive czBSNLLIVE
+1010000007 103 PSCall:bsnlnet PSCall bsnlnet czBSNLNET
+1010000007 103 PSCall:bsnlocs PSCall bsnlocs czBSNLNET
+1010000007 103 PSCall:bsnlstream PSCall bsnlstream czBSNLSTREAM
+1010000007 103 PSCall:bsnlqmdo PSCall bsnlqmdo czBSNLWIFI
+1010000007 103 PSCall:bsnlpace PSCall bsnlpace czBSNLPACE
+1010000007 103 PSCall:BSNLNOKIA PSCall BSNLNOKIA cz4GNET
+1010000007 103 GPRS_GID:bsnlnet GPRS_GID bsnlnet czBSNLNET
+1010000007 103 PSCall:bsnlmpassport PSCall bsnlmpassport czBSNLMPASSPORT 
+!!!!!!!!!!
+
+ 
+
+Once ARI is found – use the transaction ID to search PA\PACUI\SRR messages
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+snlog
+
+
+ Sub ID = <919943531933> Mode <1179>
+   Sub ID = <919443022871> Mode <1179>
+   Sub ID = <919443400904> Mode <1179>
+   Sub ID = <919444587073> Mode <1179>
+
+
+!!!!!!!!!!!!!!!!! Single number Trace or EPay Trace or Sub Trace --Trace anable!!!!!!
+From Subshl
+
+snd:text="SET:SUBTRACE,MSISDN=919443400996,mode=1179,1170,1178,1208,1192,IDTYPE=S",rk=PPSIMOMKey;
+ From Active pilot blade:
+ (go to root user)
+Cd /workspace
+ tailer d >919443400996_031221_1.tra
+Make call
+./LogCMB 919443400996_031221_1.tra
+ From Subshl
+ snd:text="SET:SUBTRACE,MSISDN=919443400996,mode=off",rk=PPSIMOMKey;
+
+!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!pcapTrace in IO Blade for !!!!!
+
+Sz1OCS1-0-0-4 (IO Blade):/root-# cd /PLATsoftware/cust_use/home/
+
+
+/usr/sbin/tshark -i eth4.7      -b filesize:1000000 -w /PLATsoftware/cust_use/home/47_1.pcap
+/usr/sbin/tshark -i eth5.8      -b filesize:1000000 -w /PLATsoftware/cust_use/home/58_1.pcap
+/usr/sbin/tshark -i eth4.7 -b filesize:1000000 -w /PLATsoftware/cust_use/home/1247_1.pcap
+/usr/sbin/tshark -i eth5.8 -b filesize:1000000 -w /PLATsoftware/cust_use/home/1258_1.pcap
+
+!!!!!!!!
+
+snd:text="QRY:SUBTRACE",rk=PPSIMOMKey;
+
+snd:text="QRY:SUBTRACE",rk="PPSIMOMKey";
+grep QRY OMlog*
+
+ Sub ID = <917598936622> Mode <1179>
+   Sub ID = <918547199002> Mode <1179,1170,1178,1208,1192>
+
+Sub ID = <917598936622> Mode <1179>
+   Sub ID = <918547199002> Mode <1179,1170,1178,1208,1192>
+
+snd:text="SET:SUBTRACE,MSISDN=917598936622,mode=off",rk=PPSIMOMKey;
+snd:text="SET:SUBTRACE,MSISDN=918547199002,mode=off",rk=PPSIMOMKey;
+snd:text="SET:SUBTRACE,MSISDN=919444587073,mode=off",rk=PPSIMOMKey;
+
+snd:text="SET:SUBTRACE,MSISDN=918301900018,mode=1179,1170,1178,1208,1192,IDTYPE=S",rk=PPSIMOMKey;
+
+tailer d > SRP_TRace.tra---->Single numer trace
+
+
+grep 9443022871 OMlog*
+
+!!!!!
+pcap Traces
+
+workspace/races--->Old date Traces
+PLATsoftware/cust_use/home---> Current date trace
+
+
+!!!!!!!
+
+sn log----> measlog,OMlog, & Debug
+
+b/W esm & ATCA related error---> we need to check SMI log
+
+!!!! crontab -l in ATCA!!!!!
+
+Sz2OCS1-0-0-4:/root-# crontab -l
+#ident"@(#)root1.1294/03/24 SMI"/* SVr4.0 1.1.3.1*/
+#
+# The root crontab should be used to perform accounting data collection.
+#
+# Lines added by psp application follow
+53 0 * * * /var/ainet/bin/cleanlogs
+*/5 * * * * /usr/sbin/KillIdleSessions
+48 2 * * * /usr/sbin/LockIdleAccounts
+0,10,20,30,40,50 * * * * /usr/sbin/ProcessInactivity
+20 * * * * /usr/sbin/SecCsopMsg.cron
+8 4 * * * /usr/sbin/suAudit -c
+#00 09 * * * sh /u/ainet/bin/BundleThrNotif.sh > /u/ainet/bin/BundleThrNotif.log 2>&1
+*/5 * * * * /u/ainet/TRACES/tracechk >>/u/ainet/TRACES/tracechk.log 2>&1
+*/9 * * * * /PLATsoftware/cust_use/home/move.sh >/dev/null 2>&1
+
+!!!!!!
+
+Nth1OCS1-0-1-10:/root-#
+
+diameter.Subscription-Id-Data == "919791122236"
+
+diameter.Session-Id == "RCPZCHN1.zte.com;671586820;2453643090;1335;586" || diameter.Session-Id == "ARDGGSN1.bsnl.com;1633546008;512115121;20de3d00"
+
+!!!!!!!!!!!!!!
+PCAP Trace in IOB Blade (0-0-4 or 0-0-12)
+
+Sz1OCS1-0-0-12:/root-# crontab -l
+
+#ident"@(#)root1.1294/03/24 SMI"/* SVr4.0 1.1.3.1*/
+#
+# The root crontab should be used to perform accounting data collection.
+#
+# Lines added by psp application follow
+53 0 * * * /var/ainet/bin/cleanlogs
+*/5 * * * * /usr/sbin/KillIdleSessions
+48 2 * * * /usr/sbin/LockIdleAccounts
+0,10,20,30,40,50 * * * * /usr/sbin/ProcessInactivity
+20 * * * * /usr/sbin/SecCsopMsg.cron
+8 4 * * * /usr/sbin/suAudit -c
+*/5 * * * * /u/ainet/TRACES/tracechk >>/u/ainet/TRACES/tracechk.log 2>&1
+00 11 * * *  sh /u/ainet/bin/smszip.sh >> /u/ainet/bin/smszip.log 2>&1
+*/9 * * * * /PLATsoftware/cust_use/home/move.sh >/dev/null 2>&1
+#00 04 * * * /usr/bin/perl /u/ainet/bin/Bundle_Expiry_Send_SMS.pl >> /u/ainet/bin/log_`date +\%Y\%m\%d`.log 2>&1
+#00 04 * * * sh /u/ainet/bin/Bundle_Expiry.sh >> /u/ainet/bin/Bundle_Expiry.log
+##*/9 * * * * /PLATsoftware/cust_use/home/move1.sh >/dev/null 2>&1
+##30 * * * *sh /PLATsoftware/cust_use/home/ainet/TRACES/RotateStatLog.sh >/dev/null 2>&1
+
+!!!!Sz1OCS1-0-0-12:/root-# cat /PLATsoftware/cust _use/home/move.sh!!
+
+!!!!!Output below!!!!!!
+
+cd /PLATsoftware/cust_use/home/
+ls -ltrh *.pcap|grep 977M|awk '{print $9}' > /PLATsoftware/cust_use/home/move
+for i in `cat /PLATsoftware/cust_use/home/move`
+do
+scp -p $i 0-0-1:/workspace/TRACES/.;rm  $i
+echo $i
+done
+
+!!!!!!!!!!! Sz1OCS1-0-0-12:/root-# cat /u/ainet/TRACES/tracechk!!!
+
+!!!Output!!
+
+a=`ps -ef|grep tshark|wc -l`
+echo $a
+if [ $a -eq 1 ]
+then
+nohup /usr/sbin/tshark -f "port 5016" -i any -b filesize:1000000 -w /PLATsoftware/cust_use/home/test1.pcap &
+nohup /usr/sbin/tshark -i eth5.8 -b filesize:1000000 -w /PLATsoftware/cust_use/home/CAP1258.pcap &
+nohup /usr/sbin/tshark -i eth4.9 -b filesize:1000000 -w /PLATsoftware/cust_use/home/ATCA1_Dia.pcap &
+fi
+
+!!!!!!!!!!!!!!!
+
+Sz1OCS1-0-0-1:/root-# cat /etc/hosts | grep -i sms
+10.42.208.68    nsmssg NSMSsg
+10.42.160.160   smsc-sz1ocs1
+#10.19.247.96 smsc-sz1ocs1
+!!!!!!!!!
+
+UserTask ->/sms/smslog/usertask/uol*
+/sms/smsapp/bin/logCat uol* > uol_deletion.log
+
+
+cd /PLATsoftware/cust_use/home/
+ls -ltrh *.pcap|grep 977M|awk '{print $9}' > /PLATsoftware/cust_use/home/move
+for i in `cat /PLATsoftware/cust_use/home/move`
+do
+scp -p $i 0-0-1:/TRACE_DUMP/;rm $i
+echo $i
+done
+
+00 2,6,10,14,18,22 * * * /PLATsoftware/cust_use/home/move.sh >>/PLATsoftware/cust_use/home/move.log 2>&1
+
+scp -p alcatel_err.log ainet@169.254.128.1:/TRACE_DUMP/
+
+!!!!!!!!!!!!!
+
+In SIMDB, 5 Bundle, 10 Bucket saved, more than 10 it will save on CNTRTDB, 
+
+rcv:menu; 5, 10
+
+
+Page no: 4,8,&12
+
+smartctl -a  /dev/sdb
+
+!!!!!!!!!!!
+
+30 22 * * * sh /u/ainet/bin/clr_local_bkp.sha
+
+/u/ainet/bin/clr_local_bkp.sh
+
+cd /RTDB_DUMP
+find ./ -type d ! -name . -prune -o -mtime +6  |grep .bak |xargs rm -r
+
+
+
+!!!!!!!!!!!!!1
+
+1)/sms/smslog/wsagent/wsagent_0
+
+  tail -f wsagent_0 > wsagent_TR.txt
+
+2)/sms/smstmp/debug/plat/easNeTrace -> EASNE
+
+  tail -f easNeTrace > easNeTrace_TR.txt
+
+3)/sms/smslog/ne/        -> NEI Log
+
+4)NEintf -> /sms/smslog/neintf
+
+5)/sms/smslog/snmpalarm -> snmplog
+
+6)WO logs -> /sms/smslog/workorder
+
+7)UserTask ->/sms/smslog/usertask/uol*
+
+               /sms/smsapp/bin/logCat err337.13.29 > err337.13.29_1.log
+
+As sms user, got to the path of log file, e.g. if you want to collect the sms error logs under - /sms/smslog/smserr
+
+Then, execute with giving start date-time and end date-time like below
+
+cd /sms/smslog/smserr
+
+logCat -d /sms/smslog/smserr -l err -a"11/26/2021 00:00" -z"11/26/2021 10:00" > eSM_SMS_Err.log
+logCat -d /sms/smslog/ne -l cor -a"12/3/2021 08:00" -z"12/3/2021 13:49" > ne_Err.log
+
+8)aheasync -> /sms/smslog/aheasync/ahe*
+
+9)asyncmgr -> /sms/smslog/asyncmgr
+
+10)Error Log/smserr- > /sms/smslog/smserr
+
+11)alarm -> /sms/smslog/alarm
+
+12)devlog -> /sms/smslog/devlog
+
+nohup gzip file name &
+
+446771038
+ap1m4h98
+
+ls -d */
+
+./fwadm_check bono 0-0-14 1 1 0-0-SHMC
+
+!!!!!!!!!!! SoftwareProgramAbnormallyTerminated!!!!!1
+
+SPAY-0-0-1:/snlog-# ls -l /snlog/audit.log
+
+i) service auditd start
+
+ii)  service auditd status
+ 
+go to subshl
+
+iii) init:proc,=AUDITMON,level=1,machine=0-0-1;
+
+iv) op:init,proc=AUDITMON;
+
+!!!! To clear webmt alarm!!!
+
+init:proc=FTSNMP,level=1,ucl;
+
+init:proc=FTOAM,level=1,ucl;
+
+!!!!!!!!!!
+
+Pls collect file "/etc/psp/ipm.cfg" from Active Pilot.
+Run "telnet" on Malban Switch host 0-0-7
+once you reach malban host 0-0-7 run:
+
+PVlan
+sfp -1  
+sfp 1 ena
+(wait for several seconds here)
+
+sfp -1
+ 
+
+See below how R&D team tested in local LAB:
+
+root@Malban-0-0-7:~# telnet localhost 2000
+Trying 127.0.0.1...
+Connected to localhost.localdomain.
+Escape character is '^]'.
+ 
+
+expander>PVlan
+Port ge0 default VLAN is 7
+Port ge1 default VLAN is 9
+Port ge2 default VLAN is 1
+Port ge3 default VLAN is 13
+Port ge4 default VLAN is 71
+ 
+
+expander>sfp -1   
+SFP[00] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[01] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-DN : xxxxx-HD  
+SFP[02] = ----------- (############) is not present 
+SFP[03] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[04] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[05] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+ 
+
+expander>sfp 1 ena
+SFP[01] = SFP is enable 
+ 
+(wait for several seconds here)
+ 
+expander>sfp -1   
+SFP[00] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[01] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD  
+SFP[02] = ----------- (############) is not present 
+SFP[03] = 1G-COPPER   (FCLF-8521-3-) is present - AutoNeg is ON  : LNK-UP :   1GB-FD 
+
+cat /sn/sps/*/version---> to get SPA version
+
+
+!!!!!!!!!!!!! OMNI Switch 6850!!!!!
+
+1 show system
+2 show log swlog
+3 show configuration snapshot
+4 show ntp status
+5 show ntp client
+6 show ntp server
+7 show interfaces
+8 show chassis
+9 show ?
+10 show
+11 show running-directory
+12 show stack
+13 show stack ?
+14 show stack topology
+15 show history
+
+!!!!!!!!!!!!!!!!!!!!!!! Hanged session problem of MSIDN 7589595614!!!!!!!!!!1
+
+We have checked  there is no hanged sessions are observed for shared number as mentioned below .
+
+*>  1. ACCOUNT_IDL                     917589595614
+    2. PRIM_CLIENT_CC_ID               client_cc_not_specified
+    3. SEC_CLIENT_CC_ID                client_cc_not_specified
+    4. PRIM_CLIENT_ID_TOKEN            0
+    5. SEC_CLIENT_ID_TOKEN             0-----> This Need to check
+    6. CLIENT_ID_ON_PRIM               0-----> This Need to check
+    7. CLIENT_ID_ON_SEC                0
+    8. PRIM_SCP_DIRTY_BIT              N
+    9. SEC_SCP_DIRTY_BIT               N
+   10. PRIM_ONGOING_CS_FLAG            N
+   11. PRIM_ONGOING_PS_FLAG            N
+   12. SEC_ONGOING_CS_FLAG             N
+   13. SEC_ONGOING_PS_FLAG             N
+
+!!!!!!!!!!!!!!!!!!!!!
+
+ls -lrth |grep "0 Nov"|wc -l
+find -size 0 -print |wc -l
+find -size 0 -print -delete
+ls -lrth |grep "Nov 28"|wc -l
+scp -p *Nov 28* /tmp
+
+
+
+
+ 

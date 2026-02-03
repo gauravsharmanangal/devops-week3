@@ -1,0 +1,493 @@
+Using username "rptuser".
+Last login: Wed Aug 27 15:25:00 2025 from 10.147.50.82
+[rptuser@misdb3 ~]$ crontab -l
+#For Updating Current Date for Uploading data in CDR Table Info Table
+1 0 * * * sh /home/rptuser/reporting-apps/updatetableinfo/updatetableinfo/Startup.sh >> /home/rptuser/reporting-apps/updatetableinfo/updatetableinfo/updateinfo.log 2>&1
+
+30 0 * * * sh  /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/calpproc.sh>>/home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/callproc.txt 2>&1
+
+
+1 09 * * * sh /home/rptuser/reporting-apps/SancharSoft/Sancharsoftssd.sh >> /home/rptuser/reporting-apps/SancharSoft/Sancharsoftssd.log 2>&1
+
+#30 08 * * * sh /home/rptuser/reporting-apps/Dumpftp/BillingDumpftp/BillingftpHAR.sh >> /home/rptuser/reporting-apps/Dumpftp/BillingDumpftp/BillingftpHAR.log 2>&1
+
+#45 08 * * * sh /home/rptuser/reporting-apps/Dumpftp/BillingDumpftp/BillingftpHP.sh >> /home/rptuser/reporting-apps/Dumpftp/BillingDumpftp/BillingftpHP.log 2>&1
+
+#Subscriber dump CSV generation
+50 02 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log 2>&1
+
+####Hourly mail alert for disk usage
+0 10 * * * sh /home/rptuser/schedulers/diskspace.sh
+
+*/1 * * * * sh  /home/rptuser/schedulers/Sysmointor.sh
+
+
+######## Mahesh Script #######
+11 13 1 * * sh /home/rptuser/mahesh/monthly.sh >> /home/rptuser/mahesh/monthly.log 2>&1
+45 12 1 * * sh /home/rptuser/mahesh/inmarsat.sh >> /home/rptuser/mahesh/monthly1.log 2>&1
+#55 08 * * * sh /home/rptuser/mahesh/ftp_db4.sh >> /home/rptuser/mahesh/monthly1.log 2>&1
+#00 09 * * * sh /home/rptuser/mahesh/final_5gb.sh >> /home/rptuser/mahesh/monthly1.log 2>&1
+#15 09 * * * sh /home/rptuser/mahesh/ftp_sms.sh >> /home/rptuser/mahesh/monthly1.log 2>&1
+
+
+####HP Subs State Dump Daily FTP #######
+
+#15 17 * * * sh /home/rptuser/shailendra/HP_Subs_State_Dump.sh >> /home/rptuser/shailendra/HP_Subs_Dump_Daily_FTP.log &
+
+
+
+####MSISDN balance for Billing#######
+
+00 14 * * * sh /data/msisdn_balance/balance.sh
+
+00 10 * * * sh /home/rptuser/shailendra/new_acti_vpn.sh
+
+55 02 * * * sh /data/shailendra/gp1_gp2_ICtoIN.sh
+
+55 13 * * * sh /data/shailendra/gp2_active.sh
+
+15 13 1 * * sh /data/shailendra/upe_dump_monthly.sh
+
+05 14 2 * * sh /data/shailendra/qoa_new_format/new_acti_qoa.sh
+
+35 14 2 * * sh /data/shailendra/qoa_new_format/active_count_qoa_new.sh
+
+00 11 3 * * sh /home/rptuser/mahesh/harsh/INMAR_ftp.sh
+
+30 13 * * * sh /home/rptuser/aman/WZ_REPORTS/script.sh >> /home/rptuser/aman/WZ_REPORTS/logs.txt 2>&1
+
+######### Vipin Scripts ##########
+00 18 * * * sh /home/Subs_removal/DailyGP2_2E_Data/NZ_GP2_2E_Daily_deletion.sh >> /home/Subs_removal/DailyGP2_2E_Data/deletion.logs 2>&1
+
+00 13 * * * sh /data/vipin/Daily_Grace2_Files/script_circlewise_GP1_GP2_list.sh >> /data/vipin/Daily_Grace2_Files/script_circlewise_GP1_GP2_list_log.txt 2>&1
+
+[rptuser@misdb3 ~]$ nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+[1] 45983
+nohup: ignoring input and redirecting stderr to stdout
+[rptuser@misdb3 ~]$ cd /misdb3/reporting-apps-data1/CSVssdump
+[rptuser@misdb3 CSVssdump]$ ls -lrt
+total 273120
+-rw-r--r-- 1 root    root           11 Jun  5  2015 check.txt
+-rw------- 1 root    root        12759 Jun  5  2015 nohup.out
+-rw-rw-r-- 1 rptuser rptuser 279647252 Aug 27 15:52 tmp.CSV_SubscriberDump_20250827_27082025154406_IN13.csv-3
+[rptuser@misdb3 CSVssdump]$ ls -lrt
+total 275080
+-rw-r--r-- 1 root    root           11 Jun  5  2015 check.txt
+-rw------- 1 root    root        12759 Jun  5  2015 nohup.out
+-rw-rw-r-- 1 rptuser rptuser 281653624 Aug 27 15:52 tmp.CSV_SubscriberDump_20250827_27082025154406_IN13.csv-3
+[rptuser@misdb3 CSVssdump]$ tail -f /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log
+[1]+  Done                    nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log  (wd: ~)
+(wd now: /misdb3/reporting-apps-data1/CSVssdump)
+27-08-2025 17:12:45 INFO  FTPClient.java:114: Remote client disconnected
+27-08-2025 17:12:45 INFO  NewDump.java:343: SubscriberDump_20250827_27082025154406_IN13.csv-3 Copied Successfully to Common Back Up Location (FM CC) for IN::
+27-08-2025 17:12:45 INFO  SsdDumperFileOperationsBO.java:53: SubscriberDump_20250827_27082025154406_IN13.csv-3File renamed  Succssfully in ::/misdb3/reporting-apps-data1/CSVssdump/
+27-08-2025 17:12:46 INFO  NewDump.java:363: true Deleting the file from Final Location::
+27-08-2025 17:12:46 INFO  FileProcStatUpdDAO.java:48: Going to update the MIS_SSD_DUMP_STATUS as 3 for fileName:: CSV_SubscriberDump_20250827_27082025154406_IN13.csv-3
+27-08-2025 17:12:46 INFO  FileProcStatUpdDAO.java:72: SubscriberDump_20250827_27082025154406_IN13.csv-3File Updated to status 3 in MIS_SSD_DUMP_STATUS
+27-08-2025 17:12:46 INFO  ShellScript.java:21: Going to call the ShellScript :
+27-08-2025 17:12:46 INFO  ShellScript.java:33: Running SNTP ShellScript : /home/rptuser/reporting-apps/IN-SSDDumpProcessor/DumpScriptdetailandsumamryschedule/SSDDumpDetailandSumamry.sh
+27-08-2025 17:12:46 INFO  NewDump.java:391: Clling script was completed::
+27-08-2025 17:12:46 INFO  NewDump.java:397: File writing and calling script was finished::
+^C
+[rptuser@misdb3 CSVssdump]$ su -
+Password:
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]# crontab -l
+#For CDR DB Servers (Port 3306).
+
+#Truncating CDR Tables.
+0 22 * * * mysql -uroot -proot MIS -e "call TruncateCDR();"
+#Truncating  Pyro daily table Tables.
+0 22 * * *  mysql -uroot -proot MIS_BSNL -vve "truncate table MIS_PYRO_RECHARGE;"
+
+#Selefcare Table Truncation
+10 03 * * * sh /home/rptuser/reporting-apps/SELFCARE/TruncateSelfcareTables.sh >> /home/rptuser/reporting-apps/SELFCARE/TruncateSelfcareTables.log 2>&
+
+45 00 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/DeleteAuditInfo.sh
+
+
+#Script to generate Active to GP1 Dump
+##15 2 * * * sh /home/rptuser/reporting-apps/DumpCreation/AGP1_Dump.sh
+
+#Script to generate Subscriber Removal Dump
+##20 2 * * * /home/rptuser/reporting-apps/DumpCreation/Sub_Removal_Dump.sh
+
+#10 10 * * * sh /home/rptuser/reporting-apps/SancharSoft/Sancharsoftdump.sh >> /home/rptuser/reporting-apps/SancharSoft/Sancharsoftdump.log 2>&1
+
+#Common script for 5 scripts
+05 01 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/MisBsnlCommonUpload.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/MisBsnlCommonUpload.txt
+
+
+#Account Log Script Depends the time of SSDLOAD detailed  after loading thosee tables only required the schedule check in  BL serverchedule
+30 04 * * * sh /home/rptuser/reporting-apps/account_csv/ProcessCircleAccountNew.sh >> /home/rptuser/reporting-apps/account_csv/Account.log 2>&1
+
+
+@reboot /home/rptuser/reporting-apps/ProcessManager/OnBoot_mysqlrst.sh
+####nagios##############
+*/1 * * * * /usr/bin/perl /root/monitor/gwmonitor.pl
+
+# =========== Script to get Backup on BL-1 Server to Tape ==============
+
+10 06 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/CsvBkp/DetailCsv_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+10 04 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/CsvBkp/ssd_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+20 15 * * * sh /home/rptuser/reporting-apps/DumpCreation/Dailydisconnection_updated.sh >> /home/rptuser/reporting-apps/DumpCreation/Dailydisconnection.log 2>&1
+
+30 09 * * * sh /home/rptuser/reporting-apps/DumpCreation/Dailynewactivation.sh >> /home/rptuser/reporting-apps/DumpCreation/Dailynewactivation.log 2>&1
+
+##########SubRemovalAccountTable Script######################################
+0 06 * * * sh /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.sh >> /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.log 2>&1
+
+###########Subscriber Removal Summary Script#####
+0 04 * * * sh /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.sh >> /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.log 2>&1
+
+40 11 * * * sh /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump.sh >> /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump.log 2>&1
+
+#Script to generate and load ssd fact csv from misdb1 to misdb6
+55,0 5,6,7,8,9 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt 2>&1
+#0 05 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript2015_09_04.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ssdDump.txt 2>&1
+##Truncate day wise SSDUmp table
+30 0 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/TruncateSSD.sh
+
+##SSD Dump detail Uploading
+
+40 07 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh
+
+#SSD FTP to BL2
+
+#30 09 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/ftp_sdd_bl2.sh
+
+#Script to load data to selfcare fact
+30 02 * * * sh /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessSelfCareUpload.sh >>/home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/selfcarefactload.log
+
+
+#Script to load data to gui fact
+#10,40 7,8,9,10,11 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/RPTProcessGUIFactUpload.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/RPTProcessGUIFactUpload.txt 2>&1
+
+40,50 6,7,8,9,10,11 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/RPTProcessGUIFactUpload.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/RPTProcessGUIFactUpload.txt 2>&1
+
+10 02 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/IvrShortCode.sh >> /log/ivrshortcode.log 2>&1
+
+10 08 * * * sh /home/rptuser/reporting-apps/VAS_CDR/contentcdr.sh  >> /log/contentcdr.log 2>&1
+
+40 8 * * * sh /home/rptuser/reporting-apps/VOUCHER_CDR/vouchercdr.sh  >> /log/vouchercdr.log 2>&1
+
+0 10-13/1 * * * sh /home/rptuser/clearcache.sh >> /home/rptuser/clearcache.log
+
+
+25 12 * * * sh /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump_HAR_HP.sh
+
+################# Vipin Scripts ##################
+
+00 13 * * * sh /home/rptuser/vipin/daily_in_prepaid_count_report.sh >> /home/rptuser/vipin/daily_in_prepaid_count.log 2>&1
+
+00 17 * * * sh /data/vipin/Nepal_Bhutan_559/script_Nepal_Bhutan_559_addition.sh >> /data/vipin/Nepal_Bhutan_559/Nepal_Bhutan_559_addition_log.log 2>&1
+
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]# nohup sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+[1] 29910
+nohup: ignoring input and redirecting stderr to stdout
+[root@misdb3 ~]#
+[1]+  Done                    nohup sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]# cat /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt |more
+Warning: Using a password on the command line interface can be insecure.
+cnt
+Warning: Using a password on the command line interface can be insecure.
+/home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.sh thisis Path
+ProcessSSDDumpScript.sh This is File Name
+57 This is Length
+properties file path=/home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/
+tableName
+Warning: Using a password on the command line interface can be insecure.
+/home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts//dump_path.txt @
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+/misdb3/reporting-apps-data1/CSVssdump
+/misdb3/reporting-apps-data1/CSVssdumpbackup
+/misdb3/reporting-apps-data1/CSVssdump
+Warning: Using a password on the command line interface can be insecure.
+Loading to misdb6 started @Thu May 28 08:00:04 IST 2015
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+@query
+INSERT INTO MIS_RPT_SSD_FACT(CDR_DATE,TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,TOTAL_COUNT,ACCOUNT_BALANCE,ACCOUNT_NEGATIVE_BAL
+ANCE) (SELECT date_format(date_add(Timestamp, interval -1 day) , '%Y-%m-%d'),Tariff_Plan,Circle_Id,Subscriber_Status,SCP_Number,count(*),
+sum(trim(Primary_Balance))/100,sum(trim(LTotal_Primary_OC))/100 FROM MIS_SSD_DUMP GROUP BY date_format(date_add(Timestamp, interval -1 da
+y) , '%Y-%m-%d'),Tariff_Plan,Circle_Id,Subscriber_Status,SCP_Number)
+Warning: Using a password on the command line interface can be insecure.
+@query
+SELECT COUNT(DISTINCT date_format(CDR_DATE,'%m-%Y'))  INTO @cnt FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+dcount
+1
+@query
+SELECT  min(date_format(CDR_DATE,'%m-%Y')) into @ddate FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+@query2
+UPDATE MIS_RPT_SSD_FACT SET CSV_INDICATOR=1 WHERE date_format(CDR_DATE,'%m-%Y')='05-2015'
+@query
+DELETE FROM MIS_RPT_SSD_FACT_MTH where date_format(str_to_date(CDR_DATE,'%m-%Y'),'%m-%Y')=date_format(str_to_date('05-2015','%m-%Y'),'%m-
+%Y')
+@query
+
+[root@misdb3 ~]# ls -lrth
+total 47M
+-rwxrwxrwx. 1 root root  11K Jul 16  2012 install.log.syslog
+-rwxrwxrwx. 1 root root  41K Jul 16  2012 install.log
+-rwxrwxrwx. 1 root root 1.6K Jul 16  2012 anaconda-ks.cfg
+drwxrwxrwx. 2 root root 4.0K Jan  8  2013 Videos
+drwxrwxrwx. 2 root root 4.0K Jan  8  2013 Templates
+drwxrwxrwx. 2 root root 4.0K Jan  8  2013 Public
+drwxrwxrwx. 2 root root 4.0K Jan  8  2013 Pictures
+drwxrwxrwx. 2 root root 4.0K Jan  8  2013 Music
+drwxrwxrwx. 2 root root 4.0K Jan  8  2013 Downloads
+drwxrwxrwx. 2 root root 4.0K Jan  8  2013 Documents
+drwxrwxrwx. 2 root root 4.0K Jan  8  2013 Desktop
+drwxrwxrwx  2 root root 4.0K Jul  7  2014 RHEL6.1.z Kernel
+-rwxrwxrwx  1 root root 3.3M Jan  4  2015 bfa-firmware-3.2.23.0-2.el6.noarch.rpm
+-rwxrwxrwx  1 root root  30M Jan  4  2015 kernel-2.6.32-504.el6.x86_64.rpm
+-rwxrwxrwx  1 root root  15M Jan  4  2015 kernel-firmware-2.6.32-504.el6.noarch.rpm
+drwxrwxrwx  2 root root 4.0K Feb 26  2015 Feb2015
+drwxrwxrwx  2 root root 4.0K Mar  1  2015 Mar2015
+drwxrwxrwx  2 root root 4.0K Apr  1  2015 Apr2015
+-rwxrwxrwx  1 root root  237 Jul 27  2015 ConfigStatus_27-07-2015.txt
+-rwxrwxrwx  1 root root   11 Sep  3  2015 check.txt
+drwxrwxrwx  2 root root 4.0K Sep 17  2015 snmpClient
+drwxrwxrwx  4 root root 4.0K Nov 18  2015 monitor
+-rw-r--r--  1 root root  817 Feb  9  2017 MIS_Dump_27_11_nov.sql
+drwxr-xr-x  2 root root 4.0K Aug 24  2017 Aug2017
+-rw-r--r--  1 root root   20 May 10  2018 Checkt.txt
+-rw-r--r--  1 root root   20 May 10  2018 tdt.txt
+-rw-r--r--  1 root root   20 May 10  2018 fdt.txt
+-rw-r--r--  1 root root   20 May 10  2018 cdt.txt
+-rw-r--r--  1 root root    0 Apr 18  2019 UPE_ACTIVE
+-rw-r--r--  1 root root    0 Jul 23  2020 PUN_GRACE2
+-rw-r--r--  1 root root    0 Dec 19  2020 JK
+-rw-r--r--  1 root root    0 Jun 27  2023 HP
+-rwxrwxr--  1 root root 2.4K Apr  7  2024 ajit_sub_state_temp_script.sh
+-rw-r--r--  1 root root    0 Apr 19  2024 UPW_all_msisdn_19042024.txt
+-rw-r--r--  1 root root    0 May 14  2024 UPW_GP2_GP2E_MSISDN_14052024.txt
+-rwxrwxrwx  1 root root    0 Aug 16  2024 tabdatacount1.txt
+drwxr-xr-x  2 root root 4.0K Aug 16  2024 Aug2024
+-rwxrwxrwx  1 root root    0 Aug 16  2024 tabdatacount.txt
+-rw-r--r--  1 root root    0 Aug 16  2024 monthtable.txt
+-rw-r--r--  1 root root    0 Aug 16  2024 count.txt
+-rw-r--r--  1 root root    0 Aug 16  2024 monthfromtable.txt
+-rw-r--r--  1 root root   38 Aug 16  2024 header
+-rw-r--r--  1 root root    0 Aug 16  2024 Circle_tabdatacount.txt
+-rw-------  1 root root 3.4K Aug 16  2024 nohup.out
+-rw-r--r--  1 root root    0 Sep 13  2024 UPW_MSISDN_13092024.txt
+-rw-r--r--  1 root root    0 Oct 29  2024 PUN_GP2_state_Dump_20241028.txt
+-rwxrwxrwx  1 root root    0 Aug 27 01:05 table1.txt
+-rwxrwxrwx  1 root root    2 Aug 27 01:05 circle1.txt
+-rwxrwxrwx  1 root root    0 Aug 27 01:05 table.txt
+-rwxrwxrwx  1 root root    0 Aug 27 01:05 tablcount.txr
+-rwxrwxrwx  1 root root    0 Aug 27 01:05 tabcount.txt
+-rw-r--r--  1 root root    0 Aug 27 02:10 tablename
+-rwxrwxrwx  1 root root   46 Aug 27 07:40 dump_path.txt
+-rwxrwxrwx  1 root root 3.5K Aug 27 07:40 columns.txt
+-rwxrwxrwx  1 root root   51 Aug 27 07:40 bck_path.txt
+[root@misdb3 ~]# cat /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt |more^C
+[root@misdb3 ~]# tail -f /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+SCRIPT STOP at: 27-Aug-2025 17:58:52
+
+
+^C
+[root@misdb3 ~]# crontab -l
+#For CDR DB Servers (Port 3306).
+
+#Truncating CDR Tables.
+0 22 * * * mysql -uroot -proot MIS -e "call TruncateCDR();"
+#Truncating  Pyro daily table Tables.
+0 22 * * *  mysql -uroot -proot MIS_BSNL -vve "truncate table MIS_PYRO_RECHARGE;"
+
+#Selefcare Table Truncation
+10 03 * * * sh /home/rptuser/reporting-apps/SELFCARE/TruncateSelfcareTables.sh >> /home/rptuser/reporting-apps/SELFCARE/TruncateSelfcareTables.log 2>&
+
+45 00 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/DeleteAuditInfo.sh
+
+
+#Script to generate Active to GP1 Dump
+##15 2 * * * sh /home/rptuser/reporting-apps/DumpCreation/AGP1_Dump.sh
+
+#Script to generate Subscriber Removal Dump
+##20 2 * * * /home/rptuser/reporting-apps/DumpCreation/Sub_Removal_Dump.sh
+
+#10 10 * * * sh /home/rptuser/reporting-apps/SancharSoft/Sancharsoftdump.sh >> /home/rptuser/reporting-apps/SancharSoft/Sancharsoftdump.log 2>&1
+
+#Common script for 5 scripts
+05 01 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/MisBsnlCommonUpload.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/MisBsnlCommonUpload.txt
+
+
+#Account Log Script Depends the time of SSDLOAD detailed  after loading thosee tables only required the schedule check in  BL serverchedule
+30 04 * * * sh /home/rptuser/reporting-apps/account_csv/ProcessCircleAccountNew.sh >> /home/rptuser/reporting-apps/account_csv/Account.log 2>&1
+
+
+@reboot /home/rptuser/reporting-apps/ProcessManager/OnBoot_mysqlrst.sh
+####nagios##############
+*/1 * * * * /usr/bin/perl /root/monitor/gwmonitor.pl
+
+# =========== Script to get Backup on BL-1 Server to Tape ==============
+
+10 06 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/CsvBkp/DetailCsv_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+10 04 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/CsvBkp/ssd_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+20 15 * * * sh /home/rptuser/reporting-apps/DumpCreation/Dailydisconnection_updated.sh >> /home/rptuser/reporting-apps/DumpCreation/Dailydisconnection.log 2>&1
+
+30 09 * * * sh /home/rptuser/reporting-apps/DumpCreation/Dailynewactivation.sh >> /home/rptuser/reporting-apps/DumpCreation/Dailynewactivation.log 2>&1
+
+##########SubRemovalAccountTable Script######################################
+0 06 * * * sh /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.sh >> /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.log 2>&1
+
+###########Subscriber Removal Summary Script#####
+0 04 * * * sh /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.sh >> /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.log 2>&1
+
+40 11 * * * sh /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump.sh >> /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump.log 2>&1
+
+#Script to generate and load ssd fact csv from misdb1 to misdb6
+55,0 5,6,7,8,9 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt 2>&1
+#0 05 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript2015_09_04.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ssdDump.txt 2>&1
+##Truncate day wise SSDUmp table
+30 0 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/TruncateSSD.sh
+
+##SSD Dump detail Uploading
+
+40 07 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh
+
+#SSD FTP to BL2
+
+#30 09 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/ftp_sdd_bl2.sh
+
+#Script to load data to selfcare fact
+30 02 * * * sh /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessSelfCareUpload.sh >>/home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/selfcarefactload.log
+
+
+#Script to load data to gui fact
+#10,40 7,8,9,10,11 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/RPTProcessGUIFactUpload.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/RPTProcessGUIFactUpload.txt 2>&1
+
+40,50 6,7,8,9,10,11 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/RPTProcessGUIFactUpload.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/RPTProcessGUIFactUpload.txt 2>&1
+
+10 02 * * * sh /home/rptuser/reporting-apps/misdb3Scripts/IMPteamscripts/IvrShortCode.sh >> /log/ivrshortcode.log 2>&1
+
+10 08 * * * sh /home/rptuser/reporting-apps/VAS_CDR/contentcdr.sh  >> /log/contentcdr.log 2>&1
+
+40 8 * * * sh /home/rptuser/reporting-apps/VOUCHER_CDR/vouchercdr.sh  >> /log/vouchercdr.log 2>&1
+
+0 10-13/1 * * * sh /home/rptuser/clearcache.sh >> /home/rptuser/clearcache.log
+
+
+25 12 * * * sh /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump_HAR_HP.sh
+
+################# Vipin Scripts ##################
+
+00 13 * * * sh /home/rptuser/vipin/daily_in_prepaid_count_report.sh >> /home/rptuser/vipin/daily_in_prepaid_count.log 2>&1
+
+00 17 * * * sh /data/vipin/Nepal_Bhutan_559/script_Nepal_Bhutan_559_addition.sh >> /data/vipin/Nepal_Bhutan_559/Nepal_Bhutan_559_addition_log.log 2>&1
+
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]# nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt &
+[1] 14636
+nohup: ignoring input and redirecting stderr to stdout
+[root@misdb3 ~]# tail -f /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt
+test...
+---2
+testing...
+MIS_SSD_DUMP_Wed
+20250827
+today insertion table MIS_SSD_DUMP_Wed
+/misdb3/reporting-apps-data1/CSVssdumpbackup
+logpath:/log/ssddumploadd/
+CSV_SubscriberDump_20250827_27082025154406_IN13.csv-3
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+--------------
+insert into LOAD_AUDIIT_INFO_ONM (START_TIME,END_TIME,RECORD_COUNT,SERVER_ID,FILENAME,TYPE)values ('2025-08-27 19:18:11','2025-08-27 19:18:11',' 5660949  ','10.147.128.199','CSV_SubscriberDump_20250827_27082025154406_IN13.csv-3','SSDDUMP')
+--------------
+
+Query OK, 1 row affected
+
+Bye
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+--------------
+insert into LOAD_AUDIIT_INFO_ONM (START_TIME,END_TIME,RECORD_COUNT,SERVER_ID,FILENAME,TYPE)values ('2025-08-27 19:18:11','2025-08-27 19:18:11',' 5660949  ','10.147.128.199','CSV_SubscriberDump_20250827_27082025154406_IN13.csv-3','SSDDUMP')
+--------------
+
+Query OK, 1 row affected
+
+Bye
+Warning: Using a password on the command line interface can be insecure.
+Filecraetion for account table
+misdb3
+/misdb3/reporting-apps-data1/CSVssdumpfinalbackup/
+^C
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]# ps -ef |grep PocessSSDDump_01_07
+root     14636 27829  0 19:18 pts/0    00:00:00 sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh
+root     20683 27829  0 19:30 pts/0    00:00:00 grep PocessSSDDump_01_07
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]# ps -ef |grep PocessSSDDump_01_07
+root     14636 27829  0 19:18 pts/0    00:00:00 sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh
+root     20722 27829  0 19:30 pts/0    00:00:00 grep PocessSSDDump_01_07
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]# ps -ef |grep PocessSSDDump_01_07
+root     14636 27829  0 19:18 pts/0    00:00:00 sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh
+root     20862 27829  0 19:30 pts/0    00:00:00 grep PocessSSDDump_01_07
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]# ps -ef |grep PocessSSDDump_01_07
+root     14636 27829  0 19:18 pts/0    00:00:00 sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh
+root     20952 27829  0 19:30 pts/0    00:00:00 grep PocessSSDDump_01_07
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[root@misdb3 ~]#
+[1]+  Done                    nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt
+[root@misdb3 ~]# tail -f /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt
+insert into LOAD_AUDIIT_INFO_ONM (START_TIME,END_TIME,RECORD_COUNT,SERVER_ID,FILENAME,TYPE)values ('2025-08-27 19:18:11','2025-08-27 19:18:11',' 5660949  ','10.147.128.199','CSV_SubscriberDump_20250827_27082025154406_IN13.csv-3','SSDDUMP')
+--------------
+
+Query OK, 1 row affected
+
+Bye
+Warning: Using a password on the command line interface can be insecure.
+Filecraetion for account table
+misdb3
+/misdb3/reporting-apps-data1/CSVssdumpfinalbackup/
+^C
+[root@misdb3 ~]#

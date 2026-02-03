@@ -1,0 +1,267 @@
+9478851233 ---Cylender delivery
+bolly4u1.com
+9xmovies.stream
+Polar
+sdmovies
+termlife@paytminsurance.co.in
+
+cat SIMDump_20230117_1.csv| grep "GRACE1"|awk -F " " '{print $2,$15,$90}'|awk -F "'" '{if($4>=20000 && $4>=1070000 )print $2}' >bal.txt
+cat SIMDump_20230117_1.csv| grep "GRACE1"|awk -F " " '{print $2,$15,$90}'|awk -F "'" '{if($4>=1070000 )print $2}' >bal.txt
+
+/nfs2/sms/BMG_70/202012/smsSmppServer
+
+ scp root@11.68.52.72:/nfs2/sms/BMG_71/202012/dbPlugin/2020121116*.txt /nfs6/ajay/dbPlugin
+ scp root@11.68.52.72:/nfs2/sms/BMG_71/202012/smsSmppClient/2020121116*.txt /nfs6/ajay/smpp_client 
+ scp root@11.68.52.72:/nfs2/sms/BMG_71/202012/sms_engine/2020121116*.txt /nfs6/ajay/sms_eng
+ scp root@11.68.52.72:/nfs2/sms/BMG_71/202012/smsSmppServer/2020121116*.txt /nfs6/ajay/smmpserver
+  cp /nfs2/sms/BMG_70/202012/dbPlugin/2020121120-overall-cdr.txt /var/ajay/2020121120_70-overall-cdr.txt
+  find ./ -type d ! -name "mcas24*ama*" -prune -o -mtime +1 -exec gzip {} \;
+  scp  mcas24.202301*.gz linus@10.147.128.85:/osp/psmf/db/archive/backup_6D-1day_amafile_22092022
+  find ./ -type d ! -name . -prune -o -mtime +1 -name "*ama*" -exec gzip {} \;
+  7579185955
+ find / -type f -exec grep -l "logofOpsgmaster" {} \;   (to search a string in files)
+find ./ -type d ! -name . -prune -o "metrics.*" -mtime +30
+ find ./ -type f -name "metrics*" -mmin +40 
+  mv nfs2/sms/BMG_71/202103/smmpserver/202103{01..08}.tgz /nfs5/sms/BMG_71/202103/smmpserver/ &
+find ./ -type f -name "*.pcap"  -exec gzip {} \;
+find ./ -type d ! -name . -prune -o -mtime +1 -name "*pcap" -exec rm {} \;
+find /nfs2/sms/BMG/202102/dbPlugin/ -type f -name "*.txt" -mtime -1  -exec echo {} \;
+find ./ -type f -name "*.pcap.gz" -size +500M  -mmin -10 -exec gzip {} \;
+find ./ -type d ! -name . -prune -o -mtime +1 -name "*pcap" -exec rm {} \;
+find ./ -type d ! -name . -prune -o -mtime +5 -name "debuglog*" -exec gzip {} \;
+find ./ -type d ! -name . -prune -o -mtime +19  -exec echo {} \;
+find ./ -type d ! -name . -prune -o -mtime +11  -exec rm {} \;
+find ./ -type d ! -name . -prune -o -mtime +20  -exec rm {} \;
+find /db05/oradata/NSMS/archive/arch*.log -mtime +0 -exec gzip {} \;
+find ./ -type f -name "Extend_validity_TRAI_*" -exec echo {} \;
+find ./ -type d ! -name . -prune -o -mtime +1 -name "debuglog*" ! -name "debug*.gz" -exec gzip {} \;
+find ./ -type d ! -name . -prune -o -mtime +7 -name "OMlog*" -exec gzip {} \;
+find ./ -type d ! -name . -prune -o -mtime +1 -name "debuglog*"   -exec rm {} \;
+find ./ -type d ! -name . -prune -o -mtime +3 -name "imom_cmd_blk*" -exec rm {} \;
+find ./ -type f -name  "fwadm_check"
+find ./ -type f -name 00000zpppppppppp
+find ./ -type d ! -name . -prune -o -mtime +365 -name "*.log.gz" -exec rm {} \;
+find /sncore/ -name "core*" -exec gzip {} \;
+find /db05/oradata/NSMS/archive/arch*.log -mtime +2 -exec gzip {} \;
+find ./ -type d ! -name . -prune -o -mtime +3 -name "*.gz" -exec mv {}  /ubilling/RTDB_BKP \;
+find ./ -type d ! -name . -prune -o -mtime +0 -name "*.bak" -exec gzip {} \;
+
+find /sncore/ -name "core*" -exec rm {} \;
+find ./ -type d ! -name . -prune -o -mtime +90 -name "Message_Subscribers*" -exec rm {} \;
+cd /home/guests/6d_Tariff_dump/
+find ./ -name "EPAY*" -mtime +7 -exec rm {} \;
+find ./ -name DGPlatSync
+find /RTDB_TODO_LOG/backup -type f -name "*cTODOLOG*.gz" -mtime +0 | xargs gzip "{}" \;
+find ./ -type d ! -name . -prune -o -mtime +365 -name "*.csv" -exec gzip {} \;
+find ./ -type f -mtime +364 -delete
+find -mtime -2  -type f -exec cp -p {} /ubilling/Userlogs_session/ \;
+find /PLATsoftware/cust_use/home/ -type f -name "MCAS2*.pcap" -size +580M -exec cp {} /PLATsoftware/cust_use/home/trace_move \;
+find -size 0 -print -delete
+find ./ -type d ! -name "MCAS2*.pcap" -prune -o  -size +580M
+selfcaser cvps115
+/osp/3rdpty/apache/jakarta-tomcat-5.5.9 
+gzip localhost.2019-*
+cvps115root#gzip localhost.2020-*
+cvps115root#gzip localhost.2021-*
+cvps115root#gzip catalina.2019-*
+cvps115root#gzip catalina.2020-*
+cvps115root#gzip catalina.2021-*
+
+/TRACE_DUMP
+BACKUP:DB=SIMDB28I,CLRMATELOGS,BINARY,DEST="/TRACE_DUMP/simdb.bak"
+
+gzip catalina.2021-*.log
+ cat SIMDump_20211115.csv|cut -d " " -f2 >/RTDB_DUMP/dump/ATCA5_SIMDump.txt
+ scp ATCA5_SIMDump.txt ainet@10.147.136.20:/TRACE_DUMP
+ 
+cat GPRSSIMDB20211115.csv|grep "NTH1OCS5" |cut -d " " -f2 >ATCA5_GPRSSIMDUMP.txt
+scp ATCA5_GPRSSIMDUMP.txt ainet@10.147.136.20:/TRACE_DUMP
+
+ls -lrt arch859574129_1_170*{573...762}.log
+comm -12 < (sort ATCA2_SIMDump.txt | uniq) < (sort ATCA2_SIMDump.txt | uniq)
+
+cp SIMDump_202402{06..11}*.gz
+
+cat GPRSSIMDB20211115.csv|grep "NTH1OCS2"|cut -d " " -f2 >ATCA2_GPRSSIMDUMP.txt
+  cd /nfs2/sms/BMG_70/202103/mis_module/insert/    
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_70/202103/deliveryModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_70/202103/ChargingModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_71/202103/mis_module/insert
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_71/202103/deliveryModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_71/202103/ChargingModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_71/202103/DND_DLT/
+rm -rf 202103{01..11}*-DND_DLT_CDR.txt  &
+cd /nfs2/sms/BMG_70/202103/DND_DLT/
+rm -rf 202103{01..11}*-DND_DLT_CDR.txt  &
+
+
+219
+cd /nfs2/sms/BMG/202103/mis_module/insert/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG/202103/deliveryModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG/202103/ChargingModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_214/202103/mis_module/insert/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_214/202103/deliveryModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_214/202103/ChargingModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_218/202103/mis_module/insert/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_218/202103/deliveryModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG_218/202103/ChargingModule/
+rm -rf 202103{01..11}*.txt &
+cd /nfs2/sms/BMG/202103/DND_DLT/
+rm -rf 202103{01..11}*-DND_DLT_CDR.txt  &
+cd /nfs2/sms/BMG_218/202103/DND_DLT/
+rm -rf 202103{01..11}*-DND_DLT_CDR.txt  &
+cd /nfs2/sms/BMG_214/202103/DND_DLT/
+rm -rf 202103{01..11}*-DND_DLT_CDR.txt  &
+
+
+
+ls -lrt F_PTP_{20..31}122021.txt
+awk '{print $2,$3,$4}'
+awk  '{print $2,substr($4,10),$142}' SIMDump_20181220.csv |sed "s/'//g">Moumita_audit_1.txt
+  459  awk  '{print $2,substr($4,9),$142}' SIMDump_20181220.csv |sed "s/'/*/g"|head
+  460  subshl
+  461  awk  '{print $2,$27substr($4,10),$142}' SIMDump_20181220.csv |sed "s/'//g">Nibas_audit.txt
+  462  awk  '{print $2,$27,substr($4,10),$142}' SIMDump_20181220.csv |sed "s/'//g">Nibas_audit.txt
+  463  head Nibas_audit.txt
+  464  awk '{if($4!=1)' Nibas_audit.txt|grep /ACTIVE/ |head
+  465  awk '{if($4!=1)' Nibas_audit.txt|grep /ACTIVE |head
+  466  awk '{if($39 > 0)print $2}' SIMDump_20220617.csv |head
+       awk '{print $2$39}' SIMDump_20220617.csv |head
+  467  awk '{if($4!=1 && $2 == ACTIVE)}' Nibas_audit.txt |head
+  468  awk '{if($4!=1 && $2 == "ACTIVE")}' Nibas_audit.txt |head
+  469* awk '{if($4!=1 && $2 == 'ACTIVE')}' Nibas_audit.txt |head
+  470  awk '{if($4!=1 && $2 == "ACTIVE") print }' Nibas_audit.txt |head
+  471  awk '{if($4!=1 && $2 == "ACTIVE") print }' Nibas_audit.txt >Nibas_Active_audit.txt
+  472  grep -i grace1 Nibas_audit.txt|head
+  473  awk '{if($4!=1 && $2 == "GRACE1") print }' Nibas_audit.txt >Nibas_Grace1_audit.txt
+  474  awk '{if($4!=1 && $2 == "GRACE2") print }' Nibas_audit.txt >Nibas_Grace2_audit.txt
+  475  awk '{if($4!=1 && $2 == "PREACTIVE") print }' Nibas_audit.txt >Nibas_Preactive_audit.txt
+  476  wc -l Nibas_*_audit.txt
+  477  head
+  478  head Nibas_Preactive_audit.txt
+  479  subshl
+  480  awk '{if($4==1 && $2 == "PREACTIVE") print }' Nibas_audit.txt|head
+        awk -F " " '{if($15 >=2000)print $2,90 }' SIMDump_20220909.csv|head -50
+		grep "GRACE1" SIMDump_20231016.csv|awk -F " " '{print $2,$15,$90}'|awk -F " " '{if($15 >= 20000)print $2,$15,$90}'|head -15
+		grep "GRACE1" SIMDump_20231016_1.csv|awk -F " " '{if ($112==20231017)print $2,$15,$90,$112}'|awk -F "'" '{if($4>=20000 )print $4,$2,$7}' >msisdn.txt
+zgrep "GRACE1" SIMDump_20230209_1.csv.gz|awk -F " " '{print $2,$15,$90}'|awk -F "'" '{if($4>=1070000 )print $2}' >bal_af_107_10feb2023.txt
+cd /RTD
+zcat /RTDB_DUMP/dump/sixdee/SubscriberDump_20221208.csv.gz|awk -F " " '{print $1,$9,$28,$29}'|awk -F "'" '{if($6>$8) print $2,$4,$6,$8}' >/RTDB_DUMP/dump/sixdee/Atca5_20221208
+
+cat SIMDump_20230208_1.csv|awk '{if ($67==3217)print $2,$67}'|grep -v "'0'" >Negtive_20230214.txt
+comm -23 Negtive_20230214_sort.txt Negtive_20230108_sort.txt 
+awk  '{print $1,substr($4,10)}' sort_diff|head -2
+
+ print $2,$27,$67}'
+ 
+ cat SIMDump_20231013.csv|awk '{if ($67==6040)print $2,$27,$67}'
+
+cat SIMDump_20231013.csv|awk -F " " '{print $2,$27,$67}'|grep "'6040'" |grep "ACTIVE" |grep -v "6121\|6141\|PREACTIVE"
+
+cat S04_SIM_RTDB_sort.txt|awk -F " " '{print $3 }'|sort|uniq -c|sort -nr
+277893 NTH1OCS4
+232565 NTH1OCS2
+52483 NTH1OCS1
+1939 NTH1OCS5
+1579 NTH1OCS3
+
+cd 
+/ubilling/RTDB_BKP/
+#!/usr/bin/ksh
+find /db05/oradata/NSMS/archive/arch*.log.gz -mtime +5 -exec rm {} \; | tee -a /sms/smsapp/scripts/remove_log.log
+find /db05/oradata/NSMS/archive/arch*.log -mtime +0 -exec gzip {} \; | tee -a /sms/smsapp/scripts/remove_log.log
+find /db05/oradata/NSMS/archive/arch*.log -mtime +2 -exec rm {} \; | tee -a /sms/smsapp/scripts/remove_log.log
+
+awk -F " " '{​​if ($18!="\047\047") print $0}​​'  Dump_File_Name  |awk -F "'" '{​​print $4}​​' |awk -F ":" '{​​print $1}​​'|sort|uniq -c|awk '{​​ if ($1>19 && $1<=20) print $0}​​'|wc -l
+
+
+
+grep -B 5 "matching record in SSIPAD_tbl" OMlog*Nov16*| grep "SGSN Address = "|awk -F " " '{print $5}'|sort|uniq -c|sort -nr
+
+
+
+Nth1OCS4-0-0-1:/RTDB_DUMP-# cat SYDB287_20230428.csv|grep -iv "com;" |awk '{print $3}'|egrep -iv "1|2|3|4|5|6|7|8|9" |wc -l
+330289
+Nth1OCS4-0-0-1:/RTDB_DUMP-# cat SYDB287_20230428.csv|grep -iv "com;" |awk '{print $3}'|egrep "1|2|3|4|5|6|7|8|9"|wc -l
+233293
+
+grep -v "1:1" SYDB287_20230428.csv|awk '{if ($3<1682553600) print $3}'  (to extract old sessions )
+Nth1OCS4-0
+
+cat SIMDump_20230213.csv|grep '1004'|awk -F " " '{print $2,$15}'|grep -v '0'>13feb_bf_simdump.txt
+grep GRACE2E SIMDump_20240208_1.csv|grep "Status_Subscribed"|grep -v "FPU*"|awk -F " " '{print $2,$122,$125}'|wc -l 
+fgrep -f upe.csv 10feb2024_UPE_CTOPUP_simdump.csv|awk -F " " '{print $2,$27,$122,$126,$130,$134,$138}' >UPE_CTOPUP_simdump_filtered.csv
+fgrep -f upe.csv SIMDump_20240210.csv >UPE_CTOPUP_simdump.csv
+:%s/'//g
+:%s/:/,/g
+awk -F " " '{total=total+$2} END{print "total is : " total}' 8feb_bf_simdump.txt
+
+fgrep -f upe.csv CounterDump_20240210.csv|awk -F " " '{print $2,$3,$14,$25,$36}' >counter_data.txt
+
+8feb---24766129580
+9feb---24766129580
+13 feb--21198231830
+
+cat SIMDump_20240110.csv|awk -F " " '{print $2}' >SIMDump.txt
+
+-----------------------------
+cat /snlog/OMlog* | grep -A5 'Network Message Error - ATM' | grep ' Subscriber ID ' | awk '{print $4}' | sort -bnr | uniq -c |awk '{print $2}'>>/TRACE_DUMP/atm.txt
+zcat /Custom_Log_Bkup/OMlog*Apr1* | grep -A5 'Network Message Error - ATM' | grep ' Subscriber ID ' | awk '{print $4}' | sort -bnr | uniq -c |awk '{print $2}'>>/TRACE_DUMP/atm_30Mar2024.txt
+
+grep -A5 'Network Message Error - ATM' /Custom_Log_Bkup/OMlog*Apr1*| grep ' Subscriber ID ' | awk '{print $5}'| sort -bnr | uniq -c |awk '{print $2}'>>/TRACE_DUMP/script/ATM/lst
+
+for i in `cat /TRACE_DUMP/script/ATM/file_list1`
+do
+cat $i | grep -A5 'Network Message Error - ATM' | grep ' Subscriber ID ' | awk '{print $5}' | sort -bnr | uniq -c |awk '{print $2}'>>/TRACE_DUMP/script/ATM/lst
+done
+---------------------------------------
+
+
+find / -type f -exec grep -l "RRI_tbl" {} \;
+ find / -type f -exec grep -l "logofOpsgmaster" {} \; 
+ 
+ 
+ grep -w "107" UPE.txt|grep -v "PTPPV107" >>problematic_numbers.txt
+ 
+ for i in `cat amount`; do 
+ 
+ grep -w "147" UPE.txt|grep -v "PTPCO147|MLTRC147" >>problematic_numbers.txt
+ grep -w "249" UPE.txt|grep -v "PTPULD249|PTPVSDN249" >>problematic_numbers.txt
+ grep -w "99" UPE.txt|grep -v "PTPMAV99|MLTRC99" >>problematic_numbers.txt
+ grep -w "197" UPE.txt|grep -v "PTPULD197|PTPVSD197" >>problematic_numbers.txt 
+ grep -w "153" UPE.txt|grep -v "PTPCOD153ULD|PTPRVSD153" >>problematic_numbers.txt 
+ grep -w "187" UPE.txt|grep -v "MLTRC187|PTPCOULD187|PTPVSDR187" >>problematic_numbers.txt 
+ grep -w "118" UPE.txt|grep -v "MLTRC118|PTPCO118|PTPULD118" >>problematic_numbers.txt 
+ grep -w "18" UPE.txt|grep -v "PTPCO18|PTPCOD18" >>problematic_numbers.txt 
+ grep -w "199" UPE.txt|grep -v "PTPULD199|PTPVSD199" >>problematic_numbers.txt 
+ grep -w "201" UPE.txt|grep -v "PTPGP201" >>problematic_numbers.txt
+ grep -w "94" UPE.txt|grep -v "PTPCO94" >>problematic_numbers.txt 
+ grep -w "186" UPE.txt|grep -v "PTPULD186|PTPVSDN186" >>problematic_numbers.txt 
+ grep -w "319" UPE.txt|grep -v "MLTRC319|PTPMAV319" >>problematic_numbers.txt 
+ grep -w "298" UPE.txt|grep -v "MLTRC298|PTPDULD298|PTPRVSD298" >>problematic_numbers.txt
+ grep -w "108" UPE.txt|grep -v "PTPCOD108ULD|PTPFRC108" >>problematic_numbers.txt
+ grep -w "139" UPE.txt|grep -v "PTPVSDR139" >>problematic_numbers.txt
+ grep -w "98" UPE.txt|grep -v "MLTRC98|PTPCOD98N|PTPCOULD98" >>problematic_numbers.txt
+ 
+ ----------------Om log-----------
+cat  /snlog/OMlog*| grep "Network Message Error"|awk -F "-" '{print $2}'|sort|uniq -c|sort -nr
+ 
+ cat OMlog*| grep -A5 'Network Message Error - ATM' | grep ' Subscriber ID ' | awk '{print $4,$5,$6}'
+ cat OMlog*| grep -A5 'Network Message Error - ATM' | grep ' Subscriber ID ' | awk -F " " '{print $4}'
+ 
+ grep -A6 -B10 "CRITICAL" snmplog0|tail -1000
+ 

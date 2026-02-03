@@ -1,0 +1,36 @@
+vdmDrmShowHSDrives
+loadDebug
+
+deassignDrivesAsHotSpares_MT 1,0x10115
+deassignDrivesAsHotSpares_MT 1,0x10117
+deassignDrivesAsHotSpares_MT 1,0x10116
+deassignDrivesAsHotSpares_MT 1,0x10017
+deassignDrivesAsHotSpares_MT 1,0x10015
+deassignDrivesAsHotSpares_MT 1,0x10016
+
+
+
+vdmRecoverAllRAIDVols
+
+reboot
+
+isSODComplete
+spriSevenSegmentShow
+
+
+deassignDrivesAsHotSpares_MT 1,0x10115
+deassignDrivesAsHotSpares_MT 1,0x10117
+deassignDrivesAsHotSpares_MT 1,0x10116
+deassignDrivesAsHotSpares_MT 1,0x10017
+deassignDrivesAsHotSpares_MT 1,0x10015
+assignDrivesAsHotSpares_MT 1,0x10016
+
+
+
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [1,23] hotSpare=TRUE;'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [1,22] hotSpare=TRUE;'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [1,24] hotSpare=TRUE;'
+
+vdmDrmShowHSDrives
+set drive [0,23] hotSpare=TRUE

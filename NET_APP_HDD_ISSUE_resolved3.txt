@@ -1,0 +1,2604 @@
+Using username "ainet".
+Pre-authentication banner message from server:
+|
+|                               WARNING!
+| This computer system and network is PRIVATE and PROPRIETARY and                                                                               may
+| only be accessed by authorized users. Unauthorized use of this c                                                                              omputer
+| system or network is strictly prohibited and may be subject to c                                                                              riminal
+| prosecution, employee discipline up to and including discharge,                                                                               or the
+| termination of vendor/service contracts. The owner, or its agent                                                                              s, may
+| monitor any activity or communication on the computer system or                                                                               network.
+| The owner, or its agents, may retrieve any information stored wi                                                                              thin the
+| computer system or network. By accessing and using this computer                                                                               system
+| or network, you are consenting to such monitoring and informatio                                                                              n
+| retrieval for law enforcement and other purposes. Users should h                                                                              ave no
+| expectation of privacy as to any communication on or information                                                                               stored
+| within the computer system or network, including information sto                                                                              red
+| locally or remotely on a hard drive or other media in use with t                                                                              his
+| computer system or network.
+|
+End of banner message from server
+ainet@10.147.136.14's password:
+Last login: Fri Nov  8 17:26:50 IST 2024 from 10.147.225.198 on pts/2
+
+                              WARNING!
+This computer system and network is PRIVATE and PROPRIETARY and may
+only be accessed by authorized users. Unauthorized use of this computer
+system or network is strictly prohibited and may be subject to criminal
+prosecution, employee discipline up to and including discharge, or the
+termination of vendor/service contracts. The owner, or its agents, may
+monitor any activity or communication on the computer system or network.
+The owner, or its agents, may retrieve any information stored within the
+computer system or network. By accessing and using this computer system
+or network, you are consenting to such monitoring and information
+retrieval for law enforcement and other purposes. Users should have no
+expectation of privacy as to any communication on or information stored
+within the computer system or network, including information stored
+locally or remotely on a hard drive or other media in use with this
+computer system or network.
+
+
+No mail for ainet
+$ su -
+Password:
+Last login: Fri Nov  8 18:34:01 IST 2024 on cron
+No mail for root
+Term type is now xterm
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allControllers;' | egrep -A9 'Controller in Tray'
+   Controller in Tray 0, Slot A
+
+
+      Status:                       Online
+
+      Current configuration
+         Firmware version:          08.10.15.00
+            Appware version:        08.10.15.00
+            Bootware version:       08.10.15.00
+         NVSRAM version:            N26X0-810834-DB4
+--
+   Controller in Tray 0, Slot B
+
+
+      Status:                       Online
+
+      Current configuration
+         Firmware version:          08.10.15.00
+            Appware version:        08.10.15.00
+            Bootware version:       08.10.15.00
+         NVSRAM version:            N26X0-810834-DB4
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray healthStatus;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+
+The controller clocks in the storage array are out of synchronization with the storage management station.
+
+Controller in Slot A: Fri Nov 08 18:11:00 IST 2024
+Controller in Slot B: Fri Nov 08 18:11:00 IST 2024
+Storage Management Station: Fri Nov 08 18:35:19 IST 2024
+
+The following failures have been found:
+Removed Battery Canister
+Storage array: Nth2OCS3-0-0-RAID
+Component reporting problem: Battery
+  Status: Removed
+  Location: Controller tray 0, Controller in Slot A
+Component requiring service: Controller A
+  Service action (removal) allowed: No
+  Service action LED on component: No
+
+Impending Drive Failure - Low Data Availability Risk
+Storage array: Nth2OCS3-0-0-RAID
+Component reporting problem: Drive in slot 23
+  Status: Optimal
+  Location: Drive tray 1
+Component requiring service: Drive in slot 23
+  Service action (removal) allowed: No
+  Service action LED on component: Yes
+
+Impending Drive Failure - Medium Data Availability Risk
+Storage array: Nth2OCS3-0-0-RAID
+  Volume group: ld05
+    RAID level: 5
+    Status: Optimal
+      Tray: Drive tray 1
+        Affected drive slot(s): 16
+          Service action (removal) allowed: No
+          Service action LED on component: Yes
+    Volumes: ld05_0
+
+Failed drive
+Storage array: Nth2OCS3-0-0-RAID
+Component reporting problem: Drive in slot 12
+  Status: Unresponsive
+  Location: Drive tray 1
+Component requiring service: Drive in slot 12
+  Service action (removal) allowed: Yes
+  Service action LED on component: Yes
+
+Failed drive
+Storage array: Nth2OCS3-0-0-RAID
+Component reporting problem: Drive in slot 2
+  Status: Unresponsive
+  Location: Controller/Drive tray 0
+Component requiring service: Drive in slot 2
+  Service action (removal) allowed: Yes
+  Service action LED on component: Yes
+
+Impending Drive Failure - Medium Data Availability Risk
+Storage array: Nth2OCS3-0-0-RAID
+  Volume group: ld02
+    RAID level: 5
+    Status: Optimal
+      Tray: Controller/Drive tray 0
+        Affected drive slot(s): 15
+          Service action (removal) allowed: No
+          Service action LED on component: Yes
+    Volumes: ld02_0
+
+Degraded Volume
+Storage array: Nth2OCS3-0-0-RAID
+  Volume group: ld00
+    RAID level: 5
+    Status: Degraded
+      Tray: Controller/Drive tray 0
+        Affected drive slot(s): 2
+          Service action (removal) allowed: No
+          Service action LED on component: No
+    Volumes: ld00_0
+
+Partially Complete Volume Group or Disk Pool
+Storage array: Nth2OCS3-0-0-RAID
+  Volume group: ld04
+    RAID level: 5
+    Status: Degraded
+    Volumes: ld04_0
+
+Impending Drive Failure - Low Data Availability Risk
+Storage array: Nth2OCS3-0-0-RAID
+Component reporting problem: Drive in slot 24
+  Status: Optimal
+  Location: Drive tray 1
+Component requiring service: Drive in slot 24
+  Service action (removal) allowed: No
+  Service action LED on component: Yes
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# /cs/sn/ft/FTlsicli -a 0-0 show all
+Storage Array Management Paths Found = 2
+*
+*  Trays:
+*
+   Tray Name           Type                 Tray Information
+----------------    ----------  ----------------------------------------
+Tray.00             DE5600      LSI P/N: L2-25067-30, S/N: SX21902554
+Tray.01             DE5600      LSI P/N: L2-25067-30, S/N: SX21705569
+*
+*  Controllers:
+*
+  Controller Name                Status              Controller Information
+--------------------          ------------  ----------------------------------------
+Tray.00.Controller.A          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV13912356
+                                            Firmware: 08.10.15.00
+Tray.00.Controller.B          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV20301304
+                                            Firmware: 08.10.15.00
+*
+*  Volumes:
+*
+  Volume Label    Assign  RAID     Size        Status      Controller Manager   Action In Progress
+----------------  ------  ----  ----------  ------------  --------------------  ------------------
+ld00_0             VG.1     5       3.3 TB  DEGRADED      Tray.00.Controller.A  None
+ld01_0             VG.2     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld02_0             VG.3     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld03_0             VG.4     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld04_0             VG.5     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld05_0             VG.6     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+*
+*  Drives:
+*
+     Drive Name       Assign     Status                Drive Information
+--------------------  ------  ------------  ----------------------------------------
+Tray.00.Drive.1        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21DRM0000B233ECVR
+Tray.00.Drive.2        VG.1   FAILED
+Tray.00.Drive.3        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2334L0000B233GRN3
+Tray.00.Drive.4        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23CAQ0000B233GNUV
+Tray.00.Drive.5        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS07)
+                                            S/N: 6XR1315V0000B127P1Q2
+Tray.00.Drive.6        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PLF0000B23492PM
+Tray.00.Drive.7        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23T2E0000B234C9CY
+Tray.00.Drive.8        VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232XP0000B232AEMX
+Tray.00.Drive.9        VG.2   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3J4UZ
+Tray.00.Drive.10       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2TDF90000M24704B4
+Tray.00.Drive.11       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20QKV0000B232CK0P
+Tray.00.Drive.12       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233HH0000B233GKNY
+Tray.00.Drive.13       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26TM70000B235F4R7
+Tray.00.Drive.14       VG.2   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y7F0000E728EZ0A
+Tray.00.Drive.15       VG.3   ONLINE        HITACHI HUC106060CSS601 (Rev MS03)
+                                            S/N: PZG4B7PD
+Tray.00.Drive.16       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR282JP0000B235FKTM
+Tray.00.Drive.17       VG.3   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EXD0000E7262GPQ
+Tray.00.Drive.18       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23RPG0000B234C0SL
+Tray.00.Drive.19       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23DMD0000B231AKSY
+Tray.00.Drive.20       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233FP0000B233DH6J
+Tray.00.Drive.21       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21E160000B231BTRE
+Tray.00.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26KJF0000B235FNR2
+Tray.00.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26WYE0000B235EWTV
+Tray.00.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR259EN0000B234B84H
+Tray.01.Drive.1        VG.4   ONLINE        SEAGATE ST600MM0006 (Rev MS02)
+                                            S/N: S0M5EZS60000K542CXD4
+Tray.01.Drive.2        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PKH0000B233CA6G
+Tray.01.Drive.3        VG.4   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3DKZZ
+Tray.01.Drive.4        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YDJ0000B231AQJD
+Tray.01.Drive.5        VG.4   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EV30000E7262GL0
+Tray.01.Drive.6        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233PA0000B233EEPX
+Tray.01.Drive.7        VG.4   ONLINE        HITACHI HUC109060CSS600 (Rev MS06)
+                                            S/N: KWKG3AJX
+Tray.01.Drive.8        VG.5   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 0BGBP8WH
+Tray.01.Drive.9        VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20XFC0000B232CKVE
+Tray.01.Drive.10       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YV00000B232CDMA
+Tray.01.Drive.11       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1W45F0000B2309QJA
+Tray.01.Drive.12              UNRESPONSIVE  SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2QHZA0000B247BD63
+Tray.01.Drive.13       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21KK50000B2319AVC
+Tray.01.Drive.14       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SPW0000B234BCXG
+Tray.01.Drive.15       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23R9Q0000M233J3M0
+Tray.01.Drive.16       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1YSMC0000M2295ZC0
+Tray.01.Drive.17       VG.6   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y9S0000E728HD4Q
+Tray.01.Drive.18       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2T9GC0000B247CK4Z
+Tray.01.Drive.19       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232GD0000B231ECZH
+Tray.01.Drive.20       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SYL0000B234BDXJ
+Tray.01.Drive.21       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR22AW40000B233H07B
+Tray.01.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20J5J0000B2309PSZ
+Tray.01.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21Z150000B232BNYL
+Tray.01.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21T820000B232C9A6
+*
+*  Components (FRUs):
+*
+         Component Name               Status               Component Information
+--------------------------------   ------------  ----------------------------------------
+Tray.01.Esm.A                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX20604072
+Tray.01.Esm.B                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX21600108
+Tray.00.HostBoard.A                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12513904
+Tray.00.HostBoard.B                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12901033
+Tray.00.Fan.A                      OPTIMAL
+Tray.00.Fan.B                      OPTIMAL
+Tray.00.Fan.C                      OPTIMAL
+Tray.00.Fan.D                      OPTIMAL
+Tray.01.Fan.A                      OPTIMAL
+Tray.01.Fan.B                      OPTIMAL
+Tray.00.Battery.A                  REMOVED        P/N: , S/N:
+Tray.00.Battery.B                  OPTIMAL       LSI P/N: 36540-04, S/N: SU21790696A1
+Tray.00.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SasExpander.A                            LSI Snowmass
+Tray.00.SasExpander.B                            LSI Snowmass
+Tray.01.SasExpander.A                            LSI CORP Badger
+Tray.01.SasExpander.B                            LSI CORP Badger
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a011ab88
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a027aaef
+Tray.00.ThermalSensor.1            OPTIMAL
+Tray.00.ThermalSensor.2            OPTIMAL
+Tray.00.ThermalSensor.3            OPTIMAL
+Tray.00.ThermalSensor.4            OPTIMAL
+Tray.00.ThermalSensor.5            OPTIMAL
+Tray.00.ThermalSensor.6            OPTIMAL
+Tray.01.ThermalSensor.1            OPTIMAL
+Tray.01.ThermalSensor.2            OPTIMAL
+Tray.01.ThermalSensor.3            OPTIMAL
+Tray.01.ThermalSensor.4            OPTIMAL
+*
+*  SAS Ports:
+*
+                 SAS Port Name                       Status
+------------------------------------------------  ------------
+Tray.00.SasExpander.A->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.A->DEVICE                     OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.A->Tray.01.SasExpander.A      OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.B->DEVICE                     OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.B->Tray.01.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.A->DEVICE                     OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.A->Tray.00.SasExpander.A      OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.B->DEVICE                     OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.B->Tray.00.SasExpander.B      OPTIMAL
+
+* Redundant component.
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allControllers;' | egrep -A9 'Controller in Tray'
+   Controller in Tray 0, Slot A
+
+
+      Status:                       Online
+
+      Current configuration
+         Firmware version:          08.10.15.00
+            Appware version:        08.10.15.00
+            Bootware version:       08.10.15.00
+         NVSRAM version:            N26X0-810834-DB4
+--
+   Controller in Tray 0, Slot B
+
+
+      Status:                       Online
+
+      Current configuration
+         Firmware version:          08.10.15.00
+            Appware version:        08.10.15.00
+            Bootware version:       08.10.15.00
+         NVSRAM version:            N26X0-810834-DB4
+Nth2OCS3-0-0-9:/root-#
+Fri Nov  8 18:55:01 2024
+Your terminal (/dev/pts/1) has been idle for 17 min.
+Press Enter key or you will logged out any time after 42 min.
+
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-# df -kh
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1             5.8G  3.1G  2.5G  56% /
+/dev/sda5             2.0G  401M  1.5G  22% /var
+/dev/mapper/platform-PLATsoftware
+                       50G   12G   36G  24% /PLATsoftware
+/dev/mapper/platform-sncore
+                      3.9G  8.7M  3.7G   1% /sncore
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-# /cs/sn/ft/FTlsicli -a 0-0 show all
+Storage Array Management Paths Found = 2
+*
+*  Trays:
+*
+   Tray Name           Type                 Tray Information
+----------------    ----------  ----------------------------------------
+Tray.00             DE5600      LSI P/N: L2-25067-30, S/N: SX21902554
+Tray.01             DE5600      LSI P/N: L2-25067-30, S/N: SX21705569
+*
+*  Controllers:
+*
+  Controller Name                Status              Controller Information
+--------------------          ------------  ----------------------------------------
+Tray.00.Controller.A          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV13912356
+                                            Firmware: 08.10.15.00
+Tray.00.Controller.B          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV20301304
+                                            Firmware: 08.10.15.00
+*
+*  Volumes:
+*
+  Volume Label    Assign  RAID     Size        Status      Controller Manager   Action In Progress
+----------------  ------  ----  ----------  ------------  --------------------  ------------------
+ld00_0             VG.1     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld01_0             VG.2     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld02_0             VG.3     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld03_0             VG.4     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld04_0             VG.5     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld05_0             VG.6     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+*
+*  Drives:
+*
+     Drive Name       Assign     Status                Drive Information
+--------------------  ------  ------------  ----------------------------------------
+Tray.00.Drive.1        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21DRM0000B233ECVR
+Tray.00.Drive.2        VG.1   ONLINE
+Tray.00.Drive.3        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2334L0000B233GRN3
+Tray.00.Drive.4        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23CAQ0000B233GNUV
+Tray.00.Drive.5        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS07)
+                                            S/N: 6XR1315V0000B127P1Q2
+Tray.00.Drive.6        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PLF0000B23492PM
+Tray.00.Drive.7        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23T2E0000B234C9CY
+Tray.00.Drive.8        VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232XP0000B232AEMX
+Tray.00.Drive.9        VG.2   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3J4UZ
+Tray.00.Drive.10       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2TDF90000M24704B4
+Tray.00.Drive.11       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20QKV0000B232CK0P
+Tray.00.Drive.12       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233HH0000B233GKNY
+Tray.00.Drive.13       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26TM70000B235F4R7
+Tray.00.Drive.14       VG.2   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y7F0000E728EZ0A
+Tray.00.Drive.15       VG.3   ONLINE        HITACHI HUC106060CSS601 (Rev MS03)
+                                            S/N: PZG4B7PD
+Tray.00.Drive.16       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR282JP0000B235FKTM
+Tray.00.Drive.17       VG.3   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EXD0000E7262GPQ
+Tray.00.Drive.18       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23RPG0000B234C0SL
+Tray.00.Drive.19       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23DMD0000B231AKSY
+Tray.00.Drive.20       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233FP0000B233DH6J
+Tray.00.Drive.21       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21E160000B231BTRE
+Tray.00.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26KJF0000B235FNR2
+Tray.00.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26WYE0000B235EWTV
+Tray.00.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR259EN0000B234B84H
+Tray.01.Drive.1        VG.4   ONLINE        SEAGATE ST600MM0006 (Rev MS02)
+                                            S/N: S0M5EZS60000K542CXD4
+Tray.01.Drive.2        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PKH0000B233CA6G
+Tray.01.Drive.3        VG.4   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3DKZZ
+Tray.01.Drive.4        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YDJ0000B231AQJD
+Tray.01.Drive.5        VG.4   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EV30000E7262GL0
+Tray.01.Drive.6        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233PA0000B233EEPX
+Tray.01.Drive.7        VG.4   ONLINE        HITACHI HUC109060CSS600 (Rev MS06)
+                                            S/N: KWKG3AJX
+Tray.01.Drive.8        VG.5   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 0BGBP8WH
+Tray.01.Drive.9        VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20XFC0000B232CKVE
+Tray.01.Drive.10       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YV00000B232CDMA
+Tray.01.Drive.11       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1W45F0000B2309QJA
+Tray.01.Drive.12              UNRESPONSIVE  SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2QHZA0000B247BD63
+Tray.01.Drive.13       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21KK50000B2319AVC
+Tray.01.Drive.14       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SPW0000B234BCXG
+Tray.01.Drive.15       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23R9Q0000M233J3M0
+Tray.01.Drive.16       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1YSMC0000M2295ZC0
+Tray.01.Drive.17       VG.6   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y9S0000E728HD4Q
+Tray.01.Drive.18       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2T9GC0000B247CK4Z
+Tray.01.Drive.19       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232GD0000B231ECZH
+Tray.01.Drive.20       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SYL0000B234BDXJ
+Tray.01.Drive.21       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR22AW40000B233H07B
+Tray.01.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20J5J0000B2309PSZ
+Tray.01.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21Z150000B232BNYL
+Tray.01.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21T820000B232C9A6
+*
+*  Components (FRUs):
+*
+         Component Name               Status               Component Information
+--------------------------------   ------------  ----------------------------------------
+Tray.01.Esm.A                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX20604072
+Tray.01.Esm.B                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX21600108
+Tray.00.HostBoard.A                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12513904
+Tray.00.HostBoard.B                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12901033
+Tray.00.Fan.A                      OPTIMAL
+Tray.00.Fan.B                      OPTIMAL
+Tray.00.Fan.C                      OPTIMAL
+Tray.00.Fan.D                      OPTIMAL
+Tray.01.Fan.A                      OPTIMAL
+Tray.01.Fan.B                      OPTIMAL
+Tray.00.Battery.A                  REMOVED        P/N: , S/N:
+Tray.00.Battery.B                  OPTIMAL       LSI P/N: 36540-04, S/N: SU21790696A1
+Tray.00.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SasExpander.A                            LSI Snowmass
+Tray.00.SasExpander.B                            LSI Snowmass
+Tray.01.SasExpander.A                            LSI CORP Badger
+Tray.01.SasExpander.B                            LSI CORP Badger
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a011ab88
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a027aaef
+Tray.00.ThermalSensor.1            OPTIMAL
+Tray.00.ThermalSensor.2            OPTIMAL
+Tray.00.ThermalSensor.3            OPTIMAL
+Tray.00.ThermalSensor.4            OPTIMAL
+Tray.00.ThermalSensor.5            OPTIMAL
+Tray.00.ThermalSensor.6            OPTIMAL
+Tray.01.ThermalSensor.1            OPTIMAL
+Tray.01.ThermalSensor.2            OPTIMAL
+Tray.01.ThermalSensor.3            OPTIMAL
+Tray.01.ThermalSensor.4            OPTIMAL
+*
+*  SAS Ports:
+*
+                 SAS Port Name                       Status
+------------------------------------------------  ------------
+Tray.00.SasExpander.A->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.A->DEVICE                     OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.A->Tray.01.SasExpander.A      OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.B->DEVICE                     OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.B->Tray.01.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.A->DEVICE                     OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.A->Tray.00.SasExpander.A      OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.B->DEVICE                     OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.B->Tray.00.SasExpander.B      OPTIMAL
+
+* Redundant component.
+Nth2OCS3-0-0-9:/root-# df -kh
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1             5.8G  3.1G  2.5G  56% /
+/dev/sda5             2.0G  401M  1.5G  22% /var
+/dev/mapper/platform-PLATsoftware
+                       50G   12G   36G  24% /PLATsoftware
+/dev/mapper/platform-sncore
+                      3.9G  8.7M  3.7G   1% /sncore
+Nth2OCS3-0-0-9:/root-# df -kh
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1             5.8G  3.1G  2.5G  56% /
+/dev/sda5             2.0G  401M  1.5G  22% /var
+/dev/mapper/platform-PLATsoftware
+                       50G   12G   36G  24% /PLATsoftware
+/dev/mapper/platform-sncore
+                      3.9G  8.7M  3.7G   1% /sncore
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-#
+Nth2OCS3-0-0-9:/root-# /cs/sn/ft/FTlsicli -a 0-0 show all
+Storage Array Management Paths Found = 2
+*
+*  Trays:
+*
+   Tray Name           Type                 Tray Information
+----------------    ----------  ----------------------------------------
+Tray.00             DE5600      LSI P/N: L2-25067-30, S/N: SX21902554
+Tray.01             DE5600      LSI P/N: L2-25067-30, S/N: SX21705569
+*
+*  Controllers:
+*
+  Controller Name                Status              Controller Information
+--------------------          ------------  ----------------------------------------
+Tray.00.Controller.A          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV13912356
+                                            Firmware: 08.10.15.00
+Tray.00.Controller.B          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV20301304
+                                            Firmware: 08.10.15.00
+*
+*  Volumes:
+*
+  Volume Label    Assign  RAID     Size        Status      Controller Manager   Action In Progress
+----------------  ------  ----  ----------  ------------  --------------------  ------------------
+ld00_0             VG.1     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld01_0             VG.2     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld02_0             VG.3     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld03_0             VG.4     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld04_0             VG.5     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld05_0             VG.6     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+*
+*  Drives:
+*
+     Drive Name       Assign     Status                Drive Information
+--------------------  ------  ------------  ----------------------------------------
+Tray.00.Drive.1        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21DRM0000B233ECVR
+Tray.00.Drive.2        VG.1   ONLINE
+Tray.00.Drive.3        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2334L0000B233GRN3
+Tray.00.Drive.4        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23CAQ0000B233GNUV
+Tray.00.Drive.5        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS07)
+                                            S/N: 6XR1315V0000B127P1Q2
+Tray.00.Drive.6        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PLF0000B23492PM
+Tray.00.Drive.7        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23T2E0000B234C9CY
+Tray.00.Drive.8        VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232XP0000B232AEMX
+Tray.00.Drive.9        VG.2   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3J4UZ
+Tray.00.Drive.10       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2TDF90000M24704B4
+Tray.00.Drive.11       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20QKV0000B232CK0P
+Tray.00.Drive.12       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233HH0000B233GKNY
+Tray.00.Drive.13       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26TM70000B235F4R7
+Tray.00.Drive.14       VG.2   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y7F0000E728EZ0A
+Tray.00.Drive.15       VG.3   ONLINE        HITACHI HUC106060CSS601 (Rev MS03)
+                                            S/N: PZG4B7PD
+Tray.00.Drive.16       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR282JP0000B235FKTM
+Tray.00.Drive.17       VG.3   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EXD0000E7262GPQ
+Tray.00.Drive.18       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23RPG0000B234C0SL
+Tray.00.Drive.19       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23DMD0000B231AKSY
+Tray.00.Drive.20       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233FP0000B233DH6J
+Tray.00.Drive.21       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21E160000B231BTRE
+Tray.00.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26KJF0000B235FNR2
+Tray.00.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26WYE0000B235EWTV
+Tray.00.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR259EN0000B234B84H
+Tray.01.Drive.1        VG.4   ONLINE        SEAGATE ST600MM0006 (Rev MS02)
+                                            S/N: S0M5EZS60000K542CXD4
+Tray.01.Drive.2        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PKH0000B233CA6G
+Tray.01.Drive.3        VG.4   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3DKZZ
+Tray.01.Drive.4        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YDJ0000B231AQJD
+Tray.01.Drive.5        VG.4   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EV30000E7262GL0
+Tray.01.Drive.6        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233PA0000B233EEPX
+Tray.01.Drive.7        VG.4   ONLINE        HITACHI HUC109060CSS600 (Rev MS06)
+                                            S/N: KWKG3AJX
+Tray.01.Drive.8        VG.5   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 0BGBP8WH
+Tray.01.Drive.9        VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20XFC0000B232CKVE
+Tray.01.Drive.10       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YV00000B232CDMA
+Tray.01.Drive.11       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1W45F0000B2309QJA
+Tray.01.Drive.12              UNRESPONSIVE  SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2QHZA0000B247BD63
+Tray.01.Drive.13       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21KK50000B2319AVC
+Tray.01.Drive.14       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SPW0000B234BCXG
+Tray.01.Drive.15       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23R9Q0000M233J3M0
+Tray.01.Drive.16       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1YSMC0000M2295ZC0
+Tray.01.Drive.17       VG.6   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y9S0000E728HD4Q
+Tray.01.Drive.18       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2T9GC0000B247CK4Z
+Tray.01.Drive.19       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232GD0000B231ECZH
+Tray.01.Drive.20       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SYL0000B234BDXJ
+Tray.01.Drive.21       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR22AW40000B233H07B
+Tray.01.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20J5J0000B2309PSZ
+Tray.01.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21Z150000B232BNYL
+Tray.01.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21T820000B232C9A6
+*
+*  Components (FRUs):
+*
+         Component Name               Status               Component Information
+--------------------------------   ------------  ----------------------------------------
+Tray.01.Esm.A                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX20604072
+Tray.01.Esm.B                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX21600108
+Tray.00.HostBoard.A                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12513904
+Tray.00.HostBoard.B                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12901033
+Tray.00.Fan.A                      OPTIMAL
+Tray.00.Fan.B                      OPTIMAL
+Tray.00.Fan.C                      OPTIMAL
+Tray.00.Fan.D                      OPTIMAL
+Tray.01.Fan.A                      OPTIMAL
+Tray.01.Fan.B                      OPTIMAL
+Tray.00.Battery.A                  REMOVED        P/N: , S/N:
+Tray.00.Battery.B                  OPTIMAL       LSI P/N: 36540-04, S/N: SU21790696A1
+Tray.00.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SasExpander.A                            LSI Snowmass
+Tray.00.SasExpander.B                            LSI Snowmass
+Tray.01.SasExpander.A                            LSI CORP Badger
+Tray.01.SasExpander.B                            LSI CORP Badger
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a011ab88
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a027aaef
+Tray.00.ThermalSensor.1            OPTIMAL
+Tray.00.ThermalSensor.2            OPTIMAL
+Tray.00.ThermalSensor.3            OPTIMAL
+Tray.00.ThermalSensor.4            OPTIMAL
+Tray.00.ThermalSensor.5            OPTIMAL
+Tray.00.ThermalSensor.6            OPTIMAL
+Tray.01.ThermalSensor.1            OPTIMAL
+Tray.01.ThermalSensor.2            OPTIMAL
+Tray.01.ThermalSensor.3            OPTIMAL
+Tray.01.ThermalSensor.4            OPTIMAL
+*
+*  SAS Ports:
+*
+                 SAS Port Name                       Status
+------------------------------------------------  ------------
+Tray.00.SasExpander.A->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.A->DEVICE                     OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.A->Tray.01.SasExpander.A      OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.B->DEVICE                     OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.B->Tray.01.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.A->DEVICE                     OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.A->Tray.00.SasExpander.A      OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.B->DEVICE                     OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.B->Tray.00.SasExpander.B      OPTIMAL
+
+* Redundant component.
+Nth2OCS3-0-0-9:/root-# /cs/sn/ft/FTlsicli -a 0-0 show all
+Storage Array Management Paths Found = 2
+*
+*  Trays:
+*
+   Tray Name           Type                 Tray Information
+----------------    ----------  ----------------------------------------
+Tray.00             DE5600      LSI P/N: L2-25067-30, S/N: SX21902554
+Tray.01             DE5600      LSI P/N: L2-25067-30, S/N: SX21705569
+*
+*  Controllers:
+*
+  Controller Name                Status              Controller Information
+--------------------          ------------  ----------------------------------------
+Tray.00.Controller.A          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV13912356
+                                            Firmware: 08.10.15.00
+Tray.00.Controller.B          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV20301304
+                                            Firmware: 08.10.15.00
+*
+*  Volumes:
+*
+  Volume Label    Assign  RAID     Size        Status      Controller Manager   Action In Progress
+----------------  ------  ----  ----------  ------------  --------------------  ------------------
+ld00_0             VG.1     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld01_0             VG.2     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld02_0             VG.3     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld03_0             VG.4     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld04_0             VG.5     5       3.3 TB  DEGRADED      Tray.00.Controller.A  Reconstructing
+ld05_0             VG.6     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+*
+*  Drives:
+*
+     Drive Name       Assign     Status                Drive Information
+--------------------  ------  ------------  ----------------------------------------
+Tray.00.Drive.1        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21DRM0000B233ECVR
+Tray.00.Drive.2        VG.1   ONLINE
+Tray.00.Drive.3        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2334L0000B233GRN3
+Tray.00.Drive.4        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23CAQ0000B233GNUV
+Tray.00.Drive.5        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS07)
+                                            S/N: 6XR1315V0000B127P1Q2
+Tray.00.Drive.6        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PLF0000B23492PM
+Tray.00.Drive.7        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23T2E0000B234C9CY
+Tray.00.Drive.8        VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232XP0000B232AEMX
+Tray.00.Drive.9        VG.2   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3J4UZ
+Tray.00.Drive.10       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2TDF90000M24704B4
+Tray.00.Drive.11       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20QKV0000B232CK0P
+Tray.00.Drive.12       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233HH0000B233GKNY
+Tray.00.Drive.13       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26TM70000B235F4R7
+Tray.00.Drive.14       VG.2   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y7F0000E728EZ0A
+Tray.00.Drive.15       VG.3   ONLINE        HITACHI HUC106060CSS601 (Rev MS03)
+                                            S/N: PZG4B7PD
+Tray.00.Drive.16       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR282JP0000B235FKTM
+Tray.00.Drive.17       VG.3   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EXD0000E7262GPQ
+Tray.00.Drive.18       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23RPG0000B234C0SL
+Tray.00.Drive.19       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23DMD0000B231AKSY
+Tray.00.Drive.20       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233FP0000B233DH6J
+Tray.00.Drive.21       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21E160000B231BTRE
+Tray.00.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26KJF0000B235FNR2
+Tray.00.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26WYE0000B235EWTV
+Tray.00.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR259EN0000B234B84H
+Tray.01.Drive.1        VG.4   ONLINE        SEAGATE ST600MM0006 (Rev MS02)
+                                            S/N: S0M5EZS60000K542CXD4
+Tray.01.Drive.2        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PKH0000B233CA6G
+Tray.01.Drive.3        VG.4   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3DKZZ
+Tray.01.Drive.4        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YDJ0000B231AQJD
+Tray.01.Drive.5        VG.4   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EV30000E7262GL0
+Tray.01.Drive.6        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233PA0000B233EEPX
+Tray.01.Drive.7        VG.4   ONLINE        HITACHI HUC109060CSS600 (Rev MS06)
+                                            S/N: KWKG3AJX
+Tray.01.Drive.8        VG.5   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 0BGBP8WH
+Tray.01.Drive.9        VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20XFC0000B232CKVE
+Tray.01.Drive.10       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YV00000B232CDMA
+Tray.01.Drive.11       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1W45F0000B2309QJA
+Tray.01.Drive.12       VG.5   REPLACED      SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR220850000B232C7CM
+Tray.01.Drive.13       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21KK50000B2319AVC
+Tray.01.Drive.14       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SPW0000B234BCXG
+Tray.01.Drive.15       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23R9Q0000M233J3M0
+Tray.01.Drive.16       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1YSMC0000M2295ZC0
+Tray.01.Drive.17       VG.6   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y9S0000E728HD4Q
+Tray.01.Drive.18       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2T9GC0000B247CK4Z
+Tray.01.Drive.19       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232GD0000B231ECZH
+Tray.01.Drive.20       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SYL0000B234BDXJ
+Tray.01.Drive.21       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR22AW40000B233H07B
+Tray.01.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20J5J0000B2309PSZ
+Tray.01.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21Z150000B232BNYL
+Tray.01.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21T820000B232C9A6
+*
+*  Components (FRUs):
+*
+         Component Name               Status               Component Information
+--------------------------------   ------------  ----------------------------------------
+Tray.01.Esm.A                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX20604072
+Tray.01.Esm.B                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX21600108
+Tray.00.HostBoard.A                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12513904
+Tray.00.HostBoard.B                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12901033
+Tray.00.Fan.A                      OPTIMAL
+Tray.00.Fan.B                      OPTIMAL
+Tray.00.Fan.C                      OPTIMAL
+Tray.00.Fan.D                      OPTIMAL
+Tray.01.Fan.A                      OPTIMAL
+Tray.01.Fan.B                      OPTIMAL
+Tray.00.Battery.A                  REMOVED        P/N: , S/N:
+Tray.00.Battery.B                  OPTIMAL       LSI P/N: 36540-04, S/N: SU21790696A1
+Tray.00.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SasExpander.A                            LSI Snowmass
+Tray.00.SasExpander.B                            LSI Snowmass
+Tray.01.SasExpander.A                            LSI CORP Badger
+Tray.01.SasExpander.B                            LSI CORP Badger
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a011ab88
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a027aaef
+Tray.00.ThermalSensor.1            OPTIMAL
+Tray.00.ThermalSensor.2            OPTIMAL
+Tray.00.ThermalSensor.3            OPTIMAL
+Tray.00.ThermalSensor.4            OPTIMAL
+Tray.00.ThermalSensor.5            OPTIMAL
+Tray.00.ThermalSensor.6            OPTIMAL
+Tray.01.ThermalSensor.1            OPTIMAL
+Tray.01.ThermalSensor.2            OPTIMAL
+Tray.01.ThermalSensor.3            OPTIMAL
+Tray.01.ThermalSensor.4            OPTIMAL
+*
+*  SAS Ports:
+*
+                 SAS Port Name                       Status
+------------------------------------------------  ------------
+Tray.00.SasExpander.A->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.A->DEVICE                     OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.A->Tray.01.SasExpander.A      OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.B->DEVICE                     OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.B->Tray.01.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.A->Tray.00.SasExpander.A      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.12           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.B->Tray.00.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.12           OPTIMAL
+
+* Redundant component.
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 2%
+Time To Completion: 154 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 3%
+Time To Completion: 151 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# df -kh
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1             5.8G  3.1G  2.5G  56% /
+/dev/sda5             2.0G  401M  1.5G  22% /var
+/dev/mapper/platform-PLATsoftware
+                       50G   12G   36G  24% /PLATsoftware
+/dev/mapper/platform-sncore
+                      3.9G  8.7M  3.7G   1% /sncore
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 5%
+Time To Completion: 148 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 13%
+Time To Completion: 138 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 16%
+Time To Completion: 136 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [0,23] hotSpare=TRUE;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [0,22] hotSpare=TRUE;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [0,24] hotSpare=TRUE;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [1,23] hotSpare=TRUE;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+A problem occurred assigning drive(s) as hot spares using the Set Drives command at line 1.
+Error 8 - No hot spare drives were assigned. Possible causes include (1) the maximum number of hot spare drives that can be assigned automatically have already been assigned or (2) the maximum number of hot spares for the entire storage array have been assigned, (3) there are no more unassigned drives available, or (4) any remaining unassigned drives have capacities that are smaller than all other drives in the storage array. If you suspect the first cause, manually assign more hot spare drives. If you suspect the fourth cause, obtain the selected drives capacity.
+
+The command at line 1 that caused the error is:
+
+set drive [1,23] hotSpare=TRUE;
+
+Script execution halted due to error.
+
+SMcli failed.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 23%
+Time To Completion: 128 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# /cs/sn/ft/FTlsicli -a 0-0 show all
+Storage Array Management Paths Found = 2
+*
+*  Trays:
+*
+   Tray Name           Type                 Tray Information
+----------------    ----------  ----------------------------------------
+Tray.00             DE5600      LSI P/N: L2-25067-30, S/N: SX21902554
+Tray.01             DE5600      LSI P/N: L2-25067-30, S/N: SX21705569
+*
+*  Controllers:
+*
+  Controller Name                Status              Controller Information
+--------------------          ------------  ----------------------------------------
+Tray.00.Controller.A          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV13912356
+                                            Firmware: 08.10.15.00
+Tray.00.Controller.B          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV20301304
+                                            Firmware: 08.10.15.00
+*
+*  Volumes:
+*
+  Volume Label    Assign  RAID     Size        Status      Controller Manager   Action In Progress
+----------------  ------  ----  ----------  ------------  --------------------  ------------------
+ld00_0             VG.1     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld01_0             VG.2     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld02_0             VG.3     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld03_0             VG.4     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld04_0             VG.5     5       3.3 TB  DEGRADED      Tray.00.Controller.A  Reconstructing
+ld05_0             VG.6     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+*
+*  Drives:
+*
+     Drive Name       Assign     Status                Drive Information
+--------------------  ------  ------------  ----------------------------------------
+Tray.00.Drive.1        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21DRM0000B233ECVR
+Tray.00.Drive.2        VG.1   ONLINE
+Tray.00.Drive.3        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2334L0000B233GRN3
+Tray.00.Drive.4        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23CAQ0000B233GNUV
+Tray.00.Drive.5        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS07)
+                                            S/N: 6XR1315V0000B127P1Q2
+Tray.00.Drive.6        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PLF0000B23492PM
+Tray.00.Drive.7        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23T2E0000B234C9CY
+Tray.00.Drive.8        VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232XP0000B232AEMX
+Tray.00.Drive.9        VG.2   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3J4UZ
+Tray.00.Drive.10       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2TDF90000M24704B4
+Tray.00.Drive.11       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20QKV0000B232CK0P
+Tray.00.Drive.12       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233HH0000B233GKNY
+Tray.00.Drive.13       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26TM70000B235F4R7
+Tray.00.Drive.14       VG.2   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y7F0000E728EZ0A
+Tray.00.Drive.15       VG.3   ONLINE        HITACHI HUC106060CSS601 (Rev MS03)
+                                            S/N: PZG4B7PD
+Tray.00.Drive.16       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR282JP0000B235FKTM
+Tray.00.Drive.17       VG.3   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EXD0000E7262GPQ
+Tray.00.Drive.18       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23RPG0000B234C0SL
+Tray.00.Drive.19       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23DMD0000B231AKSY
+Tray.00.Drive.20       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233FP0000B233DH6J
+Tray.00.Drive.21       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21E160000B231BTRE
+Tray.00.Drive.22              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26KJF0000B235FNR2
+Tray.00.Drive.23              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26WYE0000B235EWTV
+Tray.00.Drive.24              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR259EN0000B234B84H
+Tray.01.Drive.1        VG.4   ONLINE        SEAGATE ST600MM0006 (Rev MS02)
+                                            S/N: S0M5EZS60000K542CXD4
+Tray.01.Drive.2        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PKH0000B233CA6G
+Tray.01.Drive.3        VG.4   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3DKZZ
+Tray.01.Drive.4        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YDJ0000B231AQJD
+Tray.01.Drive.5        VG.4   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EV30000E7262GL0
+Tray.01.Drive.6        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233PA0000B233EEPX
+Tray.01.Drive.7        VG.4   ONLINE        HITACHI HUC109060CSS600 (Rev MS06)
+                                            S/N: KWKG3AJX
+Tray.01.Drive.8        VG.5   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 0BGBP8WH
+Tray.01.Drive.9        VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20XFC0000B232CKVE
+Tray.01.Drive.10       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YV00000B232CDMA
+Tray.01.Drive.11       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1W45F0000B2309QJA
+Tray.01.Drive.12       VG.5   REPLACED      SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR220850000B232C7CM
+Tray.01.Drive.13       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21KK50000B2319AVC
+Tray.01.Drive.14       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SPW0000B234BCXG
+Tray.01.Drive.15       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23R9Q0000M233J3M0
+Tray.01.Drive.16       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1YSMC0000M2295ZC0
+Tray.01.Drive.17       VG.6   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y9S0000E728HD4Q
+Tray.01.Drive.18       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2T9GC0000B247CK4Z
+Tray.01.Drive.19       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232GD0000B231ECZH
+Tray.01.Drive.20       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SYL0000B234BDXJ
+Tray.01.Drive.21       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR22AW40000B233H07B
+Tray.01.Drive.22              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20J5J0000B2309PSZ
+Tray.01.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21Z150000B232BNYL
+Tray.01.Drive.24              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21T820000B232C9A6
+*
+*  Components (FRUs):
+*
+         Component Name               Status               Component Information
+--------------------------------   ------------  ----------------------------------------
+Tray.01.Esm.A                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX20604072
+Tray.01.Esm.B                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX21600108
+Tray.00.HostBoard.A                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12513904
+Tray.00.HostBoard.B                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12901033
+Tray.00.Fan.A                      OPTIMAL
+Tray.00.Fan.B                      OPTIMAL
+Tray.00.Fan.C                      OPTIMAL
+Tray.00.Fan.D                      OPTIMAL
+Tray.01.Fan.A                      OPTIMAL
+Tray.01.Fan.B                      OPTIMAL
+Tray.00.Battery.A                  REMOVED        P/N: , S/N:
+Tray.00.Battery.B                  OPTIMAL       LSI P/N: 36540-04, S/N: SU21790696A1
+Tray.00.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SasExpander.A                            LSI Snowmass
+Tray.00.SasExpander.B                            LSI Snowmass
+Tray.01.SasExpander.A                            LSI CORP Badger
+Tray.01.SasExpander.B                            LSI CORP Badger
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a011ab88
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a027aaef
+Tray.00.ThermalSensor.1            OPTIMAL
+Tray.00.ThermalSensor.2            OPTIMAL
+Tray.00.ThermalSensor.3            OPTIMAL
+Tray.00.ThermalSensor.4            OPTIMAL
+Tray.00.ThermalSensor.5            OPTIMAL
+Tray.00.ThermalSensor.6            OPTIMAL
+Tray.01.ThermalSensor.1            OPTIMAL
+Tray.01.ThermalSensor.2            OPTIMAL
+Tray.01.ThermalSensor.3            OPTIMAL
+Tray.01.ThermalSensor.4            OPTIMAL
+*
+*  SAS Ports:
+*
+                 SAS Port Name                       Status
+------------------------------------------------  ------------
+Tray.00.SasExpander.A->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.A->DEVICE                     OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.A->Tray.01.SasExpander.A      OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.B->DEVICE                     OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.B->Tray.01.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.A->Tray.00.SasExpander.A      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.12           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.B->Tray.00.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.12           OPTIMAL
+
+* Redundant component.
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [1,22] hotSpare=TRUE;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [1,24] hotSpare=TRUE;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# /cs/sn/ft/FTlsicli -a 0-0 show all
+Storage Array Management Paths Found = 2
+*
+*  Trays:
+*
+   Tray Name           Type                 Tray Information
+----------------    ----------  ----------------------------------------
+Tray.00             DE5600      LSI P/N: L2-25067-30, S/N: SX21902554
+Tray.01             DE5600      LSI P/N: L2-25067-30, S/N: SX21705569
+*
+*  Controllers:
+*
+  Controller Name                Status              Controller Information
+--------------------          ------------  ----------------------------------------
+Tray.00.Controller.A          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV13912356
+                                            Firmware: 08.10.15.00
+Tray.00.Controller.B          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV20301304
+                                            Firmware: 08.10.15.00
+*
+*  Volumes:
+*
+  Volume Label    Assign  RAID     Size        Status      Controller Manager   Action In Progress
+----------------  ------  ----  ----------  ------------  --------------------  ------------------
+ld00_0             VG.1     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld01_0             VG.2     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld02_0             VG.3     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld03_0             VG.4     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld04_0             VG.5     5       3.3 TB  DEGRADED      Tray.00.Controller.A  Reconstructing
+ld05_0             VG.6     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+*
+*  Drives:
+*
+     Drive Name       Assign     Status                Drive Information
+--------------------  ------  ------------  ----------------------------------------
+Tray.00.Drive.1        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21DRM0000B233ECVR
+Tray.00.Drive.2        VG.1   ONLINE
+Tray.00.Drive.3        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2334L0000B233GRN3
+Tray.00.Drive.4        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23CAQ0000B233GNUV
+Tray.00.Drive.5        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS07)
+                                            S/N: 6XR1315V0000B127P1Q2
+Tray.00.Drive.6        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PLF0000B23492PM
+Tray.00.Drive.7        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23T2E0000B234C9CY
+Tray.00.Drive.8        VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232XP0000B232AEMX
+Tray.00.Drive.9        VG.2   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3J4UZ
+Tray.00.Drive.10       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2TDF90000M24704B4
+Tray.00.Drive.11       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20QKV0000B232CK0P
+Tray.00.Drive.12       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233HH0000B233GKNY
+Tray.00.Drive.13       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26TM70000B235F4R7
+Tray.00.Drive.14       VG.2   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y7F0000E728EZ0A
+Tray.00.Drive.15       VG.3   ONLINE        HITACHI HUC106060CSS601 (Rev MS03)
+                                            S/N: PZG4B7PD
+Tray.00.Drive.16       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR282JP0000B235FKTM
+Tray.00.Drive.17       VG.3   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EXD0000E7262GPQ
+Tray.00.Drive.18       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23RPG0000B234C0SL
+Tray.00.Drive.19       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23DMD0000B231AKSY
+Tray.00.Drive.20       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233FP0000B233DH6J
+Tray.00.Drive.21       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21E160000B231BTRE
+Tray.00.Drive.22              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26KJF0000B235FNR2
+Tray.00.Drive.23              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26WYE0000B235EWTV
+Tray.00.Drive.24              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR259EN0000B234B84H
+Tray.01.Drive.1        VG.4   ONLINE        SEAGATE ST600MM0006 (Rev MS02)
+                                            S/N: S0M5EZS60000K542CXD4
+Tray.01.Drive.2        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PKH0000B233CA6G
+Tray.01.Drive.3        VG.4   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3DKZZ
+Tray.01.Drive.4        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YDJ0000B231AQJD
+Tray.01.Drive.5        VG.4   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EV30000E7262GL0
+Tray.01.Drive.6        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233PA0000B233EEPX
+Tray.01.Drive.7        VG.4   ONLINE        HITACHI HUC109060CSS600 (Rev MS06)
+                                            S/N: KWKG3AJX
+Tray.01.Drive.8        VG.5   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 0BGBP8WH
+Tray.01.Drive.9        VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20XFC0000B232CKVE
+Tray.01.Drive.10       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YV00000B232CDMA
+Tray.01.Drive.11       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1W45F0000B2309QJA
+Tray.01.Drive.12       VG.5   REPLACED      SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR220850000B232C7CM
+Tray.01.Drive.13       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21KK50000B2319AVC
+Tray.01.Drive.14       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SPW0000B234BCXG
+Tray.01.Drive.15       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23R9Q0000M233J3M0
+Tray.01.Drive.16       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1YSMC0000M2295ZC0
+Tray.01.Drive.17       VG.6   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y9S0000E728HD4Q
+Tray.01.Drive.18       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2T9GC0000B247CK4Z
+Tray.01.Drive.19       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232GD0000B231ECZH
+Tray.01.Drive.20       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SYL0000B234BDXJ
+Tray.01.Drive.21       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR22AW40000B233H07B
+Tray.01.Drive.22              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20J5J0000B2309PSZ
+Tray.01.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21Z150000B232BNYL
+Tray.01.Drive.24              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21T820000B232C9A6
+*
+*  Components (FRUs):
+*
+         Component Name               Status               Component Information
+--------------------------------   ------------  ----------------------------------------
+Tray.01.Esm.A                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX20604072
+Tray.01.Esm.B                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX21600108
+Tray.00.HostBoard.A                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12513904
+Tray.00.HostBoard.B                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12901033
+Tray.00.Fan.A                      OPTIMAL
+Tray.00.Fan.B                      OPTIMAL
+Tray.00.Fan.C                      OPTIMAL
+Tray.00.Fan.D                      OPTIMAL
+Tray.01.Fan.A                      OPTIMAL
+Tray.01.Fan.B                      OPTIMAL
+Tray.00.Battery.A                  REMOVED        P/N: , S/N:
+Tray.00.Battery.B                  OPTIMAL       LSI P/N: 36540-04, S/N: SU21790696A1
+Tray.00.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SasExpander.A                            LSI Snowmass
+Tray.00.SasExpander.B                            LSI Snowmass
+Tray.01.SasExpander.A                            LSI CORP Badger
+Tray.01.SasExpander.B                            LSI CORP Badger
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a011ab88
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a027aaef
+Tray.00.ThermalSensor.1            OPTIMAL
+Tray.00.ThermalSensor.2            OPTIMAL
+Tray.00.ThermalSensor.3            OPTIMAL
+Tray.00.ThermalSensor.4            OPTIMAL
+Tray.00.ThermalSensor.5            OPTIMAL
+Tray.00.ThermalSensor.6            OPTIMAL
+Tray.01.ThermalSensor.1            OPTIMAL
+Tray.01.ThermalSensor.2            OPTIMAL
+Tray.01.ThermalSensor.3            OPTIMAL
+Tray.01.ThermalSensor.4            OPTIMAL
+*
+*  SAS Ports:
+*
+                 SAS Port Name                       Status
+------------------------------------------------  ------------
+Tray.00.SasExpander.A->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.A->DEVICE                     OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.A->Tray.01.SasExpander.A      OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.B->DEVICE                     OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.B->Tray.01.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.A->Tray.00.SasExpander.A      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.12           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.B->Tray.00.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.12           OPTIMAL
+
+* Redundant component.
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 26%
+Time To Completion: 124 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# df -kh
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1             5.8G  3.1G  2.5G  56% /
+/dev/sda5             2.0G  401M  1.5G  22% /var
+/dev/mapper/platform-PLATsoftware
+                       50G   12G   36G  24% /PLATsoftware
+/dev/mapper/platform-sncore
+                      3.9G  8.7M  3.7G   1% /sncore
+Nth2OCS3-0-0-9:/root-# df -kh
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1             5.8G  3.1G  2.5G  56% /
+/dev/sda5             2.0G  401M  1.5G  22% /var
+/dev/mapper/platform-PLATsoftware
+                       50G   12G   36G  24% /PLATsoftware
+/dev/mapper/platform-sncore
+                      3.9G  8.7M  3.7G   1% /sncore
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 27%
+Time To Completion: 122 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# /cs/sn/ft/FTlsicli -a 0-0 show all
+Storage Array Management Paths Found = 2
+*
+*  Trays:
+*
+   Tray Name           Type                 Tray Information
+----------------    ----------  ----------------------------------------
+Tray.00             DE5600      LSI P/N: L2-25067-30, S/N: SX21902554
+Tray.01             DE5600      LSI P/N: L2-25067-30, S/N: SX21705569
+*
+*  Controllers:
+*
+  Controller Name                Status              Controller Information
+--------------------          ------------  ----------------------------------------
+Tray.00.Controller.A          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV13912356
+                                            Firmware: 08.10.15.00
+Tray.00.Controller.B          ACTIVE        LSI INF-01-00 (Rev 0810)
+                                            LSI P/N: 46494-00, S/N: SV20301304
+                                            Firmware: 08.10.15.00
+*
+*  Volumes:
+*
+  Volume Label    Assign  RAID     Size        Status      Controller Manager   Action In Progress
+----------------  ------  ----  ----------  ------------  --------------------  ------------------
+ld00_0             VG.1     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld01_0             VG.2     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld02_0             VG.3     5       3.3 TB  OPTIMAL       Tray.00.Controller.A  None
+ld03_0             VG.4     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+ld04_0             VG.5     5       3.3 TB  DEGRADED      Tray.00.Controller.A  Reconstructing
+ld05_0             VG.6     5       3.3 TB  OPTIMAL       Tray.00.Controller.B  None
+*
+*  Drives:
+*
+     Drive Name       Assign     Status                Drive Information
+--------------------  ------  ------------  ----------------------------------------
+Tray.00.Drive.1        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21DRM0000B233ECVR
+Tray.00.Drive.2        VG.1   ONLINE
+Tray.00.Drive.3        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2334L0000B233GRN3
+Tray.00.Drive.4        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23CAQ0000B233GNUV
+Tray.00.Drive.5        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS07)
+                                            S/N: 6XR1315V0000B127P1Q2
+Tray.00.Drive.6        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PLF0000B23492PM
+Tray.00.Drive.7        VG.1   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23T2E0000B234C9CY
+Tray.00.Drive.8        VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232XP0000B232AEMX
+Tray.00.Drive.9        VG.2   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3J4UZ
+Tray.00.Drive.10       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2TDF90000M24704B4
+Tray.00.Drive.11       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20QKV0000B232CK0P
+Tray.00.Drive.12       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233HH0000B233GKNY
+Tray.00.Drive.13       VG.2   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26TM70000B235F4R7
+Tray.00.Drive.14       VG.2   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y7F0000E728EZ0A
+Tray.00.Drive.15       VG.3   ONLINE        HITACHI HUC106060CSS601 (Rev MS03)
+                                            S/N: PZG4B7PD
+Tray.00.Drive.16       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR282JP0000B235FKTM
+Tray.00.Drive.17       VG.3   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EXD0000E7262GPQ
+Tray.00.Drive.18       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23RPG0000B234C0SL
+Tray.00.Drive.19       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23DMD0000B231AKSY
+Tray.00.Drive.20       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233FP0000B233DH6J
+Tray.00.Drive.21       VG.3   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21E160000B231BTRE
+Tray.00.Drive.22              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26KJF0000B235FNR2
+Tray.00.Drive.23              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR26WYE0000B235EWTV
+Tray.00.Drive.24              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR259EN0000B234B84H
+Tray.01.Drive.1        VG.4   ONLINE        SEAGATE ST600MM0006 (Rev MS02)
+                                            S/N: S0M5EZS60000K542CXD4
+Tray.01.Drive.2        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23PKH0000B233CA6G
+Tray.01.Drive.3        VG.4   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 03G3DKZZ
+Tray.01.Drive.4        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YDJ0000B231AQJD
+Tray.01.Drive.5        VG.4   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4203EV30000E7262GL0
+Tray.01.Drive.6        VG.4   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR233PA0000B233EEPX
+Tray.01.Drive.7        VG.4   ONLINE        HITACHI HUC109060CSS600 (Rev MS06)
+                                            S/N: KWKG3AJX
+Tray.01.Drive.8        VG.5   ONLINE        HGST HUC101860CSS204 (Rev MS02)
+                                            S/N: 0BGBP8WH
+Tray.01.Drive.9        VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20XFC0000B232CKVE
+Tray.01.Drive.10       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21YV00000B232CDMA
+Tray.01.Drive.11       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1W45F0000B2309QJA
+Tray.01.Drive.12       VG.5   REPLACED      SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR220850000B232C7CM
+Tray.01.Drive.13       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21KK50000B2319AVC
+Tray.01.Drive.14       VG.5   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SPW0000B234BCXG
+Tray.01.Drive.15       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23R9Q0000M233J3M0
+Tray.01.Drive.16       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR1YSMC0000M2295ZC0
+Tray.01.Drive.17       VG.6   ONLINE        SEAGATE ST600MM0088 (Rev MS01)
+                                            S/N: W4204Y9S0000E728HD4Q
+Tray.01.Drive.18       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR2T9GC0000B247CK4Z
+Tray.01.Drive.19       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR232GD0000B231ECZH
+Tray.01.Drive.20       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR23SYL0000B234BDXJ
+Tray.01.Drive.21       VG.6   ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR22AW40000B233H07B
+Tray.01.Drive.22              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR20J5J0000B2309PSZ
+Tray.01.Drive.23              ONLINE        SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21Z150000B232BNYL
+Tray.01.Drive.24              HOT-SPARE     SEAGATE ST9600105SS (Rev MS04)
+                                            S/N: 6XR21T820000B232C9A6
+*
+*  Components (FRUs):
+*
+         Component Name               Status               Component Information
+--------------------------------   ------------  ----------------------------------------
+Tray.01.Esm.A                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX20604072
+Tray.01.Esm.B                      OPTIMAL       LSI DE5600-SAS (Rev 039A)
+                                                 LSI P/N: 41139-07, S/N: SX21600108
+Tray.00.HostBoard.A                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12513904
+Tray.00.HostBoard.B                OPTIMAL       LSI 0501 4-Port iSCSI
+                                                 LSI P/N: L2-38085-12, S/N: SV12901033
+Tray.00.Fan.A                      OPTIMAL
+Tray.00.Fan.B                      OPTIMAL
+Tray.00.Fan.C                      OPTIMAL
+Tray.00.Fan.D                      OPTIMAL
+Tray.01.Fan.A                      OPTIMAL
+Tray.01.Fan.B                      OPTIMAL
+Tray.00.Battery.A                  REMOVED        P/N: , S/N:
+Tray.00.Battery.B                  OPTIMAL       LSI P/N: 36540-04, S/N: SU21790696A1
+Tray.00.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.PowerSupply.A              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.PowerSupply.B              OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182803
+Tray.00.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12182802
+Tray.01.SupportCRU.A            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12032215
+Tray.01.SupportCRU.B            *  OPTIMAL       LSI P/N: 40024-33, S/N: ABGT12012181
+Tray.00.SasExpander.A                            LSI Snowmass
+Tray.00.SasExpander.B                            LSI Snowmass
+Tray.01.SasExpander.A                            LSI CORP Badger
+Tray.01.SasExpander.B                            LSI CORP Badger
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a011ab88
+Tray.00.CacheBackupDevice.A        OPTIMAL       Lexar SD Flash (Rev 10)
+                                                 Lexar P/N: Not Available, S/N: a027aaef
+Tray.00.ThermalSensor.1            OPTIMAL
+Tray.00.ThermalSensor.2            OPTIMAL
+Tray.00.ThermalSensor.3            OPTIMAL
+Tray.00.ThermalSensor.4            OPTIMAL
+Tray.00.ThermalSensor.5            OPTIMAL
+Tray.00.ThermalSensor.6            OPTIMAL
+Tray.01.ThermalSensor.1            OPTIMAL
+Tray.01.ThermalSensor.2            OPTIMAL
+Tray.01.ThermalSensor.3            OPTIMAL
+Tray.01.ThermalSensor.4            OPTIMAL
+*
+*  SAS Ports:
+*
+                 SAS Port Name                       Status
+------------------------------------------------  ------------
+Tray.00.SasExpander.A->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.A->DEVICE                     OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.A->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.A->Tray.01.SasExpander.A      OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.1            OPTIMAL
+Tray.00.SasExpander.B->DEVICE                     OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.3            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.4            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.5            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.6            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.7            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.8            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.9            OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.10           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.11           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.12           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.13           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.14           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.15           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.16           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.17           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.18           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.19           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.20           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.21           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.22           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.23           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Drive.24           OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.B       OPTIMAL
+Tray.00.SasExpander.B->Tray.00.Controller.A       OPTIMAL
+Tray.00.SasExpander.B->Tray.01.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.A->Tray.00.SasExpander.A      OPTIMAL
+Tray.01.SasExpander.A->Tray.01.Drive.12           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.1            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.2            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.3            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.4            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.5            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.6            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.7            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.8            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.9            OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.10           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.11           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.13           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.14           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.15           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.16           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.17           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.18           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.19           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.20           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.21           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.22           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.23           OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.24           OPTIMAL
+Tray.01.SasExpander.B->Tray.00.SasExpander.B      OPTIMAL
+Tray.01.SasExpander.B->Tray.01.Drive.12           OPTIMAL
+
+* Redundant component.
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 29%
+Time To Completion: 119 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 30%
+Time To Completion: 117 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 35%
+Time To Completion: 111 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 37%
+Time To Completion: 109 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 39%
+Time To Completion: 106 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# df -kh
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1             5.8G  3.1G  2.5G  56% /
+/dev/sda5             2.0G  401M  1.5G  22% /var
+/dev/mapper/platform-PLATsoftware
+                       50G   12G   36G  24% /PLATsoftware
+/dev/mapper/platform-sncore
+                      3.9G  8.7M  3.7G   1% /sncore
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 39%
+Time To Completion: 106 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-# SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld04_0"] actionProgress;'
+Performing syntax check...
+
+Syntax check complete.
+
+Executing script...
+
+Volume ld04_0
+Action: Reconstruction
+Percent Complete: 40%
+Time To Completion: 104 minutes.
+
+Script execution complete.
+
+SMcli completed successfully.
+
+Nth2OCS3-0-0-9:/root-#

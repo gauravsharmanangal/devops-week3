@@ -1,0 +1,643 @@
+Using username "rptuser".
+Last login: Wed Aug 27 15:26:15 2025 from 10.147.50.82
+[rptuser@misdb4 ~]$ crontab -l
+#For Updating Current Date for Uploading data in CDR Table Info Table
+1 0 * * * sh /home/rptuser/reporting-apps/updatetableinfo/updatetableinfo/Startup.sh >> /home/rptuser/reporting-apps/updatetableinfo/updatetableinfo/updateinfo.log 2>&1
+
+30 0 * * * sh  /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/calpproc.sh>>/home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/callproc.txt 2>&1
+
+##Subscriber dump CSV generation
+50 02 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log 2>&1
+
+####Hourly mail alert for disk usage
+0 10 * * * sh /home/rptuser/schedulers/diskspace.sh
+
+
+*/1 * * * * sh  /home/rptuser/schedulers/Sysmointor.sh
+
+##50 09 * * * sh /home/rptuser/reporting-apps/shailendra/prbt_count.sh
+
+##00 09 * * * sh /home/rptuser/reporting-apps/shailendra/recharges_ftp_4_ssa_wise_revenue.sh
+
+##00 12 * * * sh /home/rptuser/reporting-apps/shailendra/pyro_rech/IMI_recharge_count.sh
+
+45 15 * * * sh /home/rptuser/shailendra/HP_Subs_State_Dump.sh >> /home/rptuser/shailendra/HP_Subs_Dump_Daily_FTP.log &
+
+55 08 * * * sh /home/rptuser/reporting-apps/shailendra/SSA_Revenue/try_new.sh >> /home/rptuser/reporting-apps/shailendra/SSA_Revenue/SSA_Rev_new.log &
+
+##00 14 * * * sh /home/rptuser/reporting-apps/shailendra/SSA_Revenue/try.sh
+
+10 09 * * * sh /home/rptuser/shailendra/revenue.sh
+
+00 06 * * * sh /home/rptuser/reporting-apps/shailendra/new_acti_completed.sh
+
+##15 10 * * * sh /home/rptuser/reporting-apps/shailendra/gp2_recharges.sh
+
+35 08 * * * sh /home/rptuser/shailendra/VAREP_Recon/varep_recon.sh
+
+45 08 * * * sh /home/rptuser/shailendra/IMI_Recon/imi_recon.sh
+
+05 09 * * * sh /home/alu_pyro/CTOPUP/VAMSHI/P2P_RECON.sh
+
+30 11 2 * * sh /home/rptuser/reporting-apps/shailendra/SSA_Revenue/HARSH/Revenue_Report.sh
+
+00 12 2 * * sh /home/rptuser/reporting-apps/shailendra/SSA_Revenue/HARSH/rev_report_ftp.sh
+
+00 06 * * * sh /home/billing_ftp/2G3Gto4GSIM/2G3Gto4G/script.sh
+
+30 11 * * * sh /home/rptuser/aman/ssa_counts.sh
+
+############# Vipin Scripts ##############
+
+30 13 * * * sh /data/vipin/final_daily_in_prepaid_count_report.sh >> /data/vipin/final_daily_in_preapid_count_report.log 2>&1
+
+00 12 * * * sh /data/vipin/final_daily_in_prepaid_revenue_report.sh >> /data/vipin/final_daily_in_preapid_revenue_report.log 2>&1
+
+00 09 * * * sh /data/vipin/Daily_recharge_file/script_daily_recharge_to_INftpServer.sh >> /data/vipin/script_daily_recharge_to_INftpServer_log.log 2>&1
+
+00 11 * * * sh /data/vipin/daily_recharge_ssa_wise/script_dailynewactivation_data.sh >> /data/vipin/daily_recharge_ssa_wise/script_dailynewactivation_data_log.log 2>&1
+
+##30 10 * * * sh /data/vipin/March2025_GP2/script_GP2_750_daily.sh >> /data/vipin/March2025_GP2/script_GP2_750_daily_log.log 2>&1
+[rptuser@misdb4 ~]$ nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+[1] 53335
+nohup: ignoring input and redirecting stderr to stdout
+[rptuser@misdb4 ~]$
+[rptuser@misdb4 ~]$
+[rptuser@misdb4 ~]$
+[rptuser@misdb4 ~]$
+[rptuser@misdb4 ~]$
+[rptuser@misdb4 ~]$ cd /misdb4/reporting-apps-data1/CSVssdump
+[rptuser@misdb4 CSVssdump]$ ls -lrt
+total 258920
+-rw-rw-r-- 1 rptuser rptuser 265129482 Aug 27 15:53 tmp.CSV_SubscriberDump_20250827_27082025154445_IN14.csv-4
+[rptuser@misdb4 CSVssdump]$ ls -lrt
+total 259692
+-rw-rw-r-- 1 rptuser rptuser 265918710 Aug 27 15:53 tmp.CSV_SubscriberDump_20250827_27082025154445_IN14.csv-4
+[rptuser@misdb4 CSVssdump]$ tail -f /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log
+[1]+  Done                    nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log  (wd: ~)
+(wd now: /misdb4/reporting-apps-data1/CSVssdump)
+27-08-2025 17:06:16 INFO  FTPClient.java:114: Remote client disconnected
+27-08-2025 17:06:16 INFO  NewDump.java:343: SubscriberDump_20250827_27082025154445_IN14.csv-4 Copied Successfully to Common Back Up Location (FM CC) for IN::
+27-08-2025 17:06:16 INFO  SsdDumperFileOperationsBO.java:53: SubscriberDump_20250827_27082025154445_IN14.csv-4File renamed  Succssfully in ::/misdb4/reporting-apps-data1/CSVssdump/
+27-08-2025 17:06:18 INFO  NewDump.java:363: true Deleting the file from Final Location::
+27-08-2025 17:06:18 INFO  FileProcStatUpdDAO.java:48: Going to update the MIS_SSD_DUMP_STATUS as 3 for fileName:: CSV_SubscriberDump_20250827_27082025154445_IN14.csv-4
+27-08-2025 17:06:18 INFO  FileProcStatUpdDAO.java:72: SubscriberDump_20250827_27082025154445_IN14.csv-4File Updated to status 3 in MIS_SSD_DUMP_STATUS
+27-08-2025 17:06:18 INFO  ShellScript.java:21: Going to call the ShellScript :
+27-08-2025 17:06:18 INFO  ShellScript.java:33: Running SNTP ShellScript : /home/rptuser/reporting-apps/IN-SSDDumpProcessor/DumpScriptdetailandsumamryschedule/SSDDumpDetailandSumamry.sh
+27-08-2025 17:06:18 INFO  NewDump.java:391: Clling script was completed::
+27-08-2025 17:06:18 INFO  NewDump.java:397: File writing and calling script was finished::
+^C
+[rptuser@misdb4 CSVssdump]$
+[rptuser@misdb4 CSVssdump]$
+[rptuser@misdb4 CSVssdump]$ su -
+Password:
+[root@misdb4 ~]# crontab -l
+#For CDR DB Servers (Port 3306).
+
+#Truncating CDR Tables.
+0 22 * * * mysql -uroot -proot MIS -e "call TruncateCDR();"
+#Truncating  Pyro daily table Tables.
+
+0 22 * * * mysql -uroot -proot MIS_BSNL -vve "truncate table MIS_PYRO_RECHARGE;"
+45 00 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/DeleteAuditInfo.sh
+
+##Pyro CDRs###
+#30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/PyroRecharge.sh > /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+#30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script_Unsucces/PyroRecharge.sh > /home/rptuser/reporting-apps/Pyro_Script_Unsucces/Pyro.log
+#30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/PyroCtopupRev-p2p.sh > /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+
+30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/PyroRecharge_updated.sh >> /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/PyroCtopupRev-p2p_updated.sh >> /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+#40 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/Mwallet_Recharge.sh >> /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+45 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/CVAS_Credit.sh >> /home/rptuser/reporting-apps/Pyro_Script/CVAS_Credit.log 2>&1
+50 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/CVAS_Debit.sh >> /home/rptuser/reporting-apps/Pyro_Script/CVAS_Debit.log 2>&1
+00 9 * * * sh /home/rptuser/reporting-apps/Pyro_Script/Triotech01_Recharge.sh >> /home/rptuser/reporting-apps/Pyro_Script/Triotech01_Recharge.log 2>&1
+
+
+##10 09 * * * sh /home/rptuser/reporting-apps/SSA_REVENUE/SSA_REVENUE_UPDATE.sh >> /home/rptuser/reporting-apps/SSA_REVENUE/SSA_REVENUE_UPDATE.log
+
+
+#Common script for 5 scripts
+10 01 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/MisBsnlCommonUpload.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/MisBsnlCommonUpload.txt
+
+
+#Account Log Script Depends the time of SSDLOAD
+30 04 * * * sh /home/rptuser/reporting-apps/account_csv/ProcessCircleAccountNew.sh  >> /home/rptuser/reporting-apps/account_csv/Account.log 2>&1
+
+
+
+######Ngios#########
+*/1 * * * * /usr/bin/perl /root/monitor/gwmonitor.pl
+###########
+@reboot /home/rptuser/reporting-apps/ProcessManager/OnBoot_mysqlrst.sh
+
+# =========== Script to get Backup on BL-1 Server to Tape ==============
+
+10 06 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/DetailCsv_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+40 09 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/PyroCsv_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+10 04 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/ssd_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+###########SubRemovalAccountTable Script######################################
+0 06 * * * sh /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.sh >> /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.log 2>&1
+####Subscriber Removal Summary Script#####
+0 04 * * * sh /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.sh >> /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.log 2>&1
+
+##### MIS DB and MIS-BSNL Structure Dump
+
+#50 12 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump_misdb3.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump.log 2>&1
+
+#50 12 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump_misdb4.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump.log 2>&1
+
+####CC_MIS  VPN and SRF backup to bl
+#50 12 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump_misdb5.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump.log 2>&1
+
+#50 12 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump_misdb6.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump.log 2>&1
+
+##Script to generate and load ssd fact csv from misdb1 to misdb6
+55,0 5,6,7,8,9 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.txt 2>&1
+#0 05 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript2015_09_04.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ssddump.txt 2>&1
+
+
+##Truncate day wise SSDUmp table
+30 0 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/TruncateSSD.sh
+
+##SSD Dump detail Uploading
+
+15 09 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt
+
+#SSD FTP to BL2
+
+#30 09 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/ftp_sdd_bl2.sh
+
+#Script to load data to gui fact
+35,45 6,7,8,9,10,11 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/RPTProcessGUIFactUpload.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/RPTProcessGUIFactUpload.txt 2>&1
+
+40 02 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/IvrShortCode.sh >> /log/ivrshortcode.log 2>&1
+
+## PRBT & EROSNOW DUMP THROUGH SELFCARE
+##40 9 * * * sh /home/rptuser/reporting-apps/SELFCARE_CDR/prbtstv.sh >> /home/rptuser/reporting-apps/SELFCARE_CDR/prbtstv.log 2>&1
+##00 10 * * * sh /home/rptuser/reporting-apps/EROSNOW_CDR/Erosnow_Stv.sh >> /home/rptuser/reporting-apps/EROSNOW_CDR/erosnowstv.log 2>&1
+
+0 9-13/1 * * * sh /home/rptuser/clearcache.sh >> /home/rptuser/clearcache.log
+
+################### VIPIN SCRIPTs #####################
+00 15 * * * sh /data/vipin/sftp_script.sh >> /data/vipin/output/sftp_script_log.log 2>&1
+
+03 07 * * * sh /data/vipin/Daily_Active_to_GP1_files/sftp_script_active_to_GP1.sh >> /data/vipin/Daily_Active_to_GP1_files/sftp_script_active_to_GP1_log.txt 2>&1
+
+[root@misdb4 ~]# nohup sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+[1] 43537
+nohup: ignoring input and redirecting stderr to stdout
+[root@misdb4 ~]#
+[1]+  Done                    nohup sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+[root@misdb4 ~]#
+[root@misdb4 ~]#
+[root@misdb4 ~]# tail -f /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+^C
+[root@misdb4 ~]# tail -300 /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_14 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_15 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_16 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_17 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17) ;
+ Loading to misdb6 server Dump table & Fact Tables Ended @ Mon Aug 25 05:26:02 IST 2025
+-------------------------------------------------------------------------
+Loading to misdb5 Dump table started @ Mon Aug 25 05:26:02 IST 2025
+files moved into /misdb4/reporting-apps-data1/CSVssdumpbackup
+Warning: Using a password on the command line interface can be insecure.
+@query
+insert into MIS_RPT_BREAK_UP_CUSTOMER_FACT(CDR_DATE,CIRCLE_ID,PREACTIVE,ACTIVE,INACTIVE_GP1,INACTIVE_GP2,  GP2_GREATER_THAN_2,GP2_BETWEEN_1_AND_2,GP2_BETWEEN_6_AND_1,GP2_BETWEEN_1_AND_6,GP2_BETWEEN_0_AND_1,GP1_GREATER_THAN_2,GP1_BETWEEN_1_AND_2,GP1_BETWEEN_6_AND_1,GP1_BETWEEN_1_AND_6,GP1_BETWEEN_0_AND_1)  Select date_sub(CURDATE(),interval 1 day ) ddate,SSDD.Circle_Id circle,  SUM(CASE WHEN ( SSDD.Subscriber_Status IN ('PREACTIVE','GRACE','PREACTIVE1'))  THEN 1 ELSE 0 END) preact , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('ACTIVE') )  THEN 1 ELSE 0 END) active_2G , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('GRACE1'))  THEN 1 ELSE 0 END) GP1 , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('GRACE2'))  THEN 1 ELSE 0 END) GP2 , SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) > 730 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_greatr_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 366 AND 730 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_361_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 181 AND 365 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_181_360,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 31 AND 180 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_31_180,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),1000) BETWEEN 0 AND 30 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_0_30,   SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) > 730 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_greatr_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 366 AND 730 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_361_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 181 AND 365 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_181_360,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 31 AND 180 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_31_180,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),1000) BETWEEN 0 AND 30 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_0_30   from MIS_SSD_DUMP SSDD  group by ddate,circle;
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Starting the process as status is 3
+Warning: Using a password on the command line interface can be insecure.
+/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh thisis Path
+ProcessSSDDumpScript.sh This is File Name
+path :/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh
+57 This is Length
+properties file path=/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/
+tableName
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+inputpath is /misdb4/reporting-apps-data1/CSVssdump
+The Back Up Path is /misdb4/reporting-apps-data1/CSVssdumpbackup
+The input path is /misdb4/reporting-apps-data1/CSVssdump
+Warning: Using a password on the command line interface can be insecure.
+Loading to misdb6 started @Tue Aug 26 05:00:06 IST 2025
+Total  count in  CSV_SubscriberDump_20250826_26082025025012_IN14.csv-4  is  5178958
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Total Count in SSD DUMP Table is 5178958
+Warning: Using a password on the command line interface can be insecure.
+@query
+INSERT INTO MIS_RPT_SSD_FACT(CDR_DATE,TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,TOTAL_COUNT,ACCOUNT_BALANCE,ACCOUNT_NEGATIVE_BALANCE) (SELECT date_format(date_add(Timestamp, interval -1 day) , '%Y-%m-%d'),Tariff_Plan,Circle_Id,Subscriber_Status,SCP_Number,count(*),sum(trim(Primary_Balance))/100,sum(trim(LTotal_Primary_OC))/100 FROM MIS_SSD_DUMP GROUP BY date_format(date_add(Timestamp, interval -1 day) , '%Y-%m-%d'),Tariff_Plan,Circle_Id,Subscriber_Status,SCP_Number)
+Warning: Using a password on the command line interface can be insecure.
+@query
+SELECT COUNT(DISTINCT date_format(CDR_DATE,'%m-%Y'))  INTO @cnt FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+dcount
+1
+@query
+SELECT  min(date_format(CDR_DATE,'%m-%Y')) into @ddate FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+@query2
+UPDATE MIS_RPT_SSD_FACT SET CSV_INDICATOR=1 WHERE date_format(CDR_DATE,'%m-%Y')='08-2025'
+@query
+DELETE FROM MIS_RPT_SSD_FACT_MTH where date_format(str_to_date(CDR_DATE,'%m-%Y'),'%m-%Y')=date_format(str_to_date('08-2025','%m-%Y'),'%m-%Y')
+@query
+INSERT INTO MIS_RPT_SSD_FACT_MTH(CDR_DATE,TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,TOTAL_COUNT,ACCOUNT_BALANCE,ACCOUNT_NEGATIVE_BALANCE) (SELECT date_format(CDR_DATE ,'%m-%Y'),TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,SUM(TOTAL_COUNT),SUM(ACCOUNT_BALANCE),SUM(ACCOUNT_NEGATIVE_BALANCE) FROM MIS_RPT_SSD_FACT where date_format(CDR_DATE,'%m-%Y')='08-2025' GROUP BY date_format(CDR_DATE ,'%m-%Y'),TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER)
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_1 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_1 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_1) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_2 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_2 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_2) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_3 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_3 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_3) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_4 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_4 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_4) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_5 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_5 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_5) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_6 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_6 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_6) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_7 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_7 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_7) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_8 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_8 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_8) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_9 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_9 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_9) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_10 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_10 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_10) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_11 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_11 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_11) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_12 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_12 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_12) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_13 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_13 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_13) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_14 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_15 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_16 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_17 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17) ;
+ Loading to misdb6 server Dump table & Fact Tables Ended @ Tue Aug 26 05:25:32 IST 2025
+-------------------------------------------------------------------------
+Loading to misdb5 Dump table started @ Tue Aug 26 05:25:32 IST 2025
+files moved into /misdb4/reporting-apps-data1/CSVssdumpbackup
+Warning: Using a password on the command line interface can be insecure.
+@query
+insert into MIS_RPT_BREAK_UP_CUSTOMER_FACT(CDR_DATE,CIRCLE_ID,PREACTIVE,ACTIVE,INACTIVE_GP1,INACTIVE_GP2,  GP2_GREATER_THAN_2,GP2_BETWEEN_1_AND_2,GP2_BETWEEN_6_AND_1,GP2_BETWEEN_1_AND_6,GP2_BETWEEN_0_AND_1,GP1_GREATER_THAN_2,GP1_BETWEEN_1_AND_2,GP1_BETWEEN_6_AND_1,GP1_BETWEEN_1_AND_6,GP1_BETWEEN_0_AND_1)  Select date_sub(CURDATE(),interval 1 day ) ddate,SSDD.Circle_Id circle,  SUM(CASE WHEN ( SSDD.Subscriber_Status IN ('PREACTIVE','GRACE','PREACTIVE1'))  THEN 1 ELSE 0 END) preact , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('ACTIVE') )  THEN 1 ELSE 0 END) active_2G , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('GRACE1'))  THEN 1 ELSE 0 END) GP1 , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('GRACE2'))  THEN 1 ELSE 0 END) GP2 , SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) > 730 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_greatr_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 366 AND 730 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_361_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 181 AND 365 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_181_360,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 31 AND 180 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_31_180,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),1000) BETWEEN 0 AND 30 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_0_30,   SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) > 730 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_greatr_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 366 AND 730 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_361_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 181 AND 365 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_181_360,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 31 AND 180 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_31_180,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),1000) BETWEEN 0 AND 30 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_0_30   from MIS_SSD_DUMP SSDD  group by ddate,circle;
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh: line 11: [: -eq: unary operator expected
+Exiting the process as status is
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh: line 11: [: -eq: unary operator expected
+Exiting the process as status is
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh: line 11: [: -eq: unary operator expected
+Exiting the process as status is
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh: line 11: [: -eq: unary operator expected
+Exiting the process as status is
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+Warning: Using a password on the command line interface can be insecure.
+ERROR 2003 (HY000): Can't connect to MySQL server on '10.147.128.201' (111)
+/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh: line 11: [: -eq: unary operator expected
+Exiting the process as status is
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Starting the process as status is 3
+Warning: Using a password on the command line interface can be insecure.
+/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh thisis Path
+ProcessSSDDumpScript.sh This is File Name
+path :/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh
+57 This is Length
+properties file path=/home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/
+tableName
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+inputpath is /misdb4/reporting-apps-data1/CSVssdump
+The Back Up Path is /misdb4/reporting-apps-data1/CSVssdumpbackup
+The input path is /misdb4/reporting-apps-data1/CSVssdump
+Warning: Using a password on the command line interface can be insecure.
+Loading to misdb6 started @Wed Aug 27 17:30:22 IST 2025
+Total  count in  CSV_SubscriberDump_20250827_27082025154445_IN14.csv-4  is  5179864
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Total Count in SSD DUMP Table is 5179864
+Warning: Using a password on the command line interface can be insecure.
+@query
+INSERT INTO MIS_RPT_SSD_FACT(CDR_DATE,TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,TOTAL_COUNT,ACCOUNT_BALANCE,ACCOUNT_NEGATIVE_BALANCE) (SELECT date_format(date_add(Timestamp, interval -1 day) , '%Y-%m-%d'),Tariff_Plan,Circle_Id,Subscriber_Status,SCP_Number,count(*),sum(trim(Primary_Balance))/100,sum(trim(LTotal_Primary_OC))/100 FROM MIS_SSD_DUMP GROUP BY date_format(date_add(Timestamp, interval -1 day) , '%Y-%m-%d'),Tariff_Plan,Circle_Id,Subscriber_Status,SCP_Number)
+Warning: Using a password on the command line interface can be insecure.
+@query
+SELECT COUNT(DISTINCT date_format(CDR_DATE,'%m-%Y'))  INTO @cnt FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+dcount
+1
+@query
+SELECT  min(date_format(CDR_DATE,'%m-%Y')) into @ddate FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+@query2
+UPDATE MIS_RPT_SSD_FACT SET CSV_INDICATOR=1 WHERE date_format(CDR_DATE,'%m-%Y')='08-2025'
+@query
+DELETE FROM MIS_RPT_SSD_FACT_MTH where date_format(str_to_date(CDR_DATE,'%m-%Y'),'%m-%Y')=date_format(str_to_date('08-2025','%m-%Y'),'%m-%Y')
+@query
+INSERT INTO MIS_RPT_SSD_FACT_MTH(CDR_DATE,TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,TOTAL_COUNT,ACCOUNT_BALANCE,ACCOUNT_NEGATIVE_BALANCE) (SELECT date_format(CDR_DATE ,'%m-%Y'),TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,SUM(TOTAL_COUNT),SUM(ACCOUNT_BALANCE),SUM(ACCOUNT_NEGATIVE_BALANCE) FROM MIS_RPT_SSD_FACT where date_format(CDR_DATE,'%m-%Y')='08-2025' GROUP BY date_format(CDR_DATE ,'%m-%Y'),TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER)
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_1 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_1 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_1) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_2 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_2 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_2) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_3 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_3 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_3) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_4 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_4 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_4) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_5 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_5 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_5) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_6 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_6 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_6) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_7 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_7 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_7) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_8 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_8 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_8) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_9 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_9 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_9) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_10 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_10 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_10) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_11 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_11 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_11) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_12 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_12 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_12) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_13 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_13 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_13) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_14 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_15 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_16 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_17 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17) ;
+ Loading to misdb6 server Dump table & Fact Tables Ended @ Wed Aug 27 17:54:46 IST 2025
+-------------------------------------------------------------------------
+Loading to misdb5 Dump table started @ Wed Aug 27 17:54:46 IST 2025
+files moved into /misdb4/reporting-apps-data1/CSVssdumpbackup
+Warning: Using a password on the command line interface can be insecure.
+@query
+insert into MIS_RPT_BREAK_UP_CUSTOMER_FACT(CDR_DATE,CIRCLE_ID,PREACTIVE,ACTIVE,INACTIVE_GP1,INACTIVE_GP2,  GP2_GREATER_THAN_2,GP2_BETWEEN_1_AND_2,GP2_BETWEEN_6_AND_1,GP2_BETWEEN_1_AND_6,GP2_BETWEEN_0_AND_1,GP1_GREATER_THAN_2,GP1_BETWEEN_1_AND_2,GP1_BETWEEN_6_AND_1,GP1_BETWEEN_1_AND_6,GP1_BETWEEN_0_AND_1)  Select date_sub(CURDATE(),interval 1 day ) ddate,SSDD.Circle_Id circle,  SUM(CASE WHEN ( SSDD.Subscriber_Status IN ('PREACTIVE','GRACE','PREACTIVE1'))  THEN 1 ELSE 0 END) preact , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('ACTIVE') )  THEN 1 ELSE 0 END) active_2G , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('GRACE1'))  THEN 1 ELSE 0 END) GP1 , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('GRACE2'))  THEN 1 ELSE 0 END) GP2 , SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) > 730 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_greatr_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 366 AND 730 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_361_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 181 AND 365 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_181_360,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 31 AND 180 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_31_180,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),1000) BETWEEN 0 AND 30 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_0_30,   SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) > 730 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_greatr_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 366 AND 730 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_361_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 181 AND 365 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_181_360,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 31 AND 180 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_31_180,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),1000) BETWEEN 0 AND 30 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_0_30   from MIS_SSD_DUMP SSDD  group by ddate,circle;
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+[root@misdb4 ~]# crontab -l
+#For CDR DB Servers (Port 3306).
+
+#Truncating CDR Tables.
+0 22 * * * mysql -uroot -proot MIS -e "call TruncateCDR();"
+#Truncating  Pyro daily table Tables.
+
+0 22 * * * mysql -uroot -proot MIS_BSNL -vve "truncate table MIS_PYRO_RECHARGE;"
+45 00 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/DeleteAuditInfo.sh
+
+##Pyro CDRs###
+#30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/PyroRecharge.sh > /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+#30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script_Unsucces/PyroRecharge.sh > /home/rptuser/reporting-apps/Pyro_Script_Unsucces/Pyro.log
+#30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/PyroCtopupRev-p2p.sh > /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+
+30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/PyroRecharge_updated.sh >> /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+30 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/PyroCtopupRev-p2p_updated.sh >> /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+#40 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/Mwallet_Recharge.sh >> /home/rptuser/reporting-apps/Pyro_Script/PyroScript.log
+45 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/CVAS_Credit.sh >> /home/rptuser/reporting-apps/Pyro_Script/CVAS_Credit.log 2>&1
+50 8 * * * sh /home/rptuser/reporting-apps/Pyro_Script/CVAS_Debit.sh >> /home/rptuser/reporting-apps/Pyro_Script/CVAS_Debit.log 2>&1
+00 9 * * * sh /home/rptuser/reporting-apps/Pyro_Script/Triotech01_Recharge.sh >> /home/rptuser/reporting-apps/Pyro_Script/Triotech01_Recharge.log 2>&1
+
+
+##10 09 * * * sh /home/rptuser/reporting-apps/SSA_REVENUE/SSA_REVENUE_UPDATE.sh >> /home/rptuser/reporting-apps/SSA_REVENUE/SSA_REVENUE_UPDATE.log
+
+
+#Common script for 5 scripts
+10 01 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/MisBsnlCommonUpload.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/MisBsnlCommonUpload.txt
+
+
+#Account Log Script Depends the time of SSDLOAD
+30 04 * * * sh /home/rptuser/reporting-apps/account_csv/ProcessCircleAccountNew.sh  >> /home/rptuser/reporting-apps/account_csv/Account.log 2>&1
+
+
+
+######Ngios#########
+*/1 * * * * /usr/bin/perl /root/monitor/gwmonitor.pl
+###########
+@reboot /home/rptuser/reporting-apps/ProcessManager/OnBoot_mysqlrst.sh
+
+# =========== Script to get Backup on BL-1 Server to Tape ==============
+
+10 06 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/DetailCsv_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+40 09 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/PyroCsv_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+10 04 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/ssd_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+###########SubRemovalAccountTable Script######################################
+0 06 * * * sh /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.sh >> /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.log 2>&1
+####Subscriber Removal Summary Script#####
+0 04 * * * sh /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.sh >> /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.log 2>&1
+
+##### MIS DB and MIS-BSNL Structure Dump
+
+#50 12 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump_misdb3.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump.log 2>&1
+
+#50 12 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump_misdb4.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump.log 2>&1
+
+####CC_MIS  VPN and SRF backup to bl
+#50 12 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump_misdb5.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump.log 2>&1
+
+#50 12 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump_misdb6.sh >> /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/dbdump.log 2>&1
+
+##Script to generate and load ssd fact csv from misdb1 to misdb6
+55,0 5,6,7,8,9 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.txt 2>&1
+#0 05 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript2015_09_04.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ssddump.txt 2>&1
+
+
+##Truncate day wise SSDUmp table
+30 0 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/TruncateSSD.sh
+
+##SSD Dump detail Uploading
+
+15 09 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt
+
+#SSD FTP to BL2
+
+#30 09 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/ftp_sdd_bl2.sh
+
+#Script to load data to gui fact
+35,45 6,7,8,9,10,11 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/RPTProcessGUIFactUpload.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/RPTProcessGUIFactUpload.txt 2>&1
+
+40 02 * * * sh /home/rptuser/reporting-apps/misdb4Scripts/IMPteamscripts/IvrShortCode.sh >> /log/ivrshortcode.log 2>&1
+
+## PRBT & EROSNOW DUMP THROUGH SELFCARE
+##40 9 * * * sh /home/rptuser/reporting-apps/SELFCARE_CDR/prbtstv.sh >> /home/rptuser/reporting-apps/SELFCARE_CDR/prbtstv.log 2>&1
+##00 10 * * * sh /home/rptuser/reporting-apps/EROSNOW_CDR/Erosnow_Stv.sh >> /home/rptuser/reporting-apps/EROSNOW_CDR/erosnowstv.log 2>&1
+
+0 9-13/1 * * * sh /home/rptuser/clearcache.sh >> /home/rptuser/clearcache.log
+
+################### VIPIN SCRIPTs #####################
+00 15 * * * sh /data/vipin/sftp_script.sh >> /data/vipin/output/sftp_script_log.log 2>&1
+
+03 07 * * * sh /data/vipin/Daily_Active_to_GP1_files/sftp_script_active_to_GP1.sh >> /data/vipin/Daily_Active_to_GP1_files/sftp_script_active_to_GP1_log.txt 2>&1
+
+[root@misdb4 ~]# nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt &
+[1] 5101
+nohup: ignoring input and redirecting stderr to stdout
+[root@misdb4 ~]#
+[1]+  Done                    nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt
+[root@misdb4 ~]#
+[root@misdb4 ~]# tail -30 /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt
+---2
+testing...
+MIS_SSD_DUMP_Wed
+20250827
+today insertion table MIS_SSD_DUMP_Wed
+/misdb4/reporting-apps-data1/CSVssdumpbackup
+logpath:/log/ssddumploadd/
+CSV_SubscriberDump_20250827_27082025154445_IN14.csv-4
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+--------------
+insert into LOAD_AUDIIT_INFO_ONM (START_TIME,END_TIME,RECORD_COUNT,SERVER_ID,FILENAME,TYPE)values ('2025-08-27 18:20:53','2025-08-27 18:20:53',' 5179864  ','10.147.128.199','CSV_SubscriberDump_20250827_27082025154445_IN14.csv-4','SSDDUMP')
+--------------
+
+Query OK, 1 row affected
+
+Bye
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+--------------
+insert into LOAD_AUDIIT_INFO_ONM (START_TIME,END_TIME,RECORD_COUNT,SERVER_ID,FILENAME,TYPE)values ('2025-08-27 18:20:53','2025-08-27 18:20:53',' 5179864  ','10.147.128.199','CSV_SubscriberDump_20250827_27082025154445_IN14.csv-4','SSDDUMP')
+--------------
+
+Query OK, 1 row affected
+
+Bye
+Warning: Using a password on the command line interface can be insecure.
+Filecraetion for account table
+misdb4
+/misdb4/reporting-apps-data1/CSVssdumpfinalbackup/
+[root@misdb4 ~]#

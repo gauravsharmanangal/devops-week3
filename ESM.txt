@@ -1,0 +1,32 @@
+ESM logs
+1)/sms/smslog/wsagent/wsagent_0
+  tail -f wsagent_0 > wsagent_TR.txt
+
+2)/sms/smstmp/debug/plat/easNeTrace -> EASNE
+
+  tail -f easNeTrace > easNeTrace_TR.txt
+
+3)/sms/smslog/ne/        -> NEI Log
+
+4)NEintf -> /sms/smslog/neintf
+
+5)/sms/smslog/snmpalarm -> snmplog
+
+6)WO logs -> /sms/smslog/workorder
+
+7)UserTask ->/sms/smslog/usertask/uol*
+
+               /sms/smsapp/bin/logCat uol* > uol_deletion.log
+
+8)aheasync -> /sms/smslog/aheasync/ahe*
+
+9)asyncmgr -> /sms/smslog/asyncmgr
+
+10)Error Log/smserr- > /sms/smslog/smserr
+
+11)alarm -> /sms/smslog/alarm
+
+12)devlog -> /sms/smslog/devlog
+-----------to check db backup----------------------
+omnidb -session
+---------------------------

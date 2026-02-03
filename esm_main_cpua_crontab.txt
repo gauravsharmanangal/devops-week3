@@ -1,0 +1,40 @@
+#35 07  * * * (. /sms/smsapp/scripts/smsrtenv; /sms/smsapp/scripts/fsbackup sms) > /var/tmp/fsbackup.out 2>&1
+50 23 * * * (. /sms/smsapp/scripts/smsrtenv; /shome/sms/6d_Tariff_dump/dbtariff1.sh) > /dev/null 2>&1
+00 * * * * /sms/billing/archive_wsagentlog/Auto_Move.sh
+#05 09 * * * /usr/bin/ksh /sms/smsapp/scripts/remove_log_archive.sh
+
+#00 8,10,12,14,16,18,20 * * * cd /shome/sms/noc_alarm ; ./final.sh 2>&1
+55 07 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN1.sh
+55 13 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN2.sh
+55 18 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN3.sh
+55 23 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN4.sh
+35 07 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS2_1.sh
+35 13 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS2_2.sh
+35 18 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS2_3.sh
+35 23 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS2_4.sh
+40 07 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS3_1.sh
+40 13 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS3_2.sh
+40 18 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS3_3.sh
+40 23 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS3_4.sh
+45 07 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS4_1.sh
+45 13 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS4_2.sh
+45 18 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS4_3.sh
+45 23 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS4_4.sh
+50 07 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS5_1.sh
+50 13 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS5_2.sh
+50 18 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS5_3.sh
+50 23 * * * /usr/bin/ksh /sms/smsvar/bulk/PCN_files/copy_PCN_MCAS5_4.sh
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /usr/bin/ksh /sms/smsvar/bulk/WO.sh
+00,15,30,45 * * * * (/sms/smsapp/scripts/archtotape sms /sms NSMS)
+00 * * * * /bin/ksh /sms/smsapp/scripts/GuiHourLog /sms > /dev/null 2>&1
+00 * * * * /sms/smsapp/scripts/clean_websrv_log > /dev/null 2>&1
+50 * * * * ( . /sms/smsapp/scripts/smsrtenv ; /sms/smsapp/scripts/getSvcObjCnt.sh -u ) > /dev/null 2>&1
+00 00,02,04,06,08,10,13,14,16,18,20,22 * * * ( . /sms/smsapp/scripts/smsrtenv ; /sms/smsapp/scripts/sd_procchk2 ) >/dev/null 2>&1
+* * * * * (. /sms/smsapp/scripts/smsrtenv; /sms/smsapp/scripts/arch_soap_logs.sh both ) > /dev/null 2>&1
+0 7 * * * ( . /sms/smsapp/scripts/smsrtenv ; /sms/smsapp/scripts/clean_measpollhist.sh ) >/dev/null 2>&1
+15 6 * * * (. /sms/smsapp/scripts/smsrtenv;  $SMSHOME/smsapp/scripts/gg_ftp_ntsvr) >/dev/null 2>&1
+07 00 * * * (. /sms/smsapp/scripts/smsrtenv; /bin/ksh /sms/smsapp/scripts/clean_xml_meas /sms) >/dev/null 2>&1
+25 * * * * /bin/ksh /sms/smsapp/scripts/db_cleanlogs.sh > /dev/null 2>/dev/null
+10,40 * * * * ( . /sms/smsapp/scripts/smsrtenv ; /sms/smsapp/scripts/db_flushsharedpool.sh ) > /dev/null 2>&1
+00,30 * * * * ( . /sms/smsapp/scripts/smsrtenv ; /sms/smsapp/bin/st_chk ) >/dev/null 2>&1
+you have mail in /var/mail/sms

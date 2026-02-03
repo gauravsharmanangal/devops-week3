@@ -1,0 +1,145 @@
+!====================================================!
+! PRE CHECK COMMANDS !
+!====================================================!
+
+subshl
+op:status,assoc=all;
+op:status,assoc=all,m3ua;
+OP:AMA,STATUS;
+op:status,smi;
+op:status,state=oos;
+op:status,state=all; 
+op:status,machine=all; 
+OP:STATUS,SWBLADE=0-0-7; 
+OP:STATUS,SWBLADE=0-0-8; 
+OP:STATUS,SWBLADE=0-1-7; 
+OP:STATUS,SWBLADE=0-1-8; 
+op:status,mateupd;
+op:status,db=all;      
+op:status,spa=all;
+op:status,dataview=all;
+op:almtable;
+op:init;
+
+op:meas=TRFC5,table="MS_PERF_MEAS";   || Free Memory should not be in single digit
+op:meas=TRFC5,TABLE="SA_SPAMEAS";
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS"  || Used % should not be above 80%
+quit;
+ntpq -p
+ntpstat
+service vsftpd status
+ps -ef|grep CEP
+HELPME platform
+/cs/sn/ft/FTlsicli -a 0-0 show drives
+/cs/sn/ft/FTlsicli -a 0-0 show all
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray healthStatus;'
+/usr/bin/SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allControllers ;'
+
+ssh 0-0-SHMC
+date
+clia fans
+exit
+
+ssh 0-1-SHMC
+date
+clia fans
+exit
+
+!=============================================!
+1. To check Break Point on all blades
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; ls -ltrh /PLATsoftware/cs/snsps/EPAY29J/breakpoints/ | wc -l;"
+done 
+
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; ls -ltrh /PLATsoftware/cs/snsps/EPPSA29J/breakpoints/ | wc -l;"
+done 
+
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; ls -ltrh /PLATsoftware/cs/snsps/DROUTER29J/breakpoints/ | wc -l;"
+done 
+
+!=============================================!
+2. To check Root Partition disk space on root
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; /bin/df /;"
+done 
+
+!=============================================!
+3. To check Other Partition disk space on all blades
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; /bin/df -kh;"
+done 
+
+!=============================================!
+4. To check Crontab on all blades
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; /usr/bin/crontab -l;"
+done 
+
+!=============================================!
+5. To check service named status
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "service named status"
+done 
+
+!=============================================!
+6. To check Memory status
+!=============================================!
+
+for i in {0,1}
+do
+for j in {1..14}
+do
+ssh -q 0-$i-$j "hostname; cat /proc/meminfo|grep MemTotal";
+done
+done
+
+!=============================================!
+7. To check Uptime status
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; uptime";
+done 
+
+!=============================================!
+8. Alarm Checking !
+!=============================================!
+
+op:almtable;
+op:almtable,index=137; 
+
+SND:ALCLEAR,ALINDEX=137;
+
+!=============================================!
+9. SwitchPortStatus Checking !
+!=============================================!
+
+SwitchPortStats 0-0-7 sfp0
+SwitchPortStats 0-0-7 sfp1
+SwitchPortStats 0-0-8 sfp0
+SwitchPortStats 0-0-8 sfp1
+

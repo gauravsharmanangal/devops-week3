@@ -1,0 +1,884 @@
+         MAC Address 5                      00:11:3f:d3:15:3e
+        MAC Address 6                      00:11:3f:d3:15:3f
+
+
+
+ /usr/psp/customize/change_macs 0-0-12 00:11:3f:d3:15:3e 00:11:3f:d3:15:3f
+ touch /root/active.0-0-12
+ touch /root/dd_nonpilot_disks.0-0-12
+ 
+ -----------------use only ----fw_atcav2-2.90.10.4-------------------------
+ bios
+ ipms
+ bios bkp
+ ipms bkp
+0-0-SHMC
+ ./fwadm_bios bono 0-0-12_SOL0
+ ./fwadm_ipmc bono 12 1 0-0-SHMC
+ ./fwadm_bios bono 0-0-12_SOL0
+ ./fwadm_ipmc bono 12 1 0-0-SHMC
+ 
+0-1-SHMC
+  ./fwadm_bios bono 0-1-12_SOL0
+ ./fwadm_ipmc bono 12 1 0-1-SHMC
+ ./fwadm_bios bono 0-1-12_SOL0
+ ./fwadm_ipmc bono 12 1 0-1-SHMC
+ 
+ ./fwadm_check bono 0-0-14 14 1 0-0-SHMC
+ ---------------check version-------
+ cat /sn/sps/*/version---> to get SPA version
+ SU3R30:ENWTPPS29C-0100
+SU2R40:EPAY29C-0124
+SU2R40:EPPSA29C-0114
+SU3R30:NWTCOM105-0100
+30.29:NWTGSM066-0100
+ cat /opt/config/data/mCASrelease  ---->to get mcas version
+ to check ESM Version: go to su - sms-->then give command smsvers
+ 9717859307
+ --------------BP path---
+ bp bkp path----/u/ainet/debugBP_BKP
+ 1,ocs3,ocs5
+ ls -lrth /sn/sps/EPAY29C/breakpoints/BSNL-NZ-EPAY29C-0124-SU3R30-AR1-6903680-Debugging-Client-V1-20180511.bp;
+ls -lrth /sn/sps/EPAY29C/breakpoints/BSNL-NZ-EPAY29C-0124-SU3R30-AR1-6903680-Debugging-Client-V3-20181018.bp;
+ ls -lrth /sn/sps/EPAY29C/breakpoints
+ 
+ /opt/config/bin/PlatformSync /sn/sps/EPAY29C/breakpoints all  (to sync BP)
+/opt/config/bin/PlatformSync /sn/sps/EPPSA29C/breakpoints all
+
+/opt/config/bin/PlatformSync /sn/sps/EPAY29C/dg/global.dg/Customer_DGs all
+/opt/config/bin/PlatformSync /sn/sps/EPPSA29C/dg/global.dg/Customer_DGs all
+-------------------------for dg configurtion ---
+C:\Program Files\Java\jre1.6.0_02\lib\security\java.policy
+permission java.net.SocketPermission "*:1024-", "listen, accept, connect, resolve";
+
+for selfcare---java--security--add site url
+!=============================================!
+1. To check Break Point on all blades
+!=============================================!
+
+for i in `grep 0- /root/servers|awk '{print $1}'`
+do
+ssh -q $i "hostname; ls -ltrh /PLATsoftware/cs/snsps/EPAY29C/breakpoints/ | wc -l;"
+done 
+DEBUG:SPA=EPPSA29C,client=15,machine=0-1-3,ucl;
+ 
+ debug:SPA=EPPSA29C,machine=0-0-10,client=1,ucl;
+ debug:SPA=EPAY29C,machine=0-1-3,client=1,ucl;
+ subshl
+ DEBUG:SPA=EPAY29C,client=all,ucl;
+ DEBUG:SPA=EPPSA29C,client=all,ucl;
+ =>
+ clear all
+ status all
+ ##############################status all  (it should not be used with client=all)
+ 
+ ------check audit----
+ rcv:menu,spa
+ 100 -->3. EPPSA29C   --->22 server global rc 
+ ---------------path custom log-----------
+grep -i "Account Audit" /Custom_Log_Bkup/OMlog*Feb4*
+grep -i "Account Audit" /Custom_Log_Bkup/OMlog*Oct19*
+zgrep -i "Account Audit" /Custom_Log_Bkup/OMlog*Feb12*
+or 
+grep -i "Account Audit" /snlog/OMlog*
+
+------to run
+-----------to check scheduler---
+BKPCTDB   N   Sat  0:50    N  BACKUP:DB=CTRTDB28C,DEST="/RTDB_DUMP/dump/Co
+   unterDump_`date +%YSuccess0`.csv"
+      BKPSIMDB  N   Sat  0:55    N  BACKUP:DB=SIMDB28C,DEST="/RTDB_DUMP/dump/SIM
+   Dump_`date +%YSuccess0`.csv"
+
+rcv:menu
+2->7->
+ op:sched; 
+ 
+ awk '{print $2,$27,$66}'  SIMDump_20231019.csv >audit_time_mainatca1_19102023_count
+awk '$3<1697673600{print}' audit_time_mainatca1_19102023_count |grep -vi PREACTIVE|wc -l
+awk '$3<1697673600{print}' audit_time_matedatca2_19102023_count |grep -vi PREACTIVE|wc -l
+
+ ##############3MRVlogin#########
+ ssh InReach@10.147.136.50
+ pass--access
+ connect port async 3
+ user--root
+ pass--alatcav2
+ 
+ connect port async 1  -> 0-0-SHMC1
+connect port async 2  -> 0-0-SHMC2
+connect port async 3  -> MALBAN 0-0-7
+connect port async 4  -> MALBAN 0-0-8
+connect port async 5  -> Pilot 0-0-1
+connect port async 6  -> Pilot 0-0-9
+connect port async 7  -> 0-1-SHMC1
+connect port async 8  -> 0-1-SHMC2
+connect port async 9  -> Malban 0-1-7  alatcav2 need to eneter passward twice
+connect port async 10 -> Malban 0-1-8
+connect port async 11 -> Pilot 0-1-1
+connect port async 12 -> Malban 0-1-9
+connect port async 13 -> Controller A  ----user(shellUsr) pass (wy3oo&w4)
+connect port async 14 -> Controller B
+show port async 13 char
+ shellUsr
+ wy3oo&w4
+7742129444
+clia activate board 1
+touch /root/do_not_boot
+touch /opt/config/status/softchk
+
+/cs/sn/ft/FTlsicli -a 0-0 show controllers
+/cs/sn/ft/FTlsicli -a 0-0 show drives
+   SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set controller [b] availability=offline;'
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set controller [b] availability=online;'
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allControllers;' 
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allVolumes;'
+----------------------------------webdb---------------------------
+   cd /u/ainet
+   ./get_mas_db.sh
+   
+   WEBDB PROCEDURE:
+
+Procedure to upload data in WebDB.
+
+ 
+
+Run the script get_mas_db.sh
+WZ1OCS1-0-0-9:/u/ainet-# ./get_mas_db.sh
+
+Output will be like this.. with latest time stamp
+-rwxrwxrwx 1 root  root    1484800 Mar 21 15:23 output.data.WZ1OCS1-0-0_201703211523.tar
+
+WZ1OCS1-0-0-9:/u/ainet-#
+
+Do chmod 777 output.data.WZ1OCS1-0-0_201703211523.tar
+Download the file to your desktop using FileZilla.
+Open the WebDB link “ http://inuweb.ih.lucent.com/~jterpstr/cgi-bin/WebDB/webdb.cgi “
+Click on upload …
+ --------------------------------------------------------------------------------------------
+###########################
+!=============================!
+
+To clear WebMT Alarm
+
+!=============================!
+
+cd /cs/sn/ft
+./FTevent --list
+./FTevent --clear --event=1
+init:proc=CSOP,level=1,ucl;
+-----------------------------
+init:proc=FTSNMP,level=1,ucl;
+init:proc=FTOAM,level=1,ucl;
+init:proc=AUDITMON,level=1,ucl;
+init:proc=AUDITMON,level=1,machine=0-0-1,ucl;
+init:proc=AUDITMON,machine=0-0-9,level=0,ucl;  
+set:runlvl=100,machine=0-0-9;
+op:init,proc=AUDITMON;
+
+9415128167--data
+8004822122
+01
+!=============================================!
+! Alarm Checking !
+!=============================================!
+ CLR:ALMTBL,AGE=0;                              ( 0 for clear all alarms and 1or 2 or 3 for particular days)
+op:almtable;
+op:almtable,index=2148; 
+SND:ALCLEAR,ALINDEX=2148;
+
+op:almtable,index=9400; 
+
+SND:ALCLEAR,ALINDEX=9373; 
+SND:ALCLEAR,ALINDEX=9139; 
+--------------------------
+#############to get spa rk key #########
+op:rtgtbl,all;
+####################to restart logs application###########
+op:init,proc=CSOP   -> This will give you the current status of CSOP process with process id
+
+init:proc=CSOP,level=1,machine=0-0-1,ucl;  à This will restart the CSOP process, use the active pilot node (0-0-1 is active pilot in this example)
+
+op:init,proc=CSOP   -> Confirm again, you should see new process id  
+
+ 
+4208000005
+##############################OS and platform backup#################
+Before executing below commands, pls inhibit backup in op:sched during backup time. Backup will take 3 to 4hrs. Activity log also attached.
+Commands:rcv:menu
+2->7->
+FormatLocalBackup---> This is root prompt(10 min)
+CheckLocalBackup----->This is root prompt(5 min)
+BACKUP:LOCAL,TARGET=OSrestore;---> Subshl(25 min)
+BACKUP:LOCAL,TARGET=Platform;---->Subshl(30 min)
+
+##############to take backup of DB#######
+
+
+backup:db=SIMDB28C,DEST="/RTDB_DUMP/dump/ajay/918901710230_SIMDB28C.csv",PARTIALKEY=919466584405,918901179702;
+BACKUP:DB=AIRTDB28C,dest="/RTDB_DUMP/AIRTDB28C_15Dec.csv"
+BACKUP:DB=CTRTDB28C,DEST="/ubilling/RTDB_BKP/CounterDump_1.csv"
+BACKUP:DB=SYDB287,dest="/TRACE_DUMP/31mar2023_SYDB287.csv"
+BACKUP:DB=SGLDB286,dest="/RTDB_DUMP/28102022_SGLDB286.csv"
+BACKUP:VOLATILEDB=ACMDB104,DEST="/RTDB_DUMP/dump/ACMBDB_26Oct2023.csv";
+
+BACKUP:DB=SHRTDB28C,dest="/RTDB_DUMP/dump/SHRTDB28C_202221018.csv";
+BACKUP:DB=CTRTDB28C,dest="/RTDB_DUMP/dump/CounterDump_20240210.csv";
+BACKUP:DB=GPRSSIM05,dest="/RTDB_DUMP/GPRSSIM05_20220516.csv";
+BACKUP:db=SIMDB28C,DEST="/RTDB_DUMP/dump/SIMDB28C_20221116.csv,CLRMATELOGS"
+BACKUP:DB=SHRTDB28C,DEST="/RTDB_DUMP/dump/SHRTDBDump_20230112.csv",CLRMATELOGS;
+BACKUP:DB=SIMDB28C,DEST="/RTDB_DUMP/dump/SIMDump_20240210.csv";
+BACKUP:DB=SYDB287,dest="/TRACE_DUMP/SYDB287_20230329.csv";
+SAVE:DB=SHRTDB28C;
+
+backup:db=SSDDB28C,binary,dest="/ubilling/ajay/SSDDB28C.bak";
+BACKUP:VOLATILEDB=ACMDB104,binary,dest="/ubilling/ajay/ACMDB104.bak";
+BACKUP:VOLATILEDB=ACMDB104,DEST="/TRACE_DUMP/ACMBDB_8Nov2023.csv";
+ssh 0-0-7-switch
+
+
+lasttimeused-
+------
+sosreport -a
+--------------------to ceck db token-------
+/cs/sn/rdb/TESTSTATUS -d >/dev/null 2>&1; egrep "_maxTokens|_numTokens" /tmp/rtdb_tctrl
+init:proc=RTDB,level=1,ucl
+
+/PLATsoftware/root/opt/sn/tmp/rtdb
+
+--------HLAPI ref---------------
+D:\eSM_API\eSM_API>eSM_API.exe Adjust_Balance_UCL_10feb2024.txt
+INFO - Row# : 1,  Task : Adjust Balance,  Header : Account ID|Account Type|Balance|Method|Amount|Credit Validity Delta|Lifecycle Adjust|Generate AMA|Transaction ID
+INFO - Row# : 1=SUCCESS  Value : 918423292947|Subscriber|Primary|INCR|107.0000|0|Y|Y|Pilot_CORRCT
+FATAL - Success : 1     Failed : 0
+
+D:\eSM_API\eSM_API>
+##################################IMOM commands #####################
+bsnl@123456
+---------------to run the audit for single no-------------
+snd:text="IPORT:ACCOUNT,MSISDN=919458912272,DELETE=N,FORCE=Y",rk="IMOMaudit"; 
+
+snd:text="UPD:CD,a=919458912272,z=2023/10/09",rk=PPSIMOMKey;
+
+-----------------to life cycle upade imom -----------------------
+snd:text="ADJ:LIFECYCLE,ACCOUNTID=919458912272,NEWSTATE=ACTIVE,IDTYPE=S,EVENTID=0",rk="PPSIMOMKey"
+===============================CLEAR HANG SESSION==================================================
+snd:text="CLR:SESS,MSISDN_MIN=919412775008,MSISDN_MAX=919412775008",rk=PPSIMOMKey;   (for sydb session clr)
+snd:text="RESET:PPCALLS,MSISDN=919412775008",rk=PPSIMOMKey;   (for acm db )
+---------------------------SETTING CREDIT EXP DATE ------
+snd:text="UPD:CD,a=917599885853,z=2022/05/05",rk=PPSIMOMKey; 
+
+snd:text="UPD:CD,a=919412775008,z=2023/07/01",rk=PPSIMOMKey;
+---------------------to delete bucket--------
+snd:text="UNSCB:EBUCKET,MSISDN=918005171894,BUCKETSOURCEID=ECT,IDTYPE=S",rk=PPSIMOMKey;
+
+----------------------------------------------------
+
+
+-------------to clear the mateupate queue-----------
+BACKUP:DB=SHRTDB28C,CLRMATELOGS,BINARY,DEST="/TRACE_DUMP/SHRTDB28C.bak"
+
+chown user:group filename
+----------------------------to rstart 
+op:init,proc=DIAMSCH
+init:proc=DIAMSCH,machine=0-0-12,level=1,ucl;
+init:proc=DIAMSCH,machine=0-0-4,level=1,ucl;
+
+--------------------------to check materlize view on cvpl117,cvpl116----------- 
+dbs ussdgw
+1. slee/ussdgw
+Which DB to connect ?
+1. SHMDB(P)
+2. ORACLE
+Enter the Nb correponding to the DB type : 2
+Error accessing PRODUCT_USER_PROFILE
+Warning:  Product user profile information not loaded!
+You may need to run PUPBLD.SQL as SYSTEM
+
+SQL>  alter session set nls_date_format='DD/MM/RRRR HH24:MI:SS';
+
+Session altered.
+
+SQL> select mview_name, LAST_REFRESH_DATE from user_mviews;
+
+----------------To debug dump data---
+
+ snd:text="DEBUG:PPSCALL,MSISDN=918004906254,idtype=S",RK=PPSIMOMKey
+ snd:text="DEBUG:PPSCALL,MSISDN=84xxxx,idtype=S",rk=PPSIMOMKey;
+
+SND:TEXT="SUB:DTPBUNDLE,MSISDN=919412352931,PTP_ID=ZT1,TRANS_ID=AUTO_RCHG",RK="PPSIMOMKey"
+919412770202
+------------------Print global tables CIP, CIPC, OAD for the concerned subscriber------------
+ From Subshl:
+  1.            debug:spa=EPAY29C,client=all,ucl
+  2.             print(" *****CIP = ", Calls_In_Progress_tbl["919451151991:1"])
+  3.            print(" *****OAD = ", Original_Account_Data_tbl["919451151991"])
+  4.          print(" *****CIPC = ", Calls_In_Progress_Counters_tbl["919451151991"])
+  5.            detach
+ 
+ pius sankar
+ Arun syal
+ Monika agrval
+ Daniel
+ -------------DG download----
+ find the DG name from cosp table on the behalfe of cosp id and search dg then go for surepayview----provider--DG grph 
+ search that dg in DG grph and then copy this DG and search in cutomer dg
+
+###########to check call traffic on atca############
+atca 5--TRFC5
+op:meas=TRFC5,TABLE="SG_M3UA_MEAS"
+op:meas=TRFC5,TABLE="SA_SPAMEAS",time=0030;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=202311,TIME=1900;
+op:meas=TRFC5,DATE=20240202,TIME=1900,TABLE="SA_SPAMEAS";
+set:board,machine=0-1-1,power=off
+OP:MEAS=TRFC5,TABLE="S7_SCCP_MEAS",
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS" (to check spa memory)
+/repsysdata/meas_files
+SA_SPAMEAS.day
+grep "EPAY29C" SA_SPAMEAS.wednesday|egrep "0-0-4|0-0-12"
+MEASUREMENT INTERVAL FORM
+2-4
+-------------mateupd---------
+op:status,mateupd;
+INH:mateupd;
+alw:mateupd;
+#########SMI########
+
+op:status,smi ---------ESM to ATCA connectivity.
+INH:smi;
+ alw:smi;     -------allowing SMI 
+ ###########inhibit on or off#######
+ sw:pilot
+ sw:vhost=0-1-10
+rmv:machine=0-0-2
+rst:machine=0-1-6
+ALW:SOFTCHK,SYSTEM,MACHINE=0-0-1
+INH:SOFTCHK,SYSTEM,MACHINE=0-0-1
+
+stv57--
+
+set:board,machine=0-0-4,power=off
+clia fruinfo -v board 9 | grep "Board Serial Number"
+INcmd -a softChk -s    ----(to inhibit all the blades)
+INcmd -a softChk -s -c    --------(to remove inhibit all the blades)
+################
+smartctl -a /dev/sdb     (RTM faulty)
+smartctl -a /dev/sda   (Bono faulty)
+############
+OP:STATUS,SWBLADE=0-1-7; 
+-----------------
+----spa restart---
+<abt:spa=EPAY29C;
+abt:spa=EPPSA29C;
+
+1)	Abort all the SPA with the below sequence 
+EPAY -> EPPSA -> ENWTPPS -> NWTCOM -> NWTGSM
+abt:spa=EPAY29C;
+abt:spa=EPPSA29C;
+abt:spa=ENWTPPS29C;
+abt:spa=NWTCOM105;
+abt:spa=NWTGSM066;
+
+2)	Once done, start the SPA with below sequence 
+NWTGSM -> NWTCOM -> ENWTPPS -> EPPSA -> EPAY
+install:spa=NWTGSM066,proc
+rst:spa=NWTGSM066
+install:spa=NWTCOM105,proc
+rst:spa=NWTCOM105
+install:spa=ENWTPPS29C,proc
+rst:spa=ENWTPPS29C
+install:spa=EPPSA29C,proc
+rst:spa=EPPSA29C
+install:spa=EPAY29C,proc
+rst:spa=EPAY29C;
+
+Screen 1 of 1
+                             SPMAN SPA NODE FORM
+
+*>  1. SPA NAME    ENWTPPS29C
+*   2. NODE ID     1
+    3. START SERVER                    N
+    4. NUMBER OF STANDARD CLIENTS      0
+    5. NUMBER OF SPECIALIZED CLIENTS   0
+
+############core decoding command############
+(decoded on mated )
+
+/cs/sn/utest/canal64 -e /PLATsoftware/cs/snsps/EPAY29C/LXEPAY29C /TRACE_DUMP/core_dump/coreB > /TRACE_DUMP/core_dump/core_decoded_11Jan
+
+----------------------------
+op:status,db=ACMDB104
+BACKUP:VOLATILEDB=ACMDB104,DEST="/ubilling/SWO_MAINATCA2/ACMDB104_Backup_12012022.csv" 
+op:status,db=ACMDB104
+scp -p ACMDB104_Backup_12012022.csv rtdbxfer:/ubilling/SWO_MAINATCA2/
+
+EPROCS3:
+op:status,db=ACMDB104
+CREATE:DB=ACMDB104,NOSAVE;
+op:status,db=ACMDB104
+LOAD:VOLATILEDB=ACMDB104,FILE="/ubilling/SWO_MAINATCA2/ACMBDB_07122021.csv",FULL;
+-----------------------
+Rashmi sstp---9452522433
+op:status,assoc=1-1;
+rst:assoc=1-3
+rmv:assoc=1-3
+rst:assoc=5-4
+rmv:assoc=5-4
+rmv:assoc=0-1
+rst:assoc=5-1;
+
+rmv:assoc=0-1;
+rmv:assoc=0-2;
+rmv:assoc=0-3;
+rmv:assoc=0-4;
+rmv:assoc=1-1;
+rmv:assoc=1-2;
+rmv:assoc=1-3;
+rmv:assoc=1-4;
+rmv:assoc=2-1;
+rmv:assoc=2-2;
+rmv:assoc=2-3;
+rmv:assoc=2-4;
+rmv:assoc=3-1;
+rmv:assoc=3-2;
+rmv:assoc=3-3;
+rmv:assoc=3-4;
+rmv:assoc=4-1;
+rmv:assoc=4-2;
+rmv:assoc=4-3;
+rmv:assoc=4-4;
+rmv:assoc=5-1;
+rmv:assoc=5-2;
+rmv:assoc=5-3;
+rmv:assoc=5-4;
+------------------------
+-------------STACK RESTART ----------
+Stack 1
+
+init:proc=S7SCH0,level=1,ucl,machine=0-0-4; 
+init:proc=STSCH0,level=1,ucl,machine=0-0-4;      ( for restarting 0-x associations only)
+init:proc=SCTPSCH0,level=1,ucl,machine=0-0-4; 
+                                   
+init:proc=S7SCH0,level=1,ucl,machine=0-0-12; 
+init:proc=STSCH0,level=1,ucl,machine=0-0-12;     ( for restarting 4-x associations only)
+init:proc=SCTPSCH0,level=1,ucl,machine=0-0-12;
+
+Stack 2
+
+init:proc=S7SCH1,level=1,ucl,machine=0-0-4;
+init:proc=STSCH1,level=1,ucl,machine=0-0-4;      ( for restarting 1-x associations only)
+init:proc=SCTPSCH1,level=1,ucl,machine=0-0-4;
+
+For restarting 5-x associations only:
+Note:
+Execute in subshl. After giving each command, we have to monitor the links whether they came up or not. If it is up then execute next command
+
+init:proc=S7SCH1,level=1,ucl,machine=0-0-12;
+init:proc=STSCH1,level=1,ucl,machine=0-0-12;    
+init:proc=SCTPSCH1,level=1,ucl,machine=0-0-12;
+********************************************************
+
+###################Below are the command used to restart stack on selfcare hosts:###############################
+init:proc=SCTPSCH,level=1,ucl;
+init:proc=STSCH,level=1,ucl;
+init:proc=S7SCH,level=1,ucl;
+init:proc=OSPSCH01,level=1,ucl;
+init:proc=OSPSCH02,level=1,ucl;
+init:proc=OSPSCH03,level=1,ucl;
+init:proc=OSPSCH04,level=1,ucl;
+init:proc=OSPSCH05,level=1,ucl;
+init:proc=OSPSCH06,level=1,ucl;
+init:proc=OSPSCH07,level=1,ucl;
+init:proc=OSPSCH08,level=1,ucl;
+init:proc=OSPSCH09,level=1,ucl;
+init:proc=OSPSCH10,level=1,ucl;
+init:proc=OSPSCH11,level=1,ucl;
+init:proc=OSPSCH12,level=1,ucl;
+init:proc=OSPSCH13,level=1,ucl;
+init:proc=OSPSCH14,level=1,ucl;
+init:proc=OSPSCH15,level=1,ucl;
+init:proc=OSPSCH16,level=1,ucl;
+
+***********************below 2&3 should not run for 0-0-4 & 0-0-12 ************************
+   
+OP:INIT,PROC=S7SCH2;
+OP:INIT,PROC=S7SCH3;
+OP:INIT,PROC=STSCH2;
+OP:INIT,PROC=STSCH3;
+OP:INIT,PROC=SCTPSCH2;
+OP:INIT,PROC=SCTPSCH3;
+
+!!!!!!!!!!!!!!!!!!!Disablinh SIGTRAN STACT RESTART COMMANDS!!!!!!!1
+inh:restart,proc=S7SCH2,machine=0-0-4,UCL
+inh:restart,proc=S7SCH3,machine=0-0-4,UCL
+inh:restart,proc=STSCH2,machine=0-0-4,UCL
+inh:restart,proc=STSCH3,machine=0-0-4,UCL
+inh:restart,proc=SCTPSCH2,machine=0-0-4,UCL
+inh:restart,proc=SCTPSCH3,machine=0-0-4,UCL
+
+init:proc=S7SCH2,level=1,machine=0-0-4,UCL;
+init:proc=S7SCH3,level=1,machine=0-0-4,UCL;
+init:proc=STSCH2,level=1,machine=0-0-4,UCL;
+init:proc=STSCH3,level=1,machine=0-0-4,UCL;
+init:proc=SCTPSCH2,level=1,machine=0-0-4,UCL;
+init:proc=SCTPSCH3,level=1,machine=0-0-4,UCL;
+
+inh:restart,proc=S7SCH2,machine=0-0-12,UCL;
+inh:restart,proc=S7SCH3,machine=0-0-12,UCL;
+inh:restart,proc=STSCH2,machine=0-0-12,UCL;
+inh:restart,proc=STSCH3,machine=0-0-12,UCL;
+inh:restart,proc=SCTPSCH2,machine=0-0-12,UCL;
+inh:restart,proc=SCTPSCH3,machine=0-0-12,UCL;
+
+init:proc=S7SCH2,level=1,machine=0-0-12,UCL;
+init:proc=S7SCH3,level=1,machine=0-0-12,UCL;
+init:proc=STSCH2,level=1,machine=0-0-12,UCL;
+init:proc=STSCH3,level=1,machine=0-0-12,UCL;
+init:proc=SCTPSCH2,level=1,machine=0-0-12,UCL;
+init:proc=SCTPSCH3,level=1,machine=0-0-12,UCL;
+
+
+inh:restart,proc=S7SCH2,machine=0-0-4,UCL;
+ init:proc=S7SCH2,level=1,machine=0-0-4,UCL;
+
+
+
+
+ #########################################################################################################
+ SHMC Commands:
+
+When working on an issue with an ATCA shelf and its subcomponents, it is helpful to collect the available data. Each ATCA shelf is equipped with a mated 
+pair of Shelf Management Controller board (ShMC). From the active ShMC board on each ATCA shelf the following data can be collected for review.
+
+{prompt} clia <command>
+
+Where: <command> = The ShMC CLIA commands that can be executed to gather shelf data.
+
+fruinfo –v board [1-14] = Provides ATCA blade data for selected slot
+
+
+fruinfo -v fan_tray [1-2] = Provides ATCA fan tray data for select tray
+
+fruinfo –v shm [1-2] = Provides ATCA ShMC data for selected slot
+
+ clia fruinfo -v fan_tray 1
+
+ATCA Hardware (Continue)
+
+coolingstate = Provides current data for fan trays in shelf
+
+alarmstate = Provides current data for FALARM board in shelf
+
+acpemstate = Provides current data for AC Power Entry Module (PEM) if equipped
+
+showunhealthy = Provides current list of non-normal components
+
+fru –v = Provides current list of equipped FRUs in shelf
+
+getlanconfig 1 = Provides current ShMC IP configuration in shelf
+
+shelf at = Provides current list of addressable components in shelf
+
+shelf pd = Provides current data for power distribution in shelf
+
+shelf pm = Provides current configuration for power management in shelf
+
+ipmc –v = Provides current data for each FRU/IPMC device in shelf
+
+sel -v = Provides Sensor Event Log (SEL) for shelf
+
+sel info = Provides info for SEL log (entries, free space, timestamps)
+
+sensordata –v = Provides current data for each FRU sensor in shelf
+
+getslotconf –information –slot [7|8] = Provides status of slot configuration for Ethernet Switch slots 7|8
+
+clia fans
+
+-------------------------ACM db dirty bit clean process----------------
+13.	ACMDB part at EDROCS3 to clean up the dirty bits
+Process1:
+1.	Take ACMDB dump using below command:
+
+BACKUP:VOLATILEDB=ACMDB104,DEST="/ubilling/ajay/ACMBkp1.csv";
+ 
+2.	Fetch the subscriber list having session in ACMDB:
+
+         awk -F" " ' { if ($5 > 0 ||  $9 ~ "Y" || $6 > 0 || $7 > 0 || $8 > 0 || $10 ~ "Y" ) print $2 }' ACMBkp1.csv > ACM_MSISDN.csv
+        sed  "s/'//g" ACM_MSISDN.csv > ACM_MSISDN1.csv
+
+3.	Remove Blank and Zero Values from ACM_MSISDN.csv(Generally First Row will contain zero value)
+
+4.	Check sample numbers if output is correct or not using ACM_MSISDN.csv .
+
+5.	Prepare CSV file with default values using below command:
+
+     a.	head -2 ACMBkp1.csv > ACMBkp2.csv
+
+     b.	perl  -ane '{print chr(39)."I".chr(39)." ".chr(39)."$F[0]".chr(39)." ".chr(39)."client_cc_not_specified".chr(39)." ".chr(39)."client_cc_not_specified".chr(39)." 0 0 0 0 ".chr(39)."N".chr(39)." ".chr(39)."N".chr(39)." " .chr(39)."N".chr(39)." " .chr(39)."N".chr(39)." " .chr(39)."N".chr(39)." " .chr(39)."N".chr(39)." "." |","\n"}'  ACM_MSISDN1.csv >> ACMBkp2.csv
+
+6.	Load ACMBkp2.csv file with FULL option on both main and mated site.
+LOAD:VOLATILEDB=ACMDB104,FILE="/ubilling/ajay/ACMBkp2.csv",FULL;
+
+
+################################################################
+
+
+
+-----------------------------
+my($day, $month, $year)=(localtime)[3,4,5];
+my $today = sprintf "%04d%02d%02d",($year+1900),($month+1),$day;
+
+print "Content: $today\n";
+my $previousDay=sprintf "%04d%02d%02d",($year+1900),($month+1),$day-5;
+print "Content: $previousDay\n";
+------
+
+
+
+----------------------PENDING TASKS--------------------
+23-0058--hdd FIRMWARE UPGRADATION
+20-0157--diamsch process 
+20-0295--need todo blade wise
+for firmware varification
+for i in {0,1}
+do
+for j in {1..14}
+do
+ssh -q 0-$i-$j "hostname; ethtool -i eth4 | head -3";
+done
+done 
+------
+17-0252C--cordinate with muthu
+18-0934--cordinate with muthu
+23-0540A---platform restart
+----------------------------------selfcare sep restart-----------------------------------
+sepman -d stop    (to stop defence)
+sepman -d start  
+sepman -t "*ussdgw*"  (to stop sep process)
+sepman -s "*wma-apache*"
+
+
+sepman -t cvpl117-ussdgw-P0-1  
+sepman -t cvpl117-ussdgw-P0-10 
+sepman -t cvpl117-ussdgw-P0-11 
+sepman -t cvpl117-ussdgw-P0-12 
+sepman -t cvpl117-ussdgw-P0-13 
+sepman -t cvpl117-ussdgw-P0-14 
+sepman -t cvpl117-ussdgw-P0-15 
+sepman -t cvpl117-ussdgw-P0-16 
+sepman -t cvpl117-ussdgw-P0-17 
+sepman -t cvpl117-ussdgw-P0-18 
+sepman -t cvpl117-ussdgw-P0-19 
+sepman -t cvpl117-ussdgw-P0-2  
+sepman -t cvpl117-ussdgw-P0-20 
+sepman -t cvpl117-ussdgw-P0-21 
+sepman -t cvpl117-ussdgw-P0-22 
+sepman -t cvpl117-ussdgw-P0-23 
+sepman -t cvpl117-ussdgw-P0-24 
+sepman -t cvpl117-ussdgw-P0-25 
+sepman -t cvpl117-ussdgw-P0-26 
+sepman -t cvpl117-ussdgw-P0-27 
+sepman -t cvpl117-ussdgw-P0-28 
+sepman -t cvpl117-ussdgw-P0-29 
+sepman -t cvpl117-ussdgw-P0-3  
+sepman -t cvpl117-ussdgw-P0-30 
+sepman -t cvpl117-ussdgw-P0-4  
+sepman -t cvpl117-ussdgw-P0-5  
+sepman -t cvpl117-ussdgw-P0-6  
+sepman -t cvpl117-ussdgw-P0-7  
+sepman -t cvpl117-ussdgw-P0-8  
+sepman -t cvpl117-ussdgw-P0-9  
+ 
+------------------------------------------------------
+!==========================================================!
+
+OP:INIT,PROC=S7SCH2;
+OP:INIT,PROC=S7SCH3;
+
+inh:restart,proc=S7SCH2,machine=0-0-4,UCL; 
+inh:restart,proc=S7SCH3,machine=0-0-4,UCL;
+inh:restart,proc=S7SCH2,machine=0-0-12,UCL;
+inh:restart,proc=S7SCH3,machine=0-0-12,UCL;
+
+OP:INIT,PROC=S7SCH2;
+OP:INIT,PROC=S7SCH3;
+
+init:proc=S7SCH2,level=1,machine=0-0-4,UCL; 
+init:proc=S7SCH2,level=1,machine=0-0-12,UCL; 
+init:proc=S7SCH3,level=1,machine=0-0-4,UCL; 
+init:proc=S7SCH3,level=1,machine=0-0-12,UCL; 
+init:proc=STSCH2,level=1,machine=0-0-4,UCL;
+init:proc=STSCH3,level=1,machine=0-0-4,UCL;
+
+OP:INIT,PROC=S7SCH2;
+OP:INIT,PROC=S7SCH3;
+
+!==========================================================!
+
+OP:INIT,PROC=STSCH2;
+OP:INIT,PROC=STSCH3;
+
+inh:restart,proc=STSCH2,machine=0-0-4,UCL; 
+inh:restart,proc=STSCH3,machine=0-0-4,UCL; 
+inh:restart,proc=STSCH2,machine=0-0-12,UCL;
+inh:restart,proc=STSCH3,machine=0-0-12,UCL;
+
+OP:INIT,PROC=STSCH2;
+OP:INIT,PROC=STSCH3;
+
+init:proc=SCTPSCH2,level=1,machine=0-0-4,UCL;
+init:proc=SCTPSCH3,level=1,machine=0-0-4,UCL;
+init:proc=S7SCH2,level=1,machine=0-0-12,UCL;
+init:proc=S7SCH3,level=1,machine=0-0-12,UCL;
+
+OP:INIT,PROC=STSCH2;
+OP:INIT,PROC=STSCH3;
+
+!==========================================================!
+
+OP:INIT,PROC=SCTPSCH2;
+OP:INIT,PROC=SCTPSCH3;
+
+inh:restart,proc=SCTPSCH2,machine=0-0-4,UCL; 
+inh:restart,proc=SCTPSCH3,machine=0-0-4,UCL; 
+inh:restart,proc=SCTPSCH2,machine=0-0-12,UCL;
+inh:restart,proc=SCTPSCH3,machine=0-0-12,UCL;
+
+OP:INIT,PROC=SCTPSCH2;
+OP:INIT,PROC=SCTPSCH3;
+
+init:proc=STSCH2,level=1,machine=0-0-12,UCL;
+init:proc=STSCH3,level=1,machine=0-0-12,UCL;
+init:proc=SCTPSCH2,level=1,machine=0-0-12,UCL;
+init:proc=SCTPSCH3,level=1,machine=0-0-12,UCL;
+
+OP:INIT,PROC=SCTPSCH2;
+OP:INIT,PROC=SCTPSCH3;
+
+!==========================================================!
+
+for i in 0-0-1 0-0-9 0-0-4 0-0-12
+        do
+        ssh -q $i "hostname; cat /opt/config/servers/0-0-*/local/sn/init/initlist.MODapp_S7SCH*|egrep 'S7SCH2|S7SCH3' "
+        done
+		
+for i in 0-0-1 0-0-9 0-0-4 0-0-12
+        do
+        ssh -q $i "hostname; cat /opt/config/servers/0-0-*/local/sn/init/initlist.MODapp_STSCH*|egrep 'STSCH2|STSCH3'"
+        done
+		
+for i in 0-0-1 0-0-9 0-0-4 0-0-12
+        do
+        ssh -q $i "hostname; cat /opt/config/servers/0-0-*/local/sn/init/initlist.MODapp_SCTPSCH*|egrep 'SCTPSCH2|SCTPSCH3'"
+        done
+		
+		
+		
+		for i in 0-0-1 0-0-9 0-0-4 0-0-12
+        do
+        ssh -q $i "hostname; cat /opt/config/servers/0-0-*/local/sn/init/initlist.MODapp_S7SCH*|egrep S7SCH* "
+        done
+		
+		for i in 0-0-1 0-0-9 0-0-4 0-0-12
+        do
+        ssh -q $i "hostname; cat /opt/config/servers/0-0-*/local/sn/init/initlist.MODapp_STSCH*|grep STSCH*"
+        done
+		
+		for i in 0-0-1 0-0-9 0-0-4 0-0-12
+        do
+        ssh -q $i "hostname; cat /opt/config/servers/0-0-*/local/sn/init/initlist.MODapp_SCTPSCH*|grep 'SCTPSCH*"
+        done
+!====================================================================================!
+
+/cs/sn/utest/stsch
+
+Steps perofmed on Active Pilot blade:
+
+•            ./disable_s7 4 0-0-12 (hash before initlist entries of stack0 to stack3 of 0-0-4)
+
+•            ./enable_s7 2 0-0-12 (remove hash before initlist entries of stack0 and stack1 of 0-0-4)
+
+!====================================================================================!
+
+•            ./down_s7 4 0-0-4 (bring down processes of all 4 stacks on 0-0-4)
+
+•            set:runlvl=100,machine=0-0-4; (pull up stack0 and stack1 processes of 0-0-4)
+
+•            op:init,machine=0-0-4(Check processes)
+
+•            op:status,assoc=all; Check all links/associations came up.
+
+
+op:init,machine=0-0-12
+
+!=====================================================================================!
+
+
+!==========================================================!
+
+OP:INIT,PROC=S7SCH2;
+OP:INIT,PROC=S7SCH3;
+
+inh:restart,proc=S7SCH2,machine=0-0-4,UCL; 
+inh:restart,proc=S7SCH3,machine=0-0-4,UCL;
+inh:restart,proc=S7SCH2,machine=0-0-12,UCL;
+inh:restart,proc=S7SCH3,machine=0-0-12,UCL;
+
+OP:INIT,PROC=S7SCH2;
+OP:INIT,PROC=S7SCH3;
+
+init:proc=S7SCH2,level=1,machine=0-0-4,UCL; 
+init:proc=S7SCH3,level=1,machine=0-0-4,UCL; 
+init:proc=STSCH2,level=1,machine=0-0-4,UCL;
+init:proc=STSCH3,level=1,machine=0-0-4,UCL;
+
+OP:INIT,PROC=S7SCH2;
+OP:INIT,PROC=S7SCH3;
+
+!==========================================================!
+
+OP:INIT,PROC=STSCH2;
+OP:INIT,PROC=STSCH3;
+
+inh:restart,proc=STSCH2,machine=0-0-4,UCL; 
+inh:restart,proc=STSCH3,machine=0-0-4,UCL; 
+inh:restart,proc=STSCH2,machine=0-0-12,UCL;
+inh:restart,proc=STSCH3,machine=0-0-12,UCL;
+
+OP:INIT,PROC=STSCH2;
+OP:INIT,PROC=STSCH3;
+
+init:proc=SCTPSCH2,level=1,machine=0-0-4,UCL;
+init:proc=SCTPSCH3,level=1,machine=0-0-4,UCL;
+init:proc=S7SCH2,level=1,machine=0-0-12,UCL;
+init:proc=S7SCH3,level=1,machine=0-0-12,UCL;
+
+OP:INIT,PROC=STSCH2;
+OP:INIT,PROC=STSCH3;
+
+!==========================================================!
+
+OP:INIT,PROC=SCTPSCH2;
+OP:INIT,PROC=SCTPSCH3;
+
+inh:restart,proc=SCTPSCH2,machine=0-0-4,UCL; 
+inh:restart,proc=SCTPSCH3,machine=0-0-4,UCL; 
+inh:restart,proc=SCTPSCH2,machine=0-0-12,UCL;
+inh:restart,proc=SCTPSCH3,machine=0-0-12,UCL;
+
+OP:INIT,PROC=SCTPSCH2;
+OP:INIT,PROC=SCTPSCH3;
+
+init:proc=STSCH2,level=1,machine=0-0-12,UCL;
+init:proc=STSCH3,level=1,machine=0-0-12,UCL;
+init:proc=SCTPSCH2,level=1,machine=0-0-12,UCL;
+init:proc=SCTPSCH3,level=1,machine=0-0-12,UCL;
+
+OP:INIT,PROC=SCTPSCH2;
+OP:INIT,PROC=SCTPSCH3;
+
+!==========================================================!
+
+

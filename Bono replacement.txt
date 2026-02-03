@@ -1,0 +1,242 @@
+===============================================BONO BLADE CHANGE=======================================================
+subshl
+op:status,machine=all
+rmv:machine=0-0-10
+op:status,machine=all
+
+-----Login to SHMC board-------------
+
+Process1:
+ssh 0-1-SHMC   -------------login to SHMC 
+clia board 10---------to show 4 blade status-------------
+clia deactivate board 10  -------------- deactivate 4 blade
+clia board 10
+
+OR
+
+Process2:
+SET:BOARD,MACHINE=0-0-2,POWER=OFF
+
+*****Wait for blue LED on the faulty board, it should be constant ***********
+**** replace the faulty BONO Blade with new BONO blade ******
+***********Replace the cards for card 0-0-12 (DB Blade)*************
+
+-----Login to SHMC board-------------
+ssh 0-0-SHMC   -------------login to SHMC 
+clia fruinfo -v board 10 | grep MAC  ------------ new blade MAC address 
+
+[root@ShMC1 root]# clia fruinfo -v board 10 | grep MAC 
+        MAC Address 1                      00:11:3f:d3:08:ee
+        MAC Address 2                      00:11:3f:d3:08:f0
+        MAC Address 3                      00:11:3f:d3:08:f1
+        MAC Address 4                      00:11:3f:d3:08:ef
+        Alcatel-Lucent MAC address extension record (ID=0x05)
+        number of extra MAC addresses      2
+        MAC Address 5                      00:11:3f:d3:08:f2
+        MAC Address 6                      00:11:3f:d3:08:f3
+[root@ShMC1 root]# 
+
+exit    ------------exit from SHMC 
+
+****Apply MAC address*********
+
+Process1:
+cat /opt/config/servers/0-1-10/config   -----------faulty board MAC address
+Edit this file with vi mode and change the MAC address with new board MAC address 
+
+OR 
+
+Process2:
+/usr/psp/customize/change_macs 0-0-9 00:11:3f:d6:45:7d 00:11:3f:d6:45:82
+
+For pilot:
+optional::::::::::::::::/opt/config/lib/config_netboot
+
+
+/opt/config/bin/enable_cpr
+For non pilot:
+touch /root/active.0-1-10
+touch /root/dd_nonpilot_disks.0-1-10
+
+
+************* Create DHCP server**************
+/cs/sn/ft/setup-dhcpd
+
+
+subshl
+op:status,machine=all
+RST:MACHINE=0-1-12
+
+open another session
+SOL 0-1-14
+press N
+
+open another session
+ssh 0-1-12
+uptime
+drbd-overview
+
+Login to new blade:
+ssh 0-1-12
+/usr/sbin/smartctl -a /dev/sda   ------------to check any error is there or not and bad sector
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray healthStatus;'    ---------------- To check Health status--------
+
+*************BP & DG Sync cmd*************
+BP Sync cmd:
+------------
+/opt/config/bin/PlatformSync /sn/sps/EPAY29C/breakpoints all
+ 
+DG Syns cmd:o
+------------
+/opt/config/bin/PlatformSync /sn/sps/EPAY29C/dg/global.dg/Customer_DGs all
+
+------------------------------------soft check inh---------------------------------------------------
+If during up gradation, at last stage our blade working like loop(oos then tnit & again again then need to perform the below process
+
+run on pilot blade
+inh:softchk,system,machine=0-1-12;
+alw:softchk,system,machine=0-1-12;
+-------------------------------------------------------------------------------------------------------------------------
+After replacement of bono blade we will get alarm at HELPME init cmd.. So to replace the same use the below cmd:
+
+EPROCS3-0-0-1:/root-# date;ls -lrt|grep -i 0-0-2
+
+Wed Dec  6 10:46:43 IST 2017
+
+-rw-r----- 1 root root        0 Nov  8 16:47 active.0-0-12
+
+-rw-r----- 1 root root        0 Nov  8 16:47 dd_nonpilot_disks.0-0-12
+
+EPROCS3-0-0-1:/root-#
+EPROCS3-0-0-12:/root-# uptime
+============================================================================================================================
+===============================================Pilot Blade Change Process BLADE CHANGE======================================
+subshl
+op:status,machine=all
+rmv:machine=0-0-1
+op:status,machine=all
+
+-----Login to SHMC board-------------
+
+Process1:
+ssh 0-0-SHMC   -------------login to SHMC 
+clia board 1 ---------to show 4 blade status-------------
+clia deactivate board 1  -------------- deactivate 4 blade
+clia board 1
+
+OR
+
+Process2:
+
+SET:BOARD,MACHINE=0-0-1,POWER=OFF
+
+
+*****Wait for blue LED on the faulty board, it should be constant ***********
+**** replace the faulty BONO Blade with new BONO blade ******
+***********Replace the cards for card 0-0-9 (Pilot Blade)*************
+
+-----Login to SHMC board-------------
+ssh 0-0-SHMC   -------------login to SHMC 
+clia fruinfo -v board 1 | grep MAC  ------------ new blade MAC address 
+
+[root@ShMC1 root]# clia fruinfo -v board 1 | grep MAC 
+        MAC Address 1                      00:11:3f:d6:61:f8
+        MAC Address 2                      00:11:3f:d6:61:fa
+        MAC Address 3                      00:11:3f:d6:61:fb
+        MAC Address 4                      00:11:3f:d6:61:f9
+        Alcatel-Lucent MAC address extension record (ID=0x05)
+        number of extra MAC addresses      2
+        MAC Address 5                      00:11:3f:d6:61:fc
+        MAC Address 6                      00:11:3f:d6:61:fd
+
+exit    ------------exit from SHMC 
+
+****Apply MAC address*********
+
+Process1:
+cat /opt/config/servers/0-0-1/config   -----------faulty board MAC address
+
+Edit this file with vi mode and change the MAC address with new board MAC address 
+
+OR 
+
+Process2:
+/usr/psp/customize/change_macs 0-0-1 00:11:3f:d6:61:fc 00:11:3f:d6:61:fd
+
+For pilot:
+/opt/config/bin/enable_cpr
+
+************* Create DHCP server**************
+/cs/sn/ft/setup-dhcpd
+
+subshl
+op:status, machine=all
+rst:machine=0-0-10
+
+open another session
+SOL 0-0-10  --------------- Login to SOL CONSOLE
+*********press "n" when it will show in screen. new blade will reboot *****************
+SOL 0-0-10
+press N
+
+open another session
+ssh 0-0-10
+
+Login to new blade:
+ssh 0-0-10
+/usr/sbin/smartctl -a /dev/sda   ------------to check any error is there or not and bad sector
+
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray healthStatus;'    ---------------- To check Health status--------
+
+
+----------------------------------------------------------------------------------------------------------------
+After replacement of bono blade we will get alarm at HELPME init cmd.. So to replace the same use the below cmd:
+
+EPROCS3-0-0-1:/root-# date;ls -lrt|grep -i 0-0-10
+
+Wed Dec  6 10:46:43 IST 2017
+
+-rw-r----- 1 root root        0 Nov  8 16:47 active.0-0-10
+
+-rw-r----- 1 root root        0 Nov  8 16:47 dd_nonpilot_disks.0-0-10
+EPROCS3-0-0-1:/root-#
+EPROCS3-0-0-12:/root-# uptime
+
+16:00:14 up 18 days, 22:40,  1 user,  load average: 0.00, 0.00, 0.00
+
+EPROCS3-0-0-12:/root-#
+
+
+
+=======================================RTM Change Process=====================
+For IO/Pilot blade:
+--------------------
+0-0-12 is Active I/O blade so do following. Preferably do it at night as special occasion is going on at ORISSA.
+sw:vhost=0-0-12;
+After both 0-0-4 & 0-0-12 came up->  
+rmv:machine=0-0-12
+Power off 0-0-12 using webmt or shmc.
+ssh 0-0-SHMC
+clia board 12
+clia deactivate board 12
+Replace 0-1-12 RTM
+Power on  0-0-12
+clia activate board 12
+rst:machine=0-0-12
+Check all associations originating from 0-0-12
+For Application blade blade:
+----------------------------
+rmv:machine=0-1-12
+Power off 0-1-12 using webmt or shmc.
+ssh 0-1-SHMCs
+clia board 12
+clia deactivate board 12
+Replace 0-1-12 RTM
+Power on  0-1-12
+clia activate board 12
+rst:machine=0-1-12
+
+----------------------------------------------
+After replacement copy crontab details from 0-0-9 pilot

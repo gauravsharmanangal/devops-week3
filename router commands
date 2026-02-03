@@ -1,0 +1,6 @@
+
+admin display-config
+---------------to add static route in router-----------
+configure router static-route 10.131.241.203/32 next-hop 10.147.139.18 
+---------------to remove static route in router -----------------
+configure router no static-route 10.131.241.203/32 next-hop 10.147.139.22

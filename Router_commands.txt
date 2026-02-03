@@ -1,0 +1,33 @@
+show log log-id 99
+show port
+show port <x>/<y>/<z>
+show port <x>/<y>/<z> detail
+show port description
+show service service-using vpls
+show service service-using epipe
+show service sap-using
+show service sap-using sap <x>/<y>/<z>
+show service sdp
+show service sdp-using
+show router route-table
+show router ospf neighbor
+show router interface
+show router arp
+show card
+show card detail
+show mda detail
+show chassis power-supply
+show chassis environment
+show card 1 detail
+show system cpu
+show system memory-pools
+show router mpls lsp
+show router mpls lsp activepath
+show router mpls lsp path
+show router mpls lsp path detail
+show service fdb-mac
+show service id 1008 sap 2/1/3:1008 detail
+
+
+
+

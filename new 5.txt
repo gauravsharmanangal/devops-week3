@@ -1,0 +1,59 @@
+subshl
+op:status,machine=all
+rmv:machine=0-1-10
+op:status,machine=all
+
+-----Login to SHMC board-------------
+
+Process1:
+ssh 0-1-SHMC   -------------login to SHMC
+clia board 10---------to show 4 blade status-------------
+clia deactivate board 10  -------------- deactivate 4 blade
+clia board 10
+
+*****Wait for blue LED on the faulty board, it should be constant ***********
+**** replace the faulty BONO Blade with new BONO blade ******
+***********Replace the cards for card 0-1-10 (DB Blade)*************
+
+-----Login to SHMC board-------------
+ssh 0-1-SHMC   -------------login to SHMC
+clia fruinfo -v board 10 | grep MAC  ------------ new blade MAC address
+
+[root@ShMC1 root]# clia fruinfo -v board 10 | grep MAC
+        MAC Address 1                      00:11:3f:d3:08:ee
+        MAC Address 2                      00:11:3f:d3:08:f0
+        MAC Address 3                      00:11:3f:d3:08:f1
+        MAC Address 4                      00:11:3f:d3:08:ef
+        Alcatel-Lucent MAC address extension record (ID=0x05)
+        number of extra MAC addresses      2
+        MAC Address 5                      00:11:3f:d3:08:f2
+        MAC Address 6                      00:11:3f:d3:08:f3
+[root@ShMC1 root]#
+
+exit    ------------exit from SHMC
+
+****Apply MAC address*********
+
+
+
+/usr/psp/customize/change_macs 0-1-10 00:11:3f:d6:45:7d 00:11:3f:d6:45:82
+
+touch /root/active.0-1-10
+touch /root/dd_nonpilot_disks.0-1-10
+
+************* Create DHCP server**************
+/cs/sn/ft/setup-dhcpd
+
+subshl
+op:status,machine=all
+RST:MACHINE=0-1-10
+
+open another session
+SOL 0-1-10
+press N
+
+open another session
+ssh 0-1-10
+uptime
+drbd-overview
+

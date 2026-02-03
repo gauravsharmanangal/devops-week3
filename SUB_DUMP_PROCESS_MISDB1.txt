@@ -1,0 +1,347 @@
+Using username "rptuser".
+Last login: Wed Aug 27 14:57:20 2025 from 10.147.50.82
+[rptuser@misdb1 ~]$
+[rptuser@misdb1 ~]$
+[rptuser@misdb1 ~]$
+[rptuser@misdb1 ~]$ cd /misdb1/reporting-apps-data1/CSVssdump/
+[rptuser@misdb1 CSVssdump]$ ls -lrth
+total 0
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$ crontab -l
+1 0 * * * sh /home/rptuser/reporting-apps/updatetableinfo/Startup.sh >> /home/rptuser/reporting-apps/updatetableinfo/updateinfo.log 2>&1
+#Server Status Alert
+#05 * * * * sh /home/rptuser/Server_status/Status.sh >> /home/rptuser/Server_status/Status.log 2>&1
+30 0 * * * sh  /home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/calpproc.sh>>/home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/callproc.txt 2>&1
+0 1  * * * mysql -h127.0.0.1 -uroot -proot -P 3308 -e "PURGE MASTER LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 1 DAY);"
+
+#Subscriber dump CSV generation
+50 02 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log 2>&1
+
+####Hourly mail alert for disk usage
+0 10 * * * sh /home/rptuser/schedulers/diskspace.sh
+
+*/1 * * * * sh  /home/rptuser/schedulers/Sysmointor.sh
+[rptuser@misdb1 CSVssdump]$ nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+[1] 57782
+nohup: ignoring input and redirecting stderr to stdout
+[rptuser@misdb1 CSVssdump]$ ps -ef |grep SSDDumper.sh
+rptuser  57782 51946  0 15:41 pts/0    00:00:00 sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh
+rptuser  58567 51946  0 15:42 pts/0    00:00:00 grep SSDDumper.sh
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$ ls -lrth
+total 232M
+-rw-rw-r-- 1 rptuser rptuser 232M Aug 27 15:52 tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1
+[rptuser@misdb1 CSVssdump]$ ls -lrth
+total 235M
+-rw-rw-r-- 1 rptuser rptuser 235M Aug 27 15:52 tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1
+[rptuser@misdb1 CSVssdump]$ pwd
+/misdb1/reporting-apps-data1/CSVssdump
+[rptuser@misdb1 CSVssdump]$ crontab -l
+1 0 * * * sh /home/rptuser/reporting-apps/updatetableinfo/Startup.sh >> /home/rptuser/reporting-apps/updatetableinfo/updateinfo.log 2>&1
+#Server Status Alert
+#05 * * * * sh /home/rptuser/Server_status/Status.sh >> /home/rptuser/Server_status/Status.log 2>&1
+30 0 * * * sh  /home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/calpproc.sh>>/home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/callproc.txt 2>&1
+0 1  * * * mysql -h127.0.0.1 -uroot -proot -P 3308 -e "PURGE MASTER LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 1 DAY);"
+
+#Subscriber dump CSV generation
+50 02 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log 2>&1
+
+####Hourly mail alert for disk usage
+0 10 * * * sh /home/rptuser/schedulers/diskspace.sh
+
+*/1 * * * * sh  /home/rptuser/schedulers/Sysmointor.sh
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$ tail -f /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log
+27-08-2025 15:43:34 INFO  SsdDumpFinalFields.java:87: 707::::DISCOUNT_ID_START_DATE_16
+27-08-2025 15:43:34 INFO  SsdDumpFinalFields.java:87: 708::::DISCOUNT_ID_END_DATE_16
+27-08-2025 15:43:34 INFO  Decision.java:55: /misdb1/reporting-apps-data1/INssdumpinitial/::::/misdb1/reporting-apps-data1/INssdumpinitial
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:240: sql::::::::SELECT  IN_GROUP_STATUS FROM MIS_SSD_DUMP_STATUS where DATE_FORMAT(TIMESTAMP,'%Y/%m/%d') ='2025/08/27' AND IN_GROUP_ID='1'
+27-08-2025 15:43:34 INFO  Decision.java:59: group Status::0 for Group Id::1:: IN Name::IN11
+27-08-2025 15:43:34 INFO  Decision.java:68: IN NAME::IN11
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:288: sql::::::::UPDATE MIS_SSD_DUMP_STATUS SET IN_GROUP_STATUS='1'  where DATE_FORMAT(TIMESTAMP,'%Y/%m/%d')='2025/08/27' AND IN_GROUP_ID='1'
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:292: Updated successfully
+27-08-2025 15:43:34 INFO  NewDump.java:423: tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1Opening the  file in location::/misdb1/reporting-apps-data1/CSVssdump/
+27-08-2025 15:43:34 INFO  NewDump.java:429: tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1Going to Create a File /misdb1/reporting-apps-data1/CSVssdump/
+
+
+
+
+
+^C
+[rptuser@misdb1 CSVssdump]$ crontab -l
+1 0 * * * sh /home/rptuser/reporting-apps/updatetableinfo/Startup.sh >> /home/rptuser/reporting-apps/updatetableinfo/updateinfo.log 2>&1
+#Server Status Alert
+#05 * * * * sh /home/rptuser/Server_status/Status.sh >> /home/rptuser/Server_status/Status.log 2>&1
+30 0 * * * sh  /home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/calpproc.sh>>/home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/callproc.txt 2>&1
+0 1  * * * mysql -h127.0.0.1 -uroot -proot -P 3308 -e "PURGE MASTER LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 1 DAY);"
+
+#Subscriber dump CSV generation
+50 02 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log 2>&1
+
+####Hourly mail alert for disk usage
+0 10 * * * sh /home/rptuser/schedulers/diskspace.sh
+
+*/1 * * * * sh  /home/rptuser/schedulers/Sysmointor.sh
+[rptuser@misdb1 CSVssdump]$ tail -f /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log
+27-08-2025 15:43:34 INFO  SsdDumpFinalFields.java:87: 707::::DISCOUNT_ID_START_DATE_16
+27-08-2025 15:43:34 INFO  SsdDumpFinalFields.java:87: 708::::DISCOUNT_ID_END_DATE_16
+27-08-2025 15:43:34 INFO  Decision.java:55: /misdb1/reporting-apps-data1/INssdumpinitial/::::/misdb1/reporting-apps-data1/INssdumpinitial
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:240: sql::::::::SELECT  IN_GROUP_STATUS FROM MIS_SSD_DUMP_STATUS where DATE_FORMAT(TIMESTAMP,'%Y/%m/%d') ='2025/08/27' AND IN_GROUP_ID='1'
+27-08-2025 15:43:34 INFO  Decision.java:59: group Status::0 for Group Id::1:: IN Name::IN11
+27-08-2025 15:43:34 INFO  Decision.java:68: IN NAME::IN11
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:288: sql::::::::UPDATE MIS_SSD_DUMP_STATUS SET IN_GROUP_STATUS='1'  where DATE_FORMAT(TIMESTAMP,'%Y/%m/%d')='2025/08/27' AND IN_GROUP_ID='1'
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:292: Updated successfully
+27-08-2025 15:43:34 INFO  NewDump.java:423: tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1Opening the  file in location::/misdb1/reporting-apps-data1/CSVssdump/
+27-08-2025 15:43:34 INFO  NewDump.java:429: tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1Going to Create a File /misdb1/reporting-apps-data1/CSVssdump/
+
+
+
+
+
+
+^C
+[rptuser@misdb1 CSVssdump]$ tail -f /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log
+27-08-2025 15:43:34 INFO  SsdDumpFinalFields.java:87: 707::::DISCOUNT_ID_START_DATE_16
+27-08-2025 15:43:34 INFO  SsdDumpFinalFields.java:87: 708::::DISCOUNT_ID_END_DATE_16
+27-08-2025 15:43:34 INFO  Decision.java:55: /misdb1/reporting-apps-data1/INssdumpinitial/::::/misdb1/reporting-apps-data1/INssdumpinitial
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:240: sql::::::::SELECT  IN_GROUP_STATUS FROM MIS_SSD_DUMP_STATUS where DATE_FORMAT(TIMESTAMP,'%Y/%m/%d') ='2025/08/27' AND IN_GROUP_ID='1'
+27-08-2025 15:43:34 INFO  Decision.java:59: group Status::0 for Group Id::1:: IN Name::IN11
+27-08-2025 15:43:34 INFO  Decision.java:68: IN NAME::IN11
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:288: sql::::::::UPDATE MIS_SSD_DUMP_STATUS SET IN_GROUP_STATUS='1'  where DATE_FORMAT(TIMESTAMP,'%Y/%m/%d')='2025/08/27' AND IN_GROUP_ID='1'
+27-08-2025 15:43:34 INFO  FileProcStatUpdDAO.java:292: Updated successfully
+27-08-2025 15:43:34 INFO  NewDump.java:423: tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1Opening the  file in location::/misdb1/reporting-apps-data1/CSVssdump/
+27-08-2025 15:43:34 INFO  NewDump.java:429: tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1Going to Create a File /misdb1/reporting-apps-data1/CSVssdump/
+
+
+
+27-08-2025 18:10:49 INFO  NewDump.java:466: Going to Close the File (buffered OutPut Stream)
+27-08-2025 18:10:49 INFO  FTPClient.java:41: FTP client creating
+27-08-2025 18:10:49 INFO  FTPClient.java:50: Connecting to FTPServer as Host : 10.147.128.222 [timeout: 400000000 ms]
+27-08-2025 18:10:49 INFO  FTPClient.java:76: Login successful
+27-08-2025 18:11:36 INFO  SsdDumperFileOperationsBO.java:124: File tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1 Copying to common backup is success
+27-08-2025 18:11:36 INFO  SsdDumperFileOperationsBO.java:132: File tmp.CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1 rename to SubscriberDump_20250827_27082025154159_IN11.csv-1 in common backup is success
+27-08-2025 18:11:36 INFO  FTPClient.java:114: Remote client disconnected
+27-08-2025 18:11:36 INFO  NewDump.java:343: SubscriberDump_20250827_27082025154159_IN11.csv-1 Copied Successfully to Common Back Up Location (FM CC) for IN::
+27-08-2025 18:11:36 INFO  SsdDumperFileOperationsBO.java:53: SubscriberDump_20250827_27082025154159_IN11.csv-1File renamed  Succssfully in ::/misdb1/reporting-apps-data1/CSVssdump/
+27-08-2025 18:11:38 INFO  NewDump.java:363: true Deleting the file from Final Location::
+27-08-2025 18:11:38 INFO  FileProcStatUpdDAO.java:48: Going to update the MIS_SSD_DUMP_STATUS as 3 for fileName:: CSV_SubscriberDump_20250827_27082025154159_IN11.csv-1
+27-08-2025 18:11:38 INFO  FileProcStatUpdDAO.java:72: SubscriberDump_20250827_27082025154159_IN11.csv-1File Updated to status 3 in MIS_SSD_DUMP_STATUS
+27-08-2025 18:11:38 INFO  ShellScript.java:21: Going to call the ShellScript :
+27-08-2025 18:11:38 INFO  ShellScript.java:33: Running SNTP ShellScript : /home/rptuser/reporting-apps/IN-SSDDumpProcessor/DumpScriptdetailandsumamryschedule/SSDDumpDetailandSumamry.sh
+27-08-2025 18:11:38 INFO  NewDump.java:391: Clling script was completed::
+27-08-2025 18:11:38 INFO  NewDump.java:397: File writing and calling script was finished::
+^C
+[1]+  Done                    nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$
+[rptuser@misdb1 CSVssdump]$ su -
+Password:
+-bash: /root: is a directory
+-bash: /root: is a directory
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]# crontab -l
+#For CDR DB Servers (Port 3306).
+
+#Truncating CDR Tables.
+0 22 * * * mysql -uroot -proot MIS -e "call TruncateCDR();"
+
+#Common script for 5 scripts & Main procedure
+05 01 * * * sh /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/MisBsnlCommonUpload.sh >> /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/MisBsnlCommonUpload.txt
+
+#Script to generate and load ssd fact csv from misdb1 to misdb6
+55,0 5,6,7,8 * * * sh /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt 2>&1
+#30,0 5,6,7,8,9 * * * sh /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript2015_09_05.sh >> /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessTest_Sep04.txt 2>&1
+##Truncate day wise SSDUmp table
+30 0 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/TruncateSSD.sh
+
+##SSD Dump detail Uploading
+
+40 08 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh
+
+#30 09 * * * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/ftp_sdd_bl2.sh
+
+#Script to load data to gui fact
+30,50 7,8,9,10,11 * * * sh /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/RPTProcessGUIFactUpload.sh >> /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/RPTProcessGUIFactUpload.txt 2>&1
+
+#Main Procedure
+45 00 * * * sh /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/DeleteAuditInfo.sh
+
+
+#Account Log Script Depends the time of SSDLOAD 01 and 02 after loading thosee tables only required the schedule check in  BL1 schedule
+30 04 * * * sh /home/rptuser/reporting-apps/account_csv/ProcessCircleAccountNew.sh >> /home/rptuser/reporting-apps/account_csv/Account.log 2>&1
+
+
+
+@reboot /home/rptuser/reporting-apps/ProcessManager/OnBoot_mysqlrst.sh
+
+*/1 * * * * /usr/bin/perl /root/monitor/gwmonitor.pl
+
+
+# =========== Script to get Backup on BL-1 Server to Tape ==============
+
+10 06 * * * sh /home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/CsvBkp/DetailCsv_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+10 04 * * * sh /home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/CsvBkp/ssd_bkp_ftp.sh >> /home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/CsvBkp/bkp.log
+
+###########SubRemovalAccountTable Script######################################
+0 06 * * * sh /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.sh >> /home/rptuser/reporting-apps/subremoval_csv/ProcessAccountSubRemoval.log 2>&1
+
+####Subscriber Removal Summary Script#####
+0 04 * * * sh /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.sh >> /home/rptuser/reporting-apps/SubRemovalScript/DBServerScripts/ProcessScript.log 2>&1
+
+##0 07 * *  * sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/SSDDetailcomm.sh
+
+10 01 * * * sh /home/rptuser/reporting-apps/misdb1Scripts/IMPteamscripts/IvrShortCode.sh >> /log/ivrshortcode.log 2>&1
+
+0 6-13/1 * * * sh /home/rptuser/clearcache.sh >> /home/rptuser/clearcache.log
+[root@misdb1 ~]# nohup sh /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+[1] 24614
+nohup: ignoring input and redirecting stderr to stdout
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]# tail -f /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+@query
+SELECT  min(date_format(CDR_DATE,'%m-%Y')) into @ddate FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+@query2
+UPDATE MIS_RPT_SSD_FACT SET CSV_INDICATOR=1 WHERE date_format(CDR_DATE,'%m-%Y')='08-2025'
+@query
+DELETE FROM MIS_RPT_SSD_FACT_MTH where date_format(str_to_date(CDR_DATE,'%m-%Y'),'%m-%Y')=date_format(str_to_date('08-2025','%m-%Y'),'%m-%Y')
+@query
+INSERT INTO MIS_RPT_SSD_FACT_MTH(CDR_DATE,TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,TOTAL_COUNT,ACCOUNT_BALANCE,ACCOUNT_NEGATIVE_BALANCE) (SELECT date_format(CDR_DATE ,'%m-%Y'),TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,SUM(TOTAL_COUNT),SUM(ACCOUNT_BALANCE),SUM(ACCOUNT_NEGATIVE_BALANCE) FROM MIS_RPT_SSD_FACT where date_format(CDR_DATE,'%m-%Y')='08-2025' GROUP BY date_format(CDR_DATE ,'%m-%Y'),TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER)
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+
+
+^C
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]# tail -f /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_8 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_8 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_8) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_9 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_9 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_9) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_10 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_10 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_10) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_11 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_11 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_11) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_12 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_12 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_12) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_13 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_13 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_13) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_14 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_15 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_16 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_17 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17) ;
+ Loading to misdb6 server Dump table & Fact Tables Ended @ Wed Aug 27 19:06:20 IST 2025
+-------------------------------------------------------------------------
+Loading to misdb5 Dump table started @ Wed Aug 27 19:06:20 IST 2025
+files moved into /misdb1/reporting-apps-data1/CSVssdumpbackup
+Warning: Using a password on the command line interface can be insecure.
+^C
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]# tail -f /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt                               INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_15 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_16 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_17 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17) ;
+ Loading to misdb6 server Dump table & Fact Tables Ended @ Wed Aug 27 19:06:20 IST 2025
+-------------------------------------------------------------------------
+Loading to misdb5 Dump table started @ Wed Aug 27 19:06:20 IST 2025
+files moved into /misdb1/reporting-apps-data1/CSVssdumpbackup
+Warning: Using a password on the command line interface can be insecure.
+
+
+
+
+
+
+
+@query
+insert into MIS_RPT_BREAK_UP_CUSTOMER_FACT(CDR_DATE,CIRCLE_ID,PREACTIVE,ACTIVE,INACTIVE_GP1,INACTIVE_GP2,  GP2_GREATER_THAN_2,GP2_BETWEEN_1_AND_2,GP2_BETWEEN_6_AND_1,GP2_BETWEEN_1_AND_6,GP2_BETWEEN_0_AND_1,GP1_GREATER_THAN_2,GP1_BETWEEN_1_AND_2,GP1_BETWEEN_6_AND_1,GP1_BETWEEN_1_AND_6,GP1_BETWEEN_0_AND_1)  Select date_sub(CURDATE(),interval 1 day ) ddate,SSDD.Circle_Id circle,  SUM(CASE WHEN ( SSDD.Subscriber_Status IN ('PREACTIVE','GRACE','PREACTIVE1'))  THEN 1 ELSE 0 END) preact , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('ACTIVE') )  THEN 1 ELSE 0 END) active_2G , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('GRACE1'))  THEN 1 ELSE 0 END) GP1 , SUM(CASE WHEN ( SSDD.Subscriber_Status in ('GRACE2'))  THEN 1 ELSE 0 END) GP2 , SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) > 730 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_greatr_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 366 AND 730 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_361_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 181 AND 365 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_181_360,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 31 AND 180 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_31_180,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),1000) BETWEEN 0 AND 30 and Subscriber_Status='GRACE2')  THEN 1 ELSE 0 END) gp2_btw_0_30,   SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) > 730 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_greatr_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 366 AND 730 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_361_720,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 181 AND 365 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_181_360,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),0) BETWEEN 31 AND 180 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_31_180,  SUM(CASE WHEN ( ifnull(DATEDIFF(CURDATE(),DATE(SSDD.TIME_LAST_ACTIVATION)),1000) BETWEEN 0 AND 30 and Subscriber_Status='GRACE1')  THEN 1 ELSE 0 END) gp1_btw_0_30   from MIS_SSD_DUMP SSDD  group by ddate,circle;
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+SCRIPT STOP at: 27-Aug-2025 19:08:07
+
+
+^C
+[1]+  Done                    nohup sh /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]#
+[root@misdb1 ~]# tail -f /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+SCRIPT STOP at: 27-Aug-2025 19:08:07
+^C
+[root@misdb1 ~]#

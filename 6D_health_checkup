@@ -1,0 +1,1340 @@
+Using username "rptuser".
+Last login: Mon Aug 25 15:59:35 2025 from 10.149.24.77
+[rptuser@GUI1 ~]$
+[rptuser@GUI1 ~]$
+[rptuser@GUI1 ~]$
+[rptuser@GUI1 ~]$
+[rptuser@GUI1 ~]$
+[rptuser@GUI1 ~]$
+[rptuser@GUI1 ~]$
+[rptuser@GUI1 ~]$ cd /log/Health_Check/
+[rptuser@GUI1 Health_Check]$ ls -lrth |tail
+-rw-r--r-- 1 rptuser rptuser  37K Aug 25 07:05 CDR_Check_25-08-2025_07:05:01.log
+-rw-r--r-- 1 rptuser rptuser  37K Aug 25 08:05 CDR_Check_25-08-2025_08:05:01.log
+-rw-r--r-- 1 rptuser rptuser  37K Aug 25 09:05 CDR_Check_25-08-2025_09:05:01.log
+-rw-r--r-- 1 rptuser rptuser  38K Aug 25 10:05 CDR_Check_25-08-2025_10:05:02.log
+-rw-r--r-- 1 rptuser rptuser  38K Aug 25 11:05 CDR_Check_25-08-2025_11:05:01.log
+-rw-r--r-- 1 rptuser rptuser  37K Aug 25 12:05 CDR_Check_25-08-2025_12:05:01.log
+-rw-r--r-- 1 rptuser rptuser  38K Aug 25 13:05 CDR_Check_25-08-2025_13:05:01.log
+-rw-r--r-- 1 rptuser rptuser  38K Aug 25 14:05 CDR_Check_25-08-2025_14:05:01.log
+-rw-r--r-- 1 rptuser rptuser  37K Aug 25 15:05 CDR_Check_25-08-2025_15:05:01.log
+-rw-r--r-- 1 rptuser rptuser  38K Aug 25 16:05 CDR_Check_25-08-2025_16:05:01.log
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$ cat CDR_Check_25-08-2025_16\:05\:01.log |more
+--------------START--------------------------
+Script started at: 25-Aug-2025 16:05:01
+--------------START--------------------------
+===SPACE CHECK ON CDR-1 server====
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.4G   25G  13% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   88M  373M  19% /boot
+/dev/sda8             608G  374G  204G  65% /data
+/dev/sda3              50G   18G   30G  37% /home
+/dev/sda2              99G   30G   64G  32% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+
+===UPTIME STATUS ON CDR-1 server====
+----------------------------------------
+ 16:05:02 up 53 days, 23:16,  0 users,  load average: 1.38, 1.60, 1.47
+
+
+===CDR STATUS ON CDR-1 server====
+----------------------------------------
+RawTickets-1====
+total 0
+RawTickets-2====
+total 0
+TempRawTickets-1====
+total 0
+TempRawTickets-2====
+total 0
+DecodedFiles====
+total 0
+TempDecodedFiles====
+total 0
+ReportFiles====
+total 0
+TempReportFiles====
+total 0
+
+Total Application 8 --- controller-1,controller-2,poller,passive poller,CDRProcessor-1,CDRProcessor-2,dumper,dumper-MIS
+
+===== APP-STATUS - CDR-1 Server  ===========================
+7018 controller-1
+7023 controller-2
+7019 poller
+7021 poller_passive
+46480
+6333 CDRProcessor-1
+6584 CDRProcessor-2
+7020 dumper
+7022 dumper-MIS
+===Total Number of Application Currently Running ===========
+8
+============================================================
+
+=== MAIN ATCA-1 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+Welcome to mCAS1
+ls: cannot access /billtemp/backup/mcas11.20250825*.ama.*: No such file or directory
+
+=== MAIN ATCA-1 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+Welcome to mCAS1
+962
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+=== MATED ATCA-1 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+ls: cannot access /billtemp/backup/mcas21.20250825*.ama.*: No such file or directory
+
+=== MATED ATCA-1 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+962
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+--------------END--------------------------
+Script Ended at: 25-Aug-2025 16:05:04
+--------------END--------------------------
+--------------START--------------------------
+Script started at: 25-Aug-2025 16:05:04
+--------------START--------------------------
+===SPACE CHECK ON CDR-2 server====
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1              30G  3.4G   25G  13% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda7             485M   88M  372M  20% /boot
+/dev/sda8             608G  373G  205G  65% /data
+/dev/sda3              50G   27G   21G  57% /home
+/dev/sda2              99G   35G   59G  38% /log
+/dev/sda5              20G  173M   19G   1% /tmp
+
+
+===UPTIME STATUS ON CDR-2 server====
+----------------------------------------
+ 16:05:05 up 387 days, 23:08,  0 users,  load average: 1.44, 1.53, 1.31
+
+
+===CDR STATUS ON CDR-2 server====
+----------------------------------------
+RawTickets-1====
+total 0
+RawTickets-2====
+total 0
+TempRawTickets-1====
+total 0
+TempRawTickets-2====
+total 0
+DecodedFiles====
+total 0
+TempDecodedFiles====
+total 0
+ReportFiles====
+total 0
+TempReportFiles====
+total 0
+
+Total Application 8 --- controller-1,controller-2,poller,passive poller,CDRProcessor-1,CDRProcessor-2,dumper,dumper-MIS
+
+===== APP-STATUS - CDR-2 Server  ===========================
+11185 controller-1
+11188 controller-2
+11183 poller_passive
+11187 poller
+10835 CDRProcessor-1
+10912 CDRProcessor-2
+11184 dumper-MIS
+58080 dumper
+===Total Number of Application Currently Running ===========
+8
+============================================================
+
+=== MAIN ATCA-2 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+Welcome to mCAS2
+ls: cannot access /billtemp/backup/mcas12.20250825*.ama.*: No such file or directory
+
+=== MAIN ATCA-2 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+Welcome to mCAS2
+962
+
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+=== MATED ATCA-2 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+ls: cannot access /billtemp/backup/mcas22.20250825*.ama.*: No such file or directory
+
+=== MATED ATCA-2 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+962
+
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+--------------END--------------------------
+Script Ended at: 25-Aug-2025 16:05:07
+--------------END--------------------------
+--------------START--------------------------
+Script started at: 25-Aug-2025 16:05:07
+--------------START--------------------------
+===SPACE CHECK ON CDR-3 server====
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.3G   25G  12% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   88M  373M  19% /boot
+/dev/sda8             608G  384G  194G  67% /data
+/dev/sda3              50G   22G   25G  47% /home
+/dev/sda2              99G   41G   54G  43% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+
+===UPTIME STATUS ON CDR-3 server====
+----------------------------------------
+ 16:05:08 up 289 days, 20:23,  0 users,  load average: 0.99, 1.05, 1.02
+
+
+===CDR STATUS ON CDR-3 server====
+----------------------------------------
+RawTickets-1====
+total 0
+RawTickets-2====
+total 0
+TempRawTickets-1====
+total 0
+TempRawTickets-2====
+total 0
+DecodedFiles====
+total 0
+TempDecodedFiles====
+total 0
+ReportFiles====
+total 0
+TempReportFiles====
+total 0
+
+Total Application 6 --- controller-1,controller-2,CDRProcessor-1,CDRProcessor-2,dumper,dumper-MIS
+
+===== APP-STATUS - CDR-3 Server  ===========================
+63174 controller-1
+63322 controller-2
+63109 CDRProcessor-1
+63299 CDRProcessor-2
+63276 dumper
+63295 dumper-MIS
+===Total Number of Application Currently Running ===========
+6
+============================================================
+
+=== MAIN ATCA-3 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+ls: cannot access /billtemp/backup/mcas13.20250825*.ama.*: No such file or directory
+
+=== MAIN ATCA-3 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+962
+
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+=== MATED ATCA-3 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+ls: cannot access /billtemp/backup/mcas23.20250825*.ama.*: No such file or directory
+
+=== MATED ATCA-3 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+962
+
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+--------------END--------------------------
+Script Ended at: 25-Aug-2025 16:05:10
+--------------END--------------------------
+--------------START--------------------------
+Script started at: 25-Aug-2025 16:05:10
+--------------START--------------------------
+===SPACE CHECK ON CDR-4 server====
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.3G   25G  12% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   87M  373M  19% /boot
+/dev/sda8             608G  413G  165G  72% /data
+/dev/sda3              50G   27G   21G  57% /home
+/dev/sda2              99G   58G   36G  62% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+
+===UPTIME STATUS ON CDR-4 server====
+----------------------------------------
+ 16:05:10 up 451 days,  5:33,  0 users,  load average: 1.25, 1.14, 1.07
+
+
+===CDR STATUS ON CDR-4 server====
+----------------------------------------
+RawTickets-1====
+total 0
+RawTickets-2====
+total 0
+TempRawTickets-1====
+total 0
+TempRawTickets-2====
+total 0
+DecodedFiles====
+total 12M
+drwxrwxr-x 2 rptuser rptuser 4.0K Dec  2  2023 rename_scripts
+-rw-r--r-- 1 rptuser rptuser 7.1M Aug 25 16:05 mcas15.20250825160300.ama.0963_IN15-7-MIS_CC_10_7-100
+-rw-r--r-- 1 rptuser rptuser 4.6M Aug 25 16:05 mcas15.20250825160300.ama.0963_IN15-8-MIS_CC_10_8-100
+TempDecodedFiles====
+total 0
+ReportFiles====
+total 12M
+-rw-r--r-- 1 rptuser rptuser 12M Aug 25 16:05 mcas15.20250825160300.ama.0963_IN15-100
+TempReportFiles====
+total 0
+
+Total Application 8 --- controller-1,controller-2,poller,passive poller,CDRProcessor-1,CDRProcessor-2,dumper,dumper-MIS
+
+===== APP-STATUS - CDR-4 Server  ===========================
+21464 controller-1
+21466 controller-2
+21463 poller
+21468 poller_passive
+21105 CDRProcessor-1
+21231 CDRProcessor-2
+21465 dumper-MIS
+21467 dumper
+===Total Number of Application Currently Running ===========
+8
+============================================================
+
+=== MAIN ATCA-4 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+ls: cannot access /billtemp/backup/mcas14.20250825*.ama.*: No such file or directory
+
+=== MAIN ATCA-4 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+962
+
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+--------------END--------------------------
+Script Ended at: 25-Aug-2025 16:05:11
+--------------END--------------------------
+--------------START--------------------------
+Script started at: 25-Aug-2025 16:05:11
+--------------START--------------------------
+===SPACE CHECK ON CDR-5 server====
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  4.1G   24G  15% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   87M  373M  19% /boot
+/dev/sda8             608G  394G  184G  69% /data
+/dev/sda3              50G   22G   25G  47% /home
+/dev/sda2              99G   41G   53G  44% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+
+===UPTIME STATUS ON CDR-5 server====
+----------------------------------------
+ 16:05:12 up 451 days,  5:34,  0 users,  load average: 1.15, 1.11, 0.94
+
+
+===CDR STATUS ON CDR-5 server====
+----------------------------------------
+RawTickets-1====
+total 0
+RawTickets-2====
+total 0
+TempRawTickets-1====
+total 0
+TempRawTickets-2====
+total 0
+DecodedFiles====
+total 0
+TempDecodedFiles====
+total 0
+ReportFiles====
+total 0
+TempReportFiles====
+total 0
+
+Total Application 8 --- controller-1,controller-2,poller,passive poller,CDRProcessor-1,CDRProcessor-2,dumper,dumper-MIS
+
+===== APP-STATUS - CDR-5 Server  ===========================
+40503 controller-2
+40505 controller-1
+40499 poller_passive
+40506 poller
+39608 CDRProcessor-1
+39685 CDRProcessor-2
+40502 dumper-MIS
+40504 dumper
+===Total Number of Application Currently Running ===========
+8
+============================================================
+
+=== MAIN ATCA-5 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+-rw-r--r-- 1 billing billing 53M Aug 25 16:04 /billtemp/backup/mcas15.20250825160400.ama.0964
+-rw-r--r-- 1 billing billing 51M Aug 25 16:05 /billtemp/backup/mcas15.20250825160500.ama.0965
+
+=== MAIN ATCA-5 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+964
+
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+=== MATED ATCA-5 server Check ToTal Processing Files == /BILLTEMP/BACKUP ====
+----------------------------------------
+-rw-r--r-- 1 billing billing 0 Aug 25 16:04 /billtemp/backup/mcas25.20250825160400.ama.0964
+-rw-r--r-- 1 billing billing 0 Aug 25 16:05 /billtemp/backup/mcas25.20250825160500.ama.0965
+
+=== MATED ATCA-5 server Check ToTal Files Processed in Final == /BILLTEMP/BACKUP/BACKUP_6D ====
+----------------------------------------
+=== Current_Date_COUNT===
+964
+
+----------------------------------------
+=== BACKDATE_COUNT===
+1440
+
+--------------END--------------------------
+Script Ended at: 25-Aug-2025 16:05:16
+--------------END--------------------------
+--------------START--------------------------
+Script started at: 25-Aug-2025 16:05:16
+--------------START--------------------------
+===SPACE CHECK ON CDR-6 server====
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.1G   25G  12% /
+tmpfs                  16G   88K   16G   1% /dev/shm
+/dev/sda1             485M   60M  401M  13% /boot
+/dev/sda8             608G  418G  160G  73% /data
+/dev/sda3              50G   23G   24G  49% /home
+/dev/sda2              99G   44G   51G  47% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+
+===UPTIME STATUS ON CDR-6 server====
+----------------------------------------
+ 15:55:15 up 68 days, 21:22,  0 users,  load average: 1.71, 1.33, 1.17
+
+
+===CDR STATUS ON CDR-6 server====
+----------------------------------------
+RawTickets-1====
+total 0
+RawTickets-2====
+total 4.0K
+drwxrwxr-x 3 rptuser rptuser 4.0K Jul 18  2024 big_file
+TempRawTickets-1====
+total 0
+TempRawTickets-2====
+total 0
+DecodedFiles====
+total 0
+TempDecodedFiles====
+total 0
+ReportFiles====
+total 0
+TempReportFiles====
+total 0
+
+Total Application 8 --- controller-1,controller-2,poller,passive poller,CDRProcessor-1,CDRProcessor-2,dumper,dumper-MIS
+
+===== APP-STATUS - CDR-6 Server  ===========================
+7508 controller-1
+7514 controller-2
+7510 poller_passive
+7511 poller
+7217 CDRProcessor-1
+7345 CDRProcessor-2
+7513 dumper
+7515 dumper-MIS
+===Total Number of Application Currently Running ===========
+8
+============================================================
+
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+Warning: Using a password on the command line interface can be insecure.
+===CDR STATUS ON REPORTING Server====
+----------------------------------------
+CURRENT STATUS OF CDR
+962
+MAIN_ATCA-1
+962
+MAIN_ATCA-2
+962
+MAIN_ATCA-3
+962
+MAIN_ATCA-4
+964
+MAIN_ATCA-5
+962
+MATED_ATCA-1
+962
+MATED_ATCA-2
+962
+MATED_ATCA-3
+962
+MATED_ATCA-4
+965
+MATED_ATCA-5
+=========================================
+BACK_DATE STATUS OF CDR
+1440
+MAIN_ATCA-1
+1440
+MAIN_ATCA-2
+1440
+MAIN_ATCA-3
+1440
+MAIN_ATCA-4
+1440
+MAIN_ATCA-5
+1440
+MATED_ATCA-1
+1441
+MATED_ATCA-2
+1440
+MATED_ATCA-3
+1440
+MATED_ATCA-4
+1440
+MATED_ATCA-5
+
+
+
+
+
+
+
+============================================================ STATUS OF SUBSCRIBER DUMP ON MISDB = 1 SERVER ==========================
+====================
+
+SUBSCRIBER DUMP CHECK ON MISDB-1 server
+----------------------------------------
+
+SUBSCRIBER DUMP OF ATCA-1 == CSVssdump
+ls: cannot access /misdb1/reporting-apps-data1/CSVssdump/CSV_SubscriberDump_*_IN11.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-1 == CSVssdumpbackup
+ls: cannot access /misdb1/reporting-apps-data1/CSVssdumpbackup/CSV_SubscriberDump_*_IN11.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-1 == CSVssdumpfinalbackup
+-rw-rw-r-- 1 rptuser rptuser 665M Aug 24 05:18 /misdb1/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250824_240820250250
+09_IN11.csv-1.gz
+-rw-rw-r-- 1 rptuser rptuser 666M Aug 25 05:14 /misdb1/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250825_250820250250
+10_IN11.csv-1.gz
+
+
+
+
+
+
+============================================================ STATUS OF SUBSCRIBER DUMP ON MISDB = 2 SERVER ==========================
+====================
+
+SUBSCRIBER DUMP CHECK ON MISDB-2 server
+----------------------------------------
+
+SUBSCRIBER DUMP OF ATCA-2 == CSVssdump
+ls: cannot access /misdb2/reporting-apps-data1/CSVssdump/CSV_SubscriberDump_*_IN12.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-2 == CSVssdumpbackup
+ls: cannot access /misdb2/reporting-apps-data1/CSVssdumpbackup/CSV_SubscriberDump_*_IN12.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-2 == CSVssdumpfinalbackup
+-rw-rw-r-- 1 rptuser rptuser 456M Aug 24 04:18 /misdb2/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250824_240820250250
+09_IN12.csv-2.gz
+-rw-rw-r-- 1 rptuser rptuser 456M Aug 25 04:18 /misdb2/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250825_250820250250
+09_IN12.csv-2.gz
+
+
+
+
+
+
+============================================================ STATUS OF SUBSCRIBER DUMP ON MISDB = 3 SERVER ==========================
+====================
+
+SUBSCRIBER DUMP CHECK ON MISDB-3 server
+----------------------------------------
+
+SUBSCRIBER DUMP OF ATCA-3 == CSVssdump
+ls: cannot access /misdb3/reporting-apps-data1/CSVssdump/CSV_SubscriberDump_*_IN13.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-3 == CSVssdumpbackup
+ls: cannot access /misdb3/reporting-apps-data1/CSVssdumpbackup/CSV_SubscriberDump_*_IN13.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-3 == CSVssdumpfinalbackup
+-rw-rw-r-- 1 rptuser rptuser 441M Aug 24 04:29 /misdb3/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250824_240820250250
+11_IN13.csv-3.gz
+-rw-rw-r-- 1 rptuser rptuser 440M Aug 25 04:25 /misdb3/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250825_250820250250
+10_IN13.csv-3.gz
+
+
+
+
+
+
+============================================================ STATUS OF SUBSCRIBER DUMP ON MISDB = 4 SERVER ==========================
+====================
+
+SUBSCRIBER DUMP CHECK ON MISDB-4 server
+----------------------------------------
+
+SUBSCRIBER DUMP OF ATCA-4 == CSVssdump
+ls: cannot access /misdb4/reporting-apps-data1/CSVssdump/CSV_SubscriberDump_*_IN14.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-4 == CSVssdumpbackup
+ls: cannot access /misdb4/reporting-apps-data1/CSVssdumpbackup/CSV_SubscriberDump_*_IN14.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-4 == CSVssdumpfinalbackup
+-rw-rw-r-- 1 rptuser rptuser 400M Aug 24 04:14 /misdb4/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250824_240820250250
+14_IN14.csv-4.gz
+-rw-rw-r-- 1 rptuser rptuser 400M Aug 25 04:18 /misdb4/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250825_250820250250
+11_IN14.csv-4.gz
+
+
+
+
+
+
+============================================================ STATUS OF SUBSCRIBER DUMP ON MISDB = 5 SERVER ==========================
+====================
+
+SUBSCRIBER DUMP CHECK ON MISDB-5 server
+----------------------------------------
+
+SUBSCRIBER DUMP OF ATCA-5 == CSVssdump
+ls: cannot access /misdb5/reporting-apps-data1/CSVssdump/CSV_SubscriberDump_*_IN15.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-5 == CSVssdumpbackup
+ls: cannot access /misdb5/reporting-apps-data1/CSVssdumpbackup/CSV_SubscriberDump_*_IN15.*: No such file or directory
+
+SUBSCRIBER DUMP OF ATCA-5 == CSVssdumpfinalbackup
+-rw-rw-r-- 1 rptuser rptuser 421M Aug 24 04:17 /misdb5/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250824_240820250250
+10_IN15.csv-5.gz
+-rw-rw-r-- 1 rptuser rptuser 422M Aug 25 04:24 /misdb5/reporting-apps-data1/CSVssdumpfinalbackup/CSV_SubscriberDump_20250825_250820250250
+10_IN15.csv-5.gz
+
+
+
+
+
+
+============================================================ STATUS OF SUBSCRIBER DUMP ON BL = 2 SERVER =============================
+=================
+
+SUBSCRIBER DUMP CHECK ON BL=2 server
+------------------------------------
+
+/data1/reporting-apps-data1/SSDDUMPLocAccount  == TIMING AFTER > 11:30 AM Date of 5 Files should be Current Date
+-----------------------------------------------------------------------------------------------------------------
+-rw-rw-r--. 1 rptuser rptuser 666M Aug 25 11:30 /data1/reporting-apps-data1/SSDDUMPLocAccount/CSV_SubscriberDump_20250825_25082025025010_
+IN11.csv-1.gz
+-rw-rw-r--. 1 rptuser rptuser 456M Aug 25 11:30 /data1/reporting-apps-data1/SSDDUMPLocAccount/CSV_SubscriberDump_20250825_25082025025009_
+IN12.csv-2.gz
+-rw-rw-r--. 1 rptuser rptuser 440M Aug 25 11:30 /data1/reporting-apps-data1/SSDDUMPLocAccount/CSV_SubscriberDump_20250825_25082025025010_
+IN13.csv-3.gz
+-rw-rw-r--. 1 rptuser rptuser 400M Aug 25 11:30 /data1/reporting-apps-data1/SSDDUMPLocAccount/CSV_SubscriberDump_20250825_25082025025011_
+IN14.csv-4.gz
+-rw-rw-r--. 1 rptuser rptuser 422M Aug 25 11:30 /data1/reporting-apps-data1/SSDDUMPLocAccount/CSV_SubscriberDump_20250825_25082025025010_
+IN15.csv-5.gz
+
+/data1/reporting-apps-data1/SSDDUMPLocAccount == TIMING AFTER > 12:00 PM Date of Last File should be Current Date
+-----------------------------------------------------------------------------------------------------------------
+-rw-rw-r--. 1 rptuser rptuser 17G Aug 23 11:45 /data1/reporting-apps-data1/SSDDUMPLocAccount/CSV_SubscriberDump_BL2_Aug2325.csv
+-rw-rw-r--. 1 rptuser rptuser 17G Aug 24 11:45 /data1/reporting-apps-data1/SSDDUMPLocAccount/CSV_SubscriberDump_BL2_Aug2425.csv
+-rw-rw-r--. 1 rptuser rptuser 17G Aug 25 11:45 /data1/reporting-apps-data1/SSDDUMPLocAccount/CSV_SubscriberDump_BL2_Aug2525.csv
+
+
+
+
+
+
+=====================================================================================================================================
+=================
+                                                                   CCDB-10
+=====================================================================================================================================
+================
+                                                                                CCDB-10 TOP4-APPS TOTAL =4
+-----------------------------------------------------------------------------------------------------------------
+                                                                                 CCDB-10 DB is UP
+-----------------------------------------------------------------------------------------------------------------
+rptuser   2933  2889  0 16:05 ?        00:00:00 grep 3306
+mysql     8504  7804  0 Jul31 ?        05:24:10 /usr/sbin/mysqld --basedir=/usr --datadir=/ccdb10/mysqlDB --plugin-dir=/usr/lib64/mysql/p
+lugin --user=mysql --log-error=/ccdb10/mysqlDB/ccdb10.err --open-files-limit=10240 --pid-file=/ccdb10/mysqlDB/ccdb10.pid --socket=/ccdb10
+/mysqlDB/mysql.sock --port=3306
+===============================================================END===================================================================
+=================
+Script Ended at: 25-Aug-2025 16:05:21
+===============================================================END===================================================================
+=================
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$
+[rptuser@GUI1 Health_Check]$ cd /home/rptuser/reporting-apps/
+[rptuser@GUI1 reporting-apps]$ ls -lrth
+total 7.9M
+drwxrwxr-x.  3 rptuser rptuser 4.0K Dec 26  2013 mis-gui
+drwxrwxrwx.  4 rptuser rptuser 4.0K Jan 13  2014 gui1Scripts
+drwxrwxr-x.  2 rptuser rptuser 4.0K Jul  8  2014 SelfCareLogs
+drwxrwxr-x.  4 rptuser rptuser 4.0K Jul 20  2014 BulkLocalStorage
+drwxrwxr-x.  3 rptuser rptuser 4.0K Sep 29  2014 LoadBalancer
+drwxrwxr-x   6 rptuser rptuser 4.0K Aug  6  2015 Voms_APP_InsertBlockedPins
+drwxrwxr-x   2 rptuser rptuser 4.0K Aug  6  2015 GSM-HAR_RAJ-Reprts
+drwxrwxr-x   3 rptuser rptuser 4.0K Aug  6  2015 cc-gui
+drwxr-xr-x  15 rptuser rptuser 4.0K Aug  6  2015 apache_ccgui
+drwxrwxr-x   9 rptuser rptuser 4.0K Aug  6  2015 voms-tomcat
+drwxrwxr-x   3 rptuser rptuser 4.0K Aug 11  2015 reports-log
+drwxrwxr-x   2 rptuser rptuser 4.0K Aug 17  2015 push bl
+drwxrwxr-x   5 rptuser rptuser 4.0K Aug 24  2015 Voms-GSM
+drwxrwxr-x   2 rptuser rptuser 4.0K Oct  5  2015 Voms-Aug-files
+-rw-r--r--   1 rptuser rptuser  807 Dec 24  2015 INFILEstatus.html
+-rw-r--r--   1 rptuser rptuser 1.2K Dec 24  2015 duplicatefilestatus.sh
+drwxrwxr-x   2 rptuser rptuser 4.0K Feb  1  2016 voms-reports
+drwxrwxr-x   2 rptuser rptuser 4.0K Feb  1  2016 July-Report
+drwxrwxr-x   2 rptuser rptuser 4.0K May 13  2016 bsnlCC-gui
+drwxrwxr-x   2 rptuser rptuser 4.0K Jun  1  2016 ama files
+-rw-rw-r--   1 rptuser rptuser 6.7K Sep 15  2016 space1.txt
+-rw-rw-r--   1 rptuser rptuser 9.6K Sep 15  2016 space2.txt
+drwxrwxr-x   2 rptuser rptuser 4.0K Sep 16  2016 CDR-processor
+drwxrwxr-x   6 rptuser rptuser 4.0K Sep 16  2016 CDRProcessor-1
+drwxrwxr-x   2 rptuser rptuser 4.0K Sep 16  2016 ccbl
+drwxrwxr-x   9 rptuser rptuser 4.0K Oct  4  2016 IN-SSDDumpProcessor
+drwxrwxr-x   7 rptuser rptuser 4.0K Nov 17  2016 VomsProcessor
+drwxrwxr-x   2 rptuser rptuser 4.0K Dec  9  2016 test123
+-rw-r--r--   1 rptuser rptuser  204 Dec 26  2016 nagoios_log_deleting.sh
+-rwxrwxrwx   1 rptuser rptuser 4.7K Dec 29  2016 spacecheck-2.sh
+-rw-rw-r--   1 rptuser rptuser 3.3K Jan  9  2017 1
+drwxrwxr-x   2 rptuser rptuser 4.0K Feb 20  2017 rfersh
+-rwxrwxrwx   1 rptuser rptuser 3.4K May 25  2017 spacecheck-1.sh
+-rw-rw-r--   1 rptuser rptuser  398 Aug  3  2017 ama.sh
+-rwxrwxrwx   1 rptuser rptuser 3.4K Sep 11  2017 reboot_status_1.sh
+-rwxrwxrwx   1 rptuser rptuser 4.8K Sep 11  2017 reboot_status_2.sh
+drwxrwxr-x   2 rptuser rptuser 4.0K Sep 12  2017 backup_tmp
+-rwxrwxrwx   1 rptuser rptuser 3.4K Sep 14  2017 uptime_1.sh
+-rwxrwxrwx   1 rptuser rptuser 4.7K Sep 14  2017 uptime_2.sh
+drwxrwxr-x   8 rptuser rptuser 4.0K Nov 13  2017 VOMS_REPORT_APP_NORTH
+-rwxrwxrwx   1 rptuser rptuser  210 Jun 15  2018 test
+-rwxrwxr-x   1 rptuser rptuser 4.1K Jun 21  2018 CDR_5-Check.sh
+-rwxrwxr-x   1 rptuser rptuser 4.0K Jun 21  2018 CDR_2-Check.sh
+-rwxrwxr-x   1 rptuser rptuser 4.1K Jun 21  2018 CDR_3-Check.sh
+-rwxrwxr-x   1 rptuser rptuser  15K Jul 24  2018 CDR_6-Check.sh
+-rwxrwxr-x   1 rptuser rptuser  850 Jul 30  2018 application_stop.sh
+-rwxrwxrwx   1 rptuser rptuser  665 Aug  8  2018 log_compress_script.sh
+-rwxrwxrwx   1 rptuser rptuser 4.7K Aug 18  2018 test.sh
+-rwxrwxrwx   1 rptuser rptuser 5.1K Aug 20  2018 test1.sh
+-rwxrwxrwx   1 rptuser rptuser  633 Aug 21  2018 cc_gui_app_auto_kill.sh
+-rwxrwxrwx   1 rptuser rptuser  564 Aug 24  2018 nagios_prev_day_CDR_count.sh
+-rwxrwxrwx   1 rptuser rptuser 5.5K Aug 25  2018 nagios_csv_dump.sh
+drwxrwxr-x   5 rptuser rptuser 4.0K Oct 11  2018 MCAS_Processed_Ama_Counts
+-rwxrwxr-x   1 rptuser rptuser  963 Oct 15  2018 Common_CDR_CHECK.sh
+-rwxrwxrwx   1 rptuser rptuser  104 Oct 16  2018 try.sh
+-rwxrwxrwx   1 rptuser rptuser 4.2K Oct 16  2018 uptime.sh
+drwxrwxr-x   3 rptuser rptuser 4.0K Jan 16  2019 ProcessManager
+drwxrwxr-x   2 rptuser rptuser 4.0K Jan 23  2019 Configuration
+-rw-rw-r--   1 rptuser rptuser  17K Feb  8  2019 health.log
+-rw-rw-r--   1 rptuser rptuser  16K Feb 10  2019 health.txt
+-rw-rw-r--   1 rptuser rptuser  16K Feb 12  2019 health1.log
+-rw-rw-r--   1 rptuser rptuser  17K Feb 16  2019 healthcheck11.log
+-rw-rw-r--   1 rptuser rptuser  16K Feb 17  2019 health1check.log
+-rwxrwxrwx   1 rptuser rptuser 1.8K Jul 17  2019 nagios_atca_dump_hourly.sh
+-rwxrwxrwx   1 rptuser rptuser 5.5K Aug 17  2019 nagios_csv_dump_hourly.sh
+-rw-rw-r--   1 rptuser rptuser 3.7K Oct 22  2019 FTP_USER.sh
+-rw-rw-r--   1 rptuser rptuser 5.1K Oct 22  2019 FTP_USER_2.sh
+-rw-r--r--   1 rptuser rptuser   50 Nov 25  2020 ATCA_Dump_File_Count
+-rwxrwxrwx   1 rptuser rptuser 1.8K Dec 14  2020 nagios_atca_dump.sh
+-rwxrwxr-x   1 rptuser rptuser 1.1K Sep 27  2022 Common_CDR_CHECK_XXXXMATEDATCA4XXXX.sh
+-rwxrwxr-x   1 rptuser rptuser 3.7K Oct  6  2022 CDR_4-Check_XXXXMATEDATCA4XXXX.sh
+-rwxrwxr-x   1 rptuser rptuser 4.1K Oct  7  2022 CDR_4-Check.sh
+-rw-r--r--   1 rptuser rptuser  288 Oct 27  2024 Common_CDR_CHECK_LOG.txt
+-rwxrwxr-x   1 rptuser rptuser 3.8K Dec  4  2024 CDR_1-Check.sh
+-rw-rw-r--   1 rptuser rptuser 2.5K Jun 30 00:20 uptime_ajit.sh
+-rw-rw-r--   1 rptuser rptuser 2.0K Aug 13 23:36 uptime_ajit_20250813.txt
+-rw-rw-r--   1 rptuser rptuser 2.0K Aug 15 21:06 uptime_ajit_20250815.txt
+-rw-rw-r--   1 rptuser rptuser 2.0K Aug 23 14:19 uptime_ajit_20250823.txt
+-rw-r--r--   1 rptuser rptuser 4.8M Aug 25 00:11 nagios_prev_day_CDR_count.log
+-rw-r--r--   1 rptuser rptuser 995K Aug 25 03:11 nagios_atca_dump.log
+-rw-r--r--   1 rptuser rptuser 956K Aug 25 07:01 nagios_csv_dump.log
+-rw-r--r--   1 rptuser rptuser 815K Aug 25 07:05 application_stop.log
+[rptuser@GUI1 reporting-apps]$ ll *uptime*
+-rwxrwxrwx 1 rptuser rptuser 3414 Sep 14  2017 uptime_1.sh
+-rwxrwxrwx 1 rptuser rptuser 4767 Sep 14  2017 uptime_2.sh
+-rw-rw-r-- 1 rptuser rptuser 2013 Aug 13 23:36 uptime_ajit_20250813.txt
+-rw-rw-r-- 1 rptuser rptuser 2015 Aug 15 21:06 uptime_ajit_20250815.txt
+-rw-rw-r-- 1 rptuser rptuser 1995 Aug 23 14:19 uptime_ajit_20250823.txt
+-rw-rw-r-- 1 rptuser rptuser 2499 Jun 30 00:20 uptime_ajit.sh
+-rwxrwxrwx 1 rptuser rptuser 4279 Oct 16  2018 uptime.sh
+[rptuser@GUI1 reporting-apps]$ ll *space*
+-rw-rw-r-- 1 rptuser rptuser 6803 Sep 15  2016 space1.txt
+-rw-rw-r-- 1 rptuser rptuser 9818 Sep 15  2016 space2.txt
+-rwxrwxrwx 1 rptuser rptuser 3381 May 25  2017 spacecheck-1.sh
+-rwxrwxrwx 1 rptuser rptuser 4718 Dec 29  2016 spacecheck-2.sh
+[rptuser@GUI1 reporting-apps]$
+[rptuser@GUI1 reporting-apps]$
+[rptuser@GUI1 reporting-apps]$
+[rptuser@GUI1 reporting-apps]$ sh spacecheck-1.sh
+SPACE CHECK ON CDR-1 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.4G   25G  12% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   88M  373M  19% /boot
+/dev/sda8             608G  383G  195G  67% /data
+/dev/sda3              50G   18G   30G  37% /home
+/dev/sda2              99G   30G   64G  32% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+SPACE CHECK ON CDR-2 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda1              30G  3.4G   25G  13% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda7             485M   88M  372M  20% /boot
+/dev/sda8             608G  380G  198G  66% /data
+/dev/sda3              50G   23G   25G  48% /home
+/dev/sda2              99G   35G   59G  38% /log
+/dev/sda5              20G  173M   19G   1% /tmp
+
+SPACE CHECK ON CDR-3 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.3G   25G  12% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   88M  373M  19% /boot
+/dev/sda8             608G  390G  188G  68% /data
+/dev/sda3              50G   22G   25G  47% /home
+/dev/sda2              99G   41G   54G  43% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+SPACE CHECK ON CDR-4 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.3G   25G  12% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   87M  373M  19% /boot
+/dev/sda8             608G  420G  158G  73% /data
+/dev/sda3              50G   27G   21G  57% /home
+/dev/sda2              99G   58G   36G  62% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+SPACE CHECK ON CDR-5 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  4.1G   24G  15% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   87M  373M  19% /boot
+/dev/sda8             608G  399G  179G  70% /data
+/dev/sda3              50G   22G   25G  47% /home
+/dev/sda2              99G   41G   53G  44% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+SPACE CHECK ON CDR-6 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.1G   25G  12% /
+tmpfs                  16G   88K   16G   1% /dev/shm
+/dev/sda1             485M   60M  401M  13% /boot
+/dev/sda8             608G  426G  153G  74% /data
+/dev/sda3              50G   23G   24G  49% /home
+/dev/sda2              99G   44G   51G  47% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+SPACE CHECK ON GUI-1 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G   14G   15G  48% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   88M  373M  20% /boot
+/dev/sda8             608G  241G  337G  42% /data
+/dev/sda3              50G   38G  9.5G  80% /home
+/dev/sda2              99G   58G   36G  62% /log
+/dev/sda6              20G   12G  7.0G  63% /tmp
+
+SPACE CHECK ON GUI-2 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  4.1G   24G  15% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M   88M  373M  20% /boot
+/dev/sda8             608G  162G  416G  28% /data
+/dev/sda3              50G   32G   16G  68% /home
+/dev/sda2              99G   61G   34G  65% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+
+SPACE CHECK ON GUI-3 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  4.3G   24G  16% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  105M  356M  23% /boot
+/dev/sda8             608G  320G  259G  56% /data
+/dev/sda3              50G   11G   37G  23% /home
+/dev/sda2              99G  9.8G   84G  11% /log
+/dev/sda6              20G  2.8G   16G  15% /tmp
+
+SPACE CHECK ON BL-1 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sde5              30G   17G   12G  61% /
+tmpfs                  16G  144K   16G   1% /dev/shm
+/dev/sde1             485M  108M  352M  24% /boot
+/dev/sde8             108G   50G   53G  49% /data
+/dev/sde2              50G   25G   23G  52% /home
+/dev/sde3              50G   30G   18G  63% /log
+/dev/sde6              20G  173M   19G   1% /tmp
+/dev/mapper/mpathcp1  3.8T  2.5T  1.3T  68% /data1
+
+SPACE CHECK ON BL-2 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sde5              30G  4.4G   24G  16% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sde1             485M  108M  352M  24% /boot
+/dev/sde8             108G   42G   61G  41% /data
+/dev/sde2              50G   23G   25G  48% /home
+/dev/sde3              50G   32G   15G  68% /log
+/dev/sde6              20G  173M   19G   1% /tmp
+/dev/mapper/mpathcp1  1.9T  1.7T  233G  88% /data1
+
+SPACE CHECK ON BL-3 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sdc5              30G   17G   12G  60% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sdc1             485M  151M  309M  33% /boot
+/dev/sdc8             108G   11G   91G  11% /data
+/dev/sdc2              50G   17G   31G  35% /home
+/dev/sdc3              50G   15G   33G  31% /log
+/dev/sdc6              20G  173M   19G   1% /tmp
+/dev/mapper/mpathcp1  1.9T 1020G  881G  54% /data1
+[rptuser@GUI1 reporting-apps]$ ll *uptime*
+-rwxrwxrwx 1 rptuser rptuser 3414 Sep 14  2017 uptime_1.sh
+-rwxrwxrwx 1 rptuser rptuser 4767 Sep 14  2017 uptime_2.sh
+-rw-rw-r-- 1 rptuser rptuser 2013 Aug 13 23:36 uptime_ajit_20250813.txt
+-rw-rw-r-- 1 rptuser rptuser 2015 Aug 15 21:06 uptime_ajit_20250815.txt
+-rw-rw-r-- 1 rptuser rptuser 1995 Aug 23 14:19 uptime_ajit_20250823.txt
+-rw-rw-r-- 1 rptuser rptuser 2499 Jun 30 00:20 uptime_ajit.sh
+-rwxrwxrwx 1 rptuser rptuser 4279 Oct 16  2018 uptime.sh
+[rptuser@GUI1 reporting-apps]$ sh spacecheck-2.sh
+SPACE CHECK ON CCCDB-1 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  8.5G   20G  31% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  125M  336M  28% /boot
+/dev/sda8             108G   40G   63G  39% /data
+/dev/sda2              50G  1.2G   46G   3% /home
+/dev/sda3              50G  6.8G   41G  15% /log
+/dev/sda6              20G  899M   18G   5% /tmp
+/dev/mapper/mpathdp1  4.7T  3.1T  1.4T  71% /ccdb1
+
+SPACE CHECK ON CCCDB-2 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sdc6              30G  8.1G   20G  29% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sdc1             485M  108M  353M  24% /boot
+/dev/sdc2             108G   11G   92G  11% /data
+/dev/sdc3              50G  1.2G   46G   3% /home
+/dev/sdc5              50G  6.8G   40G  15% /log
+/dev/sdc7              20G  274M   19G   2% /tmp
+/dev/mapper/mpathdp1  4.7T  3.1T  1.4T  69% /ccdb2
+
+SPACE CHECK ON CCCDB-3 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G   11G   18G  38% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  108M  352M  24% /boot
+/dev/sda8             108G   13G   90G  13% /data
+/dev/sda2              50G  1.8G   45G   4% /home
+/dev/sda3              50G  7.1G   40G  16% /log
+/dev/sda6              20G  3.6G   16G  19% /tmp
+/dev/mapper/mpathdp1  4.7T  3.9T  537G  89% /ccdb3
+
+SPACE CHECK ON CCCDB-4 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  9.9G   19G  36% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  108M  353M  24% /boot
+/dev/sda8             108G   16G   87G  16% /data
+/dev/sda2              50G  5.8G   41G  13% /home
+/dev/sda3              50G  8.5G   39G  19% /log
+/dev/sda6              20G  3.6G   16G  19% /tmp
+/dev/mapper/mpathep1  5.7T  4.7T  744G  87% /ccdb4
+
+SPACE CHECK ON CCCDB-5 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  3.9G   25G  14% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  108M  352M  24% /boot
+/dev/sda8             108G   24G   79G  23% /data
+/dev/sda2              50G  8.4G   39G  18% /home
+/dev/sda3              50G   12G   36G  24% /log
+/dev/sda6              20G  3.6G   16G  19% /tmp
+/dev/mapper/mpathcp1  4.7T  3.5T  964G  79% /ccdb5
+
+SPACE CHECK ON CCCDB-6 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  5.3G   23G  19% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  132M  328M  29% /boot
+/dev/sda8             108G   35G   68G  34% /data
+/dev/sda2              50G  4.9G   42G  11% /home
+/dev/sda3              50G  8.1G   39G  18% /log
+/dev/sda6              20G  3.6G   16G  19% /tmp
+/dev/mapper/mpathcp1  4.7T  3.8T  705G  85% /ccdb6
+
+SPACE CHECK ON CCCDB-7 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  5.5G   23G  20% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  108M  352M  24% /boot
+/dev/sda8             108G   18G   84G  18% /data
+/dev/sda2              50G  2.8G   44G   6% /home
+/dev/sda3              50G  7.5G   40G  16% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+/dev/mapper/mpathcp1  4.7T  2.8T  1.7T  63% /ccdb7
+
+SPACE CHECK ON CCCDB-8 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sde5              30G  5.3G   23G  19% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sde1             485M  108M  353M  24% /boot
+/dev/sde8             108G   28G   74G  28% /data
+/dev/sde2              50G  1.3G   46G   3% /home
+/dev/sde3              50G  6.6G   41G  15% /log
+/dev/sde6              20G  3.6G   16G  19% /tmp
+/dev/mapper/mpathcp1  6.0T  4.7T  956G  84% /ccdb8
+
+SPACE CHECK ON CCCDB-9 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sde5              30G  7.9G   21G  29% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sde1             485M  108M  352M  24% /boot
+/dev/sde8             108G  4.4G   98G   5% /data
+/dev/sde2              50G   28G   20G  60% /home
+/dev/sde3              50G   14G   34G  30% /log
+/dev/sde6              20G  3.6G   16G  19% /tmp
+/dev/mapper/mpathdp1  4.2T  1.1T  2.9T  27% /ccdb9
+
+SPACE CHECK ON CCCDB-10 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sde5              30G   21G  7.8G  73% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sde1             485M  108M  352M  24% /boot
+/dev/sde8             108G   41G   62G  40% /data
+/dev/sde2              50G   27G   21G  57% /home
+/dev/sde3              50G   19G   29G  39% /log
+/dev/sde6              20G  173M   19G   1% /tmp
+/dev/mapper/mpathcp1  2.9T  1.9T  920G  67% /ccdb10
+
+SPACE CHECK ON MISDB-1 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sdc5              30G  6.6G   22G  24% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sdc1             485M  130M  330M  29% /boot
+/dev/sdc8             108G  3.6G   99G   4% /data
+/dev/sdc2              50G  6.6G   41G  15% /home
+/dev/sdc3              50G  8.2G   39G  18% /log
+/dev/sdc6              20G  7.0G   12G  37% /tmp
+/dev/mapper/mpathcp1  788G  625G  123G  84% /misdb1
+
+SPACE CHECK ON MISDB-2 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sde5              30G  5.3G   23G  19% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sde1             485M  108M  353M  24% /boot
+/dev/sde8             108G  9.3G   93G  10% /data
+/dev/sde2              50G   14G   34G  29% /home
+/dev/sde3              50G  4.5G   43G  10% /log
+/dev/sde6              20G  7.0G   12G  37% /tmp
+/dev/mapper/mpathcp1  788G  648G  101G  87% /misdb2
+
+SPACE CHECK ON MISDB-3 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda3              30G  5.4G   23G  20% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  108M  353M  24% /boot
+/dev/sda8             127G   79G   43G  66% /data
+/dev/sda5              30G   24G  4.2G  86% /home
+/dev/sda2              50G  7.0G   40G  15% /log
+/dev/sda6              20G  173M   19G   1% /tmp
+/dev/mapper/mpathcp1  2.8T  2.2T  483G  82% /misdb3
+
+SPACE CHECK ON MISDB-4 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G  7.6G   21G  27% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  108M  352M  24% /boot
+/dev/sda8             108G   46G   57G  45% /data
+/dev/sda2              50G   42G  4.9G  90% /home
+/dev/sda3              50G  4.9G   42G  11% /log
+/dev/sda6              20G  7.0G   12G  37% /tmp
+/dev/mapper/mpathcp1  2.8T  1.5T  1.2T  57% /misdb4
+
+SPACE CHECK ON MISDB-5 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sde5              30G  6.0G   23G  22% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sde1             485M  108M  352M  24% /boot
+/dev/sde8             108G   41G   61G  41% /data
+/dev/sde2              50G  8.3G   39G  18% /home
+/dev/sde3              50G  7.9G   39G  17% /log
+/dev/sde7              20G  7.0G   12G  37% /tmp
+/dev/mapper/mpathcp1  1.2T  976G  174G  85% /misdb5
+
+SPACE CHECK ON MISDB-6 server
+----------------------------------------
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              30G   16G   13G  56% /
+tmpfs                  16G   72K   16G   1% /dev/shm
+/dev/sda1             485M  108M  352M  24% /boot
+/dev/sda8             108G   45G   58G  44% /data
+/dev/sda2              50G  4.8G   43G  11% /home
+/dev/sda3              50G  8.0G   39G  18% /log
+/dev/sda6              20G  7.0G   12G  37% /tmp
+/dev/mapper/mpathcp1  1.2T  870G  280G  76% /misdb6
+
+[rptuser@GUI1 reporting-apps]$ ll *uptime*
+-rwxrwxrwx 1 rptuser rptuser 3414 Sep 14  2017 uptime_1.sh
+-rwxrwxrwx 1 rptuser rptuser 4767 Sep 14  2017 uptime_2.sh
+-rw-rw-r-- 1 rptuser rptuser 2013 Aug 13 23:36 uptime_ajit_20250813.txt
+-rw-rw-r-- 1 rptuser rptuser 2015 Aug 15 21:06 uptime_ajit_20250815.txt
+-rw-rw-r-- 1 rptuser rptuser 1995 Aug 23 14:19 uptime_ajit_20250823.txt
+-rw-rw-r-- 1 rptuser rptuser 2499 Jun 30 00:20 uptime_ajit.sh
+-rwxrwxrwx 1 rptuser rptuser 4279 Oct 16  2018 uptime.sh
+[rptuser@GUI1 reporting-apps]$ sh uptime_1.sh
+UPTIME STATUS ON CDR-1 server
+----------------------------------------
+ 17:06:22 up 54 days, 17 min,  1 user,  load average: 1.03, 1.41, 1.42
+
+UPTIME STATUS ON CDR-2 server
+----------------------------------------
+ 17:06:23 up 388 days, 10 min,  2 users,  load average: 0.71, 1.37, 1.36
+
+UPTIME STATUS ON CDR-3 server
+----------------------------------------
+ 17:06:24 up 289 days, 21:24,  0 users,  load average: 0.40, 0.87, 0.98
+
+UPTIME STATUS ON CDR-4 server
+----------------------------------------
+ 17:06:24 up 451 days,  6:34,  0 users,  load average: 0.52, 0.92, 1.03
+
+UPTIME STATUS ON CDR-5 server
+----------------------------------------
+ 17:06:24 up 451 days,  6:35,  0 users,  load average: 0.41, 0.81, 0.85
+
+UPTIME STATUS ON CDR-6 server
+----------------------------------------
+ 16:56:24 up 68 days, 22:23,  0 users,  load average: 0.73, 1.20, 1.24
+
+UPTIME STATUS ON GUI-1 server
+----------------------------------------
+ 17:06:25 up 357 days, 25 min,  3 users,  load average: 1.41, 1.37, 1.51
+
+UPTIME STATUS ON GUI-2 server
+----------------------------------------
+ 17:06:25 up 451 days, 21:49,  0 users,  load average: 0.01, 0.03, 0.00
+
+UPTIME STATUS ON GUI-3 server
+----------------------------------------
+ 17:06:26 up 451 days, 21:37,  0 users,  load average: 0.11, 0.07, 0.07
+
+UPTIME STATUS ON BL-1 server
+----------------------------------------
+ 17:06:26 up 172 days,  2:56,  1 user,  load average: 0.15, 0.12, 0.09
+
+UPTIME STATUS ON BL-2 server
+----------------------------------------
+ 17:06:27 up 271 days, 23:23,  4 users,  load average: 0.07, 0.14, 0.16
+
+UPTIME STATUS ON BL-3 server
+----------------------------------------
+ 17:06:27 up 2 days, 22:18,  2 users,  load average: 0.05, 0.02, 0.00
+[rptuser@GUI1 reporting-apps]$ sh uptime_ajit.sh
+[rptuser@GUI1 reporting-apps]$ ls -lrth
+total 7.9M
+drwxrwxr-x.  3 rptuser rptuser 4.0K Dec 26  2013 mis-gui
+drwxrwxrwx.  4 rptuser rptuser 4.0K Jan 13  2014 gui1Scripts
+drwxrwxr-x.  2 rptuser rptuser 4.0K Jul  8  2014 SelfCareLogs
+drwxrwxr-x.  4 rptuser rptuser 4.0K Jul 20  2014 BulkLocalStorage
+drwxrwxr-x.  3 rptuser rptuser 4.0K Sep 29  2014 LoadBalancer
+drwxrwxr-x   6 rptuser rptuser 4.0K Aug  6  2015 Voms_APP_InsertBlockedPins
+drwxrwxr-x   2 rptuser rptuser 4.0K Aug  6  2015 GSM-HAR_RAJ-Reprts
+drwxrwxr-x   3 rptuser rptuser 4.0K Aug  6  2015 cc-gui
+drwxr-xr-x  15 rptuser rptuser 4.0K Aug  6  2015 apache_ccgui
+drwxrwxr-x   9 rptuser rptuser 4.0K Aug  6  2015 voms-tomcat
+drwxrwxr-x   3 rptuser rptuser 4.0K Aug 11  2015 reports-log
+drwxrwxr-x   2 rptuser rptuser 4.0K Aug 17  2015 push bl
+drwxrwxr-x   5 rptuser rptuser 4.0K Aug 24  2015 Voms-GSM
+drwxrwxr-x   2 rptuser rptuser 4.0K Oct  5  2015 Voms-Aug-files
+-rw-r--r--   1 rptuser rptuser  807 Dec 24  2015 INFILEstatus.html
+-rw-r--r--   1 rptuser rptuser 1.2K Dec 24  2015 duplicatefilestatus.sh
+drwxrwxr-x   2 rptuser rptuser 4.0K Feb  1  2016 voms-reports
+drwxrwxr-x   2 rptuser rptuser 4.0K Feb  1  2016 July-Report
+drwxrwxr-x   2 rptuser rptuser 4.0K May 13  2016 bsnlCC-gui
+drwxrwxr-x   2 rptuser rptuser 4.0K Jun  1  2016 ama files
+-rw-rw-r--   1 rptuser rptuser 6.7K Sep 15  2016 space1.txt
+-rw-rw-r--   1 rptuser rptuser 9.6K Sep 15  2016 space2.txt
+drwxrwxr-x   2 rptuser rptuser 4.0K Sep 16  2016 CDR-processor
+drwxrwxr-x   6 rptuser rptuser 4.0K Sep 16  2016 CDRProcessor-1
+drwxrwxr-x   2 rptuser rptuser 4.0K Sep 16  2016 ccbl
+drwxrwxr-x   9 rptuser rptuser 4.0K Oct  4  2016 IN-SSDDumpProcessor
+drwxrwxr-x   7 rptuser rptuser 4.0K Nov 17  2016 VomsProcessor
+drwxrwxr-x   2 rptuser rptuser 4.0K Dec  9  2016 test123
+-rw-r--r--   1 rptuser rptuser  204 Dec 26  2016 nagoios_log_deleting.sh
+-rwxrwxrwx   1 rptuser rptuser 4.7K Dec 29  2016 spacecheck-2.sh
+-rw-rw-r--   1 rptuser rptuser 3.3K Jan  9  2017 1
+drwxrwxr-x   2 rptuser rptuser 4.0K Feb 20  2017 rfersh
+-rwxrwxrwx   1 rptuser rptuser 3.4K May 25  2017 spacecheck-1.sh
+-rw-rw-r--   1 rptuser rptuser  398 Aug  3  2017 ama.sh
+-rwxrwxrwx   1 rptuser rptuser 3.4K Sep 11  2017 reboot_status_1.sh
+-rwxrwxrwx   1 rptuser rptuser 4.8K Sep 11  2017 reboot_status_2.sh
+drwxrwxr-x   2 rptuser rptuser 4.0K Sep 12  2017 backup_tmp
+-rwxrwxrwx   1 rptuser rptuser 3.4K Sep 14  2017 uptime_1.sh
+-rwxrwxrwx   1 rptuser rptuser 4.7K Sep 14  2017 uptime_2.sh
+drwxrwxr-x   8 rptuser rptuser 4.0K Nov 13  2017 VOMS_REPORT_APP_NORTH
+-rwxrwxrwx   1 rptuser rptuser  210 Jun 15  2018 test
+-rwxrwxr-x   1 rptuser rptuser 4.1K Jun 21  2018 CDR_5-Check.sh
+-rwxrwxr-x   1 rptuser rptuser 4.0K Jun 21  2018 CDR_2-Check.sh
+-rwxrwxr-x   1 rptuser rptuser 4.1K Jun 21  2018 CDR_3-Check.sh
+-rwxrwxr-x   1 rptuser rptuser  15K Jul 24  2018 CDR_6-Check.sh
+-rwxrwxr-x   1 rptuser rptuser  850 Jul 30  2018 application_stop.sh
+-rwxrwxrwx   1 rptuser rptuser  665 Aug  8  2018 log_compress_script.sh
+-rwxrwxrwx   1 rptuser rptuser 4.7K Aug 18  2018 test.sh
+-rwxrwxrwx   1 rptuser rptuser 5.1K Aug 20  2018 test1.sh
+-rwxrwxrwx   1 rptuser rptuser  633 Aug 21  2018 cc_gui_app_auto_kill.sh
+-rwxrwxrwx   1 rptuser rptuser  564 Aug 24  2018 nagios_prev_day_CDR_count.sh
+-rwxrwxrwx   1 rptuser rptuser 5.5K Aug 25  2018 nagios_csv_dump.sh
+drwxrwxr-x   5 rptuser rptuser 4.0K Oct 11  2018 MCAS_Processed_Ama_Counts
+-rwxrwxr-x   1 rptuser rptuser  963 Oct 15  2018 Common_CDR_CHECK.sh
+-rwxrwxrwx   1 rptuser rptuser  104 Oct 16  2018 try.sh
+-rwxrwxrwx   1 rptuser rptuser 4.2K Oct 16  2018 uptime.sh
+drwxrwxr-x   3 rptuser rptuser 4.0K Jan 16  2019 ProcessManager
+drwxrwxr-x   2 rptuser rptuser 4.0K Jan 23  2019 Configuration
+-rw-rw-r--   1 rptuser rptuser  17K Feb  8  2019 health.log
+-rw-rw-r--   1 rptuser rptuser  16K Feb 10  2019 health.txt
+-rw-rw-r--   1 rptuser rptuser  16K Feb 12  2019 health1.log
+-rw-rw-r--   1 rptuser rptuser  17K Feb 16  2019 healthcheck11.log
+-rw-rw-r--   1 rptuser rptuser  16K Feb 17  2019 health1check.log
+-rwxrwxrwx   1 rptuser rptuser 1.8K Jul 17  2019 nagios_atca_dump_hourly.sh
+-rwxrwxrwx   1 rptuser rptuser 5.5K Aug 17  2019 nagios_csv_dump_hourly.sh
+-rw-rw-r--   1 rptuser rptuser 3.7K Oct 22  2019 FTP_USER.sh
+-rw-rw-r--   1 rptuser rptuser 5.1K Oct 22  2019 FTP_USER_2.sh
+-rw-r--r--   1 rptuser rptuser   50 Nov 25  2020 ATCA_Dump_File_Count
+-rwxrwxrwx   1 rptuser rptuser 1.8K Dec 14  2020 nagios_atca_dump.sh
+-rwxrwxr-x   1 rptuser rptuser 1.1K Sep 27  2022 Common_CDR_CHECK_XXXXMATEDATCA4XXXX.sh
+-rwxrwxr-x   1 rptuser rptuser 3.7K Oct  6  2022 CDR_4-Check_XXXXMATEDATCA4XXXX.sh
+-rwxrwxr-x   1 rptuser rptuser 4.1K Oct  7  2022 CDR_4-Check.sh
+-rw-r--r--   1 rptuser rptuser  288 Oct 27  2024 Common_CDR_CHECK_LOG.txt
+-rwxrwxr-x   1 rptuser rptuser 3.8K Dec  4  2024 CDR_1-Check.sh
+-rw-rw-r--   1 rptuser rptuser 2.5K Jun 30 00:20 uptime_ajit.sh
+-rw-rw-r--   1 rptuser rptuser 2.0K Aug 13 23:36 uptime_ajit_20250813.txt
+-rw-rw-r--   1 rptuser rptuser 2.0K Aug 15 21:06 uptime_ajit_20250815.txt
+-rw-rw-r--   1 rptuser rptuser 2.0K Aug 23 14:19 uptime_ajit_20250823.txt
+-rw-r--r--   1 rptuser rptuser 4.8M Aug 25 00:11 nagios_prev_day_CDR_count.log
+-rw-r--r--   1 rptuser rptuser 995K Aug 25 03:11 nagios_atca_dump.log
+-rw-r--r--   1 rptuser rptuser 956K Aug 25 07:01 nagios_csv_dump.log
+-rw-r--r--   1 rptuser rptuser 815K Aug 25 07:05 application_stop.log
+-rw-rw-r--   1 rptuser rptuser 2.0K Aug 25 17:11 uptime_ajit_20250825.txt
+[rptuser@GUI1 reporting-apps]$ cat uptime_ajit_20250825.txt
+ 17:11:29 up 54 days, 22 min,  1 user,  load average: 0.40, 1.30, 1.42
+ 17:11:30 up 388 days, 15 min,  2 users,  load average: 0.37, 1.06, 1.26
+ 17:11:30 up 289 days, 21:29,  0 users,  load average: 0.28, 0.77, 0.93
+ 17:11:30 up 451 days,  6:39,  0 users,  load average: 1.26, 1.16, 1.11
+ 17:11:30 up 451 days,  6:40,  0 users,  load average: 0.25, 0.72, 0.82
+ 17:01:30 up 68 days, 22:28,  0 users,  load average: 0.90, 1.22, 1.25
+ 17:11:31 up 357 days, 30 min,  3 users,  load average: 2.40, 2.03, 1.74
+ 17:11:31 up 451 days, 21:54,  0 users,  load average: 0.04, 0.05, 0.00
+ 17:11:31 up 451 days, 21:42,  0 users,  load average: 0.08, 0.05, 0.06
+ 17:11:31 up 172 days,  3:01,  1 user,  load average: 0.32, 0.19, 0.12
+ 17:11:32 up 271 days, 23:28,  4 users,  load average: 0.06, 0.17, 0.17
+ 17:11:32 up 2 days, 22:23,  2 users,  load average: 0.17, 0.07, 0.01
+ 17:11:32 up 374 days,  2:08,  0 users,  load average: 0.04, 0.04, 0.01
+ 17:11:32 up 374 days,  2:08,  0 users,  load average: 0.00, 0.02, 0.03
+ 17:11:32 up 374 days,  2:07,  0 users,  load average: 0.05, 0.14, 0.13
+ 17:11:33 up 374 days,  2:08,  0 users,  load average: 0.07, 0.18, 0.18
+ 17:11:33 up 374 days,  1:05,  0 users,  load average: 0.12, 0.12, 0.09
+ 17:11:33 up 215 days, 19:15,  0 users,  load average: 0.50, 1.51, 1.47
+ 17:11:33 up 2 days, 23:08,  0 users,  load average: 0.00, 0.01, 0.00
+ 17:11:34 up 182 days, 18:07,  0 users,  load average: 0.17, 0.23, 0.19
+ 17:11:34 up 88 days, 22 min,  0 users,  load average: 0.18, 0.26, 0.17
+ 17:11:45 up 24 days, 22:31,  0 users,  load average: 0.03, 0.04, 0.00
+ 17:11:34 up 374 days,  1:45,  0 users,  load average: 2.22, 1.56, 1.48
+ 17:11:34 up 374 days,  1:45,  0 users,  load average: 0.95, 1.39, 1.18
+ 17:11:34 up 373 days,  7:57,  2 users,  load average: 0.06, 0.07, 0.08
+ 17:11:34 up 374 days,  1:45,  5 users,  load average: 0.11, 0.51, 0.65
+ 17:11:34 up 374 days,  1:45,  0 users,  load average: 0.32, 0.42, 0.38
+ 17:11:35 up 374 days,  1:45,  0 users,  load average: 0.05, 0.26, 0.27
+28
+[rptuser@GUI1 reporting-apps]$

@@ -1,0 +1,11 @@
+vdmShowDriveList
+
+
+
+
+SMcli 169.254.104.1 169.254.168.1 -c 'show allVolumes summary;'
+
+
+/usr/bin/SMcli 169.254.104.1 169.254.168.1 -c 'show storageArray ;' >/tmp/showall_Darray.txt
+ 
+/usr/bin/SMcli 169.254.104.1 169.254.168.1 -c 'save storageArray supportData file = "/tmp/NZ2OCS4.zip";'

@@ -1,0 +1,131 @@
+/PLATsoftware/cs/snsps/*/manifest
+egrep -i "ExtClass_Of_Service_Parameters_tbl|Class_Of_Service_Parameters_tbl|Action_Definition_tbl|Free_Special_Destination_tbl|Counter_Definition_tbl|Usage_Rate_ID_tbl|Usage_Tariff_tbl|Traffic_Typology_tbl|Discount_Definition_tbl|Feature_Package_tbl|Tariff_Plan_Definition_tbl|RRI_tbl|Audit_Notification_COSP_tbl|Adv_Life_Cycle_COSP_tbl|Discount_Rates_tbl|Enhanced_Parameter_Mapping_tbl|Text_Format_tbl|Usage_Rates_tbl|Credit_Validity_COSP_tbl|Zone_Mapping_tbl|E164_DZP_GT_Mapping_tbl|MSC_ID_Zone_Label_tbl|Band_Label_tbl|Called_Party_Number_Zone_tbl|IC_Call_Charge_Band_tbl|Zone_Label_tbl|Location_Area_Zone_tbl|Notification_COSP_tbl" /PLATsoftware/cs/snsps/*/manifest
+
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P7C9A2ECB.msk ODIN    MASK    58938   5000    NE      public rc table Action_Definition_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PD9E3E574.msk ODIN    MASK    28403   2624    NE      public rc table Free_Special_Destination_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P38B9BDF7.msk ODIN    MASK    26478   29060   NE      public rc table Counter_Definition_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PC0AD58A6.msk ODIN    MASK    15762   2256    NE      public rc table Usage_Rate_ID_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P30E9D35B.msk ODIN    MASK    20574   5024    NE      public rc table Credit_Validity_COSP_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PA77B8E88.msk ODIN    MASK    38479   60032   NE      public rc table ExtClass_Of_Service_Parameters_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P491F1F0F.msk ODIN    MASK    62651   3148    NE      public rc table Usage_Tariff_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P65CEB9BB.msk ODIN    MASK    41013   28296   NE      public rc table Traffic_Typology_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PEFC4B133.msk ODIN    MASK    33138   3352    NE      public rc table Enhanced_Parameter_Mapping_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P5D3A132A.msk ODIN    MASK    9722    4676    NE      public rc table Adv_Life_Cycle_COSP_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P8D088596.msk ODIN    MASK    941     8784    NE      public rc table Usage_Rates_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P5FF7085B.msk ODIN    MASK    7697    31316   NE      public rc table Discount_Definition_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PD1529C88.msk ODIN    MASK    64260   93752   NE      public rc table Class_Of_Service_Parameters_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PFB9B7C1C.msk ODIN    MASK    65265   3252    NE      public rc table Text_Format_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PA724DBDB.msk ODIN    MASK    65068   35104   NE      public rc table Feature_Package_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PBEF3D5F7.msk ODIN    MASK    58354   24820   NE      public rc table Tariff_Plan_Definition_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P0165A2AD.msk ODIN    MASK    62201   2724    NE      public rc table RRI_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_PA39541A3.msk ODIN    MASK    49639   13116   NE      public rc table Discount_Rates_tbl
+/PLATsoftware/cs/snsps/ENWTPPS29C/manifest:SPA_ENWTPPS29C_P0902DA74.msk ODIN    MASK    16109   9352    NE      public rc table Audit_Notification_COSP_tbl
+/PLATsoftware/cs/snsps/NWTCOM105/manifest:SPA_NWTCOM105_P9608F649.msk   ODIN    MASK    4894    2128    NE      public rc table Zone_Label_tbl
+/PLATsoftware/cs/snsps/NWTCOM105/manifest:SPA_NWTCOM105_PDA26B822.msk   ODIN    MASK    20319   2132    NE      public rc table IC_Call_Charge_Band_tbl
+/PLATsoftware/cs/snsps/NWTCOM105/manifest:SPA_NWTCOM105_PBE17F872.msk   ODIN    MASK    22178   2536    NE      public rc table Location_Area_Zone_tbl
+/PLATsoftware/cs/snsps/NWTCOM105/manifest:SPA_NWTCOM105_PD900CFE0.msk   ODIN    MASK    28550   2112    NE      public rc table Called_Party_Number_Zone_tbl
+/PLATsoftware/cs/snsps/NWTCOM105/manifest:SPA_NWTCOM105_P83C3B84A.msk   ODIN    MASK    60119   3416    NE      public rc table MSC_ID_Zone_Label_tbl
+/PLATsoftware/cs/snsps/NWTCOM105/manifest:SPA_NWTCOM105_PD3003702.msk   ODIN    MASK    20214   1788    NE      public rc table Band_Label_tbl
+/PLATsoftware/cs/snsps/NWTCOM105/manifest:SPA_NWTCOM105_P51CD5F33.msk   ODIN    MASK    22025   1736    NE      public rc table Zone_Mapping_tbl
+/PLATsoftware/cs/snsps/NWTCOM105/manifest:SPA_NWTCOM105_PA5505BF4.msk   ODIN    MASK    48651   4068    NE      public rc table E164_DZP_GT_Mapping_tbl
+/PLATsoftware/cs/snsps/EPAY29C/manifest:SPA_EPAY29C_296.msk     ODIN    MASK    14515   21104   NE      client global rc table Notification_COSP_tbl
+----------------------------------------------------------------------------------------
+mkdir -p /workspace/Tariff/exp
+psql -U scncraft <<qq
+\copy (SELECT * FROM SPA_ENWTPPS29C_P7C9A2ECB) to '/workspace/Tariff/exp/Action_Definition_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PD9E3E574) to '/workspace/Tariff/exp/Free_Special_Destination_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P38B9BDF7) to '/workspace/Tariff/exp/Counter_Definition_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PC0AD58A6) to '/workspace/Tariff/exp/Usage_Rate_ID_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P30E9D35B) to '/workspace/Tariff/exp/Credit_Validity_COSP_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PA77B8E88) to '/workspace/Tariff/exp/ExtClass_Of_Service_Parameters_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P491F1F0F) to '/workspace/Tariff/exp/Usage_Tariff_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P65CEB9BB) to '/workspace/Tariff/exp/Traffic_Typology_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PEFC4B133) to '/workspace/Tariff/exp/Enhanced_Parameter_Mapping_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P5D3A132A) to '/workspace/Tariff/exp/Adv_Life_Cycle_COSP_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P8D088596) to '/workspace/Tariff/exp/Usage_Rates_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P5FF7085B) to '/workspace/Tariff/exp/Discount_Definition_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PD1529C88) to '/workspace/Tariff/exp/Class_Of_Service_Parameters_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PFB9B7C1C) to '/workspace/Tariff/exp/Text_Format_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PA724DBDB) to '/workspace/Tariff/exp/Feature_Package_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PBEF3D5F7) to '/workspace/Tariff/exp/Tariff_Plan_Definition_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P0165A2AD) to '/workspace/Tariff/exp/RRI_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_PA39541A3) to '/workspace/Tariff/exp/Discount_Rates_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_ENWTPPS29C_P0902DA74) to '/workspace/Tariff/exp/Audit_Notification_COSP_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_NWTCOM105_P9608F649) to '/workspace/Tariff/exp/Zone_Label_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_NWTCOM105_PDA26B822) to '/workspace/Tariff/exp/IC_Call_Charge_Band_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_NWTCOM105_PBE17F872) to '/workspace/Tariff/exp/Location_Area_Zone_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_NWTCOM105_PD900CFE0) to '/workspace/Tariff/exp/Called_Party_Number_Zone_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_NWTCOM105_P83C3B84A) to '/workspace/Tariff/exp/MSC_ID_Zone_Label_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_NWTCOM105_PD3003702) to '/workspace/Tariff/exp/Band_Label_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_NWTCOM105_P51CD5F33) to '/workspace/Tariff/exp/Zone_Mapping_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_NWTCOM105_PA5505BF4) to '/workspace/Tariff/exp/E164_DZP_GT_Mapping_tbl.csv' with csv header
+\copy (SELECT * FROM SPA_EPAY29C_296) to '/workspace/Tariff/exp/Notification_COSP_tbl.csv' with csv header
+\q
+qq
+-------------------------------------------------------------------------
+for reloading 
+Nth2OCS4-0-0-9:/u/ainet-# cat tariff_reload.sh
+psql -U scncraft << qq
+
+
+truncate table SPA_ENWTPPS29C_PA77B8E88;
+truncate table SPA_ENWTPPS29C_PD1529C88;
+truncate table SPA_ENWTPPS29C_P7C9A2ECB;
+truncate table SPA_ENWTPPS29C_PD9E3E574;
+truncate table SPA_ENWTPPS29C_P38B9BDF7;
+truncate table SPA_ENWTPPS29C_PC0AD58A6;
+truncate table SPA_ENWTPPS29C_P491F1F0F;
+truncate table SPA_ENWTPPS29C_P65CEB9BB;
+truncate table SPA_ENWTPPS29C_P5FF7085B;
+truncate table SPA_ENWTPPS29C_PA724DBDB;
+truncate table SPA_ENWTPPS29C_PBEF3D5F7;
+truncate table SPA_ENWTPPS29C_P0165A2AD;
+truncate table SPA_ENWTPPS29C_P0902DA74;
+truncate table SPA_ENWTPPS29C_P5D3A132A;
+truncate table SPA_ENWTPPS29C_PA39541A3;
+truncate table SPA_ENWTPPS29C_PEFC4B133;
+truncate table SPA_ENWTPPS29C_PFB9B7C1C;
+truncate table SPA_ENWTPPS29C_P8D088596;
+truncate table SPA_ENWTPPS29C_P30E9D35B;
+truncate table SPA_NWTCOM105_P51CD5F33;
+truncate table SPA_NWTCOM105_PA5505BF4;
+truncate table SPA_NWTCOM105_P83C3B84A;
+truncate table SPA_NWTCOM105_PDA26B822;
+truncate table SPA_NWTCOM105_PD3003702;
+truncate table SPA_NWTCOM105_PD900CFE0;
+truncate table SPA_NWTCOM105_P9608F649;
+truncate table SPA_NWTCOM105_PBE17F872;
+truncate table SPA_EPAY29C_296;
+
+
+\copy SPA_ENWTPPS29C_PA77B8E88 from '/workspace/Tariff/exp/ExtClass_Of_Service_Parameters_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_PD1529C88 from '/workspace/Tariff/exp/Class_Of_Service_Parameters_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P7C9A2ECB from '/workspace/Tariff/exp/Action_Definition_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_PD9E3E574 from '/workspace/Tariff/exp/Free_Special_Destination_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P38B9BDF7 from '/workspace/Tariff/exp/Counter_Definition_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_PC0AD58A6 from '/workspace/Tariff/exp/Usage_Rate_ID_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P491F1F0F from '/workspace/Tariff/exp/Usage_Tariff_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P65CEB9BB from '/workspace/Tariff/exp/Traffic_Typology_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P5FF7085B from '/workspace/Tariff/exp/Discount_Definition_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_PA724DBDB from '/workspace/Tariff/exp/Feature_Package_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_PBEF3D5F7 from '/workspace/Tariff/exp/Tariff_Plan_Definition_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P0165A2AD from '/workspace/Tariff/exp/RRI_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P0902DA74 from '/workspace/Tariff/exp/Audit_Notification_COSP_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P5D3A132A from '/workspace/Tariff/exp/Adv_Life_Cycle_COSP_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_PA39541A3 from '/workspace/Tariff/exp/Discount_Rates_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_PEFC4B133 from '/workspace/Tariff/exp/Enhanced_Parameter_Mapping_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_PFB9B7C1C from '/workspace/Tariff/exp/Text_Format_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P8D088596 from '/workspace/Tariff/exp/Usage_Rates_tbl.csv' DELIMITER ',' csv header
+\copy SPA_ENWTPPS29C_P30E9D35B from '/workspace/Tariff/exp/Credit_Validity_COSP_tbl.csv' DELIMITER ',' csv header
+\copy SPA_NWTCOM105_P51CD5F33 from '/workspace/Tariff/exp/Zone_Mapping_tbl.csv' DELIMITER ',' csv header
+\copy SPA_NWTCOM105_PA5505BF4 from '/workspace/Tariff/exp/E164_DZP_GT_Mapping_tbl.csv' DELIMITER ',' csv header
+\copy SPA_NWTCOM105_P83C3B84A from '/workspace/Tariff/exp/MSC_ID_Zone_Label_tbl.csv' DELIMITER ',' csv header
+\copy SPA_NWTCOM105_PD3003702 from '/workspace/Tariff/exp/Band_Label_tbl.csv' DELIMITER ',' csv header
+\copy SPA_NWTCOM105_PD900CFE0 from '/workspace/Tariff/exp/Called_Party_Number_Zone_tbl.csv' DELIMITER ',' csv header
+\copy SPA_NWTCOM105_PDA26B822 from '/workspace/Tariff/exp/IC_Call_Charge_Band_tbl.csv' DELIMITER ',' csv header
+\copy SPA_NWTCOM105_P9608F649 from '/workspace/Tariff/exp/Zone_Label_tbl.csv' DELIMITER ',' csv header
+\copy SPA_NWTCOM105_PBE17F872 from '/workspace/Tariff/exp/Location_Area_Zone_tbl.csv' DELIMITER ',' csv header
+\copy SPA_EPAY29C_296 from '/workspace/Tariff/exp/Notification_COSP_tbl.csv' DELIMITER ',' csv header
+\q
+qq
+

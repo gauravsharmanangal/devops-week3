@@ -1,0 +1,1745 @@
+Using username "sms".
+Keyboard-interactive authentication prompts from server:
+| Password:
+End of keyboard-interactive prompts from server
+Last   successful login for sms: Wed Sep  4 15:06:48 IST-5:30 2024
+Last unsuccessful login for sms: Mon Jul 22 17:09:26 IST-5:30 2024
+Last login: Wed Sep  4 12:20:37 2024 from 10.147.50.42
+(c)Copyright 1983-2006 Hewlett-Packard Development Company, L.P.
+(c)Copyright 1979, 1980, 1983, 1985-1993 The Regents of the Univ. of California
+(c)Copyright 1980, 1984, 1986 Novell, Inc.
+(c)Copyright 1986-2000 Sun Microsystems, Inc.
+(c)Copyright 1985, 1986, 1988 Massachusetts Institute of Technology
+(c)Copyright 1989-1993  The Open Software Foundation, Inc.
+(c)Copyright 1990 Motorola, Inc.
+(c)Copyright 1990, 1991, 1992 Cornell University
+(c)Copyright 1989-1991 The University of Maryland
+(c)Copyright 1988 Carnegie Mellon University
+(c)Copyright 1991-2006 Mentat Inc.
+(c)Copyright 1996 Morning Star Technologies, Inc.
+(c)Copyright 1996 Progressive Systems, Inc.
+
+Confidential computer software. Valid license from HP required for
+possession, use or copying.  Consistent with FAR 12.211 and 12.212,
+Commercial Computer Software, Computer Software Documentation, and
+Technical Data for Commercial Items are licensed to the U.S. Government
+under vendor's standard commercial license.
+
+You have mail.
+
+
+
+
+
+
+
+
+
+$ cd /tmp
+$ ls -lrt
+total 137520
+-rwxr-xr-x   1 root       sys          78975 Dec 12  2004 nickel
+-rw-r-----   1 sms        smsadm     28738918 Nov 22  2013 satya_sms
+-rw-------   1 sms        smsadm           0 Aug 29  2014 nwmgr_iexgbe.log
+-rw-------   1 sms        smsadm           0 Aug 29  2014 nwmgr_iether.log
+-rwxrwxrwx   1 root       sys           6921 Aug 29  2014 OB2Upgrade.log_15883
+-rw-rw----   1 root       sys              0 Sep 14  2014 ma014662
+-rw-rw----   1 root       sys              0 Sep 15  2014 ma016737
+-rw-------   1 root       root             0 Sep 16  2014 sh13123.1
+-rw-rw-r--   1 sms        smsadm         101 Sep 16  2014 smscron13191
+-rw-------   1 sms        smsadm       40820 Feb 13  2015 install_hlapi.22068.log
+-rw-r-----   1 sms        smsadm         402 Feb 20  2015 id_rsa.pub
+-rw-------   1 sms        smsadm        8811 Feb 27  2015 man024620
+-r-xr-xr-x   1 root       sys            637 Feb 28  2015 glance.exp
+-rwxrwxrwx   1 sms        smsadm       73308 Mar  9  2015 ana_row_chaining.sql
+-rw-------   1 sms        smsadm        1222 Mar 11  2015 evadeepcheck.txt
+-rw-------   1 root       sys         313769 Mar 11  2015 evacheck.txt
+-rw-------   1 sms        smsadm       16588 Mar 12  2015 man009951
+-rw-rw----   1 root       sys              2 Jun  1  2015 ma003367
+-rw-rw----   1 root       sys            283 Jun  2  2015 ma009280
+-rw-rw----   1 root       sys            256 Jun  2  2015 ma009940
+-rw-rw----   1 root       sys            235 Jun  2  2015 ma014731
+-rw-rw----   1 root       sys            314 Jun  2  2015 ma006483
+-rw-rw----   1 root       sys              2 Jun  2  2015 ma014220
+-rw-rw----   1 root       sys            249 Jun  2  2015 ma008563
+-rw-rw-rw-   1 sms        smsadm           5 Jun  2  2015 STs
+-rwxrwxrwx   1 sms        smsadm          45 Jun  2  2015 Filetime
+-rw-rw-rw-   1 sms        smsadm          29 Jun  2  2015 archivegraph
+-rw-------   1 root       root            60 Jun  6  2015 sh24598.1
+-rw-------   1 sms        smsadm          88 Jul 25  2015 rdays.24762
+drwx------   3 root       sys           1024 Sep 14  2015 sysinfo_Nth1eSMA_201509141154
+-rw-------   1 root       root            60 Sep 24  2015 sh26842.1
+-rw-------   1 sms        smsadm          70 Oct 20  2015 _where9077.txt
+drwx------   3 sms        smsadm          96 Oct 20  2015 esmdata
+-rw-------   1 sms        smsadm          70 Oct 20  2015 _where28966.txt
+-rw-------   1 sms        smsadm         183 Mar  7  2016 u
+-rw-------   1 sms        smsadm        2183 Apr 17  2016 t
+drwx------   3 sms        smsadm          96 Apr 18  2016 vg
+-rw-------   1 sms        smsadm       26996 Aug 10  2016 man006929
+-rw-------   1 sms        smsadm       26996 Aug 10  2016 man008906
+-rw-------   1 sms        smsadm       26996 Aug 10  2016 man008924
+-rw-------   1 root       sys         313768 Aug 10  2016 dyout
+-rwxrwxrwx   1 root       sys          14665 Nov 14  2016 recharge_mrp_calc_V10.pl
+-rwxrwxrwx   1 root       sys            340 Nov 14  2016 pf_indx_one.sql
+-rwxrwxrwx   1 root       sys            336 Nov 14  2016 pf_indx_zero_all.sql
+-rwxrwxrwx   1 root       sys            340 Nov 14  2016 pf_indx_zero.sql
+-rwxrwxrwx   1 root       sys            548 Nov 14  2016 test.sql
+-rwxrwxrwx   1 root       sys            189 Nov 14  2016 tariff_plan.sql
+-rwxrwxrwx   1 root       sys            412 Nov 14  2016 x.sql
+-rwxrwxrwx   1 root       sys            336 Nov 14  2016 pf_indx_one_all.sql
+-rw-------   1 sms        smsadm       40958 Dec  7  2016 install_hlapi.4318.log
+drwxrwxrwx   3 root       sys           1024 Dec 27  2016 rohit
+drwx------   2 sms        smsadm          96 Jan 29  2017 ssh-KJiOL22137
+-rw-------   1 root       sys            180 Jan 30  2017 drive1
+-rw-------   1 root       sys            180 Jan 30  2017 drive2
+-rw-------   1 root       sys            484 Jan 30  2017 eSMLTO
+drwx------   2 sms        smsadm          96 Jan 31  2017 ssh-FXJei10359
+-rw-------   1 root       sys             61 Mar  3  2017 sh17010.1
+-rw-------   1 sms        smsadm           0 Mar  3  2017 archtotapeoutput.txt
+drwxrwxrwx   2 sms        smsadm          96 May 10  2017 2maylogs
+-rw-------   1 sixdee     guests        5473 May 11  2017 cowroot.c
+-rwxrwxrwx   1 root       sys             75 May 17  2017 CTOP.sh
+-rw-rw----   1 root       sys            304 Jun 20  2017 ma011013
+-rw-rw----   1 root       sys            348 Jun 20  2017 ma011009
+-rw-------   1 sms        smsadm      612830 Sep  5  2017 SYSACC_log
+-rw-------   1 sms        smsadm     1865160 Nov 28  2017 NEtrace_new11
+-rw-------   1 sms        smsadm     1091859 Nov 28  2017 wsagent
+-rw-------   1 sms        smsadm       43348 Nov 28  2017 NEtrace_new1123
+-rw-------   1 sms        smsadm     1308084 Nov 28  2017 wsagaent_new
+-rw-------   1 sms        smsadm      545446 Dec 19  2017 New_DATA_file
+-rw-------   1 root       sys              0 Feb 28  2018 topN
+-rw-------   1 root       sys              0 Feb 28  2018 topN
+drwx------   2 sms        smsadm        8192 Mar  7  2018 billing_files
+-rw-rw----   1 root       sys              2 Mar 13  2018 ma029166
+-rw-rw----   1 root       sys              2 Mar 13  2018 ma029168
+-rw-------   1 sms        smsadm      671690 Mar 29  2018 hal088.10.57
+-rw-------   1 sms        smsadm      360874 Mar 29  2018 hal088.14.37
+-rwxrwxrwx   1 sms        smsadm      429536 Apr  3  2018 A
+-rw-------   1 sms        smsadm      366389 Apr 11  2018 New_wsagent
+-rw-------   1 sms        smsadm      596715 Apr 19  2018 bulkalm
+-rw-------   1 root       root            60 Nov 19  2018 sh28164.1
+drwx------   2 root       sys             96 Nov 21  2018 logscpub
+-rw-------   1 root       sys             60 Nov 24  2018 sh24497.1
+-rw-------   1 root       root            60 Nov 24  2018 sh27190.1
+-rw-------   1 root       sys             60 Nov 29  2018 sh23040.1
+-rw-------   1 root       sys             61 Nov 29  2018 sh24194.1
+-rw-------   1 root       root            60 Nov 29  2018 sh24428.1
+-rw-------   1 oraadm     dba             39 Nov 29  2018 sh26082.1
+-rw-------   1 root       sys           1833 Dec 15  2018 cmclconf.ascii
+drwxrwxrwx   2 root       sys          86016 Dec 18  2018 old_tariff_dump
+-rw-------   1 root       sys              0 Dec 21  2018 test
+-rwxr-xr-x   1 root       sys          54116 Jan 22  2019 getsysinfo.sh
+drwx------   2 root       sys             96 Jan 25  2019 sysinfo_Nth1eSMA_201901251344
+-rwxrwxrwx   1 root       sys         331486 Jan 25  2019 tusc.exe
+-rwxr--r--   1 201        200          25806 Jan 25  2019 tusc.1
+drwxrwxrwx   2 root       sys             96 Jan 25  2019 libp4.Nth1eSMA
+-rwxr-xr-x   1 201        200        1119136 Jan 25  2019 tusc
+-rw-------   1 root       sys          34500 Jan 25  2019 getsysinfo.tgz
+-rw-rw-rw-   1 root       sys            309 Jan 25  2019 createbc
+-rw-------   1 root       sys        11427667 Jan 25  2019 tusc.out
+-rw-------   1 root       sys        11427625 Jan 25  2019 tusc.out1
+-rw-------   1 root       sys         978563 Feb  4  2019 sysinfo_Nth1eSMA_201902041408.tgz
+-rw-------   1 root       sys        1019361 Feb  4  2019 sysinfo_Nth1eSMA_201902041414.tgz
+-rw-------   1 root       sys         829148 Apr  8  2019 sysinfo_Nth1eSMA_201904081551.tgz
+-rw-------   1 root       sys         638335 May 22  2019 sysinfo_Nth1eSMA_201905221015.tgz
+-rw-------   1 oraadm     dba           1314 May 31  2019 sh17797.3
+-rw-------   1 oraadm     dba           2113 May 31  2019 sh17797.4
+-rw-------   1 oraadm     dba           2258 May 31  2019 sh17797.5
+-rw-------   1 oraadm     dba            107 May 31  2019 sh17797.11
+-rw-------   1 oraadm     dba           1115 May 31  2019 sh17797.2
+-rw-------   1 oraadm     dba           1187 May 31  2019 sh17797.1
+-rw-------   1 oraadm     dba           1060 May 31  2019 sh17797.8
+-rw-------   1 oraadm     dba            152 May 31  2019 sh17797.7
+-rw-------   1 oraadm     dba            167 May 31  2019 sh17797.6
+-rw-------   1 oraadm     dba           1885 May 31  2019 sh17797.9
+-rw-------   1 oraadm     dba           1375 May 31  2019 sh17797.10
+-rw-------   1 root       sys             60 Jun  2  2019 sh13721.1
+-rw-------   1 root       root            60 Jun  2  2019 sh15025.1
+-rw-------   1 root       root            61 Jun  2  2019 sh17623.1
+-rw-------   1 root       sys             61 Jun  2  2019 sh18844.1
+-rw-------   1 root       sys             61 Jun  2  2019 sh20185.1
+-rw-------   1 root       sys             61 Jun  2  2019 sh21538.1
+drwx------   2 root       sys             96 Jun  3  2019 sysinfo_Nth1eSMA_201906031517
+drwxrwxrwx   2 root       sys             96 Jun  3  2019 sysinfo_Nth1eSMA_201906031613
+drwx------   2 root       sys             96 Jun  3  2019 sysinfo_Nth1eSMA_201906031629
+-rw-------   1 root       sys         822436 Nov 20  2019 sysinfo_Nth1eSMA_201911201301.tgz
+-rwxrwxrwx   1 sms        smsadm      433520 Jul 18  2020 sysinfo_Nth1eSMA_202007181334.tgz
+drwx------   2 sms        smsadm        1024 Jul 18  2020 sysinfo_Nth1eSMA_202007181334
+-rw-rw-r--   1 sms        smsadm        1830 Jul 27  2020 smscron11351
+-rw-------   1 root       sys             60 Jul 27  2020 sh11381.1
+drwx------   2 sms        smsadm          96 Jul 29  2020 ssh-mmCjAL1870
+drwx------   2 sms        smsadm          96 Jul 31  2020 ssh-qKzgXK2386
+-r--r--r--   1 root       root             0 Sep  4  2020 llbdbase.dat
+-rw-rw-rw-   1 sms        smsadm          28 Sep  8  2020 Splist1
+-rw-rw-rw-   1 sms        smsadm          15 Sep  8  2020 SPLIST
+-rwxrwxrwx   1 root       sys         866039 Sep  9  2020 sysinfo_Nth1eSMA_202009091040.tgz
+drwx------   2 sms        smsadm          96 Oct 25  2022 cache
+-rw-------   1 root       sys            602 Jun 15  2023 id_dsa.pub.esmcpua
+-rw-------   1 root       sys            602 Jun 15  2023 id_dsa.pub.esmcpub
+-rw-r--r--   1 root       sys           4944 Jun 15  2023 haconfig
+-rw-------   1 root       sys            603 Jun 15  2023 id_dsa.pub.Nth1eSMB
+-rw-------   1 sms        smsadm         601 Jun 15  2023 id_dsa.pub.sms.Nth2eSMA
+-r-x------   1 root       sys          12180 Jun 16  2023 createwebsite
+-rw-------   1 sms        smsadm       22788 Jun 20  2023 sysconfig
+-rw-rw-rw-   1 sms        smsadm         104 Apr  8 23:15 Splist
+-rwxrwxrwx   1 sms        smsadm        5346 Apr  8 23:15 FileListcpio
+-rwxrwxrwx   1 sms        smsadm        5373 Apr  8 23:15 FileList
+-rw-rw-rw-   1 sms        smsadm        5126 Apr  8 23:29 archtotapeoutput
+-rw-------   1 sms        smsadm           0 May 28 17:09 fsstat24742
+-rw-------   1 sms        smsadm        1170 May 28 17:09 laninfo24743
+-rw-rw-rw-   1 sms        smsadm           0 May 28 17:15 backrestlock
+-rw-r--r--   1 root       root           602 Aug  5 15:43 media_info
+-rw-r--r--   1 root       root             1 Aug  5 15:43 media_info.tmp
+-rw-------   1 root       sys        1099130 Aug 21 16:39 sysinfo_Nth1eSMA_202408211636.tgz
+-rw-------   1 root       sys           4451 Aug 23 14:07 view20782.log
+-rw-------   1 root       sys              0 Aug 23 14:09 diff20782
+-rw-------   1 root       sys         105661 Aug 23 14:11 scancl.out
+-rw-------   1 root       sys         559603 Aug 23 14:11 nickel.Nth1eSMA.tar.gz
+drwx------   6 root       sys           2048 Aug 23 14:11 nickel.Nth1eSMA
+-rw-rw-rw-   1 root       sys              0 Aug 29 14:10 crstart
+-rw-rw-rw-   1 sms        smsadm        5000 Sep  3 04:15 oout
+-rw-------   1 sms        smsadm        5621 Sep  3 06:45 HSVinfo.17600
+-rw-------   1 sms        smsadm        5621 Sep  3 09:01 HSVinfo.5103
+-rw-rw-rw-   1 oraadm     dba            810 Sep  3 12:53 tbslist.lst
+-rwxrwxrwx   1 oraadm     dba            162 Sep  3 12:53 METAX.lst
+-rw-rw-rw-   1 oraadm     dba           1053 Sep  3 12:53 UNDO01.lst
+-rw-rw-rw-   1 oraadm     dba            810 Sep  3 12:53 WORDERD.lst
+-rw-rw-rw-   1 oraadm     dba            486 Sep  3 12:53 SYSAUX.lst
+-rw-rw-rw-   1 oraadm     dba             81 Sep  3 12:53 SYSTEM.lst
+-rwxrwxrwx   1 oraadm     dba            162 Sep  3 12:53 METAD.lst
+-rw-rw-rw-   1 oraadm     dba            405 Sep  3 12:53 WORDERX.lst
+-rwxrwxrwx   1 oraadm     dba          36450 Sep  3 12:53 SERVICED.lst
+-rw-rw-rw-   1 oraadm     dba          19440 Sep  3 12:53 SERVICEX.lst
+-rw-rw-rw-   1 oraadm     dba             81 Sep  3 12:53 STREAMS_TBS.lst
+-rw-rw-rw-   1 oraadm     dba          47456 Sep  3 12:53 db_begintsbck.err
+-rw-r--r--   1 oraadm     dba            810 Sep  3 12:54 tbscleanlist.lst
+-rw-r--r--   1 oraadm     dba          40793 Sep  3 12:54 db_endtsbck.err
+-rw-------   1 sms        smsadm        5626 Sep  4 09:09 HSVinfo.25112
+drwx------   2 sms        smsadm          96 Sep  4 12:20 ssh-iCUhc29387
+-rw-------   1 sms        smsadm        1378 Sep  4 15:09 tspsize.lst
+-rw-------   1 sms        smsadm      498579 Sep  4 15:09 free_sp.lst
+-rw-------   1 sms        smsadm          16 Sep  4 15:09 tmpx25
+-rw-------   1 sms        smsadm        1226 Sep  4 15:09 HSVinfo.25822
+-rw-------   1 root       smsadm        1534 Sep  4 15:09 rptit25876
+-rw-------   1 root       smsadm           0 Sep  4 15:09 logit25876
+$ cat tspsize.lst
+
+                           Database tablespaces size.
+                           Date : Sep-04-2024 15:09:02
+
+                          Maximum                     Unused
+Tablespace     Status     Size (MB)    Used (MB)        Perc
+-------------- ---------- ------------ ------------ --------
+SYSTEM         ONLINE          500.000      353.883    29.22
+SYSAUX         ONLINE       12,288.000    3,301.820    73.13
+UNDO01         ONLINE       40,034.000      221.438    99.45
+TEMP           ONLINE
+METAD          ONLINE        4,096.000      122.016    97.02
+METAX          ONLINE        4,096.000      108.016    97.36
+WORDERD        ONLINE       20,480.000    8,018.078    60.85
+WORDERX        ONLINE       10,240.000    3,395.039    66.85
+SERVICED       ONLINE      921,600.195  198,683.086    78.44
+SERVICEX       ONLINE      491,520.047   47,097.875    90.42
+STREAMS_TBS    ONLINE        2,048.000        1.750    99.91
+$ bdf
+Filesystem          kbytes    used   avail %used Mounted on
+/dev/vg00/lvol3    1048576  519807  495788   51% /
+/dev/vg00/lvol1    1859265  438357 1234981   26% /stand
+/dev/vg00/lvol8    2686976 1005777 1586728   39% /var
+/dev/vg00/lvol7    3932160 2111956 1706454   55% /usr
+/dev/vg00/lvol6     589824  244833  323883   43% /tmp
+/dev/vg00/lvol5    6201344 4694936 1412432   77% /opt
+/dev/vg00/lvol4      65536   29004   34916   45% /home
+/dev/smsvg00/DB01Vol
+                   10240000 4160208 5699831   42% /db01
+/dev/smsvg00/DB02Vol
+                   57344000 32115687 23651603   58% /db02
+/dev/smsvg00/DB03Vol
+                   1024000000 391967328 592530636   40% /db03
+/dev/smsvg00/DB04Vol
+                   75776000 20583367 51743135   28% /db04
+/dev/smsvg00/DB05Vol
+                   716800000 94137293 583746304   14% /db05
+/dev/smsvg00/DB06Vol
+                   11272192 4551516 6301004   42% /db06
+/dev/smsvg00/HomeVol
+                   1048576  218965  777956   22% /shome
+/dev/smsvg00/SmsVol
+                   66560000 24242393 39673679   38% /sms
+/dev/smsvg00/ApacheVol
+                    131072   17084  106912   14% /opt/apache
+/dev/smsvg00/OmniVol
+                   8192000 1917260 5882693   25% /opt/omnidatabase
+/dev/smsvg00/OracleVol
+                   16384000 10920364 5141607   68% /opt/oracle
+/dev/smsvg00/SmsBillingVol
+                   10240000 2595854 7167212   27% /sms/billing
+/dev/smsvg00/SmsRptVol
+                   2097152   17597 1949589    1% /sms/smsrpt
+/dev/smsvg00/SmsLogVol
+                   32768000 9832996 21502495   31% /sms/smslog
+/dev/smsvg00/DB05ArchVol
+                   98304000 55825015 39826233   58% /db05/oradata/NSMS/archive
+$ ls -lrt
+total 137450
+-rwxr-xr-x   1 root       sys          78975 Dec 12  2004 nickel
+-rw-r-----   1 sms        smsadm     28738918 Nov 22  2013 satya_sms
+-rw-------   1 sms        smsadm           0 Aug 29  2014 nwmgr_iexgbe.log
+-rw-------   1 sms        smsadm           0 Aug 29  2014 nwmgr_iether.log
+-rwxrwxrwx   1 root       sys           6921 Aug 29  2014 OB2Upgrade.log_15883
+-rw-rw----   1 root       sys              0 Sep 14  2014 ma014662
+-rw-rw----   1 root       sys              0 Sep 15  2014 ma016737
+-rw-------   1 root       root             0 Sep 16  2014 sh13123.1
+-rw-rw-r--   1 sms        smsadm         101 Sep 16  2014 smscron13191
+-rw-------   1 sms        smsadm       40820 Feb 13  2015 install_hlapi.22068.log
+-rw-r-----   1 sms        smsadm         402 Feb 20  2015 id_rsa.pub
+-rw-------   1 sms        smsadm        8811 Feb 27  2015 man024620
+-r-xr-xr-x   1 root       sys            637 Feb 28  2015 glance.exp
+-rwxrwxrwx   1 sms        smsadm       73308 Mar  9  2015 ana_row_chaining.sql
+-rw-------   1 sms        smsadm        1222 Mar 11  2015 evadeepcheck.txt
+-rw-------   1 root       sys         313769 Mar 11  2015 evacheck.txt
+-rw-------   1 sms        smsadm       16588 Mar 12  2015 man009951
+-rw-rw----   1 root       sys              2 Jun  1  2015 ma003367
+-rw-rw----   1 root       sys            283 Jun  2  2015 ma009280
+-rw-rw----   1 root       sys            256 Jun  2  2015 ma009940
+-rw-rw----   1 root       sys            235 Jun  2  2015 ma014731
+-rw-rw----   1 root       sys            314 Jun  2  2015 ma006483
+-rw-rw----   1 root       sys              2 Jun  2  2015 ma014220
+-rw-rw----   1 root       sys            249 Jun  2  2015 ma008563
+-rwxrwxrwx   1 sms        smsadm          45 Jun  2  2015 Filetime
+-rw-rw-rw-   1 sms        smsadm           5 Jun  2  2015 STs
+-rw-rw-rw-   1 sms        smsadm          29 Jun  2  2015 archivegraph
+-rw-------   1 root       root            60 Jun  6  2015 sh24598.1
+-rw-------   1 sms        smsadm          88 Jul 25  2015 rdays.24762
+drwx------   3 root       sys           1024 Sep 14  2015 sysinfo_Nth1eSMA_201509141154
+-rw-------   1 root       root            60 Sep 24  2015 sh26842.1
+-rw-------   1 sms        smsadm          70 Oct 20  2015 _where9077.txt
+drwx------   3 sms        smsadm          96 Oct 20  2015 esmdata
+-rw-------   1 sms        smsadm          70 Oct 20  2015 _where28966.txt
+-rw-------   1 sms        smsadm         183 Mar  7  2016 u
+-rw-------   1 sms        smsadm        2183 Apr 17  2016 t
+drwx------   3 sms        smsadm          96 Apr 18  2016 vg
+-rw-------   1 sms        smsadm       26996 Aug 10  2016 man006929
+-rw-------   1 sms        smsadm       26996 Aug 10  2016 man008906
+-rw-------   1 sms        smsadm       26996 Aug 10  2016 man008924
+-rw-------   1 root       sys         313768 Aug 10  2016 dyout
+-rwxrwxrwx   1 root       sys          14665 Nov 14  2016 recharge_mrp_calc_V10.pl
+-rwxrwxrwx   1 root       sys            340 Nov 14  2016 pf_indx_one.sql
+-rwxrwxrwx   1 root       sys            336 Nov 14  2016 pf_indx_zero_all.sql
+-rwxrwxrwx   1 root       sys            340 Nov 14  2016 pf_indx_zero.sql
+-rwxrwxrwx   1 root       sys            336 Nov 14  2016 pf_indx_one_all.sql
+-rwxrwxrwx   1 root       sys            548 Nov 14  2016 test.sql
+-rwxrwxrwx   1 root       sys            412 Nov 14  2016 x.sql
+-rwxrwxrwx   1 root       sys            189 Nov 14  2016 tariff_plan.sql
+-rw-------   1 sms        smsadm       40958 Dec  7  2016 install_hlapi.4318.log
+drwxrwxrwx   3 root       sys           1024 Dec 27  2016 rohit
+drwx------   2 sms        smsadm          96 Jan 29  2017 ssh-KJiOL22137
+-rw-------   1 root       sys            180 Jan 30  2017 drive1
+-rw-------   1 root       sys            180 Jan 30  2017 drive2
+-rw-------   1 root       sys            484 Jan 30  2017 eSMLTO
+drwx------   2 sms        smsadm          96 Jan 31  2017 ssh-FXJei10359
+-rw-------   1 root       sys             61 Mar  3  2017 sh17010.1
+-rw-------   1 sms        smsadm           0 Mar  3  2017 archtotapeoutput.txt
+drwxrwxrwx   2 sms        smsadm          96 May 10  2017 2maylogs
+-rw-------   1 sixdee     guests        5473 May 11  2017 cowroot.c
+-rwxrwxrwx   1 root       sys             75 May 17  2017 CTOP.sh
+-rw-rw----   1 root       sys            348 Jun 20  2017 ma011009
+-rw-rw----   1 root       sys            304 Jun 20  2017 ma011013
+-rw-------   1 sms        smsadm      612830 Sep  5  2017 SYSACC_log
+-rw-------   1 sms        smsadm     1865160 Nov 28  2017 NEtrace_new11
+-rw-------   1 sms        smsadm     1091859 Nov 28  2017 wsagent
+-rw-------   1 sms        smsadm       43348 Nov 28  2017 NEtrace_new1123
+-rw-------   1 sms        smsadm     1308084 Nov 28  2017 wsagaent_new
+-rw-------   1 sms        smsadm      545446 Dec 19  2017 New_DATA_file
+-rw-------   1 root       sys              0 Feb 28  2018 topN
+-rw-------   1 root       sys              0 Feb 28  2018 topN
+drwx------   2 sms        smsadm        8192 Mar  7  2018 billing_files
+-rw-rw----   1 root       sys              2 Mar 13  2018 ma029168
+-rw-rw----   1 root       sys              2 Mar 13  2018 ma029166
+-rw-------   1 sms        smsadm      671690 Mar 29  2018 hal088.10.57
+-rw-------   1 sms        smsadm      360874 Mar 29  2018 hal088.14.37
+-rwxrwxrwx   1 sms        smsadm      429536 Apr  3  2018 A
+-rw-------   1 sms        smsadm      366389 Apr 11  2018 New_wsagent
+-rw-------   1 sms        smsadm      596715 Apr 19  2018 bulkalm
+-rw-------   1 root       root            60 Nov 19  2018 sh28164.1
+drwx------   2 root       sys             96 Nov 21  2018 logscpub
+-rw-------   1 root       sys             60 Nov 24  2018 sh24497.1
+-rw-------   1 root       root            60 Nov 24  2018 sh27190.1
+-rw-------   1 root       sys             60 Nov 29  2018 sh23040.1
+-rw-------   1 root       sys             61 Nov 29  2018 sh24194.1
+-rw-------   1 root       root            60 Nov 29  2018 sh24428.1
+-rw-------   1 oraadm     dba             39 Nov 29  2018 sh26082.1
+-rw-------   1 root       sys           1833 Dec 15  2018 cmclconf.ascii
+drwxrwxrwx   2 root       sys          86016 Dec 18  2018 old_tariff_dump
+-rw-------   1 root       sys              0 Dec 21  2018 test
+-rwxr-xr-x   1 root       sys          54116 Jan 22  2019 getsysinfo.sh
+drwx------   2 root       sys             96 Jan 25  2019 sysinfo_Nth1eSMA_201901251344
+-rwxrwxrwx   1 root       sys         331486 Jan 25  2019 tusc.exe
+drwxrwxrwx   2 root       sys             96 Jan 25  2019 libp4.Nth1eSMA
+-rwxr--r--   1 201        200          25806 Jan 25  2019 tusc.1
+-rwxr-xr-x   1 201        200        1119136 Jan 25  2019 tusc
+-rw-------   1 root       sys          34500 Jan 25  2019 getsysinfo.tgz
+-rw-rw-rw-   1 root       sys            309 Jan 25  2019 createbc
+-rw-------   1 root       sys        11427667 Jan 25  2019 tusc.out
+-rw-------   1 root       sys        11427625 Jan 25  2019 tusc.out1
+-rw-------   1 root       sys         978563 Feb  4  2019 sysinfo_Nth1eSMA_201902041408.tgz
+-rw-------   1 root       sys        1019361 Feb  4  2019 sysinfo_Nth1eSMA_201902041414.tgz
+-rw-------   1 root       sys         829148 Apr  8  2019 sysinfo_Nth1eSMA_201904081551.tgz
+-rw-------   1 root       sys         638335 May 22  2019 sysinfo_Nth1eSMA_201905221015.tgz
+-rw-------   1 oraadm     dba           1314 May 31  2019 sh17797.3
+-rw-------   1 oraadm     dba           1115 May 31  2019 sh17797.2
+-rw-------   1 oraadm     dba           1187 May 31  2019 sh17797.1
+-rw-------   1 oraadm     dba           2113 May 31  2019 sh17797.4
+-rw-------   1 oraadm     dba            167 May 31  2019 sh17797.6
+-rw-------   1 oraadm     dba            152 May 31  2019 sh17797.7
+-rw-------   1 oraadm     dba           1060 May 31  2019 sh17797.8
+-rw-------   1 oraadm     dba           1885 May 31  2019 sh17797.9
+-rw-------   1 oraadm     dba           1375 May 31  2019 sh17797.10
+-rw-------   1 oraadm     dba            107 May 31  2019 sh17797.11
+-rw-------   1 oraadm     dba           2258 May 31  2019 sh17797.5
+-rw-------   1 root       sys             60 Jun  2  2019 sh13721.1
+-rw-------   1 root       root            60 Jun  2  2019 sh15025.1
+-rw-------   1 root       root            61 Jun  2  2019 sh17623.1
+-rw-------   1 root       sys             61 Jun  2  2019 sh18844.1
+-rw-------   1 root       sys             61 Jun  2  2019 sh20185.1
+-rw-------   1 root       sys             61 Jun  2  2019 sh21538.1
+drwx------   2 root       sys             96 Jun  3  2019 sysinfo_Nth1eSMA_201906031517
+drwxrwxrwx   2 root       sys             96 Jun  3  2019 sysinfo_Nth1eSMA_201906031613
+drwx------   2 root       sys             96 Jun  3  2019 sysinfo_Nth1eSMA_201906031629
+-rw-------   1 root       sys         822436 Nov 20  2019 sysinfo_Nth1eSMA_201911201301.tgz
+-rwxrwxrwx   1 sms        smsadm      433520 Jul 18  2020 sysinfo_Nth1eSMA_202007181334.tgz
+drwx------   2 sms        smsadm        1024 Jul 18  2020 sysinfo_Nth1eSMA_202007181334
+-rw-rw-r--   1 sms        smsadm        1830 Jul 27  2020 smscron11351
+-rw-------   1 root       sys             60 Jul 27  2020 sh11381.1
+drwx------   2 sms        smsadm          96 Jul 29  2020 ssh-mmCjAL1870
+drwx------   2 sms        smsadm          96 Jul 31  2020 ssh-qKzgXK2386
+-r--r--r--   1 root       root             0 Sep  4  2020 llbdbase.dat
+-rw-rw-rw-   1 sms        smsadm          15 Sep  8  2020 SPLIST
+-rw-rw-rw-   1 sms        smsadm          28 Sep  8  2020 Splist1
+-rwxrwxrwx   1 root       sys         866039 Sep  9  2020 sysinfo_Nth1eSMA_202009091040.tgz
+drwx------   2 sms        smsadm          96 Oct 25  2022 cache
+-rw-------   1 root       sys            602 Jun 15  2023 id_dsa.pub.esmcpua
+-rw-------   1 root       sys            602 Jun 15  2023 id_dsa.pub.esmcpub
+-rw-r--r--   1 root       sys           4944 Jun 15  2023 haconfig
+-rw-------   1 root       sys            603 Jun 15  2023 id_dsa.pub.Nth1eSMB
+-rw-------   1 sms        smsadm         601 Jun 15  2023 id_dsa.pub.sms.Nth2eSMA
+-r-x------   1 root       sys          12180 Jun 16  2023 createwebsite
+-rw-------   1 sms        smsadm       22788 Jun 20  2023 sysconfig
+-rwxrwxrwx   1 sms        smsadm        5346 Apr  8 23:15 FileListcpio
+-rw-rw-rw-   1 sms        smsadm         104 Apr  8 23:15 Splist
+-rwxrwxrwx   1 sms        smsadm        5373 Apr  8 23:15 FileList
+-rw-rw-rw-   1 sms        smsadm        5126 Apr  8 23:29 archtotapeoutput
+-rw-------   1 sms        smsadm           0 May 28 17:09 fsstat24742
+-rw-------   1 sms        smsadm        1170 May 28 17:09 laninfo24743
+-rw-rw-rw-   1 sms        smsadm           0 May 28 17:15 backrestlock
+-rw-r--r--   1 root       root           602 Aug  5 15:43 media_info
+-rw-r--r--   1 root       root             1 Aug  5 15:43 media_info.tmp
+-rw-------   1 root       sys        1099130 Aug 21 16:39 sysinfo_Nth1eSMA_202408211636.tgz
+-rw-------   1 root       sys           4451 Aug 23 14:07 view20782.log
+-rw-------   1 root       sys              0 Aug 23 14:09 diff20782
+-rw-------   1 root       sys         105661 Aug 23 14:11 scancl.out
+-rw-------   1 root       sys         559603 Aug 23 14:11 nickel.Nth1eSMA.tar.gz
+drwx------   6 root       sys           2048 Aug 23 14:11 nickel.Nth1eSMA
+-rw-rw-rw-   1 root       sys              0 Aug 29 14:10 crstart
+-rw-rw-rw-   1 sms        smsadm        5000 Sep  3 04:15 oout
+-rw-------   1 sms        smsadm        5621 Sep  3 06:45 HSVinfo.17600
+-rw-------   1 sms        smsadm        5621 Sep  3 09:01 HSVinfo.5103
+-rw-rw-rw-   1 oraadm     dba            810 Sep  3 12:53 tbslist.lst
+-rw-rw-rw-   1 oraadm     dba            486 Sep  3 12:53 SYSAUX.lst
+-rwxrwxrwx   1 oraadm     dba            162 Sep  3 12:53 METAX.lst
+-rw-rw-rw-   1 oraadm     dba            810 Sep  3 12:53 WORDERD.lst
+-rwxrwxrwx   1 oraadm     dba            162 Sep  3 12:53 METAD.lst
+-rw-rw-rw-   1 oraadm     dba           1053 Sep  3 12:53 UNDO01.lst
+-rw-rw-rw-   1 oraadm     dba             81 Sep  3 12:53 SYSTEM.lst
+-rw-rw-rw-   1 oraadm     dba             81 Sep  3 12:53 STREAMS_TBS.lst
+-rw-rw-rw-   1 oraadm     dba          19440 Sep  3 12:53 SERVICEX.lst
+-rw-rw-rw-   1 oraadm     dba            405 Sep  3 12:53 WORDERX.lst
+-rwxrwxrwx   1 oraadm     dba          36450 Sep  3 12:53 SERVICED.lst
+-rw-rw-rw-   1 oraadm     dba          47456 Sep  3 12:53 db_begintsbck.err
+-rw-r--r--   1 oraadm     dba            810 Sep  3 12:54 tbscleanlist.lst
+-rw-r--r--   1 oraadm     dba          40793 Sep  3 12:54 db_endtsbck.err
+-rw-------   1 sms        smsadm        5626 Sep  4 09:09 HSVinfo.25112
+drwx------   2 sms        smsadm          96 Sep  4 12:20 ssh-iCUhc29387
+-rw-------   1 sms        smsadm        1378 Sep  4 15:19 tspsize.lst
+-rw-------   1 sms        smsadm      498579 Sep  4 15:19 free_sp.lst
+-rw-------   1 sms        smsadm          16 Sep  4 15:19 tmpx25
+you have mail in /var/mail/sms
+$ bdf
+Filesystem          kbytes    used   avail %used Mounted on
+/dev/vg00/lvol3    1048576  519311  496253   51% /
+/dev/vg00/lvol1    1859265  438357 1234981   26% /stand
+/dev/vg00/lvol8    2686976 1006089 1586441   39% /var
+/dev/vg00/lvol7    3932160 2111956 1706454   55% /usr
+/dev/vg00/lvol6     589824  244833  323883   43% /tmp
+/dev/vg00/lvol5    6201344 4694936 1412432   77% /opt
+/dev/vg00/lvol4      65536   29004   34916   45% /home
+/dev/smsvg00/DB01Vol
+                   10240000 4160208 5699831   42% /db01
+/dev/smsvg00/DB02Vol
+                   57344000 32115687 23651603   58% /db02
+/dev/smsvg00/DB03Vol
+                   1024000000 391967328 592530636   40% /db03
+/dev/smsvg00/DB04Vol
+                   75776000 20583367 51743135   28% /db04
+/dev/smsvg00/DB05Vol
+                   716800000 94137293 583746304   14% /db05
+/dev/smsvg00/DB06Vol
+                   11272192 4551516 6301004   42% /db06
+/dev/smsvg00/HomeVol
+                   1048576  218965  777956   22% /shome
+/dev/smsvg00/SmsVol
+                   66560000 24241220 39674778   38% /sms
+/dev/smsvg00/ApacheVol
+                    131072   17084  106912   14% /opt/apache
+/dev/smsvg00/OmniVol
+                   8192000 1919252 5880825   25% /opt/omnidatabase
+/dev/smsvg00/OracleVol
+                   16384000 10920366 5141606   68% /opt/oracle
+/dev/smsvg00/SmsBillingVol
+                   10240000 2595854 7167212   27% /sms/billing
+/dev/smsvg00/SmsRptVol
+                   2097152   17597 1949589    1% /sms/smsrpt
+/dev/smsvg00/SmsLogVol
+                   32768000 9849992 21486559   31% /sms/smslog
+/dev/smsvg00/DB05ArchVol
+                   98304000 55825015 39826233   58% /db05/oradata/NSMS/archive
+$ cat tspsize.lst
+
+                           Database tablespaces size.
+                           Date : Sep-04-2024 15:19:28
+
+                          Maximum                     Unused
+Tablespace     Status     Size (MB)    Used (MB)        Perc
+-------------- ---------- ------------ ------------ --------
+SYSTEM         ONLINE          500.000      353.883    29.22
+SYSAUX         ONLINE       12,288.000    3,301.820    73.13
+UNDO01         ONLINE       40,034.000      218.375    99.45
+TEMP           ONLINE
+METAD          ONLINE        4,096.000      122.016    97.02
+METAX          ONLINE        4,096.000      108.016    97.36
+WORDERD        ONLINE       20,480.000    8,018.078    60.85
+WORDERX        ONLINE       10,240.000    3,395.039    66.85
+SERVICED       ONLINE      921,600.195  198,683.086    78.44
+SERVICEX       ONLINE      491,520.047   47,097.875    90.42
+STREAMS_TBS    ONLINE        2,048.000        1.750    99.91
+$
+$
+$
+$
+$
+$
+$
+$ sqlplus sms
+
+SQL*Plus: Release 11.2.0.3.0 Production on Wed Sep 4 15:29:00 2024
+
+Copyright (c) 1982, 2011, Oracle.  All rights reserved.
+
+Enter password:
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning option
+
+SQL> select * from tab where tabtype like 'TABLE';
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+ACCESSGROUP                    TABLE
+ASYNCMSG                       TABLE
+AUDITABLEFIELDSREQ             TABLE
+AUDITCONFIGPARMS               TABLE
+AUDITENGINEDATA                TABLE
+AUDITHISTORY                   TABLE
+AUDITORDER                     TABLE
+AUDITRECMISMATCH               TABLE
+AUXSVCTYPE                     TABLE
+A_NPASPLITINFO                 TABLE
+BILLINGCTR                     TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BILLINGNUR                     TABLE
+BILLINGORDER                   TABLE
+BILLINGRUR                     TABLE
+BULKPROVITEM                   TABLE
+CHAINED_ROWS                   TABLE
+CHGSOKEYREQ                    TABLE
+CHGSVCKEYREQ                   TABLE
+CMREQ                          TABLE
+CMREQNE                        TABLE
+COMPONENTROWTYPE               TABLE
+CONVERTERINFO                  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+DGREFERENCECOUNT               TABLE
+DISTKEYSOURCE                  TABLE
+D_S01_BAND_LABEL_TBL           TABLE
+D_S03_ACTION_DEFINITION_TB     TABLE
+D_S03_CREDIT_VALIDITY_COSP     TABLE
+D_S03_DISCOUNT_DEFINITIONN     TABLE
+D_S03_DISCOUNT_RATE_TBL_N      TABLE
+D_S03_FEATURE_PACKAGE_TBL      TABLE
+D_S03_RRI_TBL                  TABLE
+D_S03_TARIFF_PLAN_DEFINITI     TABLE
+EVENT                          TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+EVENTFILTER                    TABLE
+F_S03_SC_MATRIX_RRI            TABLE
+HAXFORMVERSION                 TABLE
+HEARTBEAT                      TABLE
+I_S01_BAND_LABEL_TBL           TABLE
+I_S03_ACTION_DEFINITION_TB     TABLE
+I_S03_CLASS_OF_SERVICE_PAR     TABLE
+I_S03_CREDIT_VALIDITY_COSP     TABLE
+I_S03_DISCOUNT_DEFINITIONN     TABLE
+I_S03_DISCOUNT_RATE_TBL_N      TABLE
+I_S03_FEATURE_PACKAGE_TBL      TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+I_S03_PYRO_RRI                 TABLE
+I_S03_PY_RRI                   TABLE
+I_S03_RRI_TBL                  TABLE
+I_S03_TARIFF_PLAN_DEFINITI     TABLE
+LDAPDNMAP                      TABLE
+LIBSVCFILE                     TABLE
+LOGICALATTRTYPE                TABLE
+LOGICALTABLETYPE               TABLE
+LOGINSESSION                   TABLE
+MEASCNTL                       TABLE
+MEASPOLLHIST                   TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+MEASPOLLREQ                    TABLE
+METAOP                         TABLE
+MLOG$_S04_SIM_RTDB             TABLE
+MSGOFTHEDAY                    TABLE
+MWLCHGKEYMAPPING               TABLE
+MWLSUBMIGRATION                TABLE
+MWLSVCMAPPING                  TABLE
+MWLVIEWMAPPING                 TABLE
+NEASSOCIATION                  TABLE
+NELOCATION                     TABLE
+NELOCATIONPAIR                 TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+NEQRESULT                      TABLE
+NEQRESULTBYCHUNK               TABLE
+NEROUTINGRULE                  TABLE
+NESPCMSTATUS                   TABLE
+NESPSTATUS                     TABLE
+NESVCTYPE                      TABLE
+NETWORKELEMENT                 TABLE
+OPSERVERDATA                   TABLE
+OWNER                          TABLE
+POPULATIONRULE                 TABLE
+PRIMARYNERULE                  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+QUEUEDATA                      TABLE
+REHOMEINVALIDSOINFO            TABLE
+REHOMEREQ                      TABLE
+REHOMESOINFO                   TABLE
+REPORTHISTORY                  TABLE
+REPORTORDER                    TABLE
+RTULOCKS                       TABLE
+RUPD$_S04_SIM_RTDB             TABLE
+S01_ANNC_GROUP_CAP_TBL         TABLE
+S01_ANNINCR_TBL                TABLE
+S01_APPLICATION_CONTEXT_       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S01_APP_FEATURE_DEF            TABLE
+S01_BAND_LABEL_TBL             TABLE
+S01_CALLED_PARTY_NUMBER        TABLE
+S01_CALL_TYPE_PREFIX_TBL       TABLE
+S01_CARRIER_ACCESS_CODE_       TABLE
+S01_CDZA_RTDB                  TABLE
+S01_DIAL_ZONE_PLAN_NAME_       TABLE
+S01_DISALLOWED_DIGIT_PAT       TABLE
+S01_DN_E164_MAPPING_TBL        TABLE
+S01_E164_ANSI_DZP_PC_164       TABLE
+S01_E164_DZP_GT_MAPPI164       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S01_E164_DZP_PC_MAPPI164       TABLE
+S01_E164_RN_MAPPING_TBL        TABLE
+S01_EMERGENCY_NUMBER_TBL       TABLE
+S01_EXTENSIONID_MAP_TBL        TABLE
+S01_GENERIC_NUMBER_TBL         TABLE
+S01_GLOBAL_BILLING_TBL         TABLE
+S01_GROUP_ID_PREFIX            TABLE
+S01_HOLIDAY_LAB_VAL_TBL        TABLE
+S01_IC_CALL_CHARGE_BAND        TABLE
+S01_INTL_DEST_SCREENING_       TABLE
+S01_INTL_HOLIDAY_TBL           TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S01_INTL_LOC_SCREENING_T       TABLE
+S01_IP_CONNECTIONS_TBL         TABLE
+S01_LAC_CONVERSION_DEFIN       TABLE
+S01_LANGUAGE_LABEL_TBL         TABLE
+S01_LOCATION_AREA_ZONE_T       TABLE
+S01_MSC_ID_ZONE_LABEL_TB       TABLE
+S01_NATL_DEST_SCREENING_       TABLE
+S01_NATL_LOC_SCREENING_T       TABLE
+S01_NETWORK_COURT_RESP_A       TABLE
+S01_NETWORK_PROMPT_AND_C       TABLE
+S01_NETWORK_SPECIAL_DAY_       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S01_ORIG_COUNTRY_CODE_TB       TABLE
+S01_ORIG_NATIONAL_CODE_T       TABLE
+S01_OVERLOAD_CONTROL_TBL       TABLE
+S01_PLMN_LABEL_TBL             TABLE
+S01_SCP_INDEX_TBL              TABLE
+S01_SCP_NAME_TBL               TABLE
+S01_SECONDARY_IPC_TBL          TABLE
+S01_SPECIAL_SERV_DEST_SC       TABLE
+S01_SPECIAL_SERV_LOC_SCR       TABLE
+S01_SSPAPCD_TBL                TABLE
+S01_SSP_CAPGT_DEFINITION       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S01_SSP_CS1GT_DEFINITION       TABLE
+S01_SSP_GROUP_NAME_TBL         TABLE
+S01_SSP_GT_DEFINITION_T1       TABLE
+S01_SSP_MASK_OUT_SECTOR        TABLE
+S01_SSP_PC_DEFINITION_TB       TABLE
+S01_TIMEVIEW_TBL               TABLE
+S01_TIME_RANGE_TBL             TABLE
+S01_VIRTUAL_HOME_TBL           TABLE
+S01_ZONE_CELL_MAPPING_TB       TABLE
+S01_ZONE_GROUP_TBL             TABLE
+S01_ZONE_LABEL_TBL             TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S01_ZONE_MAPPING_TBL           TABLE
+S02_ANSI_NETWORK_NODE_TB       TABLE
+S02_HLR_INDEX_TBL              TABLE
+S02_INTL_MSISDN_CONVERSI       TABLE
+S02_MOBILE_COUNTRY_CODE_       TABLE
+S02_MOBILE_NATIONAL_CODE       TABLE
+S02_NATL_MSISDN_CNV_TBL        TABLE
+S02_NETWORK_NODE_TBL           TABLE
+S02_SMRPDA_TBL                 TABLE
+S02_SMSCSI_TBL                 TABLE
+S02_SUBSYSTEM_NUMBER_TBL       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_ACCOUNT_QUERY              TABLE
+S03_ACTION_DEFINITION_TB       TABLE
+S03_ACTION_GROUP_DEF           TABLE
+S03_ADV_LIFE_CYCLE_COSP        TABLE
+S03_AMA_RECORD_FORMAT_N        TABLE
+S03_AMA_RECORD_GENERAT_N       TABLE
+S03_ANNOUNCEMENT_LIST_TN       TABLE
+S03_APVN_TBL                   TABLE
+S03_AUDIT_NOTIFICATION_C       TABLE
+S03_BAL_DEFINITION_TBL         TABLE
+S03_BAL_RESEL_RULE_TBL         TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_BASIC_CRITERIA_TBL         TABLE
+S03_BCM_TBL                    TABLE
+S03_BILLING_CONFIG_TBL         TABLE
+S03_BKT_DISC_MAPPING_TB        TABLE
+S03_BLWL_SCREENING_TBL         TABLE
+S03_BNO_CALLINGPART_TBL        TABLE
+S03_BNO_DIALED_DIGIT_TBL       TABLE
+S03_BUCKET_PREC_CRI_TBL        TABLE
+S03_CALENDAR_TBL               TABLE
+S03_CALL_ZONE_AREA_DEF         TABLE
+S03_CAMPUS_ID_MAPPING_TB       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_CAOC_TBL                   TABLE
+S03_CCR_AMOUNT_TBL             TABLE
+S03_CCR_COSP_TBL               TABLE
+S03_CCR_TYPE_TBL               TABLE
+S03_CHAR_CS_CONVER_TBL         TABLE
+S03_CLASS_OF_SERVICE_PAR       TABLE
+S03_COMMON_PARAMETERS_TB       TABLE
+S03_COMMUNITY_MAPPING          TABLE
+S03_CONC_SMS_CHRG_METHOD       TABLE
+S03_CONFIG_RESULT_CODE         TABLE
+S03_COUNTER_DEFINITION_T       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_COUNTRY_NAME               TABLE
+S03_CREDIT_VALIDITY_COSP       TABLE
+S03_CUC_COSP_TBL               TABLE
+S03_CURRENCY_EXCHANGE_TB       TABLE
+S03_CURRENCY_TRANSLATE_T       TABLE
+S03_DATA_TRANSFER_TYPE_I       TABLE
+S03_DATA_TRANSFER_TYPE_N       TABLE
+S03_DESCRIPTION_TABLE          TABLE
+S03_DIAL_ZONE_PLAN_INFO_       TABLE
+S03_DIAMETER_AVP_CONFIG        TABLE
+S03_DIGIT_MAPPING_PREFIX       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_DISCOUNT_AMA_MAP_TB        TABLE
+S03_DISCOUNT_DEFINITIONN       TABLE
+S03_DISCOUNT_PLAN_TBL_N        TABLE
+S03_DISCOUNT_RATE_TBL_N        TABLE
+S03_DMTR_AUTH_COSP_TBL         TABLE
+S03_DMTR_BOUND_DETERMINA       TABLE
+S03_DMTR_COMMON_PARA_TBL       TABLE
+S03_DMTR_SPCFC_PARA_TBL        TABLE
+S03_DROP_CALL_HANDLE_COS       TABLE
+S03_DTT_UT_MAPPING_TBL         TABLE
+S03_ECLASS_OF_SERVICE_PA       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_ECOMMERCE_CONTENT_TY       TABLE
+S03_ECOMMERCE_MERCHANT_T       TABLE
+S03_ECOMMERCE_PACKAGE_TB       TABLE
+S03_ECOMMERCE_RATING_PAR       TABLE
+S03_ECOMMERCE_REQUESTING       TABLE
+S03_ECOMMERCE_SERVICE_TY       TABLE
+S03_ELIGIBLE_BNDL_LIST         TABLE
+S03_ENHAN_PARA_MAPPING         TABLE
+S03_ERSA_TBL                   TABLE
+S03_EUN_CHOICE_TBL             TABLE
+S03_EXTENDED_TARIFF_PLAN       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_EXT_FILTER_ID_TBL          TABLE
+S03_FDTVMCC_TBL                TABLE
+S03_FDTVMR_TBL                 TABLE
+S03_FEATURE_CONFIGURATIO       TABLE
+S03_FEATURE_CONFIG_EXT         TABLE
+S03_FEATURE_PACKAGE_TBL        TABLE
+S03_FEATURE_TYPE_USAGE_T       TABLE
+S03_FLEXIBLE_FEATURE_T_N       TABLE
+S03_FLEXIBLE_NUMBER_DEF        TABLE
+S03_FLEXIBLE_RECHARGE_AM       TABLE
+S03_FREE_DESTINATION_TBN       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_FTIME_ONHOLD_TBL           TABLE
+S03_GENERIC_UNIT_TBL           TABLE
+S03_GROUP_DEFINITION           TABLE
+S03_GROUP_SEQ_MAP_FP_TBL       TABLE
+S03_HIERARCHY_DEFINITION       TABLE
+S03_HLR_CAPABILITIES_TBL       TABLE
+S03_IMSI_RANGE_TBL             TABLE
+S03_INDEX_SERVER_INFO          TABLE
+S03_INSTALLMENTS_COSP_TB       TABLE
+S03_INTERNATIONAL_CURREN       TABLE
+S03_LANGUAGE_CODE              TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_LDAPSRCH_FAILHDL_TBL       TABLE
+S03_LDAP_SEARCH_PARAM          TABLE
+S03_LIFE_CYCLE_PARAMETER       TABLE
+S03_LIFE_CYCLE_TRIGGER_P       TABLE
+S03_MANDATORY_BUNDLE_BL        TABLE
+S03_MANDATORY_BUNDLE_WL        TABLE
+S03_MEASUREMENT_UNIT_CON       TABLE
+S03_MEASUREMENT_UNIT_TYP       TABLE
+S03_MESSAGING_ESCAPE_SET       TABLE
+S03_MINIMUM_RECHARGE_TBL       TABLE
+S03_MNP_PREFIX_TBL             TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_MNP_QUERY_NORMAL_TBL       TABLE
+S03_MSISDN_PARTITION           TABLE
+S03_MVNO_PARAMETERS            TABLE
+S03_MWD_TBL                    TABLE
+S03_NDC_PREFIX_TBL             TABLE
+S03_NON_RC_TBL                 TABLE
+S03_NPA_SPLIT_PREFIX_TBL       TABLE
+S03_ODIN_CDPARDT_CRI_TBL       TABLE
+S03_ODIN_MO_TRIG_CRI_TBL       TABLE
+S03_ODIN_OR_CDPAR_MP_TBL       TABLE
+S03_PARAMETER_MAPPING_TB       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_PARA_MAP_PREFIX_TBL        TABLE
+S03_PCRF_SERVER_CONFIG         TABLE
+S03_PI_MAPPING_TBL             TABLE
+S03_PREFIX_SMS_LABEL           TABLE
+S03_PREMIUM_MESSAGE_TBL        TABLE
+S03_PROVIDER_INFO_TBL          TABLE
+S03_PROVIDER_NAME_TBL          TABLE
+S03_QOS_INFO                   TABLE
+S03_RANGE_MAPPING_TBL          TABLE
+S03_RATING_CONTROL_PARAM       TABLE
+S03_RCHG_CHANNL_COSP_TBL       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_RCHG_PARAM_COSP_TBL        TABLE
+S03_RC_DEFINITION_TBL          TABLE
+S03_RECHARGE_CARD_PREFIX       TABLE
+S03_RECHA_CARD_SYS_PARA_       TABLE
+S03_RECURRENT_CHARGE_TBL       TABLE
+S03_RRI_TBL                    TABLE
+S03_RSPD_TBL                   TABLE
+S03_SCP_MATED_INFORM_TBL       TABLE
+S03_SCRATCH_CARD_BATCH_T       TABLE
+S03_SC_RANGE_TBL               TABLE
+S03_SEQ_TO_ID_MAPPING          TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_SERVER_CONN_CONF_TBL       TABLE
+S03_SERVICE_CMPT_MAPPING       TABLE
+S03_SERVICE_NODE_SUBSCRI       TABLE
+S03_SERVING_NETWORK_ID_T       TABLE
+S03_SIM_HISTORY_COSP_TBL       TABLE
+S03_SMSCST_TBL                 TABLE
+S03_SMS_LABEL_TBL              TABLE
+S03_SMS_SCENARIO_MAPPING       TABLE
+S03_SOS_SEC_CALL_DEF           TABLE
+S03_SPECIAL_DAY_N_TBL          TABLE
+S03_SPECIAL_ID_FMT_TBL         TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_SPECIAL_INFO_NCOSP_T       TABLE
+S03_SPECIAL_NUMBER_CHAR        TABLE
+S03_STRING_DIGIT_MAP_TBL       TABLE
+S03_SUPPLEMENT_SVC_DEF_T       TABLE
+S03_SUP_SERVICES_COSP_TB       TABLE
+S03_SVC_MAINTENANCE_TBL        TABLE
+S03_TARIFF_PARAMETERS_TB       TABLE
+S03_TARIFF_PLAN_DEFINITI       TABLE
+S03_TAX_TBL                    TABLE
+S03_TCPIP_NOTF_SEVER_GRP       TABLE
+S03_TEXT_FORMAT_TBL            TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_TIME_RANGE_LABEL_TBL       TABLE
+S03_TMP_TAB_SMS                TABLE
+S03_TOKEN_DEFINITION_TBL       TABLE
+S03_TRAFFIC_TYPOLOGY_TBL       TABLE
+S03_TTRY_DEF                   TABLE
+S03_UC_SCREEN_LIST_TBL         TABLE
+S03_USAGE_RATES_TBL            TABLE
+S03_USAGE_RATE_ID_TBL          TABLE
+S03_USAGE_TARIFF_N_TBL         TABLE
+S03_USAGE_TYPE_INDEX_PAR       TABLE
+S03_USAGE_TYPE_INDEX_TBN       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S03_USAGE_TYPE_SPLIT_PM        TABLE
+S03_USAGE_TYPE_SPLIT_TBL       TABLE
+S03_USAGE_TYPE_VALIDATIO       TABLE
+S03_VORTEX_CONDITION_TBL       TABLE
+S03_VORTEX_DP_TABLE            TABLE
+S03_VORTEX_GROUP_TBL           TABLE
+S03_VORTEX_NAME_TBL            TABLE
+S03_ZONE_AREA_DEF              TABLE
+S04_ABBR_DIALLING_N            TABLE
+S04_ACCOUNT_ACCESS             TABLE
+S04_ACCOUNT_ADMIN_ACCESS       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_ADN_TBL                    TABLE
+S04_ADZ_TBL                    TABLE
+S04_AI_RTDB                    TABLE
+S04_ANNOUNCE_INCR_TYPE_T       TABLE
+S04_APDN_TBL                   TABLE
+S04_APDZ_TBL                   TABLE
+S04_BACK_OFFICE_NOTIFICA       TABLE
+S04_BAL_ADJUST_LIMIT_TBL       TABLE
+S04_BAL_TRANSFER_OP_FEE        TABLE
+S04_BEARERCAP_MAP_DTT_T        TABLE
+S04_BILLING_COSP_TBL           TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_BIT_RATE_LABEL_TBL         TABLE
+S04_CALL_REPROMPT_HELP_N       TABLE
+S04_CALL_SCREENING_DEFIN       TABLE
+S04_CAMEL_PROT_ACCESS_N        TABLE
+S04_CAMEL_ROAMING_ADMI_N       TABLE
+S04_CAMEL_ROAMING_DIGITS       TABLE
+S04_CAMEL_ROAMING_REROUT       TABLE
+S04_CAMEL_ROAMING_SERVIC       TABLE
+S04_CAP3_PROT_FSM_ACCE_N       TABLE
+S04_CATEGORY_DEF_TBL           TABLE
+S04_CECUR_CR_TBL               TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_COUNTER_RTDB               TABLE
+S04_COURTESY_RESP_ANNC_N       TABLE
+S04_CRD_TBL                    TABLE
+S04_CS1_PROT_FSM_ACCES_N       TABLE
+S04_CT_ID_RCHRG_CRD_PRFX       TABLE
+S04_CT_MAPPING_TBL             TABLE
+S04_DEBIT_COSP_TBL             TABLE
+S04_DECISION_GRAPH_N_TBL       TABLE
+S04_DESTIN_NUMBER_COSP_T       TABLE
+S04_DEST_NUM_MAPPING_TBL       TABLE
+S04_DIALED_NUM_CUTOFF          TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_DIAMETER_AUTH_TBL          TABLE
+S04_DIAMETER_PROT_FSM_AC       TABLE
+S04_DIAMETER_SY_PROT_FSM       TABLE
+S04_DIAREDIRDEF_TBL            TABLE
+S04_DIAREDIRFAILHNDL_TBL       TABLE
+S04_DMTR_OCS_PROT_FSM          TABLE
+S04_DP_ARMING_TBL              TABLE
+S04_DP_RTDB                    TABLE
+S04_DSCP_DEF                   TABLE
+S04_DSCTRL_PARAM_INDEX         TABLE
+S04_DSPD_TBL                   TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_DTMF_MENU_TBL              TABLE
+S04_END_USER_NOA_TBL           TABLE
+S04_ENHAN_IC_SCREENING_T       TABLE
+S04_EVENT_PLAN_COSP_TBL        TABLE
+S04_FEATURE_USAGE_BILLIN       TABLE
+S04_FSN_RTDB                   TABLE
+S04_GLB_DMTR_PARA_TBL          TABLE
+S04_GLOBAL_STATIC              TABLE
+S04_GNMT_PREFIX_TBL            TABLE
+S04_GN_RTDB                    TABLE
+S04_GPRSCC_SCP_NAME_TBL        TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_GSM_PPSIM_SUBMEA           TABLE
+S04_HOT_LINE_TBL               TABLE
+S04_IMEI_TO_DT_TBL             TABLE
+S04_IMOM_ACCESS                TABLE
+S04_INCOMING_SCREENING_T       TABLE
+S04_INTER_ECS_FSM_ACCESS       TABLE
+S04_IP_CALLING_PARTY_NUM       TABLE
+S04_IS826_PROT_INTERFA_N       TABLE
+S04_IS826_PROT_LOGIC_N         TABLE
+S04_ISUP_PROT_END_ACCESS       TABLE
+S04_ISUP_PROT_FSM_ACCESS       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_ISUP_SCP_PREFIX_TBL        TABLE
+S04_LANGUAGE_MENU_ACCS_N       TABLE
+S04_LARECS_ECUR_COR_CRI        TABLE
+S04_LDAP_CLIENT_FSM_N          TABLE
+S04_LDAP_PROT_ACCESS           TABLE
+S04_LDAP_RCS_FSM_N             TABLE
+S04_LSRT_TBL                   TABLE
+S04_MAP_PROT_ACCESS_N          TABLE
+S04_MAP_SMS_TP_NUM_ACCES       TABLE
+S04_MCCMNC_TBL                 TABLE
+S04_MEDIA_SERVER_GROUP         TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_MNP_RTDB                   TABLE
+S04_MS_ANNC_DEFINITION         TABLE
+S04_MS_CONN_DEFINITION         TABLE
+S04_MS_PROMPT_AND_COLLEC       TABLE
+S04_MULTIID_SERVICE_TBL        TABLE
+S04_NOTIFICATION_COSP_TN       TABLE
+S04_NOTIF_PERIOD_CORRELA       TABLE
+S04_OFFL_CHG_BEHAV_DEF         TABLE
+S04_ORIG_USSD_FEATURE_TB       TABLE
+S04_ORIG_USSD_PARAMETERS       TABLE
+S04_OUTGOING_SCREENING_T       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_OVERLOAD_CTRL_DEF_TB       TABLE
+S04_OVERLOAD_CTRL_TBL          TABLE
+S04_PERIOD_LABEL_DEFINIT       TABLE
+S04_PHSSCR_RTDB_N              TABLE
+S04_PPS_SERVICE_ACCESS         TABLE
+S04_PROMOTION_RTDB             TABLE
+S04_PROMPT_AND_COLLECT_N       TABLE
+S04_PS_FCI_FFD_TBL             TABLE
+S04_QOS_MAPPING_TBL            TABLE
+S04_RC_NRC_RTDB                TABLE
+S04_RELEASE_CAUSE_DEFINI       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_REMOTE_ACCESS_TBL          TABLE
+S04_REQUEST_DATA_MAPPING       TABLE
+S04_RULEBASE_ID_DEF_TBL        TABLE
+S04_RULEBASE_ID_THRESH         TABLE
+S04_SCR_RTDB                   TABLE
+S04_SET1                       TABLE
+S04_SET10                      TABLE
+S04_SET11                      TABLE
+S04_SET12                      TABLE
+S04_SET13                      TABLE
+S04_SET14                      TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_SET15                      TABLE
+S04_SET16                      TABLE
+S04_SET17                      TABLE
+S04_SET18                      TABLE
+S04_SET19                      TABLE
+S04_SET2                       TABLE
+S04_SET20                      TABLE
+S04_SET21                      TABLE
+S04_SET22                      TABLE
+S04_SET23                      TABLE
+S04_SET24                      TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_SET25                      TABLE
+S04_SET26                      TABLE
+S04_SET27                      TABLE
+S04_SET28                      TABLE
+S04_SET29                      TABLE
+S04_SET3                       TABLE
+S04_SET30                      TABLE
+S04_SET31                      TABLE
+S04_SET32                      TABLE
+S04_SET33                      TABLE
+S04_SET34                      TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_SET35                      TABLE
+S04_SET4                       TABLE
+S04_SET5                       TABLE
+S04_SET6                       TABLE
+S04_SET7                       TABLE
+S04_SET8                       TABLE
+S04_SET9                       TABLE
+S04_SFF_RTDB                   TABLE
+S04_SGL_RTDB                   TABLE
+S04_SHORT_CODES_N_TBL          TABLE
+S04_SIME_RTDB                  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_SIMSD_RTDB                 TABLE
+S04_SIM_HISTORY_RTDB           TABLE
+S04_SIM_RTDB                   TABLE
+S04_SIP_PROT_FSM               TABLE
+S04_SMPP_PROT_FSM_ACC_N        TABLE
+S04_SMRPOA_TBL                 TABLE
+S04_SSIPAD_TBL                 TABLE
+S04_SSR_RTDB                   TABLE
+S04_SUBSCRIBER_ACCESS_AC       TABLE
+S04_SUBSCRIBER_NUM_VAL_N       TABLE
+S04_SUB_CALL_ROUTER            TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_SUC_RTDB                   TABLE
+S04_SVC_FEATURE_MENU_N         TABLE
+S04_SVC_ID_TRANS_TYPE_N        TABLE
+S04_SYSTEM_CONTROL_AC          TABLE
+S04_SY_CALL_H_FSM_ACCESS       TABLE
+S04_TARIFF_AREA_ID_TBL         TABLE
+S04_TCPIP_PROT_FSM_ACCES       TABLE
+S04_TCPIP_UTILITY_FSM          TABLE
+S04_THIRDPTY_RCHG              TABLE
+S04_THRESHOLD_COSP_TBL         TABLE
+S04_TRAP_SERVICE_POINT_I       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S04_TYTA_DEF_TBL               TABLE
+S04_UA_RTDB                    TABLE
+S04_USAGE_BLOCK_SOP            TABLE
+S04_UTILITY_ACCESS_N           TABLE
+S04_VALIDATED_PAC_ANNC_T       TABLE
+S04_VOICE_CALL_ACCE_AC_N       TABLE
+S04_VORTEX_RTDB                TABLE
+S04_XB_RTDB                    TABLE
+S05_ACCOUNT_AUDIT_ACCESS       TABLE
+S05_AUDIT_MANAGER_ACCESS       TABLE
+S05_DECISION_GRAPH_N_TBL       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S05_DIAMETER_PROT_FSM_AC       TABLE
+S05_DSC_AUDIT_ACCESS_N         TABLE
+S05_GLOBAL_STATIC              TABLE
+S05_GSM_PPSIM_SUBMEA           TABLE
+S05_HIERARCHY_AUDIT            TABLE
+S05_IM_OM_ACCESS               TABLE
+S05_INTER_ECS_FSM_ACCESS       TABLE
+S05_LDAP_PROT_ACCESS           TABLE
+S05_MAP_PROT_ACCESS            TABLE
+S05_PHSSCR_AUDIT_ACCESS        TABLE
+S05_SCR_AUDIT                  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S05_SERVER_IMOM_ACCESS         TABLE
+S05_SET1                       TABLE
+S05_SET2                       TABLE
+S05_SET3                       TABLE
+S05_SET4                       TABLE
+S05_SMPP_PROT_FSM_ACC_N        TABLE
+S05_SMRPOA_TBL                 TABLE
+S05_SMS_AUDIT                  TABLE
+S05_SUBSCRIBER_ACCESS_AC       TABLE
+S05_TCPIP_PROT_FSM_ACCES       TABLE
+S05_TID_AUDIT_ACCESS_N         TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S05_UTILITY_FSM_ACCESS         TABLE
+S06_CENTRALIZED_GROUP          TABLE
+S06_COMMON_PAR_TBL             TABLE
+S06_ENHAN_PARA_MAPPING         TABLE
+S06_EOVERLOAD_CTRL_TBL         TABLE
+S06_EPPSMFLEXI_FEATURE         TABLE
+S06_GLOBAL_RC                  TABLE
+S06_HIERARCHY_DEFINITION       TABLE
+S06_HM_RTDB                    TABLE
+S06_IDX_QRY_FSM                TABLE
+S06_INTER_ECS_COMM             TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S06_LNK_MNTR_FSM               TABLE
+S06_SERVER_ADM                 TABLE
+S06_SERVER_INFORMATION         TABLE
+S06_SERVICE_ADMIN              TABLE
+S06_SET1                       TABLE
+S06_SET2                       TABLE
+S06_SET3                       TABLE
+S06_SET4                       TABLE
+S06_SET5                       TABLE
+S07_AAA_LIST_TBL               TABLE
+S07_AMA_RECORD_GENERAT_N       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S07_APP_FEATURE_DEF            TABLE
+S07_ASSUME_POSITIVE_CONF       TABLE
+S07_COMMON_PARAMETERS          TABLE
+S07_DFLEX_FEATURE_T_N          TABLE
+S07_DIAMETER_AVP_CONFIG        TABLE
+S07_DMTR_BOUND_DETERMINA       TABLE
+S07_DMTR_CLIENT_INFO_TBL       TABLE
+S07_DMTR_HOST_ID_MAP_TBL       TABLE
+S07_DMTR_HOST_IPADDR_MAP       TABLE
+S07_DMTR_SVR_SCP_INFO_TB       TABLE
+S07_DROUTER_FSM_ACCESS         TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S07_E164_DZP_GT_MAPPI164       TABLE
+S07_E164_DZP_PC_MAPPI164       TABLE
+S07_GLOBAL_RC                  TABLE
+S07_GROUP_ID_PREFIX            TABLE
+S07_GSM_PPSIM_SUBMEA           TABLE
+S07_IDX_QRY_FSM                TABLE
+S07_IMOM_ACCESS                TABLE
+S07_INC_TBL                    TABLE
+S07_INTERFACE_SELECTION        TABLE
+S07_LK_MNTR_FSM_ACCESS         TABLE
+S07_MSISDN_RANGE_TBL           TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S07_MVNO_INFORMATION           TABLE
+S07_NATL_NUMBER_CNV_TBL        TABLE
+S07_NPA_SPLIT_PREFIX_TBL       TABLE
+S07_OVERLOAD_CTRL_DEF_TB       TABLE
+S07_PI_MAPPING_TBL             TABLE
+S07_RADIUS_FSM_ACCESS          TABLE
+S07_RELEASE_CAUSE_DEFINI       TABLE
+S07_ROUTER_PARAM_MAPPING       TABLE
+S07_ROUTING_PARAMS_TBL         TABLE
+S07_ROVERLOAD_CTRL_TBL         TABLE
+S07_SCP_GROUP                  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S07_SECRET_KEY_TBL             TABLE
+S07_SERVER_ADM_ACCESS          TABLE
+S07_SET1                       TABLE
+S07_SET2                       TABLE
+S07_SET3                       TABLE
+S07_SET4                       TABLE
+S07_SET5                       TABLE
+S07_SET6                       TABLE
+S07_SET7                       TABLE
+S07_SUBSCRIBER_ACCESS_AC       TABLE
+S07_USER_LIFECYCLE_PARAM       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S07_UTILITY_ACCESS_N           TABLE
+S08_ID2MDN_RTDB                TABLE
+S08_ROUTSIM                    TABLE
+S09_ABBR_DIALLING_N            TABLE
+S09_ACCOUNT_ADMIN_ACCESS       TABLE
+S09_ANNOUNCE_INCR_TYPE_T       TABLE
+S09_APP_CONTEXT_CFG            TABLE
+S09_BILLING_COSP_TBL           TABLE
+S09_BIT_RATE_LABEL_TBL         TABLE
+S09_CALL_REPROMPT_HELP_N       TABLE
+S09_CALL_SCREENING_DEFIN       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S09_CAMEL_PROT_ACCESS_N        TABLE
+S09_CAMEL_ROAMING_ADMI_N       TABLE
+S09_CAMEL_ROAMING_REROUT       TABLE
+S09_CAMEL_ROAMING_SERVIC       TABLE
+S09_COURTESY_RESP_ANNC_N       TABLE
+S09_CS1_PROT_FSM_ACCES_N       TABLE
+S09_DECISION_GRAPH_TBL         TABLE
+S09_DESTIN_NUMBER_COSP_T       TABLE
+S09_DEST_NUM_MAPPING_TBL       TABLE
+S09_DIAMETER_RO_FSM_ACCE       TABLE
+S09_DTMF_MENU_TBL              TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S09_END_USER_NOA_TBL           TABLE
+S09_FEATURE_USAGE_BILLIN       TABLE
+S09_GLOBAL_RC                  TABLE
+S09_GN_MDN_RTDB                TABLE
+S09_GSM_PPSIM_SUBMEA           TABLE
+S09_HOME_ZONE_GROUP_TBL        TABLE
+S09_HOST_SCP_INFO_TBL          TABLE
+S09_IP_CALLING_PARTY_NUM       TABLE
+S09_IS826_PROT_INTERFA_N       TABLE
+S09_IS826_PROT_LOGIC_N         TABLE
+S09_LANGUAGE_MENU_ACCS_N       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S09_LDAP_RECON_FSM_ACCES       TABLE
+S09_MAP_PROT_ACCESS            TABLE
+S09_MDN_GN_RTDB                TABLE
+S09_MEDIA_SERVER_GROUP         TABLE
+S09_MS_ANNC_DEFINITION         TABLE
+S09_MS_CONN_DEFINITION         TABLE
+S09_MS_PROMPT_AND_COLLEC       TABLE
+S09_MVNO_DETERMINATION         TABLE
+S09_MVNO_SC_MAPPING            TABLE
+S09_ORIG_USSD_FEATURE_TB       TABLE
+S09_ORIG_USSD_PARAMETERS       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S09_PPS_SERVICE_ACCESS         TABLE
+S09_PROMPT_AND_COLLECT_N       TABLE
+S09_RELEASE_CAUSE_DEFINI       TABLE
+S09_REMOTEACCESS_TBL           TABLE
+S09_REQUEST_DATA_MAPPING       TABLE
+S09_SACP_TBL                   TABLE
+S09_SCREENING_NUMBER_TBL       TABLE
+S09_SERVICE_EXCEPT_HANDL       TABLE
+S09_SERVICE_KEY                TABLE
+S09_SET1                       TABLE
+S09_SET2                       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S09_SET3                       TABLE
+S09_SET4                       TABLE
+S09_SET5                       TABLE
+S09_SHORT_CODES_N_TBL          TABLE
+S09_SIP_PROT_FSM               TABLE
+S09_SMPP_PROT_FSM_ACC_N        TABLE
+S09_SMRPOA_TBL                 TABLE
+S09_SUBSCRIBER_ACCESS_AC       TABLE
+S09_SUBSCRIBER_NUM_VAL_N       TABLE
+S09_SVC_FEATURE_MENU_N         TABLE
+S09_UCBCAC                     TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S09_UCBVAC                     TABLE
+S09_UCB_LS_BLACKLIST           TABLE
+S09_UTILITY_ACCESS_N           TABLE
+S09_VALIDATED_PAC_ANNC_T       TABLE
+S09_VCCSIM_RTDB                TABLE
+S09_VOICE_CALL_ACCE_AC_N       TABLE
+S10_ACT_TEST_ACCESS            TABLE
+S10_ADN_TABLE                  TABLE
+S10_ADZ_TABLE                  TABLE
+S10_APDN_TABLE                 TABLE
+S10_APDZ_TABLE                 TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S10_APPLICATION_CONTEXT_       TABLE
+S10_GLOBAL_RC                  TABLE
+S10_GPRSCC15_SET1              TABLE
+S10_GPRSCC15_SET2              TABLE
+S10_GPRS_ALIGNMENT_ACCES       TABLE
+S10_GSI_TABLE                  TABLE
+S10_IMC_TABLE                  TABLE
+S10_IMOM_FSM_ACCESS            TABLE
+S10_INIT_CIR_CLR_ACCESS        TABLE
+S10_LDAP_RECON_ACCESS          TABLE
+S10_LSRT_TABLE                 TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+S10_QOS_MAPPING_TABLE          TABLE
+S10_SCP_INFO_TABLE             TABLE
+S10_SERVICE_ACCESS             TABLE
+S10_SERVICE_ADMIN              TABLE
+S10_SSPGTD_TABLE               TABLE
+S10_SSPPCD_TABLE               TABLE
+S10_SSP_ADDRESS_DEFINITI       TABLE
+S10_SSP_GROUP_TABLE            TABLE
+S10_TRASH_RMV_ACCESS           TABLE
+SATCONSTRAINT                  TABLE
+SAVEDSVCFILE                   TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+SCHITEM                        TABLE
+SDTCONSTRAINT                  TABLE
+SMSCONFIGPARMS                 TABLE
+SMSSCHEMAVERSION               TABLE
+SMSSYSTEM                      TABLE
+SMSUSER                        TABLE
+SOGSET                         TABLE
+SOGSETRESIDENCY                TABLE
+SOGSETROUTINGRULE              TABLE
+SORDATA                        TABLE
+SOTADMINPARMS                  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+SOTCONSTRAINT                  TABLE
+SOTTOSDTSETMAP                 TABLE
+SPCOMMAND                      TABLE
+SPDEFAULTDG                    TABLE
+SPDEFAULTVOICE                 TABLE
+SPDGTYPE                       TABLE
+SPECIALFIELDSOURCE             TABLE
+SPFIELDDEF                     TABLE
+SPFSMSCHEMA                    TABLE
+SPSCHEMA                       TABLE
+SPTABLEDEF                     TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+SPVOICETYPE                    TABLE
+STQDATA                        TABLE
+STQREQUEST                     TABLE
+SUBRECCOUNT                    TABLE
+SVCATTRTYPE                    TABLE
+SVCCHGKEYIMPFIELD              TABLE
+SVCCMD                         TABLE
+SVCCMDRESP                     TABLE
+SVCDATAINDEX                   TABLE
+SVCDATAQUERY                   TABLE
+SVCDATATYPE                    TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+SVCDATATYPESET                 TABLE
+SVCFEATURE                     TABLE
+SVCFILE                        TABLE
+SVCFILECONTENT                 TABLE
+SVCFILEPROVREQ                 TABLE
+SVCFILETRANSFERREQ             TABLE
+SVCOBJ                         TABLE
+SVCOBJGROUP                    TABLE
+SVCOBJGRPCOUNT                 TABLE
+SVCOBJGRPRESIDENCY             TABLE
+SVCOBJTYPE                     TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+SVCTOSPMAP                     TABLE
+SVCTYPE                        TABLE
+SVCUPDATE                      TABLE
+TASKPERM                       TABLE
+TASKSET                        TABLE
+TASKSETMEMBER                  TABLE
+TIMEZONE                       TABLE
+TPG_ACTION_DEFINITION          TABLE
+TPG_APN_TO_DESTINATION_NUM     TABLE
+TPG_APN_TO_DESTINATION_ZONE    TABLE
+TPG_BAND_LABEL                 TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_CALLED_PARTY_NUMBER_ZONE   TABLE
+TPG_CALL_SCREENING_DEFINE      TABLE
+TPG_CAMPUS_ID_MAPPING_TB       TABLE
+TPG_CATEGORY_DEFINITION        TABLE
+TPG_COMMENTS                   TABLE
+TPG_COMMUNITY_MAPPING          TABLE
+TPG_COSP                       TABLE
+TPG_COUNTER_DEFINITION_TBL     TABLE
+TPG_COURTESY_RESP_ANNC         TABLE
+TPG_CREDIT_VALIDITY_COSP       TABLE
+TPG_DATA_TRANSFER_TYPE         TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_DEBIT_COSP_TABLE           TABLE
+TPG_DIAL_ZONE_PLAN_NAME        TABLE
+TPG_DISCOUNT_DEFINITION        TABLE
+TPG_DISCOUNT_PLAN_TBL          TABLE
+TPG_DISCOUNT_RATES_TBL         TABLE
+TPG_DRD_TABLE                  TABLE
+TPG_DRFH_TABLE                 TABLE
+TPG_DTT_UT_MAPPING_TBL         TABLE
+TPG_D_ACTION_DEFINITION        TABLE
+TPG_D_APN_TO_DESTINATION_NUM   TABLE
+TPG_D_APN_TO_DESTINATION_ZONE  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_D_BAND_LABEL               TABLE
+TPG_D_CALLED_PARTY_NUMBER_ZONE TABLE
+TPG_D_CALL_SCREENING_DEFINE    TABLE
+TPG_D_CAMPUS_ID_MAPPING_TB     TABLE
+TPG_D_CATEGORY_DEFINITION      TABLE
+TPG_D_COMMUNITY_MAPPING        TABLE
+TPG_D_COSP                     TABLE
+TPG_D_COUNTER_DEFINITION_TBL   TABLE
+TPG_D_COURTESY_RESP_ANNC       TABLE
+TPG_D_CREDIT_VALIDITY_COSP     TABLE
+TPG_D_DATA_TRANSFER_TYPE       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_D_DEBIT_COSP_TABLE         TABLE
+TPG_D_DIAL_ZONE_PLAN_NAME      TABLE
+TPG_D_DISCOUNT_DEFINITION      TABLE
+TPG_D_DISCOUNT_PLAN_TBL        TABLE
+TPG_D_DISCOUNT_RATES_TBL       TABLE
+TPG_D_DRD_TABLE                TABLE
+TPG_D_DRFH_TABLE               TABLE
+TPG_D_DTT_UT_MAPPING_TBL       TABLE
+TPG_D_E164_DZP_GT_MAPPING      TABLE
+TPG_D_FEATURE_PACKAGE_TBL      TABLE
+TPG_D_FEATURE_TYPE_USAGE_T     TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_D_FLEXIBLE_RECHARGE_AM     TABLE
+TPG_D_INCOMING_CALL_CHRG_BAND  TABLE
+TPG_D_LIFE_CYCLE_TRIGGER_PARM  TABLE
+TPG_D_LOCATION_AREA_ID_ZONE    TABLE
+TPG_D_MEASUREMENT_UNIT_TYPE    TABLE
+TPG_D_MEASURE_UNIT_CONVERSION  TABLE
+TPG_D_MNCMCC_DEFINITION        TABLE
+TPG_D_NOTIFICATION_COSP        TABLE
+TPG_D_PARAMETER_MAPPING_TB     TABLE
+TPG_D_PLMN_LABEL_TBL           TABLE
+TPG_D_PROMPT_AND_COLLECT_ANNC  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_D_PROVIDER_INFORMATION     TABLE
+TPG_D_PROVIDER_NAME_TBL        TABLE
+TPG_D_QOS_INFORMATION          TABLE
+TPG_D_RATING_CONTROL_PARAM     TABLE
+TPG_D_SMS_LABEL_TBL            TABLE
+TPG_D_SPECIAL_DAY              TABLE
+TPG_D_SPECIAL_NUMBER_CHAR      TABLE
+TPG_D_SRV_SWITCH_IP_DEFIN      TABLE
+TPG_D_TARIFF_PARAMETERS        TABLE
+TPG_D_TARIFF_PLAN_DEFINITION   TABLE
+TPG_D_TAX                      TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_D_TEXT_FORMAT              TABLE
+TPG_D_TIME_RANGE               TABLE
+TPG_D_TIME_RANGE_LABEL_TBL     TABLE
+TPG_D_TIME_VIEW                TABLE
+TPG_D_TOKEN_DEFINITION_TBL     TABLE
+TPG_D_TRAFFIC_TYPOLOGY_TBL     TABLE
+TPG_D_USAGE_RATES              TABLE
+TPG_D_USAGE_RATE_ID            TABLE
+TPG_D_USAGE_TARIFF_TBL         TABLE
+TPG_D_USAGE_TYPE_INDEX         TABLE
+TPG_D_USAGE_TYPE_INDEX_PARA    TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_D_USAGE_TYPE_SPLIT         TABLE
+TPG_D_USAGE_TYPE_SPLIT_PARAM   TABLE
+TPG_D_USAGE_TYPE_VALIDATION    TABLE
+TPG_D_ZONE_LABEL               TABLE
+TPG_D_ZONE_MAPPING             TABLE
+TPG_E164_DZP_GT_MAPPING        TABLE
+TPG_FEATURE_PACKAGE_TBL        TABLE
+TPG_FEATURE_TYPE_USAGE_T       TABLE
+TPG_FLEXIBLE_RECHARGE_AM       TABLE
+TPG_GROUP_MEMBERS              TABLE
+TPG_INCOMING_CALL_CHRG_BAND    TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_LIFE_CYCLE_TRIGGER_PARM    TABLE
+TPG_LOADED_TABLE               TABLE
+TPG_LOCATION_AREA_ID_ZONE      TABLE
+TPG_MEASUREMENT_UNIT_TYPE      TABLE
+TPG_MEASURE_UNIT_CONVERSION    TABLE
+TPG_MNCMCC_DEFINITION          TABLE
+TPG_NOTIFICATION_COSP          TABLE
+TPG_PARAMETER_MAPPING_TB       TABLE
+TPG_PLMN_LABEL_TBL             TABLE
+TPG_PROMPT_AND_COLLECT_ANNC    TABLE
+TPG_PROVIDER_INFORMATION       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_PROVIDER_NAME_TBL          TABLE
+TPG_QOS_INFORMATION            TABLE
+TPG_RATING_CONTROL_PARAM       TABLE
+TPG_SMS_LABEL_TBL              TABLE
+TPG_SPECIAL_DAY                TABLE
+TPG_SPECIAL_NUMBER_CHAR        TABLE
+TPG_SRV_SWITCH_IP_DEFIN        TABLE
+TPG_TARIFF_PARAMETERS          TABLE
+TPG_TARIFF_PLAN_DEFINITION     TABLE
+TPG_TAX                        TABLE
+TPG_TEXT_FORMAT                TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_TICKET                     TABLE
+TPG_TICKET_TASK_INDEX_TABLE    TABLE
+TPG_TIME_RANGE                 TABLE
+TPG_TIME_RANGE_LABEL_TBL       TABLE
+TPG_TIME_VIEW                  TABLE
+TPG_TOKEN_DEFINITION_TBL       TABLE
+TPG_TRAFFIC_TYPOLOGY_TBL       TABLE
+TPG_TTT_BALANCE_DATA           TABLE
+TPG_TTT_SUBSCRIBERS            TABLE
+TPG_TTT_TEST_DEFINITIONS       TABLE
+TPG_TTT_TEST_GROUPS            TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_TTT_TEST_GROUP_INFO        TABLE
+TPG_USAGE_RATES                TABLE
+TPG_USAGE_RATE_ID              TABLE
+TPG_USAGE_TARIFF_TBL           TABLE
+TPG_USAGE_TYPE_INDEX           TABLE
+TPG_USAGE_TYPE_INDEX_PARA      TABLE
+TPG_USAGE_TYPE_SPLIT           TABLE
+TPG_USAGE_TYPE_SPLIT_PARAM     TABLE
+TPG_USAGE_TYPE_VALIDATION      TABLE
+TPG_USERS                      TABLE
+TPG_USER_GROUPS                TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TPG_WORKFLOW_HISTORY           TABLE
+TPG_ZONE_LABEL                 TABLE
+TPG_ZONE_MAPPING               TABLE
+USERCLASS                      TABLE
+U_S01_BAND_LABEL_TBL           TABLE
+U_S03_ACTION_DEFINITION_TB     TABLE
+U_S03_CREDIT_VALIDITY_COSP     TABLE
+U_S03_DISCOUNT_DEFINITIONN     TABLE
+U_S03_DISCOUNT_RATE_TBL_N      TABLE
+U_S03_FEATURE_PACKAGE_TBL      TABLE
+U_S03_RRI_TBL                  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+U_S03_TARIFF_PLAN_DEFINITI     TABLE
+VALERROR                       TABLE
+VATCONSTRAINT                  TABLE
+VDTCONSTRAINT                  TABLE
+VIEWATTRGROUP                  TABLE
+VIEWATTRTYPE                   TABLE
+VIEWDATARULE                   TABLE
+VIEWDATATYPE                   TABLE
+VIEWOBJTYPE                    TABLE
+VIEWTYPE                       TABLE
+VOTCONSTRAINT                  TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+VOTTOVDTMAP                    TABLE
+WOMSFILENAME                   TABLE
+WORKORDER                      TABLE
+
+905 rows selected.
+
+SQL> select count(*) from S04_SIM_RTDB;
+
+  COUNT(*)
+----------
+  30892426
+
+SQL> select count(*) from MLOG$_S04_SIM_RTDB;
+
+  COUNT(*)
+----------
+ 353178322
+
+SQL> select min(SNAPTIME$$),max(SNAPTIME$$) from MLOG$_S04_SIM_RTDB;
+
+MIN(SNAPT MAX(SNAPT
+--------- ---------
+21-AUG-23 01-JAN-00
+
+SQL> exit
+Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning option
+you have mail in /var/mail/sms
+$ sqlplus / as sysdba
+
+SQL*Plus: Release 11.2.0.3.0 Production on Wed Sep 4 16:00:04 2024
+
+Copyright (c) 1982, 2011, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning option
+
+SQL> select segment_name,segment_type,bytes/1024/1024 MB from dba_segments where segment_type='TABLE' and segment_name='MLOG$_S04_SIM_RTDB';
+
+SEGMENT_NAME
+--------------------------------------------------------------------------------
+SEGMENT_TYPE               MB
+------------------ ----------
+MLOG$_S04_SIM_RTDB
+TABLE                   73840
+
+
+SQL>

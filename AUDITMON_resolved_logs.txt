@@ -1,0 +1,616 @@
+login as: ainet
+Welcome to mCAS1
+ainet@10.147.128.8's password:
+Last login: Fri Jan  3 06:03:29 IST 2025 from 10.149.24.77
+Welcome to mCAS1
+No mail for ainet
+Term type is now xterm
+Nth1OCS1-0-0-9:/u/ainet-> su -
+Password:
+Last login: Fri Jan  3 06:11:01 IST 2025 on cron
+No mail for root
+Term type is now xterm
+Nth1OCS1-0-0-9:/root-# cat /var/log/messages | grep auditd
+Jan  3 03:23:59 Nth1OCS1-0-0-9 auditd[4537]: The audit daemon is exiting.
+Jan  3 03:23:59 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 03:23:59 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-0-4 auditd[19689]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-1-9 auditd[27356]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-0-11 auditd[11942]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-0-12 auditd[28727]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-0-2 auditd[22270]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-1-5 auditd[26864]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-0-3 auditd[2606]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-1-4 auditd[26108]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-1-3 auditd[27060]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-1-12 auditd[24141]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-1-11 auditd[27168]: The audit daemon is exiting.
+Jan  3 03:26:09 Nth1OCS1-0-1-2 auditd[22257]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-0-13 auditd[24424]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-0-6 auditd[11928]: The audit daemon is exiting.
+Jan  3 03:26:08 Nth1OCS1-0-0-14 auditd[25471]: The audit daemon is exiting.
+Jan  3 03:26:09 Nth1OCS1-0-0-4 auditd[7094]: Started dispatcher: /sbin/audispd pid: 7096
+Jan  3 03:26:09 Nth1OCS1-0-0-11 auditd[22940]: Started dispatcher: /sbin/audispd pid: 22942
+Jan  3 03:26:09 Nth1OCS1-0-1-2 auditd[1472]: Started dispatcher: /sbin/audispd pid: 1474
+Jan  3 03:26:09 Nth1OCS1-0-0-2 auditd[15950]: Started dispatcher: /sbin/audispd pid: 15952
+Jan  3 03:26:09 Nth1OCS1-0-0-3 auditd[16248]: Started dispatcher: /sbin/audispd pid: 16250
+Jan  3 03:26:09 Nth1OCS1-0-0-12 auditd[10584]: Started dispatcher: /sbin/audispd pid: 10586
+Jan  3 03:26:09 Nth1OCS1-0-1-9 auditd[11437]: Started dispatcher: /sbin/audispd pid: 11439
+Jan  3 03:26:09 Nth1OCS1-0-1-11 auditd[10353]: Started dispatcher: /sbin/audispd pid: 10355
+Jan  3 03:26:09 Nth1OCS1-0-1-3 auditd[11086]: Started dispatcher: /sbin/audispd pid: 11088
+Jan  3 03:26:09 Nth1OCS1-0-1-4 auditd[10186]: Started dispatcher: /sbin/audispd pid: 10188
+Jan  3 03:26:09 Nth1OCS1-0-1-12 auditd[7523]: Started dispatcher: /sbin/audispd pid: 7525
+Jan  3 03:26:09 Nth1OCS1-0-0-13 auditd[8086]: Started dispatcher: /sbin/audispd pid: 8088
+Jan  3 03:26:09 Nth1OCS1-0-0-6 auditd[28337]: Started dispatcher: /sbin/audispd pid: 28339
+Jan  3 03:26:09 Nth1OCS1-0-1-5 auditd[10748]: Started dispatcher: /sbin/audispd pid: 10750
+Jan  3 03:26:09 Nth1OCS1-0-0-14 auditd[9261]: Started dispatcher: /sbin/audispd pid: 9263
+Jan  3 03:26:09 Nth1OCS1-0-0-4 auditd[7094]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-0-11 auditd[22940]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-1-2 auditd[1472]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-0-2 auditd[15950]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-0-3 auditd[16248]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-0-12 auditd[10584]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-1-9 auditd[11437]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-1-11 auditd[10353]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-1-3 auditd[11086]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-1-4 auditd[10186]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-1-12 auditd[7523]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-0-13 auditd[8086]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-0-6 auditd[28337]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-1-5 auditd[10748]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-0-14 auditd[9261]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:09 Nth1OCS1-0-0-5 auditd[30451]: The audit daemon is exiting.
+Jan  3 03:26:09 Nth1OCS1-0-1-10 auditd[5582]: The audit daemon is exiting.
+Jan  3 03:26:09 Nth1OCS1-0-1-6 auditd[25288]: The audit daemon is exiting.
+Jan  3 03:26:10 Nth1OCS1-0-1-10 auditd[16587]: Started dispatcher: /sbin/audispd pid: 16589
+Jan  3 03:26:10 Nth1OCS1-0-0-5 auditd[14878]: Started dispatcher: /sbin/audispd pid: 14880
+Jan  3 03:26:10 Nth1OCS1-0-1-6 auditd[9371]: Started dispatcher: /sbin/audispd pid: 9373
+Jan  3 03:26:10 Nth1OCS1-0-1-10 auditd[16587]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:10 Nth1OCS1-0-0-5 auditd[14878]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:26:10 Nth1OCS1-0-1-6 auditd[9371]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:29:00 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 03:29:00 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-4 auditd[7094]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-3 auditd[16248]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-10 auditd[16587]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-5 auditd[14878]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-9 auditd[11437]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-13 auditd[8086]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-2 auditd[15950]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-6 auditd[9371]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-11 auditd[10353]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-5 auditd[10748]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-4 auditd[10186]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-11 auditd[22940]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-2 auditd[1472]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-14 auditd[9261]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-12 auditd[10584]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-12 auditd[7523]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-6 auditd[28337]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-1-3 auditd[11086]: The audit daemon is exiting.
+Jan  3 03:31:09 Nth1OCS1-0-0-4 auditd[7253]: Started dispatcher: /sbin/audispd pid: 7255
+Jan  3 03:31:09 Nth1OCS1-0-0-3 auditd[16391]: Started dispatcher: /sbin/audispd pid: 16393
+Jan  3 03:31:09 Nth1OCS1-0-1-10 auditd[16739]: Started dispatcher: /sbin/audispd pid: 16741
+Jan  3 03:31:09 Nth1OCS1-0-1-9 auditd[11578]: Started dispatcher: /sbin/audispd pid: 11580
+Jan  3 03:31:09 Nth1OCS1-0-0-13 auditd[8227]: Started dispatcher: /sbin/audispd pid: 8229
+Jan  3 03:31:09 Nth1OCS1-0-0-2 auditd[16096]: Started dispatcher: /sbin/audispd pid: 16098
+Jan  3 03:31:09 Nth1OCS1-0-0-5 auditd[15036]: Started dispatcher: /sbin/audispd pid: 15038
+Jan  3 03:31:09 Nth1OCS1-0-0-11 auditd[23104]: Started dispatcher: /sbin/audispd pid: 23106
+Jan  3 03:31:09 Nth1OCS1-0-1-6 auditd[9512]: Started dispatcher: /sbin/audispd pid: 9514
+Jan  3 03:31:09 Nth1OCS1-0-1-11 auditd[10495]: Started dispatcher: /sbin/audispd pid: 10497
+Jan  3 03:31:10 Nth1OCS1-0-1-2 auditd[1624]: Started dispatcher: /sbin/audispd pid: 1626
+Jan  3 03:31:09 Nth1OCS1-0-1-5 auditd[10893]: Started dispatcher: /sbin/audispd pid: 10895
+Jan  3 03:31:09 Nth1OCS1-0-1-4 auditd[10333]: Started dispatcher: /sbin/audispd pid: 10335
+Jan  3 03:31:09 Nth1OCS1-0-0-12 auditd[10745]: Started dispatcher: /sbin/audispd pid: 10747
+Jan  3 03:31:09 Nth1OCS1-0-0-14 auditd[9402]: Started dispatcher: /sbin/audispd pid: 9404
+Jan  3 03:31:09 Nth1OCS1-0-1-12 auditd[7668]: Started dispatcher: /sbin/audispd pid: 7670
+Jan  3 03:31:09 Nth1OCS1-0-0-6 auditd[28485]: Started dispatcher: /sbin/audispd pid: 28487
+Jan  3 03:31:09 Nth1OCS1-0-1-3 auditd[11231]: Started dispatcher: /sbin/audispd pid: 11233
+Jan  3 03:31:09 Nth1OCS1-0-0-4 auditd[7253]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:10 Nth1OCS1-0-0-3 auditd[16391]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-1-10 auditd[16739]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:10 Nth1OCS1-0-1-9 auditd[11578]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-0-13 auditd[8227]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-0-2 auditd[16096]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-0-5 auditd[15036]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-0-11 auditd[23104]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:10 Nth1OCS1-0-1-6 auditd[9512]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-1-11 auditd[10495]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:10 Nth1OCS1-0-1-2 auditd[1624]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:10 Nth1OCS1-0-1-5 auditd[10893]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:10 Nth1OCS1-0-1-4 auditd[10333]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:10 Nth1OCS1-0-0-12 auditd[10745]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-0-14 auditd[9402]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-1-12 auditd[7668]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:09 Nth1OCS1-0-0-6 auditd[28485]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:31:10 Nth1OCS1-0-1-3 auditd[11231]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:44:01 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 03:44:01 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-10 auditd[16739]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-4 auditd[7253]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-11 auditd[23104]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-12 auditd[10745]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-6 auditd[28485]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-14 auditd[9402]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-2 auditd[16096]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-13 auditd[8227]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-3 auditd[16391]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-5 auditd[10893]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-11 auditd[10495]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-2 auditd[1624]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-6 auditd[9512]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-12 auditd[7668]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-3 auditd[11231]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-9 auditd[11578]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-4 auditd[10333]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-0-5 auditd[15036]: The audit daemon is exiting.
+Jan  3 03:46:09 Nth1OCS1-0-1-10 auditd[16990]: Started dispatcher: /sbin/audispd pid: 16992
+Jan  3 03:46:09 Nth1OCS1-0-0-4 auditd[7518]: Started dispatcher: /sbin/audispd pid: 7520
+Jan  3 03:46:09 Nth1OCS1-0-0-11 auditd[23355]: Started dispatcher: /sbin/audispd pid: 23357
+Jan  3 03:46:09 Nth1OCS1-0-0-12 auditd[11039]: Started dispatcher: /sbin/audispd pid: 11041
+Jan  3 03:46:09 Nth1OCS1-0-0-6 auditd[28735]: Started dispatcher: /sbin/audispd pid: 28737
+Jan  3 03:46:09 Nth1OCS1-0-0-2 auditd[16347]: Started dispatcher: /sbin/audispd pid: 16349
+Jan  3 03:46:09 Nth1OCS1-0-0-14 auditd[9661]: Started dispatcher: /sbin/audispd pid: 9663
+Jan  3 03:46:09 Nth1OCS1-0-0-3 auditd[16658]: Started dispatcher: /sbin/audispd pid: 16660
+Jan  3 03:46:09 Nth1OCS1-0-0-13 auditd[8477]: Started dispatcher: /sbin/audispd pid: 8479
+Jan  3 03:46:09 Nth1OCS1-0-1-2 auditd[1885]: Started dispatcher: /sbin/audispd pid: 1887
+Jan  3 03:46:09 Nth1OCS1-0-1-11 auditd[10745]: Started dispatcher: /sbin/audispd pid: 10747
+Jan  3 03:46:09 Nth1OCS1-0-1-6 auditd[9771]: Started dispatcher: /sbin/audispd pid: 9773
+Jan  3 03:46:09 Nth1OCS1-0-1-12 auditd[7918]: Started dispatcher: /sbin/audispd pid: 7920
+Jan  3 03:46:09 Nth1OCS1-0-1-5 auditd[11152]: Started dispatcher: /sbin/audispd pid: 11154
+Jan  3 03:46:09 Nth1OCS1-0-1-3 auditd[11490]: Started dispatcher: /sbin/audispd pid: 11492
+Jan  3 03:46:09 Nth1OCS1-0-1-9 auditd[11837]: Started dispatcher: /sbin/audispd pid: 11839
+Jan  3 03:46:09 Nth1OCS1-0-1-4 auditd[10583]: Started dispatcher: /sbin/audispd pid: 10585
+Jan  3 03:46:09 Nth1OCS1-0-0-5 auditd[15286]: Started dispatcher: /sbin/audispd pid: 15288
+Jan  3 03:46:09 Nth1OCS1-0-1-10 auditd[16990]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-4 auditd[7518]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-11 auditd[23355]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-12 auditd[11039]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-6 auditd[28735]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-2 auditd[16347]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-14 auditd[9661]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-3 auditd[16658]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-13 auditd[8477]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-1-2 auditd[1885]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-1-11 auditd[10745]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-1-6 auditd[9771]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-1-12 auditd[7918]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-1-5 auditd[11152]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-1-3 auditd[11490]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-1-9 auditd[11837]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-1-4 auditd[10583]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 03:46:09 Nth1OCS1-0-0-5 auditd[15286]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:09:17 Nth1OCS1-0-1-1 auditd[2961]: The audit daemon is exiting.
+Jan  3 04:09:17 Nth1OCS1-0-1-1 auditd[26392]: Started dispatcher: /sbin/audispd pid: 26394
+Jan  3 04:09:17 Nth1OCS1-0-1-1 auditd[26392]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:14:01 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 04:14:01 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 04:14:03 Nth1OCS1-0-1-1 auditd[26392]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-0-11 auditd[23355]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-0-4 auditd[7518]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-1-10 auditd[16990]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-1-11 auditd[10745]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-1-2 auditd[1885]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-0-3 auditd[16658]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-1-4 auditd[10583]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-1-3 auditd[11490]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-0-6 auditd[28735]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-1-5 auditd[11152]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-0-2 auditd[16347]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-0-5 auditd[15286]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-0-12 auditd[11039]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-0-13 auditd[8477]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-1-6 auditd[9771]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-1-12 auditd[7918]: The audit daemon is exiting.
+Jan  3 04:16:07 Nth1OCS1-0-0-14 auditd[9661]: The audit daemon is exiting.
+Jan  3 04:16:08 Nth1OCS1-0-1-9 auditd[11837]: The audit daemon is exiting.
+Jan  3 04:14:04 Nth1OCS1-0-1-1 auditd[26997]: Started dispatcher: /sbin/audispd pid: 26999
+Jan  3 04:16:08 Nth1OCS1-0-0-4 auditd[8064]: Started dispatcher: /sbin/audispd pid: 8066
+Jan  3 04:16:08 Nth1OCS1-0-0-11 auditd[23892]: Started dispatcher: /sbin/audispd pid: 23894
+Jan  3 04:16:08 Nth1OCS1-0-1-10 auditd[17541]: Started dispatcher: /sbin/audispd pid: 17543
+Jan  3 04:16:08 Nth1OCS1-0-1-11 auditd[11299]: Started dispatcher: /sbin/audispd pid: 11301
+Jan  3 04:16:08 Nth1OCS1-0-1-2 auditd[2731]: Started dispatcher: /sbin/audispd pid: 2733
+Jan  3 04:16:08 Nth1OCS1-0-0-3 auditd[17502]: Started dispatcher: /sbin/audispd pid: 17504
+Jan  3 04:16:08 Nth1OCS1-0-0-6 auditd[29271]: Started dispatcher: /sbin/audispd pid: 29273
+Jan  3 04:16:08 Nth1OCS1-0-1-3 auditd[12026]: Started dispatcher: /sbin/audispd pid: 12028
+Jan  3 04:16:08 Nth1OCS1-0-0-2 auditd[17203]: Started dispatcher: /sbin/audispd pid: 17205
+Jan  3 04:16:08 Nth1OCS1-0-1-4 auditd[11137]: Started dispatcher: /sbin/audispd pid: 11139
+Jan  3 04:16:08 Nth1OCS1-0-0-12 auditd[11659]: Started dispatcher: /sbin/audispd pid: 11661
+Jan  3 04:16:08 Nth1OCS1-0-1-5 auditd[11688]: Started dispatcher: /sbin/audispd pid: 11690
+Jan  3 04:16:08 Nth1OCS1-0-0-5 auditd[15822]: Started dispatcher: /sbin/audispd pid: 15824
+Jan  3 04:16:08 Nth1OCS1-0-0-13 auditd[9015]: Started dispatcher: /sbin/audispd pid: 9017
+Jan  3 04:16:08 Nth1OCS1-0-1-12 auditd[8454]: Started dispatcher: /sbin/audispd pid: 8456
+Jan  3 04:16:08 Nth1OCS1-0-1-6 auditd[10307]: Started dispatcher: /sbin/audispd pid: 10309
+Jan  3 04:16:08 Nth1OCS1-0-0-14 auditd[10197]: Started dispatcher: /sbin/audispd pid: 10199
+Jan  3 04:16:08 Nth1OCS1-0-1-9 auditd[12373]: Started dispatcher: /sbin/audispd pid: 12375
+Jan  3 04:14:04 Nth1OCS1-0-1-1 auditd[26997]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-4 auditd[8064]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-11 auditd[23892]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-10 auditd[17541]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-11 auditd[11299]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-2 auditd[2731]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-3 auditd[17502]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-6 auditd[29271]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-3 auditd[12026]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-2 auditd[17203]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-4 auditd[11137]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-12 auditd[11659]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-5 auditd[11688]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-5 auditd[15822]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-13 auditd[9015]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-12 auditd[8454]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-6 auditd[10307]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-0-14 auditd[10197]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:16:08 Nth1OCS1-0-1-9 auditd[12373]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:44:02 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 04:44:02 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-12 auditd[11659]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-1-11 auditd[11299]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-1-10 auditd[17541]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-2 auditd[17203]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-3 auditd[17502]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-4 auditd[8064]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-1-12 auditd[8454]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-1-3 auditd[12026]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-5 auditd[15822]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-11 auditd[23892]: The audit daemon is exiting.
+Jan  3 04:44:04 Nth1OCS1-0-1-1 auditd[26997]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-13 auditd[9015]: The audit daemon is exiting.
+Jan  3 04:46:07 Nth1OCS1-0-1-2 auditd[2731]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-1-4 auditd[11137]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-14 auditd[10197]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-0-6 auditd[29271]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-1-9 auditd[12373]: The audit daemon is exiting.
+Jan  3 04:46:06 Nth1OCS1-0-1-6 auditd[10307]: The audit daemon is exiting.
+Jan  3 04:46:07 Nth1OCS1-0-0-12 auditd[12264]: Started dispatcher: /sbin/audispd pid: 12266
+Jan  3 04:46:06 Nth1OCS1-0-1-10 auditd[18072]: Started dispatcher: /sbin/audispd pid: 18074
+Jan  3 04:46:06 Nth1OCS1-0-0-4 auditd[8607]: Started dispatcher: /sbin/audispd pid: 8609
+Jan  3 04:46:06 Nth1OCS1-0-1-11 auditd[11824]: Started dispatcher: /sbin/audispd pid: 11826
+Jan  3 04:46:07 Nth1OCS1-0-0-3 auditd[18039]: Started dispatcher: /sbin/audispd pid: 18041
+Jan  3 04:46:06 Nth1OCS1-0-0-2 auditd[17749]: Started dispatcher: /sbin/audispd pid: 17751
+Jan  3 04:44:04 Nth1OCS1-0-1-1 auditd[27545]: Started dispatcher: /sbin/audispd pid: 27547
+Jan  3 04:46:06 Nth1OCS1-0-1-12 auditd[8997]: Started dispatcher: /sbin/audispd pid: 8999
+Jan  3 04:46:07 Nth1OCS1-0-1-3 auditd[12558]: Started dispatcher: /sbin/audispd pid: 12560
+Jan  3 04:46:06 Nth1OCS1-0-0-11 auditd[24423]: Started dispatcher: /sbin/audispd pid: 24425
+Jan  3 04:46:06 Nth1OCS1-0-0-5 auditd[16347]: Started dispatcher: /sbin/audispd pid: 16349
+Jan  3 04:46:07 Nth1OCS1-0-1-2 auditd[3271]: Started dispatcher: /sbin/audispd pid: 3273
+Jan  3 04:46:06 Nth1OCS1-0-0-13 auditd[9546]: Started dispatcher: /sbin/audispd pid: 9548
+Jan  3 04:46:07 Nth1OCS1-0-1-4 auditd[11669]: Started dispatcher: /sbin/audispd pid: 11671
+Jan  3 04:46:06 Nth1OCS1-0-0-14 auditd[10731]: Started dispatcher: /sbin/audispd pid: 10733
+Jan  3 04:46:06 Nth1OCS1-0-0-6 auditd[29796]: Started dispatcher: /sbin/audispd pid: 29798
+Jan  3 04:46:07 Nth1OCS1-0-1-9 auditd[12905]: Started dispatcher: /sbin/audispd pid: 12907
+Jan  3 04:46:07 Nth1OCS1-0-1-6 auditd[10842]: Started dispatcher: /sbin/audispd pid: 10844
+Jan  3 04:46:07 Nth1OCS1-0-0-12 auditd[12264]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-10 auditd[18072]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-0-4 auditd[8607]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-11 auditd[11824]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-0-3 auditd[18039]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:06 Nth1OCS1-0-0-2 auditd[17749]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:44:04 Nth1OCS1-0-1-1 auditd[27545]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-12 auditd[8997]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-3 auditd[12558]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-0-11 auditd[24423]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-0-5 auditd[16347]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-2 auditd[3271]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-0-13 auditd[9546]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-4 auditd[11669]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-0-14 auditd[10731]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-0-6 auditd[29796]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-9 auditd[12905]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-6 auditd[10842]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-10 auditd[18072]: The audit daemon is exiting.
+Jan  3 04:46:07 Nth1OCS1-0-1-10 auditd[18133]: Started dispatcher: /sbin/audispd pid: 18135
+Jan  3 04:46:07 Nth1OCS1-0-1-10 auditd[18133]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 04:46:07 Nth1OCS1-0-1-5 auditd[11688]: The audit daemon is exiting.
+Jan  3 04:46:08 Nth1OCS1-0-1-5 auditd[12213]: Started dispatcher: /sbin/audispd pid: 12215
+Jan  3 04:46:08 Nth1OCS1-0-1-5 auditd[12213]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:14:03 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 05:14:03 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 05:14:04 Nth1OCS1-0-1-1 auditd[27545]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-11 auditd[24423]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-10 auditd[18133]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-4 auditd[8607]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-2 auditd[17749]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-11 auditd[11824]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-6 auditd[10842]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-2 auditd[3271]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-3 auditd[18039]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-12 auditd[8997]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-12 auditd[12264]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-9 auditd[12905]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-13 auditd[9546]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-6 auditd[29796]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-5 auditd[16347]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-5 auditd[12213]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-3 auditd[12558]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-0-14 auditd[10731]: The audit daemon is exiting.
+Jan  3 05:16:05 Nth1OCS1-0-1-4 auditd[11669]: The audit daemon is exiting.
+Jan  3 05:14:05 Nth1OCS1-0-1-1 auditd[28058]: Started dispatcher: /sbin/audispd pid: 28060
+Jan  3 05:16:05 Nth1OCS1-0-0-11 auditd[24946]: Started dispatcher: /sbin/audispd pid: 24948
+Jan  3 05:16:05 Nth1OCS1-0-1-10 auditd[18656]: Started dispatcher: /sbin/audispd pid: 18658
+Jan  3 05:16:05 Nth1OCS1-0-0-4 auditd[9135]: Started dispatcher: /sbin/audispd pid: 9137
+Jan  3 05:16:06 Nth1OCS1-0-1-2 auditd[3798]: Started dispatcher: /sbin/audispd pid: 3800
+Jan  3 05:16:05 Nth1OCS1-0-1-6 auditd[11381]: Started dispatcher: /sbin/audispd pid: 11383
+Jan  3 05:16:05 Nth1OCS1-0-1-11 auditd[12354]: Started dispatcher: /sbin/audispd pid: 12356
+Jan  3 05:16:05 Nth1OCS1-0-0-2 auditd[18298]: Started dispatcher: /sbin/audispd pid: 18300
+Jan  3 05:16:05 Nth1OCS1-0-0-12 auditd[12868]: Started dispatcher: /sbin/audispd pid: 12870
+Jan  3 05:16:05 Nth1OCS1-0-0-3 auditd[18560]: Started dispatcher: /sbin/audispd pid: 18562
+Jan  3 05:16:05 Nth1OCS1-0-1-12 auditd[9527]: Started dispatcher: /sbin/audispd pid: 9529
+Jan  3 05:16:05 Nth1OCS1-0-0-13 auditd[10076]: Started dispatcher: /sbin/audispd pid: 10078
+Jan  3 05:16:05 Nth1OCS1-0-0-6 auditd[30319]: Started dispatcher: /sbin/audispd pid: 30321
+Jan  3 05:16:05 Nth1OCS1-0-1-9 auditd[13428]: Started dispatcher: /sbin/audispd pid: 13430
+Jan  3 05:16:05 Nth1OCS1-0-0-5 auditd[16866]: Started dispatcher: /sbin/audispd pid: 16868
+Jan  3 05:16:05 Nth1OCS1-0-1-5 auditd[12743]: Started dispatcher: /sbin/audispd pid: 12745
+Jan  3 05:16:05 Nth1OCS1-0-1-3 auditd[13081]: Started dispatcher: /sbin/audispd pid: 13083
+Jan  3 05:16:05 Nth1OCS1-0-1-4 auditd[12192]: Started dispatcher: /sbin/audispd pid: 12194
+Jan  3 05:16:05 Nth1OCS1-0-0-14 auditd[11270]: Started dispatcher: /sbin/audispd pid: 11272
+Jan  3 05:14:05 Nth1OCS1-0-1-1 auditd[28058]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-11 auditd[24946]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-10 auditd[18656]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-4 auditd[9135]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:06 Nth1OCS1-0-1-2 auditd[3798]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-6 auditd[11381]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-11 auditd[12354]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-2 auditd[18298]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-12 auditd[12868]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-3 auditd[18560]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-12 auditd[9527]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-13 auditd[10076]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-6 auditd[30319]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-9 auditd[13428]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-5 auditd[16866]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-5 auditd[12743]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-3 auditd[13081]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-4 auditd[12192]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-0-14 auditd[11270]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:05 Nth1OCS1-0-1-10 auditd[18656]: The audit daemon is exiting.
+Jan  3 05:16:06 Nth1OCS1-0-0-3 auditd[18560]: The audit daemon is exiting.
+Jan  3 05:16:06 Nth1OCS1-0-1-10 auditd[18718]: Started dispatcher: /sbin/audispd pid: 18720
+Jan  3 05:16:06 Nth1OCS1-0-0-3 auditd[18621]: Started dispatcher: /sbin/audispd pid: 18623
+Jan  3 05:16:06 Nth1OCS1-0-1-10 auditd[18718]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:16:06 Nth1OCS1-0-0-3 auditd[18621]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:44:04 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 05:44:04 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 05:44:06 Nth1OCS1-0-1-1 auditd[28058]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-0-14 auditd[11270]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-0-12 auditd[12868]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-0-11 auditd[24946]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-1-6 auditd[11381]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-1-3 auditd[13081]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-0-3 auditd[18621]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-0-4 auditd[9135]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-0-6 auditd[30319]: The audit daemon is exiting.
+Jan  3 05:46:05 Nth1OCS1-0-1-2 auditd[3798]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-1-10 auditd[18718]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-0-2 auditd[18298]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-0-13 auditd[10076]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-1-4 auditd[12192]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-1-9 auditd[13428]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-1-12 auditd[9527]: The audit daemon is exiting.
+Jan  3 05:46:04 Nth1OCS1-0-1-11 auditd[12354]: The audit daemon is exiting.
+Jan  3 05:44:06 Nth1OCS1-0-1-1 auditd[28505]: Started dispatcher: /sbin/audispd pid: 28507
+Jan  3 05:46:05 Nth1OCS1-0-0-12 auditd[13378]: Started dispatcher: /sbin/audispd pid: 13380
+Jan  3 05:46:04 Nth1OCS1-0-0-11 auditd[25393]: Started dispatcher: /sbin/audispd pid: 25395
+Jan  3 05:46:04 Nth1OCS1-0-0-14 auditd[11726]: Started dispatcher: /sbin/audispd pid: 11728
+Jan  3 05:46:04 Nth1OCS1-0-0-4 auditd[9591]: Started dispatcher: /sbin/audispd pid: 9593
+Jan  3 05:46:05 Nth1OCS1-0-0-3 auditd[19071]: Started dispatcher: /sbin/audispd pid: 19073
+Jan  3 05:46:05 Nth1OCS1-0-1-10 auditd[19165]: Started dispatcher: /sbin/audispd pid: 19167
+Jan  3 05:46:05 Nth1OCS1-0-1-2 auditd[4254]: Started dispatcher: /sbin/audispd pid: 4256
+Jan  3 05:46:05 Nth1OCS1-0-1-6 auditd[11837]: Started dispatcher: /sbin/audispd pid: 11839
+Jan  3 05:46:05 Nth1OCS1-0-1-3 auditd[13537]: Started dispatcher: /sbin/audispd pid: 13539
+Jan  3 05:46:05 Nth1OCS1-0-1-4 auditd[12639]: Started dispatcher: /sbin/audispd pid: 12641
+Jan  3 05:46:05 Nth1OCS1-0-0-6 auditd[30766]: Started dispatcher: /sbin/audispd pid: 30768
+Jan  3 05:46:04 Nth1OCS1-0-0-2 auditd[18757]: Started dispatcher: /sbin/audispd pid: 18759
+Jan  3 05:46:04 Nth1OCS1-0-0-13 auditd[10523]: Started dispatcher: /sbin/audispd pid: 10525
+Jan  3 05:46:05 Nth1OCS1-0-1-9 auditd[13884]: Started dispatcher: /sbin/audispd pid: 13886
+Jan  3 05:46:04 Nth1OCS1-0-1-12 auditd[9974]: Started dispatcher: /sbin/audispd pid: 9976
+Jan  3 05:46:04 Nth1OCS1-0-1-11 auditd[12810]: Started dispatcher: /sbin/audispd pid: 12812
+Jan  3 05:44:06 Nth1OCS1-0-1-1 auditd[28505]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-12 auditd[13378]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-11 auditd[25393]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-14 auditd[11726]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-4 auditd[9591]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-10 auditd[19165]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-3 auditd[19071]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-2 auditd[4254]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-6 auditd[11837]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-3 auditd[13537]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-4 auditd[12639]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-6 auditd[30766]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:04 Nth1OCS1-0-0-2 auditd[18757]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-13 auditd[10523]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-9 auditd[13884]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-12 auditd[9974]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-11 auditd[12810]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-1-10 auditd[19165]: The audit daemon is exiting.
+Jan  3 05:46:05 Nth1OCS1-0-0-3 auditd[19071]: The audit daemon is exiting.
+Jan  3 05:46:05 Nth1OCS1-0-1-10 auditd[19226]: Started dispatcher: /sbin/audispd pid: 19228
+Jan  3 05:46:05 Nth1OCS1-0-0-3 auditd[19132]: Started dispatcher: /sbin/audispd pid: 19134
+Jan  3 05:46:05 Nth1OCS1-0-1-10 auditd[19226]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-3 auditd[19132]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:05 Nth1OCS1-0-0-5 auditd[16866]: The audit daemon is exiting.
+Jan  3 05:46:05 Nth1OCS1-0-1-5 auditd[12743]: The audit daemon is exiting.
+Jan  3 05:46:05 Nth1OCS1-0-0-5 auditd[17322]: Started dispatcher: /sbin/audispd pid: 17324
+Jan  3 05:46:06 Nth1OCS1-0-1-5 auditd[13190]: Started dispatcher: /sbin/audispd pid: 13192
+Jan  3 05:46:06 Nth1OCS1-0-0-5 auditd[17322]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:46:06 Nth1OCS1-0-1-5 auditd[13190]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:49:18 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 05:49:18 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 05:56:32 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 05:56:32 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-0-4 auditd[9591]: The audit daemon is exiting.
+Jan  3 05:56:34 Nth1OCS1-0-1-1 auditd[28505]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-0-13 auditd[10523]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-0-5 auditd[17322]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-0-12 auditd[13378]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-1-9 auditd[13884]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-1-12 auditd[9974]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-0-11 auditd[25393]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-1-10 auditd[19226]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-0-14 auditd[11726]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-1-5 auditd[13190]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-1-6 auditd[11837]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-0-3 auditd[19132]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-1-4 auditd[12639]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-1-2 auditd[4254]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-1-11 auditd[12810]: The audit daemon is exiting.
+Jan  3 05:58:32 Nth1OCS1-0-0-6 auditd[30766]: The audit daemon is exiting.
+Jan  3 05:56:34 Nth1OCS1-0-1-1 auditd[28749]: Started dispatcher: /sbin/audispd pid: 28751
+Jan  3 05:58:32 Nth1OCS1-0-0-4 auditd[9825]: Started dispatcher: /sbin/audispd pid: 9827
+Jan  3 05:58:32 Nth1OCS1-0-0-13 auditd[10746]: Started dispatcher: /sbin/audispd pid: 10748
+Jan  3 05:58:32 Nth1OCS1-0-0-12 auditd[13634]: Started dispatcher: /sbin/audispd pid: 13636
+Jan  3 05:58:32 Nth1OCS1-0-0-5 auditd[17553]: Started dispatcher: /sbin/audispd pid: 17555
+Jan  3 05:58:32 Nth1OCS1-0-1-10 auditd[19447]: Started dispatcher: /sbin/audispd pid: 19449
+Jan  3 05:58:32 Nth1OCS1-0-0-11 auditd[25617]: Started dispatcher: /sbin/audispd pid: 25619
+Jan  3 05:58:32 Nth1OCS1-0-1-9 auditd[14113]: Started dispatcher: /sbin/audispd pid: 14115
+Jan  3 05:58:32 Nth1OCS1-0-1-5 auditd[13413]: Started dispatcher: /sbin/audispd pid: 13415
+Jan  3 05:58:32 Nth1OCS1-0-1-6 auditd[12060]: Started dispatcher: /sbin/audispd pid: 12062
+Jan  3 05:58:32 Nth1OCS1-0-1-12 auditd[10197]: Started dispatcher: /sbin/audispd pid: 10199
+Jan  3 05:58:32 Nth1OCS1-0-1-4 auditd[12862]: Started dispatcher: /sbin/audispd pid: 12864
+Jan  3 05:58:32 Nth1OCS1-0-0-3 auditd[19356]: Started dispatcher: /sbin/audispd pid: 19358
+Jan  3 05:58:32 Nth1OCS1-0-0-14 auditd[11949]: Started dispatcher: /sbin/audispd pid: 11951
+Jan  3 05:58:33 Nth1OCS1-0-1-2 auditd[4479]: Started dispatcher: /sbin/audispd pid: 4481
+Jan  3 05:58:32 Nth1OCS1-0-0-6 auditd[30996]: Started dispatcher: /sbin/audispd pid: 30998
+Jan  3 05:58:32 Nth1OCS1-0-1-11 auditd[13033]: Started dispatcher: /sbin/audispd pid: 13035
+Jan  3 05:56:34 Nth1OCS1-0-1-1 auditd[28749]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-0-4 auditd[9825]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-0-13 auditd[10746]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-0-12 auditd[13634]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-0-5 auditd[17553]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-1-10 auditd[19447]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-0-11 auditd[25617]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-1-9 auditd[14113]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:33 Nth1OCS1-0-1-5 auditd[13413]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-1-6 auditd[12060]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-1-12 auditd[10197]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-0-3 auditd[19356]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:33 Nth1OCS1-0-1-4 auditd[12862]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-0-14 auditd[11949]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:33 Nth1OCS1-0-1-2 auditd[4479]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-0-6 auditd[30996]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:32 Nth1OCS1-0-1-11 auditd[13033]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:33 Nth1OCS1-0-0-2 auditd[18757]: The audit daemon is exiting.
+Jan  3 05:58:33 Nth1OCS1-0-1-3 auditd[13537]: The audit daemon is exiting.
+Jan  3 05:58:33 Nth1OCS1-0-0-2 auditd[18980]: Started dispatcher: /sbin/audispd pid: 18982
+Jan  3 05:58:33 Nth1OCS1-0-1-3 auditd[13760]: Started dispatcher: /sbin/audispd pid: 13762
+Jan  3 05:58:33 Nth1OCS1-0-0-2 auditd[18980]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 05:58:34 Nth1OCS1-0-1-3 auditd[13760]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:01:33 Nth1OCS1-0-0-9 auditd: /sn/log/audit.log permissions should be 0600 or 0640
+Jan  3 06:01:33 Nth1OCS1-0-0-9 auditd: The audit daemon is exiting.
+Jan  3 06:01:35 Nth1OCS1-0-1-1 auditd[28749]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-11 auditd[25617]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-12 auditd[13634]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-1-10 auditd[19447]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-1-11 auditd[13033]: The audit daemon is exiting.
+Jan  3 06:03:33 Nth1OCS1-0-1-2 auditd[4479]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-3 auditd[19356]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-14 auditd[11949]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-6 auditd[30996]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-1-4 auditd[12862]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-4 auditd[9825]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-1-5 auditd[13413]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-13 auditd[10746]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-5 auditd[17553]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-0-2 auditd[18980]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-1-9 auditd[14113]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-1-12 auditd[10197]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-1-6 auditd[12060]: The audit daemon is exiting.
+Jan  3 06:03:32 Nth1OCS1-0-1-3 auditd[13760]: The audit daemon is exiting.
+Jan  3 06:01:35 Nth1OCS1-0-1-1 auditd[28924]: Started dispatcher: /sbin/audispd pid: 28926
+Jan  3 06:03:33 Nth1OCS1-0-0-11 auditd[25816]: Started dispatcher: /sbin/audispd pid: 25818
+Jan  3 06:03:33 Nth1OCS1-0-1-10 auditd[19647]: Started dispatcher: /sbin/audispd pid: 19649
+Jan  3 06:03:33 Nth1OCS1-0-0-12 auditd[13845]: Started dispatcher: /sbin/audispd pid: 13847
+Jan  3 06:03:33 Nth1OCS1-0-1-2 auditd[4679]: Started dispatcher: /sbin/audispd pid: 4681
+Jan  3 06:03:32 Nth1OCS1-0-0-4 auditd[10022]: Started dispatcher: /sbin/audispd pid: 10024
+Jan  3 06:03:33 Nth1OCS1-0-1-11 auditd[13233]: Started dispatcher: /sbin/audispd pid: 13235
+Jan  3 06:03:33 Nth1OCS1-0-0-14 auditd[12149]: Started dispatcher: /sbin/audispd pid: 12151
+Jan  3 06:03:33 Nth1OCS1-0-0-3 auditd[19556]: Started dispatcher: /sbin/audispd pid: 19558
+Jan  3 06:03:33 Nth1OCS1-0-1-4 auditd[13062]: Started dispatcher: /sbin/audispd pid: 13064
+Jan  3 06:03:33 Nth1OCS1-0-0-6 auditd[31189]: Started dispatcher: /sbin/audispd pid: 31191
+Jan  3 06:03:33 Nth1OCS1-0-1-5 auditd[13613]: Started dispatcher: /sbin/audispd pid: 13615
+Jan  3 06:03:33 Nth1OCS1-0-0-13 auditd[10956]: Started dispatcher: /sbin/audispd pid: 10958
+Jan  3 06:03:33 Nth1OCS1-0-1-9 auditd[14313]: Started dispatcher: /sbin/audispd pid: 14315
+Jan  3 06:03:33 Nth1OCS1-0-0-5 auditd[17746]: Started dispatcher: /sbin/audispd pid: 17748
+Jan  3 06:03:32 Nth1OCS1-0-0-2 auditd[19182]: Started dispatcher: /sbin/audispd pid: 19184
+Jan  3 06:03:33 Nth1OCS1-0-1-6 auditd[12260]: Started dispatcher: /sbin/audispd pid: 12262
+Jan  3 06:03:33 Nth1OCS1-0-1-3 auditd[13960]: Started dispatcher: /sbin/audispd pid: 13962
+Jan  3 06:03:32 Nth1OCS1-0-1-12 auditd[10397]: Started dispatcher: /sbin/audispd pid: 10399
+Jan  3 06:01:35 Nth1OCS1-0-1-1 auditd[28924]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-11 auditd[25816]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-10 auditd[19647]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-12 auditd[13845]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-2 auditd[4679]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-4 auditd[10022]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-11 auditd[13233]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-14 auditd[12149]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-3 auditd[19556]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-4 auditd[13062]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-6 auditd[31189]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-5 auditd[13613]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-13 auditd[10956]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-9 auditd[14313]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-5 auditd[17746]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-0-2 auditd[19182]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-6 auditd[12260]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-12 auditd[10397]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Jan  3 06:03:33 Nth1OCS1-0-1-3 auditd[13960]: Init complete, auditd 2.3.7 listening for events (startup state enable)
+Nth1OCS1-0-0-9:/root-# chmod 600 /snlog/audit.log
+Nth1OCS1-0-0-9:/root-# service auditd status
+auditd is stopped
+Nth1OCS1-0-0-9:/root-# service auditd start
+Starting auditd: /etc/init.d/auditd: line 60: warning: setlocale: LC_TIME: cannot change locale (en_US): No such file or directory
+/etc/init.d/auditd: line 61: warning: setlocale: LC_ALL: cannot change locale (en_US): No such file or directory
+/etc/init.d/auditd: line 66: warning: setlocale: LC_ALL: cannot change locale (en_US): No such file or directory
+/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US): No such file or directory
+                                                           [  OK  ]
+Nth1OCS1-0-0-9:/root-# subshl
+USLI TERMINAL IN SERVICE.
+Copyright (c) 2016 Nokia - All rights reserved.
+< init:proc=AUDITMON,level=1,machine=0-0-9; PF
+   +++ NTH1OCS1 2025-01-03 06:14:24 MAINT /IN014 #017898 0-0-9 >
+M  INIT PROC=AUDITMON LEVEL=1 MACHINE=0-0-9 REQUEST SUCCESSFULLY ACKNOWLEDGED
+   END OF REPORT #017898++-
+< op:init,proc=AUDITMON; PF
+   +++ NTH1OCS1 2025-01-03 06:14:35 MAINT /IN036 #017909 0-0-9 >
+M  OP INIT PROC=AUDITMON IN PROGRESS
+
+      PROCESS STATUS INFORMATION
+
+         PROC       PID  TYPE TMR    STEP     STATE   RSTRT SOFTCHK GQ  NODE
+   --------------- ----- ---- --- ---------- -------- ----- ------- -- ------
+          AUDITMON 25057  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-9
+          AUDITMON 17921  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-1
+          AUDITMON 19612  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-4
+          AUDITMON 26777  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-5
+          AUDITMON  5488  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-10
+          AUDITMON 28662  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-12
+          AUDITMON 24070  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-12
+          AUDITMON 11848  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-11
+          AUDITMON 27080  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-11
+          AUDITMON 22162  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-2
+          AUDITMON 22148  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-2
+          AUDITMON 26988  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-3
+          AUDITMON 26021  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-4
+          AUDITMON 25216  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-6
+          AUDITMON 25399  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-14
+          AUDITMON 24352  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-13
+          AUDITMON 11856  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-6
+          AUDITMON  2511  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-3
+          AUDITMON 27269  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-9
+          AUDITMON 26316  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-1-1
+
+   END OF REPORT #017909++-
+   +++ NTH1OCS1 2025-01-03 06:14:35 MAINT /IN036 #017910 0-0-9 >
+M  OP INIT PROC=AUDITMON IN PROGRESS
+
+      PROCESS STATUS INFORMATION
+
+         PROC       PID  TYPE TMR    STEP     STATE   RSTRT SOFTCHK GQ  NODE
+   --------------- ----- ---- --- ---------- -------- ----- ------- -- ------
+          AUDITMON 30362  NC   90    STEADY  RUNNING   ALW   ALW    NA 0-0-5
+
+   END OF REPORT #017910++-
+   +++ NTH1OCS1 2025-01-03 06:14:35 MAINT /IN005 #017911 0-0-9 >
+M  OP INIT PROC=AUDITMON COMPLETED
+   END OF REPORT #017911++-
+< quit;

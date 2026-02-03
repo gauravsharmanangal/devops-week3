@@ -1,0 +1,267 @@
+psql -U scncraft
+ \q (for exit)
+select * from S7_SCCP_GTT_TRANS;    (for GT data)
+truncate table S7_SCCP_GTT_TRANS
+select * from S7_SCCP_GTT_TRANS where p_s_dig='9451999968';
+insert into S7_SCCP_GTT_TRANS values ('1','91','9478698247','N','6',0);
+delete from S7_SCCP_GTT_TRANS where p_s_dig='9478698247';
+delete from S7_SCCP_GTT_TRANS where out_final_trans='N';
+
+update S7_SCCP_GTT_TRANS set pri_dest_idx='6' where p_s_dig='9451999968';
+
+
+
+select count(*) from SPA_ENWTPPS29C_P7C9A2ECB;
+psql -U scncraft << qq
+	
+\copy (SELECT * FROM SPA_ENWTPPS29C_P8D088596) to '/u/ainet/Usage_tariff.csv' with csv header
+\q
+qq
+select count(*) from SPA_ENWTPPS29C_PA39541A3;
+
+-------------to take GTT dump from atca--------------
+3.7.6----RCV menu
+psql -U scncraft << qq
+	
+\copy (SELECT * FROM S7_SCCP_GTT_TRANS) to '/u/ainet/S7_SCCP_GTT_TRANS.csv' with csv header
+\q
+qq
+-----------to import GTT --------------
+path atca1 mated--/u/ainet/
+./GT_import.sh
+cat GT_import.sh
+psql -U scncraft << qq
+
+truncate table S7_SCCP_GTT_TRANS;
+\copy S7_SCCP_GTT_TRANS from '/u/ainet/S7_SCCP_GTT_TRANS.csv' DELIMITER ',' csv header
+\q
+qq
+---------------------------------
+select DBTBLNAME from svcdatatype where SDTNAME='SIM_RTDB';
+select count(*) from S04_SIM_RTDB where SIM_STATE='DeActive';
+desc S04_SIM_RTDB
+select SIM_KEY,COSP_ID,SCP_NAME from S04_SIM_RTDB;
+
+SQL> select count(*) from S04_SIM_RTDB where SIM_STATE='DeActive';
+
+  COUNT(*)
+----------
+    566461
+
+SQL> select count(*) from S09_SIM_RTDB;
+
+  COUNT(*)
+----------
+  39766261
+
+SQL> select count(*) from S08_ROUTSIM ;
+
+  COUNT(*)
+----------
+  39764762
+  
+GPRSSIM05--39765201
+
+sqlplus -h10.147.136.56 -usms -pnsms123 "select count(*) from S08_ROUTSIM ;"
+
+
+------
+desc svcobj;
+select distinct OWNERNAME from svcobj;
+select SONAME from svcobj where SOID=1012056572;
+
+SQL>  select * FROM S08_ROUTSIM where SOID='1012056572'
+  2  ;
+
+  COUNT(*)
+----------
+        13
+
+select * from tab where tabtype like 'TABLE' and tname like 'RTDB';
+select * from tab where tabtype like 'TABLE' and tname like '%DISCOUNT%';
+SQL> select * FROM S08_ROUTSIM where SOID='1012062058';
+
+select * FROM S08_ROUTSIM where MSISDN = '917599312805';
+select ACCOUNT_ID from S04_SIM_RTDB where SIM_KEY='917599312805';
+delete FROM S08_ROUTSIM where MSISDN = '917599312805';
+select SIM_KEY,SCP_NAME,ACCOUNT_ID,PROMO_TARIFF_COSP_ID_1,PROMO_TARIFF_COSP_ID_2,PROMO_TARIFF_COSP_ID_3,PROMO_TARIFF_COSP_ID_4,PROMO_TARIFF_COSP_ID_5 from S04_SIM_RTDB where PROMO_TARIFF_COSP_ID_3='PTPDCO198';
+
+select count(SIM_KEY) from S04_SIM_RTDB where SIM_KEY='919456384680';
+select count(*) from S04_SIM_RTDB where ACCOUNT_ID='1002' ;
+desc S04_SIM_RTDB
+
+With the Partitioning option
+
+SQL> select count(*) from S04_SIM_RTDB where PROMO_TARIFF_COSP_ID_3='PTPDCO198';
+
+  COUNT(*)
+----------
+      1490
+
+SQL> select count(*) from S04_SIM_RTDB where PROMO_TARIFF_COSP_ID_2='PTPDCO198';
+
+
+  COUNT(*)
+----------
+        47
+
+SQL> SQL> select count(*) from S04_SIM_RTDB where PROMO_TARIFF_COSP_ID_4='PTPDCO198';
+
+  COUNT(*)
+----------
+        12
+
+
+
+
+
+
+ SOID      SOGID MSISDN                   HOST_SCP_NAME   TARIFF_PLANLIFE_CYCLE_STATE         PROVIDER_I COSP_ID         LOCATION_1 SERVICE_TYPE_1
+------------------------ ---------- --------------- ---------- --------------
+ALTERNATIVE_HOS
+---------------
+      SOID		SOGID	 MSISDN				HOST_SCP_NAME		TARIFF_PLANLIFE_CYCLE_STATE	 PROVIDER_I COSP_ID	LOCATION_1	SERVICE_TYPE_1
+1012056572        162 	917650077771             NTH1OCS4                         1000       COSP7021                 0              0
+
+
+1012056572        162 	918278002223             NTH1OCS4                         1004       COSP8021                 0              0
+-------------------------------------------
+
+
+---------------to check matrlize view-----------------------------
+SQL>  alter session set nls_date_format='DD/MM/RRRR HH24:MI:SS';
+
+Session altered.
+
+SQL> select mview_name, LAST_REFRESH_DATE from user_mviews;
+
+
+
+
+
+#############to sdearch number in esm routesim table###############
+
+gui ---->serviceobject-->dmyviewversion 29a-->cat(routesim)---Name(root)--search
+######filemap######
+
+servicedatafile--->filemap--->routeadd and check the fields
+to make file at below path on putty-----
+/sms/smsvar/bulk/in   (file need to create here .csv )
+vi filename.csv
+917056043934,NTH1OCS4,1004,COSP8021
+to run file map
+servicedatafile--->click on any completed order-->copy--->add all the fields
+
+----for test format table addtion format----
+note make insure copy wtpps completed datafile
+TEST;ENGLISH;0;"";"";"and recharge use BSNL selfcare app https://bit.ly/3BxvGDo";
+---------
+
+
+--------------------------------------omni switch commands-------------------------------------------------------------------------
+Show interfaces status 
+show interfaces 1/30
+interfaces 1/30 admin up
+interfaces 1/30 admin down
+interfaces 1/30  no l2 statistics
+write memory flash-synchro
+show configuration snapshot ---to check 
+-------------router command---------
+admin display-config    -----to check configration dump-
+-----------------------------
+WZ2eSM-0-1-0:/eSMback1-# cat dump_file.sql
+SET HEAD OFF
+SET FEEDBACK OFF
+SET TERMOUT OFF
+SET PAGESIZE 0
+COLUMN today_ddmmyyyy_col NEW_VALUE today_ddmmyyyy
+SELECT TO_CHAR ( SYSDATE, 'DDMMYYYY') AS today_ddmmyyyy_col FROM    dual;
+SPOOL  /eSMback1/S08_ROUTSIM_DUMP_&today_ddmmyyyy..txt
+select MSISDN from S08_ROUTSIM where MSISDN like '91%';
+SPOOL OFF
+exit;
+
+
+SET HEAD OFF
+SET FEEDBACK OFF
+SET TERMOUT OFF
+SET PAGESIZE 0
+COLUMN today_ddmmyyyy_col NEW_VALUE today_ddmmyyyy
+SELECT TO_CHAR ( SYSDATE, 'DDMMYYYY') AS today_ddmmyyyy_col FROM    dual;
+SPOOL  /db05/archive_pre_logs/S04_SIM_RTDB_&today_ddmmyyyy..txt
+select SIM_KEY,ACCOUNT_ID from S04_SIM_RTDB;
+SPOOL OFF
+exit;
+
+select SIM_KEY,ACCOUNT_ID from S04_SIM_RTDB
+
+
+$ cat export.sql
+SET WRAP OFF
+SET colsep ,
+SET HEAD OFF
+SET FEEDBACK OFF
+set trimspool on
+set numwidth  5
+SET TERMOUT OFF
+spool CALLED_PARTY_NUMBER.csv append
+select ARRAY_INDEX,HOME_ROAMING_NETWORK,DESTINATION_GROUP_ID,CALLED_PARTY_NUMBER_DIGIT,CALL_ZONE_LABEL,CALL_FORWARD_ZONE_LABEL,DESTINATION_SVC_CATEGORY from S01_Called_Party_Number;
+spool off;
+exit
+
+select ARRAY_INDEX,HOME_ROAMING_NETWORK,DESTINATION_GROUP_ID,CALLED_PARTY_NUMBER_DIGIT,CALL_ZONE_LABEL,CALL_FORWARD_ZONE_LABEL,DESTINATION_SVC_CATEGORY from S01_Called_Party_Number where rownum=1;
+
+select * from S01_Called_Party_Number where CALLED_PARTY_NUMBER_DIGIT=czUSACANADA;
+      SOID      SOGID ARRAY_INDEX INDX                                       H DESTINATION_GRO CALLED_PARTY_NUMBER_DIGI CALL_ZONE_LABEL CALL_FORWARD_ZO DESTI
+---------- ---------- ----------- ------------------------------------------ - --------------- ------------------------ --------------- --------------- -----
+
+Array Index,Home Roaming Network,Destination Group ID,Called Party Number Digit,Call Zone Label,Call Forward Zone Label,Destination Svc Category 
+1,Both,ALL,001,czUSACANADA,CFUSACANADA, 
+select DBTBLNAME from svcdatatype where SDTNAME='CALLED_PARTY_NUMBER_ZONE';
+
+select * from tab where tabtype like 'TABLE' and tname like '%Usage%';
+select * from S03_DISCOUNT_RATE_TBL_N where rownum<2;
+select count(*) from S03_USAGE_TARIFF_N_TBL;
+cat abc.sql
+SET WRAP OFF
+SET colsep ,
+SET HEAD OFF
+SET FEEDBACK OFF
+set trimspool on
+set numwidth  25
+SET TERMOUT OFF
+spool DISCOUNT_RATE.csv append
+select * from S03_DISCOUNT_RATE_TBL_N;
+spool off;
+exit
+
+
+/opt/oracle/product/11.2.0/bin/sqlplus sms/nsms123@NSMS @/db05/archive_pre_logs/dump_file.sql
+
+WZ2eSM-0-1-0:/eSMback1-# cat dump_file.sh
+##
+/opt/oracle/product/11.2.0/bin/sqlplus sms/nsms123@NSMS @/sms/ajay/dump_file.sql
+##
+chmod 777  /sms/ajay/*.txt
+
+to execute the script:
+WZ2eSM-0-1-0:/root-# (. /sms/smsapp/scripts/smsrtenv; /sms/ajay/dump_file.sh) > /dev/null 2>&1
+
+
+
+
+
+
+cd /opt/omni/bin
+./omnidb -session
+./omnidb -session 2022/11/30-3 -report
+
+to make poor to good
+cd /opt/omni/bin
+./omnimm -reset_poor 0a938836:54ec6917:443c:0001
+
+if any drive is yellow ----untick diable device
+
+fair case ----pool-->right click on yellow pool ---->properties --->condition tab   (change the valid 
+
+919530439049

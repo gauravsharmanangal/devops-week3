@@ -1,0 +1,146 @@
+------------------------------------to capture pcap in selfcare----------------
+
+/usr/sbin/tshark -i any -b filesize:1000000 -w /dev/shm/Trace_cvps115_2.pcap
+
+/usr/sbin/tshark -i any -b filesize:1000000 -w /dev/shm/Trace_cvpl115_2.pcap
+
+
+9412751937
+ 
+
+USSD Search String:
+
+ 9412000220 alok sdo
+
+gsm_map.address.digits == "919412751937"
+
+-------------------------to change sms content---------------------
+ussdgw----message comonent----
+------------------
+Current Logs:
+
+/osp/local/var/log
+
+ ussdgw21_sep.alarms---ussd cdrs
+
+Old Logs:
+
+/osp/local/var/selfcare_logs
+
+
+find ./ -type f -name "*.log" -size +1M  -mtime +5 -exec gzip {} \;
+
+919443413802
+
+---------------to check materlize view on 116 & 117----------- 
+dbs ussdgw
+1. slee/ussdgw
+Which DB to connect ?
+1. SHMDB(P)
+2. ORACLE
+Enter the Nb correponding to the DB type : 2
+Error accessing PRODUCT_USER_PROFILE
+Warning:  Product user profile information not loaded!
+You may need to run PUPBLD.SQL as SYSTEM
+
+SQL>  alter session set nls_date_format='DD/MM/RRRR HH24:MI:SS';
+
+Session altered.
+
+SQL> select mview_name, LAST_REFRESH_DATE from user_mviews;
+---------to checks alarms on selfcare--------
+#hpacucli
+--> ctrl all show config
+--> ctrl all show status
+--> ctrl all show config detail
+exit
+
+
+-------------------------
+
+STEPS   FOR  TAKING   FS_BACKUP  :
+step 1 :-  /osp/local/bin/bkpmod.sh -xd
+Step 2 :- 
+root# find / -mount -type f -name exclude_from_fs_backup
+root# find /var -mount -type f -name exclude_from_fs_backup
+Step 3 :- /osp/local/bin/bkpmod.sh -xs
+Step 4 :-
+nohup /osp/local/bin/bkp_fs.sh FILESET ALL mcp1:/ufs/osp_bkp_db &
+To schedule from crontab:
+
+0 22 20 * * /osp/local/bin/bkp_fs.sh FILESET ALL mcp1:/ufs/osp_bkp_db.
+
+------------------------
+
+sepman -d stop    (to stop defence)
+sepman -d start  
+sepman -t "*ussdgw*"  (to stop sep process)
+sepman -s "*wma-apache*"
+
+
+------------------------------------------
+init:proc=SCTPSCH,level=1,ucl;
+
+init:proc=STSCH,level=1,ucl;
+
+init:proc=S7SCH,level=1,ucl;
+
+ 
+
+init:proc=OSPSCH01,level=1,ucl;
+
+init:proc=OSPSCH02,level=1,ucl;
+
+init:proc=OSPSCH03,level=1,ucl;
+
+init:proc=OSPSCH04,level=1,ucl;
+
+init:proc=OSPSCH05,level=1,ucl;
+
+init:proc=OSPSCH06,level=1,ucl;
+
+init:proc=OSPSCH07,level=1,ucl;
+
+init:proc=OSPSCH08,level=1,ucl;
+
+init:proc=OSPSCH09,level=1,ucl;
+
+init:proc=OSPSCH10,level=1,ucl;
+
+init:proc=OSPSCH11,level=1,ucl;
+
+init:proc=OSPSCH12,level=1,ucl;
+
+init:proc=OSPSCH13,level=1,ucl;
+
+init:proc=OSPSCH14,level=1,ucl;
+
+init:proc=OSPSCH15,level=1,ucl;
+
+init:proc=OSPSCH16,level=1,ucl;
+
+ 
+  PROC       PID  TYPE TMR    STEP     STATE   RSTRT SOFTCHK  NODE  GQ
+   --------------- ----- ---- --- ---------- -------- ----- ------- ------ --
+              MSGH  7454  CC   90    STEADY  RUNNING   ALW   ALW    as002  NA
+           MHRPROC  7455  PC   30    STEADY  RUNNING   ALW   ALW    as002  NA
+         MHGDPROC1  7456  PC   30    STEADY  RUNNING   ALW   ALW    as002  NA
+         FTMOUNTER  7457  IC  900    STEADY  RUNNING   ALW   ALW    as002  NA
+             DBMON  8013  IC   90    STEADY  RUNNING   ALW   ALW    as002  NA
+            DBSYNC  8014  NC   90    STEADY  RUNNING   ALW   ALW    as002  Y
+               DBI  8015  IC   90    STEADY  RUNNING   ALW   ALW    as002  Y
+           DBIhprA  8016  IC   90    STEADY  RUNNING   ALW   ALW    as002  NA
+           DBIhprB  8017  IC   90    STEADY  RUNNING   ALW   ALW    as002  NA
+              CSOP  8018  NC   90    STEADY  RUNNING   ALW   ALW    as002  Y
+           AINETDB  8019  NC  180    STEADY  RUNNING   ALW   ALW    as002  NA
+            RCPERM  8020  NC    0    STEADY  RUNNING   ALW   ALW    as002  NA
+              RCDV  8021  NC   90    STEADY  RUNNING   ALW   ALW    as002  NA
+             S7SCH  8022  PC   32    STEADY  RUNNING   ALW   ALW    as002  NA
+            MUXSCH  8023  PC   32    STEADY  RUNNING   ALW   ALW    as002  Y
+             STSCH  8024  PC   32    STEADY  RUNNING   ALW   ALW    as002  NA
+           SCTPSCH  8025  PC   32    STEADY  RUNNING   ALW   ALW    as002  NA
+             SPMAN  8026  IC   60    STEADY  RUNNING   ALW   ALW    as002  Y
+              MEAS  8027  NC   90    STEADY  RUNNING   ALW   ALW    as002  Y
+            MEASMT  8028  NC   90    STEADY  RUNNING   ALW   ALW    as002  NA
+
+***********************************************

@@ -1,0 +1,50 @@
+
+export ORACLE_SID=S69G00
+dbsql "sqlplus '/ as sysdba'"
+
+select * from dba_jobs_running;
+select * from dba_jobs;
+
+
+
+S04_SIM_RTDB
+MLOG$_S04_SIM_RTDB
+
+
+select count(*) from S04_SIM_RTDB;
+select count(*) from MLOG$_S04_SIM_RTDB;
+select min(SNAPTIME$$),max(SNAPTIME$$) from MLOG$_S04_SIM_RTDB;
+
+
+
+select segment_name,segment_type,bytes/1024/1024 MB from dba_segments where segment_type='TABLE' and segment_name='MLOG$_S04_SIM_RTDB';
+
+
+export ORACLE_SID=S69G00
+ 
+dbsql "sqlplus '/ as sysdba'"
+ 
+select * from dba_jobs_running;
+ 
+select * from dba_jobs;
+ 
+select * from dba_jobs where job=162;
+ 
+select LOG_USER,LAST_DATE,LAST_SEC,THIS_DATE,THIS_SEC,NEXT_DATE,NEXT_SEC from dba_jobs where job=162;
+ 
+alter session set nls_date_format='DD/MM/RRRR HH24:MI:SS';
+ 
+select mview_name, LAST_REFRESH_DATE from user_mviews;
+ 
+select count(*) from S04_SIM_RTDB;
+ 
+select count(*) from MLOG$_S04_SIM_RTDB;
+ 
+select min(SNAPTIME$$),max(SNAPTIME$$) from MLOG$_S04_SIM_RTDB;
+ 
+
+ 
+sqlplus / as sysdba
+ 
+select segment_name,segment_type,bytes/1024/1024 MB from dba_segments where segment_type='TABLE' and segment_name='MLOG$_S04_SIM_RTDB';
+ 

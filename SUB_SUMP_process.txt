@@ -1,0 +1,1321 @@
+firt check the entry in 
+MIS on all MISDB 
+SELECT * FROM MIS_CDR_TABLE_INFO;  ----for add current date entry need to run startup.sh script on rptuser of MISDB
+
+Step 1: check the CSV file generated or not on below paths
+after 7:30AM
+
+/misdb1/reporting-apps-data1/CSVssdump/ csv --->FMCC -->java module -->status 3 -->
+/misdb2/reporting-apps-data1/CSVssdump
+
+
+/misdb01/reporting-apps-data1/CSVssdumpbackup  --->4 --->dummy & csv to fact table 
+/misdb02/reporting-apps-data1/CSVssdumpbackup
+
+
+/RTDB_DUMP/dump/Merged/
+/RTDB_DUMP/dump/Merged/backup/
+
+before running 1st script 1 table entry need to deleted if its present in table level entry otherwise no need to delete any entry from table of MISDB06 CCMIS DB level
+
+status will be 1/2 in table level which means dump generation incomplete.
+status 4 means dump generated successfully & file can be seen either /misdb01/reporting-apps-data1/CSVssdump/ or /misdb01/reporting-apps-data1/CSVssdumpbackup/
+
+mysql> select * from MIS_SSD_DUMP_STATUS where date(TIMESTAMP)=date(NOW());                                                                                                                    
++---------------------+--------+--------------------------------+---------------------------------------------------+-------------------------------------------------------+-------------+--------------------+----------+-------------+-----------------+
+| TIMESTAMP           | STATUS | REMOTE_FILENAME                | LOCAL_FILENAME                                    | CSV_FILENAME                                          | REMOTE_IP   | IS_REMOTE_LOCATION | SCP_NAME | IN_GROUP_ID | IN_GROUP_STATUS |
++---------------------+--------+--------------------------------+---------------------------------------------------+-------------------------------------------------------+-------------+--------------------+----------+-------------+-----------------+
+| 2021-02-20 02:32:32 |      4 | SubscriberDump_20210220.csv.gz | SubscriberDump_20210220_20022021023007_IN12.csv-1 | CSV_SubscriberDump_20210220_20022021023007_IN12.csv-1 | 10.128.1.11 | Primary            | IN12     | 1           | 1               |   ---MISDB01 Dump related table entry
+| 2021-02-20 03:11:49 |      4 | SubscriberDump_20210220.csv.gz | SubscriberDump_20210220_20022021030737_IN11.csv-3 | CSV_SubscriberDump_20210220_20022021030737_IN11.csv-3 | 10.128.1.8  | Primary            | IN11     | 3           | 1               |   ---MISDB02 Dump related table entry
++---------------------+--------+--------------------------------+---------------------------------------------------+-------------------------------------------------------+-------------+--------------------+----------+-------------+-----------------+
+2 rows in set (0.02 sec)
+
+delete table entry from below table for ATCA-2:
+delete from MIS_SSD_DUMP_STATUS where date(TIMESTAMP)=date(NOW()) and IN_GROUP_ID='1';
+
+delete table entry from below table for ATCA-1:
+delete from MIS_SSD_DUMP_STATUS where date(TIMESTAMP)=date(NOW()) and IN_GROUP_ID='3';
+
+
+
+
+
+
+
+1st script: to download the subscriberdump from ATCA & CSV fine generation on MISDB's.
+#Subscriber dump CSV generation   ---rptuser
+30 02 * * * sh /opt/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /opt/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log 2>&1
+2:30 to 3Hrs
+
+manual running script:
+MISDB1 :-	nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+MISDB2 :-	nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+MISDB3 :-	nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+MISDB4 :-	nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+MISDB5 :-	nohup sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+
+
+#nohup sh /opt/reporting-apps/IN-SSDDumpProcessor/SSDDumper.sh >> /opt/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log &
+
+tail -f /opt/reporting-apps/IN-SSDDumpProcessor/Logs/SSDDumper.log
+
+Check file comming on below path :-
+
+		cd /misdb1/reporting-apps-data1/CSVssdump
+		cd /misdb2/reporting-apps-data1/CSVssdump
+		cd /misdb3/reporting-apps-data1/CSVssdump
+		cd /misdb4/reporting-apps-data1/CSVssdump
+		cd /misdb5/reporting-apps-data1/CSVssdump
+
+also you can check table in below 
+
+SELECT * FROM CC_MIS.MIS_SSD_DUMP_STATUS ORDER BY TIMESTAMP DESC LIMIT 10;
+
+
+
+1st script success logs:
+
+20-08-2025 02:30:03 INFO  DBCacheObj.java:68: Initializing DB Manager.....
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'conn_pool_class' in file: 'DBProperties.properties' is 'com.mysql.jdbc.jdbc2.optional.MysqlDataSource'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'test_sql' in file: 'DBProperties.properties' is 'select now()'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'db_down_err_msgs' in file: 'DBProperties.properties' is 'nested exception'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'property_names' in file: 'DBProperties.properties' is 'url,user,password'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'DB1_url' in file: 'DBProperties.properties' is 'jdbc:mysql://10.128.1.159:3307/CC_MIS'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'DB1_user' in file: 'DBProperties.properties' is 'misbsnl'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'DB1_password' in file: 'DBProperties.properties' is 'misbsnl'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'DB2_url' in file: 'DBProperties.properties' is 'jdbc:mysql://10.128.1.158:3307/CC_MIS'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'DB2_user' in file: 'DBProperties.properties' is 'misbsnl'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'DB2_password' in file: 'DBProperties.properties' is 'misbsnl'
+20-08-2025 02:30:03 INFO  AbstractDBConn.java:129: Value for key : 'DB3_url' in file: 'DBProperties.properties' is 'null'
+20-08-2025 02:30:04 INFO  DBCacheObj.java:78: Successfully Initialized DB Manager
+20-08-2025 02:30:04 INFO  ConfigDATA.java:38: EventResultMap is loading
+20-08-2025 02:30:05 INFO  ConfigDATA.java:57: SQL :select PROVIDER_ID_CODE,CIRCLE_ID from MIS_PROVIDER_ID_CIRCLE_MAPPING
+20-08-2025 02:30:05 INFO  ConfigDATA.java:217: EventResultMap is loading
+20-08-2025 02:30:05 INFO  ConfigDATA.java:231: SQL :select IN_NAME,ACTIVE_CIRCLE_ID from SSD_DUMP_ACTIVE_PASSIVE_CIRCLE_MAPPING
+20-08-2025 02:30:05 INFO  ConfigDATA.java:274: GroupIdMap is loading
+20-08-2025 02:30:05 INFO  ConfigDATA.java:288: SQL :select IN_NAME,GROUP_ID from SSD_DUMP_ACTIVE_PASSIVE_CIRCLE_MAPPING
+20-08-2025 02:30:06 INFO  ConfigDATA.java:112: SQL :select count(*) as cnt from MIS_CONFIG_SSD_DUMPER_FIELD_MAPPING
+20-08-2025 02:30:06 INFO  ConfigDATA.java:169: SQL :SELECT SEQ_ID,IN_COLUMN_NAME,CDR_COLUMN_NAME,IS_ENABLED,SSD_DUMP_FIELD_SEQNO FROM MIS_CONFIG_SSD_DUMPER_FIELD_MAPPING order by seq_id
+20-08-2025 02:30:06 INFO  Globals.java:65: Loading System properties.....
+20-08-2025 02:30:06 INFO  Globals.java:67: Successfully loaded System Properties
+IN Name:: IN12
+20-08-2025 02:30:06 INFO  DownloadFile.java:44: Number of Atca's::1Ip::10.128.1.11 port::21IN Name::IN12
+20-08-2025 02:30:06 INFO  DownloadProcessBO.java:60: Going to download the files from the IN::IN12
+20-08-2025 02:30:06 INFO  FTPClient.java:41: FTP client creating
+20-08-2025 02:30:06 INFO  FTPClient.java:50: Connecting to FTPServer as Host : 10.128.1.11 [timeout: 400000000 ms]
+20-08-2025 02:30:06 INFO  FTPClient.java:76: Login successful
+20-08-2025 02:30:06 INFO  DownloadProcessBO.java:73: Login successfull to 10.128.1.11Current Directory : /opt/sn
+20-08-2025 02:30:06 INFO  DownloadProcessBO.java:74: ***************************************************************************
+20-08-2025 02:30:06 INFO  DownloadProcessBO.java:76: Directory after changing path : /RTDB_DUMP/dump/Merged
+20-08-2025 02:30:06 INFO  DownloadProcessBO.java:97: FileName>>SubscriberDump_20250820IN Name::IN12 Original File Name::SubscriberDump_20250820.csv.gz and index is23
+20-08-2025 02:30:06 INFO  DownloadProcessBO.java:107: SubscriberDump_20250820File Not DownLoaded so We are Going to Download and IN Name::IN12
+20-08-2025 02:30:07 INFO  FileProcStatUpdDAO.java:190: sql::::::::SELECT  REMOTE_FILENAME FROM MIS_SSD_DUMP_STATUS where REMOTE_FILENAME='SubscriberDump_20250820.csv.gz' and SCP_NAME='IN12'
+20-08-2025 02:30:07 INFO  FileProcStatUpdDAO.java:197: SubscriberDump_20250820.csv.gzFile Not  Exixts in MIS_SSD_DUMP_STATUS 
+20-08-2025 02:30:07 INFO  DownloadProcessBO.java:125: IN Name::IN12GroupId::1
+20-08-2025 02:30:56 INFO  DownloadProcessBO.java:139: retValue:::true for SubscriberDump_20250820.csv.gz
+20-08-2025 02:30:56 INFO  DownloadProcessBO.java:141: SubscriberDump_20250820.csv.gz File downloaded to /misdb01/reporting-apps-data1/INssdumptemp// . total retry ::0
+20-08-2025 02:30:56 INFO  DownloadProcessBO.java:166: Intialdir with Name::/RTDB_DUMP/dump/Merged//SubscriberDump_20250820.csv.gz::: In Back Up Location::/RTDB_DUMP/dump/Merged/backup//SubscriberDump_20250820.csv.gz
+20-08-2025 02:30:56 INFO  DownloadProcessBO.java:168: isFileMovedtrue
+20-08-2025 02:30:56 INFO  FileCopyProcessBO.java:180: tmp.SubscriberDump_20250820_20082025023007_IN12.csv.gz-1going to copy  the file to Final  location as ::/misdb01/reporting-apps-data1/INssdumpinitial//SubscriberDump_20250820_20082025023007_IN12.csv.gz-1
+20-08-2025 02:30:57 INFO  FileCopyProcessBO.java:192: SubscriberDump_20250820_20082025023007_IN12.csv.gz-1::Copying  file to Final  location ::/misdb01/reporting-apps-data1/INssdumpinitial// is success
+20-08-2025 02:30:57 INFO  FileCopyProcessBO.java:205: SubscriberDump_20250820_20082025023007_IN12.csv.gz-1 file copying  to local back up location
+20-08-2025 02:30:58 INFO  SsdDumperFileOperationsBO.java:261: SubscriberDump_20250820_20082025023007_IN12.csv.gz-1 Going to Unzip the file & filePath::/misdb01/reporting-apps-data1/INssdumpinitial//
+20-08-2025 02:30:58 INFO  SsdDumperFileOperationsBO.java:276: finalcsvFileName::SubscriberDump_20250820_20082025023007_IN12.csv-1
+20-08-2025 02:31:56 INFO  SsdDumperFileOperationsBO.java:286: SubscriberDump_20250820_20082025023007_IN12.csv.gz-1 Is Zipped File Deletion ::true
+20-08-2025 02:31:56 INFO  FileProcStatUpdDAO.java:114: Going to Insert in MIS_CDR_DUMP_STATUS table::
+20-08-2025 02:31:56 INFO  FileProcStatUpdDAO.java:140: Inserted FileName Into DB MIS_SSD_DUMP_STATUS Table : SubscriberDump_20250820.csv.gz
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: backup file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join.pl file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join_ez.py file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join_wz.py file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join_wz.py_before_25102018 file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join_wz_new.py file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  FTPClient.java:114: Remote client disconnected
+20-08-2025 02:31:56 INFO  DownloadFile.java:60: falseStatus coming aftercompletion of Primary IN ::IN12
+20-08-2025 02:31:56 INFO  DownloadFile.java:63: Secondary Site is  enabled
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:60: Going to download the files from the IN::IN12
+20-08-2025 02:31:56 INFO  FTPClient.java:41: FTP client creating
+20-08-2025 02:31:56 INFO  FTPClient.java:50: Connecting to FTPServer as Host : 10.128.11.11 [timeout: 400000000 ms]
+20-08-2025 02:31:56 INFO  FTPClient.java:76: Login successful
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:73: Login successfull to 10.128.11.11Current Directory : /opt/sn
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:74: ***************************************************************************
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:76: Directory after changing path : /RTDB_DUMP/dump/Merged
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHCOSTV339_1 file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHNEWPERMIN60_3aug17 file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHNEWPERMIN60_3aug17_final file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHNEWPERMIN60_dump_29july file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHNEWPERMIN60_dump_29july_final file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHNEWPERSEC60_3Aug17 file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHNEWPERSEC60_3Aug17_final file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHNEWPERSEC60_dump_29july17 file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHNEWPERSEC60_dump_29july17_final file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHRMTMOFF_15feb18.dump file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHRMTMOFF_1Aug17 file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHRMTMOFF_1Aug17_final file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHRMTMON_1Aug17 file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MHRMTMON_1Aug17_final file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: MKS_PLAN file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:97: FileName>>SubscriberDump_20170208IN Name::IN12 Original File Name::SubscriberDump_20170208.csv.gz1 and index is23
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:104: SubscriberDump_20170208Is Not Processcing bacuase of the time stamp mismatch and time stamp of the file is::20170208 and IN Name::IN12
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:97: FileName>>SubscriberDump_20170225IN Name::IN12 Original File Name::SubscriberDump_20170225.csv.gz_old and index is23
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:104: SubscriberDump_20170225Is Not Processcing bacuase of the time stamp mismatch and time stamp of the file is::20170225 and IN Name::IN12
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:97: FileName>>SubscriberDump_20170418IN Name::IN12 Original File Name::SubscriberDump_20170418.csv and index is23
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:104: SubscriberDump_20170418Is Not Processcing bacuase of the time stamp mismatch and time stamp of the file is::20170418 and IN Name::IN12
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:97: FileName>>SubscriberDump_20200518IN Name::IN12 Original File Name::SubscriberDump_20200518.csv and index is23
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:104: SubscriberDump_20200518Is Not Processcing bacuase of the time stamp mismatch and time stamp of the file is::20200518 and IN Name::IN12
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: backup file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join.pl file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join_ez.py file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join_wz.py file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join_wz.py_before_25102018 file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: join_wz_new.py file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  DownloadProcessBO.java:218: startdt.py file is not starting with the prefix::SubscriberDump so we are not processcing the file
+20-08-2025 02:31:56 INFO  FTPClient.java:114: Remote client disconnected
+20-08-2025 02:31:56 ERROR DownloadFile.java:80: Downloading failure From Secondary IN::
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 1::::SIM_KEY
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 2::::ACCOUNT_ID
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 3::::COSP_ID
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 11::::VALID_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 13::::ERROR_INDICATOR
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 14::::PRIMARY_BALANCE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 22::::TIME_LAST_ACTIVATION
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 23::::TIME_LAST_RECHARGE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 26::::SIM_STATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 27::::SIM_STATE_TIME
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 30::::IMSI_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 32::::AUDIT_OG_SCREENING_COSP_ID
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 33::::AUDIT_IC_SCREENING_COSP_ID
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 38::::TOTAL_PRIMARY_OC
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 49::::SCP_NAME
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 55::::USAGE_COUNT_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 56::::USAGE_COUNT_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 57::::USAGE_COUNT_3
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 58::::USAGE_COUNT_4
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 59::::USAGE_COUNT_5
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 60::::USAGE_COUNT_6
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 61::::USAGE_COUNT_7
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 62::::USAGE_COUNT_8
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 63::::USAGE_COUNT_9
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 64::::USAGE_COUNT_10
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 66::::TARIFF_PLAN_COSP_ID
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 70::::RECHARGE_COUNT
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 77::::TIME_OF_SUSPENSION_FOR_RC
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 89::::SIM_CREDIT_EXPIRY_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 111::::LIFECYCLE_EXPIRY_DATE_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 112::::LIFECYCLE_EXPIRY_DATE_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 121::::PROMO_TARIFF_COSP_ID_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 122::::PROMO_TARIFF_PLAN_1_START
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 123::::PROMO_TARIFF_PLAN_1_END
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 124::::PROMO_TARIFF_PLAN1_STATUS
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 125::::PROMO_TARIFF_COSP_ID_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 126::::PROMO_TARIFF_PLAN_2_START
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 127::::PROMO_TARIFF_PLAN_2_END
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 128::::PROMO_TARIFF_PLAN2_STATUS
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 129::::PROMO_TARIFF_COSP_ID_3
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 130::::PROMO_TARIFF_PLAN_3_START
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 131::::PROMO_TARIFF_PLAN_3_END
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 132::::PROMO_TARIFF_PLAN3_STATUS
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 133::::PROMO_TARIFF_COSP_ID_4
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 134::::PROMO_TARIFF_PLAN_4_START
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 135::::PROMO_TARIFF_PLAN_4_END
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 136::::PROMO_TARIFF_PLAN4_STATUS
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 137::::PROMO_TARIFF_COSP_ID_5
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 138::::PROMO_TARIFF_PLAN_5_START
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 139::::PROMO_TARIFF_PLAN_5_END
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 140::::PROMO_TARIFF_PLAN5_STATUS
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 175::::FIRST_CALL_MADE_TIMESTAMP
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 178::::DISCOUNT_ID_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 179::::DISCOUNT_ID_1_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 180::::DISCOUNT_ID_1_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 181::::DISCOUNT_ID_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 182::::DISCOUNT_ID_2_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 183::::DISCOUNT_ID_2_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 184::::DISCOUNT_ID_3
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 185::::DISCOUNT_ID_3_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 186::::DISCOUNT_ID_3_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 187::::DISCOUNT_ID_4
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 188::::DISCOUNT_ID_4_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 189::::DISCOUNT_ID_4_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 190::::DISCOUNT_ID_5
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 191::::DISCOUNT_ID_5_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 192::::DISCOUNT_ID_5_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 193::::DISCOUNT_ID_6
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 194::::DISCOUNT_ID_6_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 195::::DISCOUNT_ID_6_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 196::::DISCOUNT_ID_7
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 197::::DISCOUNT_ID_7_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 198::::DISCOUNT_ID_7_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 199::::DISCOUNT_ID_8
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 200::::DISCOUNT_ID_8_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 201::::DISCOUNT_ID_8_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 202::::DISCOUNT_ID_9
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 203::::DISCOUNT_ID_9_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 204::::DISCOUNT_ID_9_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 205::::DISCOUNT_ID_10
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 206::::DISCOUNT_ID_10_START_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 207::::DISCOUNT_ID_10_END_DATE
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 258::::LAST_RECHARGE_AMOUNT
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 379::::END_USER_TYPOLOGY
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 449::::V2807_SPARE_COUNTER_6
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 619::::V2807_SPARE_FLAG_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 649::::COUNTER_ID_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 650::::COUNTER_STATUS_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 651::::LCOUNTER_VALUE_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 652::::START_DATE_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 653::::END_DATE_1
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 654::::COUNTER_ID_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 655::::COUNTER_STATUS_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 656::::LCOUNTER_VALUE_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 657::::START_DATE_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 658::::END_DATE_2
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 659::::COUNTER_ID_3
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 660::::COUNTER_STATUS_3
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 661::::LCOUNTER_VALUE_3
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 662::::START_DATE_3
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 663::::END_DATE_3
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 664::::COUNTER_ID_4
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 665::::COUNTER_STATUS_4
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 666::::LCOUNTER_VALUE_4
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 667::::START_DATE_4
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 668::::END_DATE_4
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 669::::COUNTER_ID_5
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 670::::COUNTER_STATUS_5
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 671::::LCOUNTER_VALUE_5
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 672::::START_DATE_5
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 673::::END_DATE_5
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 674::::COUNTER_ID_6
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 675::::COUNTER_STATUS_6
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 676::::LCOUNTER_VALUE_6
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 677::::START_DATE_6
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 678::::END_DATE_6
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 679::::DISCOUNT_ID_11
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 680::::DISCOUNT_ID_STATUS_11
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 681::::DISCOUNT_ID_VALUE_11
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 682::::DISCOUNT_ID_START_DATE_11
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 683::::DISCOUNT_ID_END_DATE_11
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 684::::DISCOUNT_ID_12
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 685::::DISCOUNT_ID_STATUS_12
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 686::::DISCOUNT_ID_VALUE_12
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 687::::DISCOUNT_ID_START_DATE_12
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 688::::DISCOUNT_ID_END_DATE_12
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 689::::DISCOUNT_ID_13
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 690::::DISCOUNT_ID_STATUS_13
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 691::::DISCOUNT_ID_VALUE_13
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 692::::DISCOUNT_ID_START_DATE_13
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 693::::DISCOUNT_ID_END_DATE_13
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 694::::DISCOUNT_ID_14
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 695::::DISCOUNT_ID_STATUS_14
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 696::::DISCOUNT_ID_VALUE_14
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 697::::DISCOUNT_ID_START_DATE_14
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 698::::DISCOUNT_ID_END_DATE_14
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 699::::DISCOUNT_ID_15
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 700::::DISCOUNT_ID_STATUS_15
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 701::::DISCOUNT_ID_VALUE_15
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 702::::DISCOUNT_ID_START_DATE_15
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 703::::DISCOUNT_ID_END_DATE_15
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 704::::DISCOUNT_ID_16
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 705::::DISCOUNT_ID_STATUS_16
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 706::::DISCOUNT_ID_VALUE_16
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 707::::DISCOUNT_ID_START_DATE_16
+20-08-2025 02:31:56 INFO  SsdDumpFinalFields.java:87: 708::::DISCOUNT_ID_END_DATE_16
+20-08-2025 02:31:56 INFO  Decision.java:55: /misdb01/reporting-apps-data1/INssdumpinitial/::::/misdb01/reporting-apps-data1/INssdumpinitial
+20-08-2025 02:31:56 INFO  FileProcStatUpdDAO.java:240: sql::::::::SELECT  IN_GROUP_STATUS FROM MIS_SSD_DUMP_STATUS where DATE_FORMAT(TIMESTAMP,'%Y/%m/%d') ='2025/08/20' AND IN_GROUP_ID='1'
+20-08-2025 02:31:56 INFO  Decision.java:59: group Status::0 for Group Id::1:: IN Name::IN12
+20-08-2025 02:31:56 INFO  Decision.java:68: IN NAME::IN12
+20-08-2025 02:31:56 INFO  FileProcStatUpdDAO.java:288: sql::::::::UPDATE MIS_SSD_DUMP_STATUS SET IN_GROUP_STATUS='1'  where DATE_FORMAT(TIMESTAMP,'%Y/%m/%d')='2025/08/20' AND IN_GROUP_ID='1'
+20-08-2025 02:31:56 INFO  FileProcStatUpdDAO.java:292: Updated successfully
+20-08-2025 02:31:56 INFO  NewDump.java:440: tmp.CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1Opening the  file in location::/misdb01/reporting-apps-data1/CSVssdump/
+20-08-2025 02:31:56 INFO  NewDump.java:446: tmp.CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1Going to Create a File /misdb01/reporting-apps-data1/CSVssdump/
+20-08-2025 02:33:27 INFO  NewDump.java:89: tmp.CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1No.Of lines Reached 1 lakh
+20-08-2025 03:57:10 INFO  NewDump.java:484: Going to Close the File (buffered OutPut Stream)
+20-08-2025 03:57:10 INFO  FTPClient.java:41: FTP client creating
+20-08-2025 03:57:10 INFO  FTPClient.java:50: Connecting to FTPServer as Host : 10.134.208.19 [timeout: 400000000 ms]
+20-08-2025 03:57:10 INFO  FTPClient.java:76: Login successful
+20-08-2025 04:02:08 INFO  SsdDumperFileOperationsBO.java:124: File tmp.CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1 Copying to common backup is success
+20-08-2025 04:02:08 INFO  SsdDumperFileOperationsBO.java:132: File tmp.CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1 rename to SubscriberDump_20250820_20082025023007_IN12.csv-1 in common backup is success
+20-08-2025 04:02:08 INFO  FTPClient.java:114: Remote client disconnected
+20-08-2025 04:02:08 INFO  NewDump.java:359: SubscriberDump_20250820_20082025023007_IN12.csv-1 Copied Successfully to Common Back Up Location (FM CC) for IN::
+20-08-2025 04:02:08 INFO  SsdDumperFileOperationsBO.java:53: SubscriberDump_20250820_20082025023007_IN12.csv-1File renamed  Succssfully in ::/misdb01/reporting-apps-data1/CSVssdump/
+20-08-2025 04:02:08 INFO  NewDump.java:379: true Deleting the file from Final Location::
+20-08-2025 04:02:08 INFO  FileProcStatUpdDAO.java:48: Going to update the MIS_SSD_DUMP_STATUS as 3 for fileName:: CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1
+20-08-2025 04:02:08 INFO  FileProcStatUpdDAO.java:72: SubscriberDump_20250820_20082025023007_IN12.csv-1File Updated to status 3 in MIS_SSD_DUMP_STATUS
+20-08-2025 04:02:08 INFO  ShellScript.java:21: Going to call the ShellScript :
+20-08-2025 04:02:08 INFO  ShellScript.java:33: Running SNTP ShellScript : /opt/reporting-apps/IN-SSDDumpProcessor/DumpScriptdetailandsumamryschedule/SSDDumpDetailandSumamry.sh
+20-08-2025 04:02:08 INFO  NewDump.java:407: Calling script was completed::
+20-08-2025 04:02:08 INFO  NewDump.java:413: File writing and calling script was finished::
+
+
+
+root user:
+2nd script
+#Script to generate and load ssd fact csv from misdb1 to misdb6
+30,0 5,6,7,8,9,10 * * * sh /opt/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /opt/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt 2>&1
+50mis to 1:15 mins
+
+
+MISDB1:- nohup sh /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+MISDB2:- nohup sh /home/rptuser/reporting-apps/misdb2Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb2Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+MISDB3:- nohup sh /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+MISDB4:- nohup sh /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+MISDB5:- nohup sh /home/rptuser/reporting-apps/misdb5Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /home/rptuser/reporting-apps/misdb5Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+
+tail -300 /home/rptuser/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+tail -300 /home/rptuser/reporting-apps/misdb2Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+tail -300 /home/rptuser/reporting-apps/misdb3Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+tail -300 /home/rptuser/reporting-apps/misdb4Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+tail -300 /home/rptuser/reporting-apps/misdb5Scripts/DBteamscripts/ProcessSSDDumpScript.txt
+
+
+
+-rw-rw-rw- 1 mysql mysql  19K Aug 20 05:34 MIS_RPT_SSD_FACT_2025-08-19.csv
+-rw-rw-rw- 1 mysql mysql 132K Aug 20 05:34 MIS_SSD_SPECIAL_ACCOUNT_FACT_2025-08-19.csv
+-rw-rw-rw- 1 mysql mysql  63K Aug 20 05:34 MIS_SSD_PTP_COSP_FACT_2025-08-19.csv
+-rw-rw-rw- 1 mysql mysql    0 Aug 20 05:34 MIS_RPT_BREAK_UP_CUSTOMER_FACT_2025-08-19.csv
+-rw-rw-rw- 1 mysql mysql   42 Aug 20 05:34 MIS_RPT_ZERO_BALANCE_FACT_2025-08-19.csv
+[rptuser@wz-misdb01 SSDDailycsv]$ pwd
+/misdb01/mysql-files/SSDDailycsv
+[rptuser@wz-misdb01 SSDDailycsv]$ 
+
+manual script command:
+nohup sh /opt/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.sh >> /opt/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt &
+
+tail -f /opt/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.txt   
+
+
+
+2nd script success logs:
+
+Script started @Tue Aug 19 05:00:01 IST 2025
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Starting the process as status is 3
+Copying dump to location for BSNL
+Completed
+mysql: [Warning] Using a password on the command line interface can be insecure.
+/opt/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.sh thisis Path
+ProcessSSDDumpScript.sh This is File Name
+path :/opt/reporting-apps/misdb1Scripts/DBteamscripts/ProcessSSDDumpScript.sh 
+48 This is Length
+properties file path=/opt/reporting-apps/misdb1Scripts/DBteamscripts/
+tableName
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+inputpath is /misdb01/reporting-apps-data1/CSVssdump
+The Back Up Path is /misdb01/reporting-apps-data1/CSVssdumpbackup
+The input path is /misdb01/reporting-apps-data1/CSVssdump
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Loading to misdb6 started @Tue Aug 19 05:00:09 IST 2025
+Total  count in  CSV_SubscriberDump_20250819_19082025023007_IN12.csv-1  is  5216713
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Total Count in SSD DUMP Table is 5216713
+mysql: [Warning] Using a password on the command line interface can be insecure.
+@query
+INSERT INTO MIS_RPT_SUBSCRIBER_BALANCE(CDR_DATE,CIRCLE_ID,TARIFF_PLAN,PRIMARY_BALANCE,NETWORK_INDICATOR,COUNT) (SELECT date_format(date_add(Timestamp, interval -1 day) ,'%Y-%m-%d'),Circle_Id,Tariff_Plan,trim(Primary_Balance)/100,END_USER_TYPOLOGY,count(*) FROM MIS_SSD_DUMP GROUP BY date_format(date_add(Timestamp, interval -1 day) ,'%Y-%m-%d'),Circle_Id,Tariff_Plan,trim(Primary_Balance)/100,END_USER_TYPOLOGY)
+mysql: [Warning] Using a password on the command line interface can be insecure.
+@query
+INSERT INTO MIS_RPT_SSD_FACT(CDR_DATE,TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,NETWORK_INDICATOR,TOTAL_COUNT,ACCOUNT_BALANCE,ACCOUNT_NEGATIVE_BALANCE) (SELECT date_format(date_add(Timestamp, interval -1 day) , '%Y-%m-%d'),Tariff_Plan,Circle_Id,Subscriber_Status,SCP_Number,END_USER_TYPOLOGY,count(*),sum(trim(Primary_Balance))/100,sum(trim(LTotal_Primary_OC))/100 FROM MIS_SSD_DUMP GROUP BY date_format(date_add(Timestamp, interval -1 day) , '%Y-%m-%d'),Tariff_Plan,Circle_Id,Subscriber_Status,SCP_Number,END_USER_TYPOLOGY)
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1054 (42S22) at line 1: Unknown column 'NETWORK_INDICATOR' in 'field list'
+@query
+SELECT COUNT(DISTINCT date_format(CDR_DATE,'%m-%Y'))  INTO @cnt FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+dcount
+1
+@query
+SELECT  min(date_format(CDR_DATE,'%m-%Y')) into @ddate FROM MIS_RPT_SSD_FACT WHERE CSV_INDICATOR=0
+@query2
+UPDATE MIS_RPT_SSD_FACT SET CSV_INDICATOR=1 WHERE date_format(CDR_DATE,'%m-%Y')='08-2025'
+@query
+DELETE FROM MIS_RPT_SSD_FACT_MTH where date_format(str_to_date(CDR_DATE,'%m-%Y'),'%m-%Y')=date_format(str_to_date('08-2025','%m-%Y'),'%m-%Y') 
+@query
+INSERT INTO MIS_RPT_SSD_FACT_MTH(CDR_DATE,TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,NETWORK_INDICATOR,TOTAL_COUNT,ACCOUNT_BALANCE,ACCOUNT_NEGATIVE_BALANCE) (SELECT date_format(CDR_DATE ,'%m-%Y'),TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,Field8,SUM(TOTAL_COUNT),SUM(ACCOUNT_BALANCE),SUM(ACCOUNT_NEGATIVE_BALANCE) FROM MIS_RPT_SSD_FACT where date_format(CDR_DATE,'%m-%Y')='08-2025' GROUP BY date_format(CDR_DATE ,'%m-%Y'),TARIFF_PLAN,CIRCLE_ID,SUBSCRIBER_STATUS,SCP_NUMBER,Field8)
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Script started @Tue Aug 19 05:30:02 IST 2025
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Exiting the process as status is 4
+Script completed @ Tue Aug 19 05:30:02 IST 2025
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_1 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_1 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_1) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_2 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_2 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_2) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_3 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_3 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_3) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_4 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_4 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_4) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_5 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_5 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_5) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_6 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_6 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_6) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_7 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_7 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_7) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_8 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_8 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_8) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_9 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_9 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_9) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_10 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_10 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_10) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_11 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_11 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_11) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_12 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_12 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_12) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_13 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_13 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_13) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_14 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_14) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_15 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_15) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_16 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_16) ;
+@query
+INSERT INTO MIS_SSD_PTP_COSP_FACT_TMP (CDR_DATE, CIRCLE_ID, TARIFF_PLAN, PROMO_TP_COSP_ID,COUNT ) (SELECT DATE(DATE_SUB(Timestamp,INTERVAL 1 DAY)) ,Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17 ,COUNT(*) FROM MIS_SSD_DUMP WHERE DATE(Timestamp)=CURDATE() AND PROMO_TP_COSP_ID_17 IS NOT NULL  GROUP BY DATE(Timestamp),Circle_Id,Tariff_Plan,PROMO_TP_COSP_ID_17) ;
+ Loading to misdb6 server Dump table & Fact Tables Ended @ Tue Aug 19 05:33:33 IST 2025
+-------------------------------------------------------------------------
+Loading to misdb5 Dump table started @ Tue Aug 19 05:33:33 IST 2025
+files moved into /misdb01/reporting-apps-data1/CSVssdumpbackup
+
+ /misdb01/reporting-apps-data1/CSVssdumpbackup   ---> /data/
+
+
+
+
+manual loading commands on MISDB3/4 servers after copy the CSV file from respective MISDB server to MISDB3/4 server.
+
+MISDB3:
+
+nohup mysql -umisbsnl -pmisbsnl -h10.128.1.156 MIS_BSNL -P3306 -e "load data CONCURRENT  local infile '/data/CSV_SubscriberDump_20230414_14042023074217_IN11.csv-3' into table MIS_SSD_DUMP_Fri  fields TERMINATED BY ',' LINES TERMINATED BY '\n'  (Account_Id,Circle_Id,Subscriber_Status,Tariff_Plan,Primary_Balance,Credit_ExpiryDate,GP1_ExpiryDate,GP2_ExpiryDate,Activation_Date,SCP_Number,LTotal_Primary_OC,IMSI_1,FIRST_CALL_MADE_TIME,TIME_LAST_RCHG,SUSPEND_FOR_RECHARGE,TIME_LAST_ACTIVATION,Mdn_series,DISCOUNT_ID_1,DID_1_END_DATE,USAGE_COUNT_1,DISCOUNT_ID_2,DID_2_END_DATE,USAGE_COUNT_2,DISCOUNT_ID_3,DID_3_END_DATE,USAGE_COUNT_3,DISCOUNT_ID_4,DID_4_END_DATE,USAGE_COUNT_4,DISCOUNT_ID_5,DID_5_END_DATE,USAGE_COUNT_5,DISCOUNT_ID_6,DID_6_END_DATE,USAGE_COUNT_6,DISCOUNT_ID_7,DID_7_END_DATE,USAGE_COUNT_7,DISCOUNT_ID_8,DID_8_END_DATE,USAGE_COUNT_8,DISCOUNT_ID_9,DID_9_END_DATE,USAGE_COUNT_9,DISCOUNT_ID_10,DID_10_END_DATE,USAGE_COUNT_10,VALIDDATE,PROMO_TP_COSP_ID_1,PROMO_TP1_START_DATE,PROMO_TP1_END_DATE,PROMO_TP1_STATUS,PROMO_TP_COSP_ID_2,PROMO_TP2_START_DATE,PROMO_TP2_END_DATE,PROMO_TP2_STATUS,PROMO_TP_COSP_ID_3,PROMO_TP3_START_DATE,PROMO_TP3_END_DATE,PROMO_TP3_STATUS,PROMO_TP_COSP_ID_4,PROMO_TP4_START_DATE,PROMO_TP4_END_DATE,PROMO_TP4_STATUS,PROMO_TP_COSP_ID_5,PROMO_TP5_START_DATE,PROMO_TP5_END_DATE,PROMO_TP5_STATUS,RECHARGE_COUNT, FAIL_RECHARGR_ATTEMPT,RECHARGE_SUSPENTION_FLAG,LAST_RECHARGE_AMOUNT,BASE_TARIFF_PLAN,PROMO_TP_COSP_ID_6,PROMO_TP_COSP_ID_7,PROMO_TP_COSP_ID_8,PROMO_TP_COSP_ID_9,PROMO_TP_COSP_ID_10,PROMO_TP_COSP_ID_11,PROMO_TP_COSP_ID_12,PROMO_TP_COSP_ID_13,PROMO_TP_COSP_ID_14,PROMO_TP_COSP_ID_15,PROMO_TP_COSP_ID_16,PROMO_TP_COSP_ID_17,DISCOUNT_ID_11,DISCOUNT_ID_12,DISCOUNT_ID_13,DISCOUNT_ID_14,DISCOUNT_ID_15,DISCOUNT_ID_16,DISCOUNT_ID_17,DISCOUNT_ID_18,DISCOUNT_ID_19,DISCOUNT_ID_20,DISCOUNT_ID_21,DISCOUNT_ID_22,DID_1_START_DATE,DID_2_START_DATE,DID_3_START_DATE,DID_4_START_DATE,DID_5_START_DATE,DID_6_START_DATE,DID_7_START_DATE,DID_8_START_DATE,DID_9_START_DATE,DID_10_START_DATE,USAGE_COUNT_1_STATUS,USAGE_COUNT_2_STATUS,USAGE_COUNT_3_STATUS,USAGE_COUNT_4_STATUS,USAGE_COUNT_5_STATUS,USAGE_COUNT_6_STATUS,USAGE_COUNT_7_STATUS,USAGE_COUNT_8_STATUS,USAGE_COUNT_9_STATUS,USAGE_COUNT_10_STATUS,DID_11_STATUS,USAGE_COUNT_11,DID_11_START_DATE,DID_11_END_DATE,DID_12_STATUS,USAGE_COUNT_12,DID_12_START_DATE,DID_12_END_DATE,DID_13_STATUS,USAGE_COUNT_13,DID_13_START_DATE,DID_13_END_DATE,DID_14_STATUS,USAGE_COUNT_14,DID_14_START_DATE,DID_14_END_DATE,DID_15_STATUS,USAGE_COUNT_15,DID_15_START_DATE,DID_15_END_DATE,DID_16_STATUS,USAGE_COUNT_16,DID_16_START_DATE,DID_16_END_DATE,DID_17_STATUS,USAGE_COUNT_17,DID_17_START_DATE,DID_17_END_DATE,DID_18_STATUS,USAGE_COUNT_18,DID_18_START_DATE,DID_18_END_DATE,DID_19_STATUS,USAGE_COUNT_19,DID_19_START_DATE,DID_19_END_DATE,DID_20_STATUS,USAGE_COUNT_20,DID_20_START_DATE,DID_20_END_DATE,DID_21_STATUS,USAGE_COUNT_21,DID_21_START_DATE,DID_21_END_DATE,DID_22_STATUS,USAGE_COUNT_22,DID_22_START_DATE,DID_22_END_DATE,PROMO_TP6_START_DATE,PROMO_TP6_END_DATE,PROMO_TP6_STATUS,PROMO_TP7_START_DATE,PROMO_TP7_END_DATE,PROMO_TP7_STATUS,PROMO_TP8_START_DATE,PROMO_TP8_END_DATE,PROMO_TP8_STATUS,PROMO_TP9_START_DATE,PROMO_TP9_END_DATE,PROMO_TP9_STATUS,PROMO_TP10_START_DATE,PROMO_TP10_END_DATE,PROMO_TP10_STATUS,PROMO_TP11_START_DATE,PROMO_TP11_END_DATE,PROMO_TP11_STATUS,PROMO_TP12_START_DATE,PROMO_TP12_END_DATE,PROMO_TP12_STATUS,PROMO_TP13_START_DATE,PROMO_TP13_END_DATE,PROMO_TP13_STATUS,PROMO_TP14_START_DATE,PROMO_TP14_END_DATE,PROMO_TP14_STATUS,PROMO_TP15_START_DATE,PROMO_TP15_END_DATE,PROMO_TP15_STATUS,PROMO_TP16_START_DATE,PROMO_TP16_END_DATE,PROMO_TP16_STATUS,PROMO_TP17_START_DATE,PROMO_TP17_END_DATE,PROMO_TP17_STATUS,Error_Indicator,OG_SCREEN_COSP_ID,IC_SCREEN_COSP_ID,END_USER_TYPOLOGY);" &
+
+
+MISDB4:
+
+nohup mysql -umisbsnl -pmisbsnl -h10.128.1.157 MIS_BSNL -P3306 -e "load data CONCURRENT  local infile '/data/CSV_SubscriberDump_20230414_14042023074217_IN11.csv-3' into table MIS_SSD_DUMP_Fri  fields TERMINATED BY ',' LINES TERMINATED BY '\n'  (Account_Id,Circle_Id,Subscriber_Status,Tariff_Plan,Primary_Balance,Credit_ExpiryDate,GP1_ExpiryDate,GP2_ExpiryDate,Activation_Date,SCP_Number,LTotal_Primary_OC,IMSI_1,FIRST_CALL_MADE_TIME,TIME_LAST_RCHG,SUSPEND_FOR_RECHARGE,TIME_LAST_ACTIVATION,Mdn_series,DISCOUNT_ID_1,DID_1_END_DATE,USAGE_COUNT_1,DISCOUNT_ID_2,DID_2_END_DATE,USAGE_COUNT_2,DISCOUNT_ID_3,DID_3_END_DATE,USAGE_COUNT_3,DISCOUNT_ID_4,DID_4_END_DATE,USAGE_COUNT_4,DISCOUNT_ID_5,DID_5_END_DATE,USAGE_COUNT_5,DISCOUNT_ID_6,DID_6_END_DATE,USAGE_COUNT_6,DISCOUNT_ID_7,DID_7_END_DATE,USAGE_COUNT_7,DISCOUNT_ID_8,DID_8_END_DATE,USAGE_COUNT_8,DISCOUNT_ID_9,DID_9_END_DATE,USAGE_COUNT_9,DISCOUNT_ID_10,DID_10_END_DATE,USAGE_COUNT_10,VALIDDATE,PROMO_TP_COSP_ID_1,PROMO_TP1_START_DATE,PROMO_TP1_END_DATE,PROMO_TP1_STATUS,PROMO_TP_COSP_ID_2,PROMO_TP2_START_DATE,PROMO_TP2_END_DATE,PROMO_TP2_STATUS,PROMO_TP_COSP_ID_3,PROMO_TP3_START_DATE,PROMO_TP3_END_DATE,PROMO_TP3_STATUS,PROMO_TP_COSP_ID_4,PROMO_TP4_START_DATE,PROMO_TP4_END_DATE,PROMO_TP4_STATUS,PROMO_TP_COSP_ID_5,PROMO_TP5_START_DATE,PROMO_TP5_END_DATE,PROMO_TP5_STATUS,RECHARGE_COUNT, FAIL_RECHARGR_ATTEMPT,RECHARGE_SUSPENTION_FLAG,LAST_RECHARGE_AMOUNT,BASE_TARIFF_PLAN,PROMO_TP_COSP_ID_6,PROMO_TP_COSP_ID_7,PROMO_TP_COSP_ID_8,PROMO_TP_COSP_ID_9,PROMO_TP_COSP_ID_10,PROMO_TP_COSP_ID_11,PROMO_TP_COSP_ID_12,PROMO_TP_COSP_ID_13,PROMO_TP_COSP_ID_14,PROMO_TP_COSP_ID_15,PROMO_TP_COSP_ID_16,PROMO_TP_COSP_ID_17,DISCOUNT_ID_11,DISCOUNT_ID_12,DISCOUNT_ID_13,DISCOUNT_ID_14,DISCOUNT_ID_15,DISCOUNT_ID_16,DISCOUNT_ID_17,DISCOUNT_ID_18,DISCOUNT_ID_19,DISCOUNT_ID_20,DISCOUNT_ID_21,DISCOUNT_ID_22,DID_1_START_DATE,DID_2_START_DATE,DID_3_START_DATE,DID_4_START_DATE,DID_5_START_DATE,DID_6_START_DATE,DID_7_START_DATE,DID_8_START_DATE,DID_9_START_DATE,DID_10_START_DATE,USAGE_COUNT_1_STATUS,USAGE_COUNT_2_STATUS,USAGE_COUNT_3_STATUS,USAGE_COUNT_4_STATUS,USAGE_COUNT_5_STATUS,USAGE_COUNT_6_STATUS,USAGE_COUNT_7_STATUS,USAGE_COUNT_8_STATUS,USAGE_COUNT_9_STATUS,USAGE_COUNT_10_STATUS,DID_11_STATUS,USAGE_COUNT_11,DID_11_START_DATE,DID_11_END_DATE,DID_12_STATUS,USAGE_COUNT_12,DID_12_START_DATE,DID_12_END_DATE,DID_13_STATUS,USAGE_COUNT_13,DID_13_START_DATE,DID_13_END_DATE,DID_14_STATUS,USAGE_COUNT_14,DID_14_START_DATE,DID_14_END_DATE,DID_15_STATUS,USAGE_COUNT_15,DID_15_START_DATE,DID_15_END_DATE,DID_16_STATUS,USAGE_COUNT_16,DID_16_START_DATE,DID_16_END_DATE,DID_17_STATUS,USAGE_COUNT_17,DID_17_START_DATE,DID_17_END_DATE,DID_18_STATUS,USAGE_COUNT_18,DID_18_START_DATE,DID_18_END_DATE,DID_19_STATUS,USAGE_COUNT_19,DID_19_START_DATE,DID_19_END_DATE,DID_20_STATUS,USAGE_COUNT_20,DID_20_START_DATE,DID_20_END_DATE,DID_21_STATUS,USAGE_COUNT_21,DID_21_START_DATE,DID_21_END_DATE,DID_22_STATUS,USAGE_COUNT_22,DID_22_START_DATE,DID_22_END_DATE,PROMO_TP6_START_DATE,PROMO_TP6_END_DATE,PROMO_TP6_STATUS,PROMO_TP7_START_DATE,PROMO_TP7_END_DATE,PROMO_TP7_STATUS,PROMO_TP8_START_DATE,PROMO_TP8_END_DATE,PROMO_TP8_STATUS,PROMO_TP9_START_DATE,PROMO_TP9_END_DATE,PROMO_TP9_STATUS,PROMO_TP10_START_DATE,PROMO_TP10_END_DATE,PROMO_TP10_STATUS,PROMO_TP11_START_DATE,PROMO_TP11_END_DATE,PROMO_TP11_STATUS,PROMO_TP12_START_DATE,PROMO_TP12_END_DATE,PROMO_TP12_STATUS,PROMO_TP13_START_DATE,PROMO_TP13_END_DATE,PROMO_TP13_STATUS,PROMO_TP14_START_DATE,PROMO_TP14_END_DATE,PROMO_TP14_STATUS,PROMO_TP15_START_DATE,PROMO_TP15_END_DATE,PROMO_TP15_STATUS,PROMO_TP16_START_DATE,PROMO_TP16_END_DATE,PROMO_TP16_STATUS,PROMO_TP17_START_DATE,PROMO_TP17_END_DATE,PROMO_TP17_STATUS,Error_Indicator,OG_SCREEN_COSP_ID,IC_SCREEN_COSP_ID,END_USER_TYPOLOGY);" &
+
+
+
+
+
+3rd script:
+##SSD Dump detail Uploading
+30 08 * * * sh /opt/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /opt/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.txt 2>&1
+50mins
+
+
+root,MISDB
+
+root
+MISDB1 :-  sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt &
+MISDB2 :-  sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt &
+MISDB3 :-  sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt &
+MISDB4 :-  sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt &
+MISDB5 :-  sh /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_01_07.sh >> /home/rptuser/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/PocessSSDDump_log.txt &
+ 
+
+
+nohup 
+3rd script logs:
+-----------------
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Filecraetion for account table
+wz-misdb01
+/misdb01/reporting-apps-data1/CSVssdumpfinalbackup/
+Loading of SSD Dump table completed in MISDB4 @ Tue Aug 19 08:49:49 IST 2025
+properties file path=/opt/reporting-apps/IN-SSDDumpProcessor/SSD_DUMP_NEW/SSD_DUMP_Upload_Script/
+test...
+---3
+testing...
+MIS_SSD_DUMP_Wed
+20250820
+today insertion table MIS_SSD_DUMP_Wed
+/misdb01/reporting-apps-data1/CSVssdumpbackup
+logpath:/opt/log/ssddumploadd/
+CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1
+Ready to MISDB3 SSD_DUMP table started @ Wed Aug 20 08:30:13 IST 2025
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+insert into LOAD_AUDIIT_INFO_ONM (START_TIME,END_TIME,RECORD_COUNT,SERVER_ID,FILENAME,TYPE)values ('2025-08-20 08:30:01','2025-08-20 08:30:01',' 5218899  ','10.128.1.156','CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1','SSDDUMP')
+--------------
+
+Query OK, 1 row affected
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+insert into LOAD_AUDIIT_INFO_ONM (START_TIME,END_TIME,RECORD_COUNT,SERVER_ID,FILENAME,TYPE)values ('2025-08-20 08:30:01','2025-08-20 08:30:01',' 5218899  ','10.128.1.156','CSV_SubscriberDump_20250820_20082025023007_IN12.csv-1','SSDDUMP')
+--------------
+
+Query OK, 1 row affected
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Filecraetion for account table
+wz-misdb01
+/misdb01/reporting-apps-data1/CSVssdumpfinalbackup/
+Loading of SSD Dump table completed in MISDB4 @ Wed Aug 20 08:50:08 IST 2025
+
+
+
+
+sript 4 :-
+
+
+nohup sh /home/rptuser/reporting-apps/DumpCreation/Dailydisconnection_updated.sh >> /home/rptuser/reporting-apps/DumpCreation/Dailydisconnection.log &
+
+nohup sh /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump.sh >> /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump.log &
+
+nohup sh /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump_HAR_HP.sh >> /home/rptuser/reporting-apps/DumpCreation/Subs_State_Dump_HAR_HP.log &
+
+MISDB4
+
+SELECT COUNT(1) FROM MIS_BSNL.`MIS_SSD_DUMP_Wed`
+SELECT COUNT(1) FROM MIS_BSNL.`MIS_SSD_DUMP_Tue`
+
+BL2 check merge file
+
+/data1/reporting-apps-data1/SSDDUMPLocAccount
+
+
+
+
+nohup mysql -uroot -proot -h127.0.0.1 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3),CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_01 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb1/reporting-apps-data1/26Aug2025_RAJ_UPE1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -uroot -proot -h10.147.128.197 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_02 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb1/reporting-apps-data1/26Aug2025_RAJ_UPE2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -uroot -proot -h10.147.128.197 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_03 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb1/reporting-apps-data1/26Aug2025_RAJ_UPE3.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -uroot -proot -h10.147.128.197 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_04 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb1/reporting-apps-data1/26Aug2025_RAJ_UPE4.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -uroot -proot -h10.147.128.197 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_05 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb1/reporting-apps-data1/26Aug2025_RAJ_UPE5.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+
+
+nohup mysql -uroot -proot -h10.147.128.198 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_01 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb2/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -uroot -proot -h10.147.128.198 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_02 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb2/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -uroot -proot -h10.147.128.198 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_03 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb2/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR3.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -uroot -proot -h10.147.128.198 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_04 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb2/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR4.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -uroot -proot -h10.147.128.198 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_05 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb2/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR5.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+
+
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.199 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_01 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb3/reporting-apps-data1/26Aug2025_RAJ_UPE1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.199 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_02 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb3/reporting-apps-data1/26Aug2025_RAJ_UPE2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.199 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_03 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb3/reporting-apps-data1/26Aug2025_RAJ_UPE3.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.199 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_04 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb3/reporting-apps-data1/26Aug2025_RAJ_UPE4.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.199 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_05 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb3/reporting-apps-data1/26Aug2025_RAJ_UPE5.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+
+
+
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.200 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_01 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb4/reporting-apps-data1/26Aug2025_RAJ_UPE1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.200 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_02 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb4/reporting-apps-data1/26Aug2025_RAJ_UPE2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.200 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_03 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb4/reporting-apps-data1/26Aug2025_RAJ_UPE3.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.200 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_04 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb4/reporting-apps-data1/26Aug2025_RAJ_UPE4.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.200 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_05 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb4/reporting-apps-data1/26Aug2025_RAJ_UPE5.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+
+
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.201 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_01 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb5/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.201 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_02 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb5/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.201 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_03 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb5/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR3.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.201 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_04 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb5/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR4.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.201 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_05 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb5/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR5.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+
+
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.202 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_01 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb6/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.202 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_02 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb6/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.202 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_03 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb6/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR3.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.202 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_04 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb6/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR4.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+nohup mysql -umisbsnl -pmisbsnl -h10.147.128.202 MIS -P3306 -e "SELECT circle.CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),cdr.Voucher_Type,SUBSTR(cdr.Account_Id,3), CONCAT(DATE_FORMAT(cdr.Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),cdr.Transaction_Id,ROUND((cdr.Nominal_Amount/10000)) NOMINAL_AMOUNT  FROM MIS_CDR_06_05 cdr ,MIS_CNFG_CIRCLE_DETAILS circle into outfile '/misdb6/reporting-apps-data1/26Aug2025_UPW_UAL_JK_PB_HP_HR5.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'  WHERE   Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND cdr.Event_Label = '275' AND cdr.Event_Result ='1' AND cdr.Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' AND circle.CIRCLE_ID=cdr.Circle_Id  ORDER BY cdr.Generation_Timestamp,cdr.Circle_Id;"&
+
+
+
+
+CTOP UP Query :-
+
+
+CCDB1 -CCDB2 - upw
+select * from MIS_CC_10_7 limit 1\G; 
+select count(1) from MIS_CC_12_7;
+select * from MIS_CC_12_7 limit 1\G; 
+select  * from MIS_CC_11_7 where Account_Id='919456393454';
+
+
+CCDB1 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.203 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb1/mysqlDB/test/29Aug2025_CCDB1_UPW1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_7 WHERE Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+CCDB2
+	mysql -umisbsnl -pmisbsnl -h10.147.128.204 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb2/mysqlDB/test/29Aug2025_CCDB2_upw2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_7 WHERE Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+
+
+CCDB1 -CCDB2 - ual
+select * from MIS_CC_10_8 limit 2; 
+select count(1) from MIS_CC_12_8;
+select count(1) from MIS_CC_11_8limit 1\G; 
+
+CCDB1 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.203 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb1/mysqlDB/test/29Aug2025_CCDB1_UAL1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_8 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+CCDB2
+	mysql -umisbsnl -pmisbsnl -h10.147.128.204 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb2/mysqlDB/test/29Aug2025_CCDB2_UAL2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_8 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+
+
+CCDB3 - CCDB4 RAJ
+select * from MIS_CC_10_21 limit 2; 
+select count(1) from MIS_CC_11_21;
+select count(1) from MIS_CC_12_21;
+
+CCDB3 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.205 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb3/mysqlDB/test/29Aug2025_CCDB3_RAJ1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_21 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+CCDB4
+	mysql -umisbsnl -pmisbsnl -h10.147.128.206 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb4/mysqlDB/test/29Aug2025_CCDB4_RAJ2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_21 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+
+
+CCDB3 - CCDB4 HP
+select * from MIS_CC_10_2 limit 2; 
+select count(1) from MIS_CC_11_2;
+select count(1) from MIS_CC_12_2;
+
+CCDB3 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.205 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb3/mysqlDB/test/29Aug2025_CCDB3_HP1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_2 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+CCDB4
+	mysql -umisbsnl -pmisbsnl -h10.147.128.206 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb4/mysqlDB/test/29Aug2025_CCDB4_HP2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_2 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+
+
+CCDB5 - CCDB6 --- PB
+select * from MIS_CC_10_16 limit 2; 
+select count(1) from MIS_CC_11_16;
+select count(1) from MIS_CC_12_16;
+select * from MIS_CC_12_16 where Account_Id='919464058763' and date(Generation_Timestamp)=date(now())-1;
+MISCDRservEr
+select * from MIS_CDR_04_01 where Account_Id='919464058763';
+select * from MIS_CDR_04_02 where Account_Id='919464058763';
+select * from MIS_CDR_04_03 where Account_Id='919464058763';
+select * from MIS_CDR_04_04 where Account_Id='919464058763';
+select * from MIS_CDR_04_05 where Account_Id='919464058763';
+
+CCDB5 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.207 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb5/mysqlDB/test/29Aug2025_CCDB5_PB1_new_2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_16 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+
+CCDB6 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.208 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb6/mysqlDB/test/29Aug2025_CCDB6_PB1_new_22.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_16 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+
+
+CCDB5 - CCDB6 HR
+select * from MIS_CC_10_11 limit 2; 
+select count(1) from MIS_CC_11_11;
+select count(1) from MIS_CC_12_11;
+select count(1) from MIS_CC_13_11;
+
+
+CCDB5 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.207 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb5/mysqlDB/test/29Aug2025_CCDB5_HR1_1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_11 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+
+CCDB6 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.208 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb6/mysqlDB/test/29Aug2025_CCDB6_HR1_2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_11 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-29 00:00:00' and '2025-08-29 23:59:59' ;" &
+
+
+CCDB7(not in use)- CCDB8 - CCDB9  UPE
+
+select * from MIS_CC_12_6 order by Generation_Timestamp desc limit 1 \G; 
+select * from MIS_CC_03_6 order by Generation_Timestamp desc limit 1 \G; 
+select count(1) from MIS_CC_13_6;
+select * from MIS_CC_11_6 limit 1 \G; 
+
+
+select count(1) from MIS_CC_12_6;
+CCDB8 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.210 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb8/mysqlDB/test/20Oct2025_CCDB8_UPE1_1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_12_6 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-10-20 00:00:00' and '2025-10-20 23:59:59' ;" &
+CCDB9
+	mysql -umisbsnl -pmisbsnl -h10.147.128.211 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb9/mysqlDB/test/20Oct2025_CCDB9_UPE2_2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_12_6 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-10-20 00:00:00' and '2025-10-20 23:59:59' ;" &
+
+
+
+
+
+select * from MIS_CC_10_6 Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' 
+and Dealer_MSISDN not like '%p2p%' and 
+Generation_Timestamp between '2025-08-26 00:00:00' and '2025-08-26 23:59:59' ;"
+
+
+
+CCDB8 - JK
+select * from MIS_CC_10_3 limit 1 \G; 
+select count(1) from MIS_CC_11_3;
+select count(1) from MIS_CC_02_3;
+
+
+CCDB8 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.210 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb8/mysqlDB/test/20Oct2025_CCDB8_JK1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_12_3 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-10-20 00:00:00' and '2025-10-20 23:59:59' ;" &
+
+
+
+
+
+select count(1) from MIS_CC_10_16 WHERE Generation_Timestamp BETWEEN '2025-08-27 00:00:00' AND '2025-08-27 23:59:59' AND Event_Label = '275' AND Event_Result ='1' AND Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%' ;
+
+
+
+
+
+
+
+
+
+mysql -umisbsnl -pmisbsnl -h10.147.128.207 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb5/mysqlDB/test/26Aug2025_CCDB5_HR1_new.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_11 WHERE Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59' AND Event_Label =275 AND Event_Result =1 AND Origin_Host='CTOPUP' AND Dealer_MSISDN NOT LIKE '%p2p%'  ORDER BY Generation_Timestamp ;" &
+
+
+
+select count(1) from MIS_CC_10_11 WHERE Generation_Timestamp BETWEEN '2025-08-26 00:00:00' AND '2025-08-26 23:59:59';
+
+
+
+mysql -umisbsnl -pmisbsnl -h10.147.128.207 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb5/mysqlDB/test/26Aug2025_CCDB5_PB1_new_2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_16 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-26 00:00:00' and '2025-08-26 23:59:59' ;" &
+
+
+
+
+
+
+
+/home/alu_pyro/tes
+scp 29Aug2025*.csv  root@10.147.128.200:/home/alu_pyro/tes
+
+
+/home/rptuser/reporting-apps/cc-gui/4Jboss-5.1.0.GA/server/default/deploy/BSNLCC.ear/config
+/home/rptuser/reporting-apps/cc-gui/4Jboss-5.1.0.GA/server/default/deploy/BSNLCC.ear/config
+
+
+
+BL3:-
+
+ cat /home/rptuser/reporting-apps/bl2Scripts/IMPteamscripts/ssdftp.sh
+
+
+
+
+
+"MIS_PYRO_RECHARGE"
+
+
+
+Daily activaton 
+select cdr.Account_Id,cdr.Tariff_Plan,cdr.Generation_Timestamp into outfile '/misdb3/Dumps/DailyNewactivation/Daily_activation_27aug.csv'  FIELDS TERMINATED BY ',' LINES TERMINATED BY'\n' from  cdr  where   cdr.Generation_Timestamp between '$ydate 00:00:00' and '$ydate 23:59:59' and cdr.event_label=13 and cdr.Pre_Event_SIM_State_Code in('0','1','2') and cdr.Post_Event_SIM_StateCode in('3')  ORDER BY cdr.Generation_Timestamp,cdr.Account_Id
+
+
+CCDB1 for UPW
+
+select cdr.Account_Id,cdr.Tariff_Plan,cdr.Generation_Timestamp  from    MIS_CC_10_7
+where   cdr.Generation_Timestamp between '2025-08-27 00:00:00' and '2025-08-27 23:59:59' and cdr.event_label=13 
+and cdr.Pre_Event_SIM_State_Code in('0','1','2') and cdr.Post_Event_SIM_StateCode in('3')  
+ORDER BY cdr.Generation_Timestamp,cdr.Account_Id
+
+
+need to change the table accroding to circle and CCDB
+
+
+
+MIS_CC_11_6
+
+****************************************************************************
+
+
+Bucket Confiscate
+
+CCDB8	mysql -umisbsnl -pmisbsnl -h10.147.128.210 MIS_CC -P3306 -e "SELECT Account_Id into outfile '/ccdb8/mysqlDB/test/14Aug_Confiscate_2025_CCDB8_UPE1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' FROM  MIS_CC_10_6 WHERE Event_Result='126' AND Event_Label NOT IN ('114') AND Event_Result IN ('1','126','169','276') AND Generation_Timestamp BETWEEN '2025-08-14 00:00:00' AND '2025-08-14 23:59:59';" &
+CCDB9	mysql -umisbsnl -pmisbsnl -h10.147.128.211 MIS_CC -P3306 -e "SELECT Account_Id into outfile '/ccdb9/mysqlDB/test/14Aug_Confiscate_2025_CCDB9_UPE1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' FROM  MIS_CC_10_6 WHERE Event_Result='126' AND Event_Label NOT IN ('114') AND Event_Result IN ('1','126','169','276') AND Generation_Timestamp BETWEEN '2025-08-14 00:00:00' AND '2025-08-14 23:59:59';" &
+
+CCDB8 
+	mysql -umisbsnl -pmisbsnl -h10.147.128.210 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb8/mysqlDB/test/27Aug2025_CCDB8_UPE1.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_6 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-27 00:00:00' and '2025-08-27 23:59:59' ;" &
+CCDB9
+	mysql -umisbsnl -pmisbsnl -h10.147.128.211 MIS_CC -P3306 -e "select CASE Circle_Id WHEN '2' THEN 'HP' WHEN '3' THEN 'JK' WHEN '6' THEN 'UPE' WHEN '7' THEN 'UPW' WHEN '8' THEN 'UAL' WHEN '11' THEN 'HAR' WHEN '16' THEN 'PUN' WHEN '21' THEN 'RAJ' ELSE 'NA' END as CIRCLE_NAME,ROUND(CAST(Face_Value AS DECIMAL)/10000,6),Voucher_Type,SUBSTR(Account_Id,3),CONCAT(DATE_FORMAT(Generation_Timestamp,'%Y%m%d%H%i%s'),'+0530'),Transaction_Id,ROUND((Nominal_Amount/10000)) NOMINAL_AMOUNT into outfile '/ccdb9/mysqlDB/test/27Aug2025_CCDB9_UPE2.csv'  FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' from MIS_CC_10_6 WHERE  Event_Label =275 and Event_Result =1 and ORIGIN_HOST='CTOPUP' and Dealer_MSISDN not like '%p2p%' and Generation_Timestamp between '2025-08-27 00:00:00' and '2025-08-27 23:59:59' ;" &
+
+
+*****************************************************************************
+
+CCMIS 
+MISDB1,MISDB2,MISDB5,MISDB6
+
+SELECT * FROM TABLE_INFO_MASTER ORDER BY YEAR DESC,MONTH DESC,DAY DESC LIMIT 5;
+SELECT MONTH,COUNT(1) FROM TABLE_INFO_MASTER WHERE YEAR='2025' GROUP BY MONTH;
+SELECT YEAR,MONTH_NO,count(1) from MIS_CONFIG_MONTH_TABLE_MAPPING group by  YEAR,MONTH_NO order by YEAR desc,MONTH_NO desc limit 30;
+
+
+
+MIS
+MISDB1,MISDB2,MISDB3,MISDB4,MISDB5,MISDB6
+
+SELECT * FROM TABLE_INFO_MASTER ORDER BY YEAR DESC,MONTH DESC,DAY DESC LIMIT 5;
+SELECT MONTH,COUNT(1) FROM TABLE_INFO_MASTER WHERE YEAR='2025' GROUP BY MONTH;
+
+_____________________________________________________
+
+MISDB3   -   MISDB4  -----check partitions
+
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_2_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_2_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_2_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_2_12;
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_3_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_3_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_3_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_3_12;
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_3_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_3_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_3_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_3_12;
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_6_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_6_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_6_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_6_12;
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_7_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_7_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_7_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_7_12;
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_8_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_8_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_8_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_8_12;
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_11_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_11_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_11_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_11_12;
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_16_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_16_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_16_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_16_12;
+
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_21_09;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_21_10;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_21_11;
+SHOW CREATE TABLE MIS_ACCOUNT_DETAILS_21_12;
+
+
+
+
+***********************
+
+
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_2_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_2_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_2_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_2_12;
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_3_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_3_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_3_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_3_12;
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_3_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_3_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_3_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_3_12;
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_6_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_6_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_6_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_6_12;
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_7_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_7_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_7_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_7_12;
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_8_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_8_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_8_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_8_12;
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_11_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_11_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_11_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_11_12;
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_16_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_16_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_16_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_16_12;
+
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_21_09;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_21_10;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_21_11;
+SHOW CREATE TABLE MIS_CONTENT_DETAILS_21_12;
+
+****************
+
+SHOW CREATE TABLE MIS_RECHARGE_2_10;
+SHOW CREATE TABLE MIS_RECHARGE_2_09;
+SHOW CREATE TABLE MIS_RECHARGE_2_11;
+SHOW CREATE TABLE MIS_RECHARGE_2_12;
+
+SHOW CREATE TABLE MIS_RECHARGE_3_09;
+SHOW CREATE TABLE MIS_RECHARGE_3_10;
+SHOW CREATE TABLE MIS_RECHARGE_3_11;
+SHOW CREATE TABLE MIS_RECHARGE_3_12;
+
+SHOW CREATE TABLE MIS_RECHARGE_3_09;
+SHOW CREATE TABLE MIS_RECHARGE_3_10;
+SHOW CREATE TABLE MIS_RECHARGE_3_11;
+SHOW CREATE TABLE MIS_RECHARGE_3_12;
+
+SHOW CREATE TABLE MIS_RECHARGE_6_09;
+SHOW CREATE TABLE MIS_RECHARGE_6_10;
+SHOW CREATE TABLE MIS_RECHARGE_6_11;
+SHOW CREATE TABLE MIS_RECHARGE_6_12;
+
+SHOW CREATE TABLE MIS_RECHARGE_7_09;
+SHOW CREATE TABLE MIS_RECHARGE_7_10;
+SHOW CREATE TABLE MIS_RECHARGE_7_11;
+SHOW CREATE TABLE MIS_RECHARGE_7_12;
+
+SHOW CREATE TABLE MIS_RECHARGE_8_09;
+SHOW CREATE TABLE MIS_RECHARGE_8_10;
+SHOW CREATE TABLE MIS_RECHARGE_8_11;
+SHOW CREATE TABLE MIS_RECHARGE_8_12;
+
+SHOW CREATE TABLE MIS_RECHARGE_11_09;
+SHOW CREATE TABLE MIS_RECHARGE_11_10;
+SHOW CREATE TABLE MIS_RECHARGE_11_11;
+SHOW CREATE TABLE MIS_RECHARGE_11_12;
+
+SHOW CREATE TABLE MIS_RECHARGE_16_09;
+SHOW CREATE TABLE MIS_RECHARGE_16_10;
+SHOW CREATE TABLE MIS_RECHARGE_16_11;
+SHOW CREATE TABLE MIS_RECHARGE_16_12;
+
+SHOW CREATE TABLE MIS_RECHARGE_21_09;
+SHOW CREATE TABLE MIS_RECHARGE_21_10;
+SHOW CREATE TABLE MIS_RECHARGE_21_11;
+SHOW CREATE TABLE MIS_RECHARGE_21_12;
+
+
+
+********************************************************
+MISDB 5, MISDB 6
+
+SHOW CREATE TABLE  MIS_USER_LOG_IN_DETAILS_09;
+SHOW CREATE TABLE  MIS_USER_LOG_IN_DETAILS_10;
+SHOW CREATE TABLE  MIS_USER_LOG_IN_DETAILS_11;
+SHOW CREATE TABLE  MIS_USER_LOG_IN_DETAILS_12;
+
+SHOW CREATE TABLE CC_USER_LOGIN_DETAILS_09;
+SHOW CREATE TABLE CC_USER_LOGIN_DETAILS_10;
+SHOW CREATE TABLE CC_USER_LOGIN_DETAILS_11;
+SHOW CREATE TABLE CC_USER_LOGIN_DETAILS_12;
+
+
+************************************************
+
+CCDB
+SHOW CREATE TABLE MIS_CC_11_7
+
+
+*******************************
+
+Fetching numbers for clearing the ctrDB
+
+CRTDB
+
+SELECT account_Id,DISCOUNT_ID_11,DID_11_END_DATE,DISCOUNT_ID_12,DID_12_END_DATE,DISCOUNT_ID_13,DID_13_END_DATE,DISCOUNT_ID_14,DID_14_END_DATE,DISCOUNT_ID_15,DID_15_END_DATE,DISCOUNT_ID_16,DID_16_END_DATE
+FROM  MIS_SSD_DUMP_Sat 
+WHERE circle_id=6 AND ( DATE(DID_11_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') 
+OR DATE(DID_12_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+OR DATE(DID_13_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+OR DATE(DID_14_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+OR DATE(DID_15_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+OR DATE(DID_16_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+)
+
+
+SIMDB
+SELECT account_Id,DISCOUNT_ID_1,DID_1_END_DATE,DISCOUNT_ID_2,DID_2_END_DATE,DISCOUNT_ID_3,DID_3_END_DATE,DISCOUNT_ID_4,DID_4_END_DATE,DISCOUNT_ID_5,DID_5_END_DATE,DISCOUNT_ID_6,DID_6_END_DATE
+,DISCOUNT_ID_7,DID_7_END_DATE,DISCOUNT_ID_8,DID_8_END_DATE
+FROM  MIS_SSD_DUMP_Sat 
+WHERE circle_id=6 AND ( DATE(DID_3_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') 
+OR DATE(DID_4_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+OR DATE(DID_5_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+OR DATE(DID_6_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+OR DATE(DID_7_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+OR DATE(DID_8_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d')
+)
+
+
+
+
+Fetch number from bucket of crtdb which are also avilable in sim DB....
+419
+
+SELECT COUNT(1)
+FROM  MIS_SSD_DUMP_Sat 
+WHERE circle_id=6 
+AND ( DATE(DID_11_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_11 = DISCOUNT_ID_1 AND DISCOUNT_ID_11 = DISCOUNT_ID_2 OR DISCOUNT_ID_11 = DISCOUNT_ID_3 OR DISCOUNT_ID_11 = DISCOUNT_ID_4
+OR DISCOUNT_ID_11 = DISCOUNT_ID_5 OR DISCOUNT_ID_11 = DISCOUNT_ID_6 OR DISCOUNT_ID_11 = DISCOUNT_ID_7 OR DISCOUNT_ID_11 = DISCOUNT_ID_8
+OR DISCOUNT_ID_11 = DISCOUNT_ID_9 OR DISCOUNT_ID_11 = DISCOUNT_ID_10)
+
+
+
+SELECT COUNT(1)
+FROM  MIS_SSD_DUMP_Sat 
+WHERE circle_id=6 
+AND ( DATE(DID_11_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_11 != DISCOUNT_ID_1 AND DISCOUNT_ID_11 != DISCOUNT_ID_2 AND DISCOUNT_ID_11 != DISCOUNT_ID_3 AND DISCOUNT_ID_11 != DISCOUNT_ID_4
+AND DISCOUNT_ID_11 != DISCOUNT_ID_5 AND DISCOUNT_ID_11 != DISCOUNT_ID_6 AND DISCOUNT_ID_11 != DISCOUNT_ID_7 AND DISCOUNT_ID_11 != DISCOUNT_ID_8
+AND DISCOUNT_ID_11 != DISCOUNT_ID_9 AND DISCOUNT_ID_11 != DISCOUNT_ID_10)
+
+
+
+SELECT COUNT(1)
+FROM  MIS_SSD_DUMP_Sat 
+WHERE circle_id=6 
+AND ( DATE(DID_12_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_12 != DISCOUNT_ID_1 AND DISCOUNT_ID_12 != DISCOUNT_ID_2 AND DISCOUNT_ID_12 != DISCOUNT_ID_3 AND DISCOUNT_ID_12 != DISCOUNT_ID_4
+AND DISCOUNT_ID_12 != DISCOUNT_ID_5 AND DISCOUNT_ID_12 != DISCOUNT_ID_6 AND DISCOUNT_ID_12 != DISCOUNT_ID_7 AND DISCOUNT_ID_12 != DISCOUNT_ID_8
+AND DISCOUNT_ID_12 != DISCOUNT_ID_9 AND DISCOUNT_ID_12 != DISCOUNT_ID_10)
+
+
+SELECT COUNT(1)
+FROM  MIS_SSD_DUMP_Sat 
+WHERE circle_id=6 
+AND ( DATE(DID_12_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_12 = DISCOUNT_ID_1 OR DISCOUNT_ID_12 = DISCOUNT_ID_2 OR DISCOUNT_ID_12 = DISCOUNT_ID_3 OR DISCOUNT_ID_12 = DISCOUNT_ID_4
+OR DISCOUNT_ID_12 = DISCOUNT_ID_5 OR DISCOUNT_ID_12 = DISCOUNT_ID_6 OR DISCOUNT_ID_12 = DISCOUNT_ID_7 OR DISCOUNT_ID_12 = DISCOUNT_ID_8
+OR DISCOUNT_ID_12 = DISCOUNT_ID_9 OR DISCOUNT_ID_12 = DISCOUNT_ID_10)
+
+
+
+
+
+SELECT Account_id,DISCOUNT_ID_13
+FROM  MIS_SSD_DUMP_Mon
+WHERE circle_id=6 
+AND ( DATE(DID_13_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_13 = DISCOUNT_ID_1 OR DISCOUNT_ID_13 = DISCOUNT_ID_2 OR DISCOUNT_ID_13 = DISCOUNT_ID_3 OR DISCOUNT_ID_13 = DISCOUNT_ID_4
+OR DISCOUNT_ID_13 = DISCOUNT_ID_5 OR DISCOUNT_ID_13 = DISCOUNT_ID_6 OR DISCOUNT_ID_13 = DISCOUNT_ID_7 OR DISCOUNT_ID_13 = DISCOUNT_ID_8
+OR DISCOUNT_ID_13 = DISCOUNT_ID_9 OR DISCOUNT_ID_13 = DISCOUNT_ID_10)
+
+
+SELECT Account_id,DISCOUNT_ID_13
+FROM  MIS_SSD_DUMP_Mon 
+WHERE circle_id=6 
+AND ( DATE(DID_13_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_13 != DISCOUNT_ID_1 AND DISCOUNT_ID_13 != DISCOUNT_ID_2 AND DISCOUNT_ID_13 != DISCOUNT_ID_3 AND DISCOUNT_ID_13 != DISCOUNT_ID_4
+AND DISCOUNT_ID_13 != DISCOUNT_ID_5 AND DISCOUNT_ID_13 != DISCOUNT_ID_6 AND DISCOUNT_ID_13 != DISCOUNT_ID_7 AND DISCOUNT_ID_13 != DISCOUNT_ID_8
+AND DISCOUNT_ID_13 != DISCOUNT_ID_9 AND DISCOUNT_ID_13 != DISCOUNT_ID_10)
+
+
+
+
+SELECT Account_id,DISCOUNT_ID_14,DID_14_START_DATE,DID_14_END_DATE
+FROM  MIS_SSD_DUMP_Mon
+WHERE circle_id=6 
+AND ( DATE(DID_14_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_14 = DISCOUNT_ID_1 OR DISCOUNT_ID_14 = DISCOUNT_ID_2 OR DISCOUNT_ID_14 = DISCOUNT_ID_3 OR DISCOUNT_ID_14 = DISCOUNT_ID_4
+OR DISCOUNT_ID_14 = DISCOUNT_ID_5 OR DISCOUNT_ID_14 = DISCOUNT_ID_6 OR DISCOUNT_ID_14 = DISCOUNT_ID_7 OR DISCOUNT_ID_14 = DISCOUNT_ID_8
+OR DISCOUNT_ID_14 = DISCOUNT_ID_9 OR DISCOUNT_ID_14 = DISCOUNT_ID_10)
+
+
+SELECT Account_id,DISCOUNT_ID_14,DID_14_START_DATE,DID_14_END_DATE
+FROM  MIS_SSD_DUMP_Mon 
+WHERE circle_id=6 
+AND ( DATE(DID_14_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_14 != DISCOUNT_ID_1 AND DISCOUNT_ID_14 != DISCOUNT_ID_2 AND DISCOUNT_ID_14 != DISCOUNT_ID_3 AND DISCOUNT_ID_14 != DISCOUNT_ID_4
+AND DISCOUNT_ID_14 != DISCOUNT_ID_5 AND DISCOUNT_ID_14 != DISCOUNT_ID_6 AND DISCOUNT_ID_14 != DISCOUNT_ID_7 AND DISCOUNT_ID_14 != DISCOUNT_ID_8
+AND DISCOUNT_ID_14 != DISCOUNT_ID_9 AND DISCOUNT_ID_14 != DISCOUNT_ID_10)
+
+
+
+
+
+
+
+SELECT Account_id,DISCOUNT_ID_15,DID_15_START_DATE,DID_15_END_DATE
+FROM  MIS_SSD_DUMP_Mon
+WHERE circle_id=6 
+AND ( DATE(DID_15_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_15 = DISCOUNT_ID_1 OR DISCOUNT_ID_15 = DISCOUNT_ID_2 OR DISCOUNT_ID_15 = DISCOUNT_ID_3 OR DISCOUNT_ID_15 = DISCOUNT_ID_4
+OR DISCOUNT_ID_15 = DISCOUNT_ID_5 OR DISCOUNT_ID_15 = DISCOUNT_ID_6 OR DISCOUNT_ID_15 = DISCOUNT_ID_7 OR DISCOUNT_ID_15 = DISCOUNT_ID_8
+OR DISCOUNT_ID_15 = DISCOUNT_ID_9 OR DISCOUNT_ID_15 = DISCOUNT_ID_10)
+
+
+SELECT Account_id,DISCOUNT_ID_15,DID_15_START_DATE,DID_15_END_DATE
+FROM  MIS_SSD_DUMP_Mon 
+WHERE circle_id=6 
+AND ( DATE(DID_15_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_15 != DISCOUNT_ID_1 AND DISCOUNT_ID_15 != DISCOUNT_ID_2 AND DISCOUNT_ID_15 != DISCOUNT_ID_3 AND DISCOUNT_ID_15 != DISCOUNT_ID_4
+AND DISCOUNT_ID_15 != DISCOUNT_ID_5 AND DISCOUNT_ID_15 != DISCOUNT_ID_6 AND DISCOUNT_ID_15 != DISCOUNT_ID_7 AND DISCOUNT_ID_15 != DISCOUNT_ID_8
+AND DISCOUNT_ID_15 != DISCOUNT_ID_9 AND DISCOUNT_ID_15 != DISCOUNT_ID_10)
+
+
+
+
+
+
+
+
+SELECT Account_id,DISCOUNT_ID_16,DID_16_START_DATE,DID_16_END_DATE
+FROM  MIS_SSD_DUMP_Mon
+WHERE circle_id=6 
+AND ( DATE(DID_16_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_16 = DISCOUNT_ID_1 OR DISCOUNT_ID_16 = DISCOUNT_ID_2 OR DISCOUNT_ID_16 = DISCOUNT_ID_3 OR DISCOUNT_ID_16 = DISCOUNT_ID_4
+OR DISCOUNT_ID_16 = DISCOUNT_ID_5 OR DISCOUNT_ID_16 = DISCOUNT_ID_6 OR DISCOUNT_ID_16 = DISCOUNT_ID_7 OR DISCOUNT_ID_16 = DISCOUNT_ID_8
+OR DISCOUNT_ID_16 = DISCOUNT_ID_9 OR DISCOUNT_ID_16 = DISCOUNT_ID_10)
+
+
+SELECT Account_id,DISCOUNT_ID_16,DID_16_START_DATE,DID_16_END_DATE
+FROM  MIS_SSD_DUMP_Mon 
+WHERE circle_id=6 
+AND ( DATE(DID_16_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_16 != DISCOUNT_ID_1 AND DISCOUNT_ID_16 != DISCOUNT_ID_2 AND DISCOUNT_ID_16 != DISCOUNT_ID_3 AND DISCOUNT_ID_16 != DISCOUNT_ID_4
+AND DISCOUNT_ID_16 != DISCOUNT_ID_5 AND DISCOUNT_ID_16 != DISCOUNT_ID_6 AND DISCOUNT_ID_16 != DISCOUNT_ID_7 AND DISCOUNT_ID_16 != DISCOUNT_ID_8
+AND DISCOUNT_ID_16 != DISCOUNT_ID_9 AND DISCOUNT_ID_16 != DISCOUNT_ID_10)
+
+
+
+
+
+SELECT Account_id,DISCOUNT_ID_17,DID_17_START_DATE,DID_17_END_DATE
+FROM  MIS_SSD_DUMP_Mon
+WHERE circle_id=6 
+AND ( DATE(DID_17_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_17 = DISCOUNT_ID_1 OR DISCOUNT_ID_17 = DISCOUNT_ID_2 OR DISCOUNT_ID_17 = DISCOUNT_ID_3 OR DISCOUNT_ID_17 = DISCOUNT_ID_4
+OR DISCOUNT_ID_17 = DISCOUNT_ID_5 OR DISCOUNT_ID_17 = DISCOUNT_ID_6 OR DISCOUNT_ID_17 = DISCOUNT_ID_7 OR DISCOUNT_ID_17 = DISCOUNT_ID_8
+OR DISCOUNT_ID_17 = DISCOUNT_ID_9 OR DISCOUNT_ID_17 = DISCOUNT_ID_10)
+
+
+SELECT Account_id,DISCOUNT_ID_17,DID_17_START_DATE,DID_17_END_DATE
+FROM  MIS_SSD_DUMP_Mon 
+WHERE circle_id=6 
+AND ( DATE(DID_17_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_17 != DISCOUNT_ID_1 AND DISCOUNT_ID_17 != DISCOUNT_ID_2 AND DISCOUNT_ID_17 != DISCOUNT_ID_3 AND DISCOUNT_ID_17 != DISCOUNT_ID_4
+AND DISCOUNT_ID_17 != DISCOUNT_ID_5 AND DISCOUNT_ID_17 != DISCOUNT_ID_6 AND DISCOUNT_ID_17 != DISCOUNT_ID_7 AND DISCOUNT_ID_17 != DISCOUNT_ID_8
+AND DISCOUNT_ID_17 != DISCOUNT_ID_9 AND DISCOUNT_ID_17 != DISCOUNT_ID_10)
+
+
+
+
+
+
+
+SELECT Account_id,DISCOUNT_ID_18,DID_18_START_DATE,DID_18_END_DATE
+FROM  MIS_SSD_DUMP_Mon
+WHERE circle_id=6 
+AND ( DATE(DID_18_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_18 = DISCOUNT_ID_1 OR DISCOUNT_ID_18 = DISCOUNT_ID_2 OR DISCOUNT_ID_18 = DISCOUNT_ID_3 OR DISCOUNT_ID_18 = DISCOUNT_ID_4
+OR DISCOUNT_ID_18 = DISCOUNT_ID_5 OR DISCOUNT_ID_18 = DISCOUNT_ID_6 OR DISCOUNT_ID_18 = DISCOUNT_ID_7 OR DISCOUNT_ID_18 = DISCOUNT_ID_8
+OR DISCOUNT_ID_18 = DISCOUNT_ID_9 OR DISCOUNT_ID_18 = DISCOUNT_ID_10)
+
+
+SELECT Account_id,DISCOUNT_ID_18,DID_18_START_DATE,DID_18_END_DATE
+FROM  MIS_SSD_DUMP_Mon 
+WHERE circle_id=6 
+AND ( DATE(DID_18_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_18 != DISCOUNT_ID_1 AND DISCOUNT_ID_18 != DISCOUNT_ID_2 AND DISCOUNT_ID_18 != DISCOUNT_ID_3 AND DISCOUNT_ID_18 != DISCOUNT_ID_4
+AND DISCOUNT_ID_18 != DISCOUNT_ID_5 AND DISCOUNT_ID_18 != DISCOUNT_ID_6 AND DISCOUNT_ID_18 != DISCOUNT_ID_7 AND DISCOUNT_ID_18 != DISCOUNT_ID_8
+AND DISCOUNT_ID_18 != DISCOUNT_ID_9 AND DISCOUNT_ID_18 != DISCOUNT_ID_10)
+
+
+
+
+
+
+
+
+
+SELECT Account_id,DISCOUNT_ID_19,DID_19_START_DATE,DID_19_END_DATE
+FROM  MIS_SSD_DUMP_Mon
+WHERE circle_id=6 
+AND ( DATE(DID_19_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_19 = DISCOUNT_ID_1 OR DISCOUNT_ID_19 = DISCOUNT_ID_2 OR DISCOUNT_ID_19 = DISCOUNT_ID_3 OR DISCOUNT_ID_19 = DISCOUNT_ID_4
+OR DISCOUNT_ID_19 = DISCOUNT_ID_5 OR DISCOUNT_ID_19 = DISCOUNT_ID_6 OR DISCOUNT_ID_19 = DISCOUNT_ID_7 OR DISCOUNT_ID_19 = DISCOUNT_ID_8
+OR DISCOUNT_ID_19 = DISCOUNT_ID_9 OR DISCOUNT_ID_19 = DISCOUNT_ID_10)
+
+
+SELECT Account_id,DISCOUNT_ID_19,DID_19_START_DATE,DID_19_END_DATE
+FROM  MIS_SSD_DUMP_Mon 
+WHERE circle_id=6 
+AND ( DATE(DID_19_END_DATE) < DATE_FORMAT(NOW(), '%Y%m%d') )
+AND (DISCOUNT_ID_19 != DISCOUNT_ID_1 AND DISCOUNT_ID_19 != DISCOUNT_ID_2 AND DISCOUNT_ID_19 != DISCOUNT_ID_3 AND DISCOUNT_ID_19 != DISCOUNT_ID_4
+AND DISCOUNT_ID_19 != DISCOUNT_ID_5 AND DISCOUNT_ID_19 != DISCOUNT_ID_6 AND DISCOUNT_ID_19 != DISCOUNT_ID_7 AND DISCOUNT_ID_19 != DISCOUNT_ID_8
+AND DISCOUNT_ID_19 != DISCOUNT_ID_9 AND DISCOUNT_ID_19 != DISCOUNT_ID_10)
+
+
+*********************************************************
+
+GUI 2 VERTUAL URL NOT WORKING
+
+
+ 706  cd /data/reporting-apps_data/pentaho5/biserver-ce/tomcat/
+  707  ll
+  708  cd logs/
+  709  ls -ltrh|tail
+  710  kill -9 15614 17716
+  711  service httpd status
+  712  ps -ef |grep -i java
+  713  pwd
+  714  cd ..
+  715  ll
+  716  cd ..
+  717  ll
+  718  cd ..
+  719  ll
+  720  cd ..
+  721  ll
+  722  cd /
+  723  cd /home/
+  724  cd rptuser/reporting-apps/
+  725  ll
+  726  cd apache_ccgui/
+  727  ll
+  728  cd bin/
+  729  ./apachectl restart
+  730  ll
+  731  cd
+  732  ps -ef |grep apache_ccgui
+  733  cd ps -ef |grep appache2
+  734  ps -ef |grep appache2
+  735  cd ../
+  736  ll
+  737  pwd
+  738  cd /home/
+  739  cd rptuser/
+  740  pwd
+  741  cd appache2/
+  742  cd bin/
+  743  ll
+  744  ./apachectl restart
+  745  cd appache2/
+  746  ps -ef |grep appache2
+  747  cd /data/reporting-apps_data/pentaho5/biserver-ce
+  748  ll
+  749  sh start-pentaho.sh
+  750  exit
+  751  history
+
+
+******************************************
+
+
+VPNCC SPACE resolve
+
+/log/cdr/slp-cdr/call/PrepaidCDR/backup
+
+/log/webselfcare
+ls -lrth |grep drwxr
+rm -rf bkp_vpn_webselfcare_cc1_*_08_2025
+
+
+/log/jobscheduler/cdr-push/ap1
+ls -lrth |grep drwxr
+rm -rf bkp_cdr2Ap1_cc1_*_08_2025
+
+
+
+
+************SRP******
+
+srp1
+ cd /log/srp/app-log/backup/
+ 
+ 

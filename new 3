@@ -1,0 +1,571 @@
+1.first go to path where latest dump is genrating or you can take the fresh Dump.
+
+2.then fetch the required fild from Main dump and create the file with Main_Atca_naming.
+cat SIMDump_20250602.csv |awk -F "'" '{ print $4 ,$30,$60,$6}' |sort > 1jun_dump_MainATCA4.txt
+
+3.then fetch the required fild from Mated dump and create the file with Mated_Atca_naming.
+cat SIMDump_20250602.csv |awk -F "'" '{ print $4 ,$30,$60,$6}' |sort > 1jun_dump_MatedATCA4.txt
+
+4. now copy the main dump file to mated site path
+ scp 1jun_dump_MainATCA4 10.147.136.17:/RTDB_DUMP/dump 	
+
+5.then run below comand to check the numbers which are only in Mated not in main or status changed in main
+
+comm -13 1jun_dump_MainATCA4 1jun_dump_MatedATCA4.txt > 1june_onlyinmated_atca4.txt
+
+6.then run below comand to check the numbers which are only in Main not in Mated or status changed in Mated
+
+comm -23 1jun_dump_MainATCA4 1jun_dump_MatedATCA4.txt > 1june_onlyinmain_atca4.txt
+ 
+
+
+
+
+
+
+
+
+                                         Record 1/1
+Screen 1 of 1
+                          MEASUREMENT INTERVAL FORM
+
+*>  1. MEASUREMENT TABLE NAME
+       SPA_EPAY29C_MEAS1
+*   2. COLLECTING PROCESS    EPAY29C
+    3. COLLECTION INTERVAL   TRFC15
+    4. REPORT FILE
+       spa_EPAY29C_Service_Meas1.rpt.sql
+    5. GENERATE FILE         Y
+    6. INHIBITED             N
+
+
+Distribution errors: [NE returned a failure for the transaction. 
+NE: [Nth1OCS5] Error Type: [4] Error text: [NE returned error [Code:2674;ErrorString:?E <<< 2 Errors, 0 Warnings >>> Current line: |OUT| RCERR110-SPA_ENWTPPS29C_P0165A2AD-145 Operation rejected by SPA (EPAY29C_D) ;]] 
+NE: [Nth1OCS1] Error Type: [-604] Error text: [eSM is not waiting for response from this NE due to failure on other NE.] 
+NE: [Nth1OCS2] Error Type: [-604] Error text: [eSM is not waiting for response from this NE due to failure on other NE.] 
+NE: [Nth1OCS3] Error Type: [-604] Error text: [eSM is not waiting for response from this NE due to failure on other NE.] 
+NE: [Nth1OCS4] Error Type: [-604] Error text: [eSM is not waiting for response from this NE due to failure on other NE.] 
+NE: [Nth2OCS1] Error Type: [-604] Error text: [eSM is not waiting for response from this NE due to failure on other NE.] 
+NE: [Nth2OCS3] Error Type: [-604] Error text: [eSM is not waiting for response from this NE due to failure on other NE.] 
+NE: [Nth2OCS5] Error Type: [-604] Error text: [eSM is not waiting for response from this NE due to failure on other NE.]]
+
+diameter.Session-Id == "vpcrfNZCHDUPE6.pcrfupe6.epc.mnc055.mcc404.3gppnetwork.org;1738094090;88853058;24903680" && diameter.Session-Id == "vPGW_NZCHDUPE4_4;1738955251;36636843;4_71425"
+
+system set-time <2025-01-28> <16:03:00>
+system time <YYYY-MM-DD> <HH:MM:SS>
+
+
+camel.local == 0 || e164.calling_party_number.digits == "916387941963"
+tcap.otid == 04:02:f0:5d || tcap.dtid == 04:02:f0:5d
+
+JUL_AUG_sep_bill.zip
+
+/cs/sn/utest/SAdump > /tmp/SAdump.out
+/cs/sn/utest/SAdump > /tmp/SAdump.out.
+
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1";
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS8";
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9";
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS21";
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS22";
+
+op:meas=TRFC30,table="MS_PERF_MEAS";
+
+comply
+
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1105;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1110;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1115;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1120;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1125;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1130;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1135;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1140;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1145;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1150;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1155;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1200;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1205;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1210;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1215;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1220;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1225;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1230;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1235;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1240;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1245;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1250;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1255;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1300;
+
+
+
+op:meas=TRFC30,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1130;
+op:meas=TRFC30,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1200;
+op:meas=TRFC30,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1230;
+op:meas=TRFC30,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1300;
+op:meas=TRFC30,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1330;
+op:meas=TRFC30,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1400;
+http://10.147.128.243/BSNLCCgui/index.6d
+select * from meas_mstr where proc_name='EPAY29C';
+
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1115;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1130;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1145;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1200;
+
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS8",DATE=20250310,TIME=1115;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS8",DATE=20250310,TIME=1130;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS8",DATE=20250310,TIME=1145;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS8",DATE=20250310,TIME=1200;
+
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1915;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1930;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=1945;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250310,TIME=2000;
+
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1815;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1830;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1845;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1900;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1915;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1930;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1945;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=2000;
+
+
+
+
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250401,TIME=1815;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250401,TIME=1830;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250401,TIME=1845;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250401,TIME=1900;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250401,TIME=1915;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250401,TIME=1930;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250401,TIME=1945;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS1",DATE=20250401,TIME=2000;
+
+
+
+
+917891981477
+
+10.179.17.106  SOUR
+10.147.129.8  DEST
+
+10.179.17.98  SOUR
+10.147.129.9 	DESC
+
+
+
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS7",DATE=20250430,TIME=1400;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1810;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1815;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1820;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1825;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1830;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1835;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1840;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1845;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1850;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1855;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1900;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1905;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1910;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1915;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1920;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1925;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1930;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1935;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1940;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1945;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1950;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=1955;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250401,TIME=2000;
+
+
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250310,TIME=1100;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1105;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1110;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1115;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1120;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1125;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1130;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1135;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1140;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1145;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1150;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1155;
+op:meas=TRFC5,table="SA_SPAMEAS",DATE=20250304,TIME=1200;
+
+
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1705;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1710;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1715;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1720;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1725;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1730;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1735;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1740;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1745;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1750;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1755;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1800;
+
+
+
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1715;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1730;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1745;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250304,TIME=1800;
+
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS1",DATE=20250304,TIME=1715;
+
+
+
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS22",DATE=20250303,TIME=0815;
+
+
+ATCA1
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS21",DATE=20250221,TIME=1715;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250303,TIME=0815;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1745;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1800;
+
+ATCA2
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=2025021,TIME=1715;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1730;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1745;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1900;
+ATCA3
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1615;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1630;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1645;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1700;
+ATCA4
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1715;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1730;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1745;
+op:meas=TRFC15,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1800;
+ATCA5
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1905;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1910;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1915;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1920;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1925;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1930;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1935;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1940;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1945;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1950;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=1955;
+op:meas=TRFC5,table="SPA_EPAY29C_MEAS9",DATE=20250221,TIME=2000;
+
+
+
+
+
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1905;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1910;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1915;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1920;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1925;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1930;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1935;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1940;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1945;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1950;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=1955;
+op:meas=TRFC5,TABLE="SA_SPAPROCMEAS",DATE=20241009,TIME=2000;
+
+
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1905;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1910;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1915;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1920;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1925;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1930;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1935;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1940;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1945;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1950;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=1955;
+op:meas=TRFC5,TABLE="SA_SPAMEAS",DATE=20241009,TIME=2000;
+
+
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1905;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1910;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1915;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1920;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1925;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1930;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1935;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1940;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1945;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1950;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1955;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=2000;
+
+
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1905;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1910;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1915;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1920;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1925;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1930;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1935;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1940;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1945;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1950;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1955;
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=2000;
+
+
+
+op:meas=TRFC30,TABLE="TITRAFFIC",DATE=20250221,TIME=1830;
+op:meas=TRFC30,TABLE="TITRAFFIC",DATE=20250221,TIME=1900;
+
+op:meas=TRFC30,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1930;
+op:meas=TRFC30,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=2000;
+
+
+
+
+
+
+< op:meas=TRFC30,TABLE="TITRAFFIC",DATE=20250221,TIME=1830; PF
+   +++ NTH1OTH1 2025-02-22 09:21:55 TRFM   #888303 0-0-9 >
+M  REPT MEAS TRFC30
+
+                      Measurements report for TITRAFFIC TABLE
+       Friday,02/21/2025,18:30; Expected Duration: 1800 seconds (30 minutes)
+
+
+   HostID HOST NAME                  IN_MSGS  OUT_MSGS     IN_BYTES    OUT_BYTES
+   ------ ------------------------ --------- --------- ------------ ------------
+   0-0-4  6dvpn                        48680     48684     28653040     12761116
+   0-0-4  6dvpn1                       15376     15374      9021372      4031208
+   0-0-4  BSNLWIFI                       356       356        24208        24208
+   0-0-4  CTOPUP                       24796     24795      7159132     16302068
+   0-0-4  GGSN3                      3882089   3880071   2561858544    957941016
+   0-0-4  GGSN4                      3743540   3741463   2464900264    926232752
+   0-0-4  IMIAPP                         120       120         8160         8160
+   0-0-4  IMIAPP1                      24911     24914      9540912     20603552
+   0-0-4  MCA                             61        61         4684         5264
+   0-0-4  MMJDRA                         240       240        31680        19200
+   0-0-4  Nth1OCS1                  10034302  10036862   2286373904   6977268568
+   0-0-4  Nth1OCS2                   6088440   6089542   1367329357   4141393777
+   0-0-4  Nth1OCS3                   6645514   6646253   1508136616   4665813128
+   0-0-4  Nth1OCS4                   6471223   6472147   1450210680   4534713424
+   0-0-4  Nth1OCS5                   4074609   4075162    919368428   2753535944
+   0-0-4  Nth2OCS4                        35        35         7340        22916
+   0-0-4  PCRF                        723598    723623    152079756    117501768
+   0-0-4  PCRFMMJ                    2701568   2701568    816042740    521331016
+   0-0-4  RDDRA                          240       240        31680        19200
+   0-0-4  SMSCZTE                      90457     90464     45351440     16363660
+   0-0-4  ZTGGSN1                     661817    661327    448099768    167554368
+   0-0-4  ZTGGSN2                     834588    834147    522491096    201883480
+   0-0-4  dsc.ims.cdot.in               4900      4900      2865752      1148568
+   0-0-4  dsc.imsamb.cdot.in             136       136        21520        12512
+   0-0-4  nzdsc1.epc.mnc053.mcc404  18277649  18277837  12887274280   4378958396
+   0-0-4  nzpbdlbpcrf.epc.mnc053.m   1218510   1218518    859202868    291944140
+
+   END OF REPORT #888303++-
+
+
+
+< op:meas=TRFC30,TABLE="TITRAFFIC",DATE=20250221,TIME=1900; PF
+   +++ NTH1OTH1 2025-02-22 09:23:18 TRFM   #888304 0-0-9 >
+M  REPT MEAS TRFC30
+
+                      Measurements report for TITRAFFIC TABLE
+       Friday,02/21/2025,19:00; Expected Duration: 1800 seconds (30 minutes)
+
+
+   HostID HOST NAME                  IN_MSGS  OUT_MSGS     IN_BYTES    OUT_BYTES
+   ------ ------------------------ --------- --------- ------------ ------------
+   0-0-4  6dvpn                        49926     49922     29221488     13117652
+   0-0-4  6dvpn1                       16206     16207      9458816      4253708
+   0-0-4  BSNLWIFI                       355       355        24140        24140
+   0-0-4  CTOPUP                       24927     24926      7190780     16353584
+   0-0-4  GGSN3                      4052107   4049917   2674573552   1004272480
+   0-0-4  GGSN4                      3952555   3950203   2600263920    980752224
+   0-0-4  IMIAPP                         120       120         8160         8160
+   0-0-4  IMIAPP1                      26747     26747     10246784     22280932
+   0-0-4  MCA                             60        60         4080         4800
+   0-0-4  MMJDRA                         240       240        31680        19200
+   0-0-4  Nth1OCS1                   9860554   9864061   2244292432   6836471212
+   0-0-4  Nth1OCS2                   6138688   6139577   1377610220   4174209452
+   0-0-4  Nth1OCS3                   6976219   6976952   1577914084   4833424396
+   0-0-4  Nth1OCS4                   6429340   6430245   1439678400   4508332316
+   0-0-4  Nth1OCS5                   4939740   4940727   1125326712   3326118752
+   0-0-4  Nth2OCS4                        34        34         6628        21940
+   0-0-4  PCRF                        730431    730431    153513324    118618628
+   0-0-4  PCRFMMJ                    2943065   2943033    889044160    569392448
+   0-0-4  RDDRA                          240       240        31680        19200
+   0-0-4  SMSCZTE                      92425     92415     46342044     16691568
+   0-0-4  ZTGGSN1                     655852    655404    443999284    165580080
+   0-0-4  ZTGGSN2                     826739    826320    517781580    199700840
+   0-0-4  dsc.ims.cdot.in               8019      8019      4681048      1880844
+   0-0-4  dsc.imsamb.cdot.in             129       129        16572        10932
+   0-0-4  nzdsc1.epc.mnc053.mcc404  18607392  18606800  13093353264   4455027072
+   0-0-4  nzpbdlbpcrf.epc.mnc053.m   1240494   1240453    872734568    296956724
+
+   END OF REPORT #888304++-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+op:meas=TRFC5,TABLE="MS_PROCESS_MEAS",DATE=20241009,TIME=1500;
+op:meas=TRFC5,TABLE="MS_PER_CPU_MEAS",DATE=20241009,TIME=1500;
+MS_PER_CPU_MEAS
+
+
+SA_SPAMEAS
+MS_PER_CPU_MEAS
+MS_PROCESS_MEAS
+TITRAFFIC
+SA_SPAPROCMEAS
+top
+
+
+
+
+
+
+
+
+
+
+op:meas=TRFC30,TABLE="MS_PROCESS_MEAS",DATE=20240724,TIME=0500;
+
+
+find / -name "fw_atca*"
+
+
+
+Usage_Tariff_tbl.csv
+Called_Party_Number_Zone_tbl.csv
+Zone_Mapping_tbl.csv
+
+chmod 777  MCAS3_0012_diameter_57667_20240922153751.pcap.gz MCAS3_0012_diameter_57668_20240922153930.pcap.gz  MCAS3_0012_diameter_57669_20240922154109.pcap.gz MCAS3_0012_diameter_57670_20240922154248.pcap.gz MCAS3_0012_diameter_57671_20240922154427.pcap.gz MCAS3_0012_diameter_57672_20240922154605.pcap.gz
+
+
+
+9988880060
+
+
+ EVENT-ID INH  NEXT-SCHED  EXC COMMAND
+      MEAS5MN   N   Wed 10:35    N  OP:MEAS=TRFC5,CLCT,ALL
+      CLRX10    N   Wed 10:41    N  CLR:LOGFILE,NAME="TimesTenLog",MAXSIZE=8192,
+   ARCHIVE=YES
+      MEAS15MN  N   Wed 10:45    N  OP:MEAS=TRFC15,CLCT,ALL
+      MEAS30MN  N   Wed 11:00    N  OP:MEAS=TRFC30,CLCT,ALL
+      MEAS1HR   N   Wed 11:00    N  OP:MEAS=PLNTHR,CLCT,ALL
+      BKPSOFT   N   Wed 11:00    N  BACKUP:LOCAL,TARGET=PLATsoft,LDEST=r1vg21un0
+   -FSBACKUP
+      BKPCTRDB  N   Wed 12:00    N  BACKUP:DB=CTRTDB28C,BINARY,DEST="/RTDB_DUMP/
+   ctrdb_`date +%YSuccess8805184`.bak"
+      BKPSIMLO  N   Wed 12:00    N  BACKUP:DB=SIMDB28C,BINARY,DEST="/RTDB_DUMP/s
+   imdb_`date +%YSuccess8805184`.bak"
+      CLRAPA    N   Wed 12:10    N  CLR:LOGFILE,NAME="Apache*",MAXSIZE=1000,ARCH
+   IVE=NO,MACHINE=all
+      BKPDRBD   N   Wed 14:00    N  BACKUP:LOCAL,TARGET=PLATdrbd,LDEST=r1vg2lun0
+   -FSBACKUP
+      BKPPOST   N   Wed 17:00    N  BACKUP:LOCAL,TARGET=PostgresSQL,LDEST=r1vg2l
+   un0-FSBACKUP
+      BKPSSDDB  N   Wed 23:00    N  backup:db=SSDDB28C,binary,dest="/RTDB_DUMP/s
+   sddb_`date +%YSuccess8805184`.bak"
+      SAVCTDB   N   Wed 23:10    N  SAVE:DB=CTRTDB28C
+      SAVESSDB  N   Wed 23:15    N  SAVE:DB=SSDDB28C
+      SAVEAIDB  N   Wed 23:35    N  SAVE:DB=AIRTDB28C
+      CLRWEBMT  N   Wed 23:37    N  CLR:LOGFILE,DIR="/cs/sn/webmt/log",NAME="ses
+   sionLog*"AGE=7,UCL
+      SAVESGDB  N   Wed 23:45    N  SAVE:DB=SGLDB286
+      PGVACUUM  N   Wed 23:48    N  EXC:UNIX="/cs/sn/db/DBpgVacuum >/dev/null 2>
+   &1"
+      MEAS24HR  N   Thu  0:00    N  OP:MEAS=PLNT24,CLCT,ALL
+      BLRCLEAN  N   Thu  1:17    N  AUD:BILL,REP,DAYS=7
+      BKPCTDB   N   Thu  1:30    N  BACKUP:DB=CTRTDB28C,DEST="/RTDB_DUMP/dump/Co
+   unterDump_`date +%YSuccess8805184`.csv"
+      BKPSIMDB  N   Thu  1:35    N  BACKUP:DB=SIMDB28C,DEST="/RTDB_DUMP/dump/SIM
+   Dump_`date +%YSuccess8805184`.csv"
+      BLCLEAN   N   Thu  1:37    N  AUD:BILL,SEC,DAYS=0
+      WEBDB     N   Thu  2:01    N  EXC:UNIX="cd /RTDB_DUMP/WebDB_data;./get_mas
+   _db_mCAS_crontab_v2.07.sh"
+      CLRDBTRC  N   Thu  3:01    N  CLR:DBTRACE,AGE=7
+      CLRTRNQ   N   Thu  3:13    N  CLR:TRANQ,MSGCOUNT=8
+      RMVTCC    N   Thu  4:01    N  CLR:LOGFILE,NAME="tc_context*",AGE=7,UCL
+      RMVTCA    N   Thu  4:01    N  CLR:LOGFILE,NAME="tc_access*",AGE=7,UCL
+      RMVTC     N   Thu  4:01    N  CLR:LOGFILE,NAME="tomcat*",AGE=7,MACHINE=all
+   ,UCL
+      RMVAPA    N   Thu  4:01    N  CLR:LOGFILE,NAME="apache*",AGE=7,MACHINE=all
+   ,UCL
+      MEASDL5   N   Thu  4:13    N  OP:MEAS=TRFC5,DEL=3
+      CLRTOM    N   Thu  4:15    N  CLR:LOGFILE,NAME="tomcat*",MAXSIZE=1000,ARCH
+   IVE=NO,MACHINE=all
+      CLRSUBMS  N   Thu  4:20    N  CLR:SUBMEASFILE,SPA=ALL,AGE=3
+      MEASDL15  N   Thu  4:23    N  OP:MEAS=TRFC15,DEL=3
+      CLRTCCTX  N   Thu  4:30    N  CLR:LOGFILE,NAME="tc_context*",MAXSIZE=1000,
+   ARCHIVE=NO
+      MEASDL30  N   Thu  4:38    N  OP:MEAS=TRFC30,DEL=3
+      CLRTCACC  N   Thu  4:45    N  CLR:LOGFILE,NAME="tc_access*",MAXSIZE=1000,A
+   RCHIVE=NO
+      MEASDLHR  N   Thu  4:48    N  OP:MEAS=PLNTHR,DEL=3
+      MEASDL24  N   Thu  5:13    N  OP:MEAS=PLNT24,DEL=3
+      CLRMOD    N   Thu  5:15    N  CLR:LOGFILE,NAME=mod*,MAXSIZE=1000,ARCHIVE=N
+   O
+      AUDELIND  N   Thu  7:00    N  OP:SUBRECS,SPA=EPPSA29C,FILE="/cmeas/EPPSA29
+   C/ES_Deleted_Index_Data_Log_File.meas",DEST="/SMS/EPPSA29C/subrecs/ES_Deleted
+   _Index_Data_Log_File",interval=0030,timestamp
+      LGBKUP    Y   Sat 12:43    N  EXC:UNIX="/u/ainet/bin/Custom_Log_Bkup.sh >/
+   dev/null 2>&1"
+      MSMERG    Y   Sat 12:44    N  EXC:UNIX="/cs/sn/meas/Mergexml"
+      XML5MN    Y   Sat 12:44    N  OP:MEAS=TRFC5,XML
+      SYNCSUB5  Y   Sat 12:47    N  EXC:UNIX="/sn/cslee/release/bin/SyncSubmeas
+   > /tmp/SyncSubmeas.log 2>&1",TOOL
+      XML15MN   Y   Sat 12:49    N  OP:MEAS=TRFC15,XML
+      XML1HR    Y   Sat 13:04    N  OP:MEAS=PLNTHR,XML
+      XML30MN   Y   Sat 13:04    N  OP:MEAS=TRFC30,XML
+      SYNCCHK   Y   Sat 15:13    N  EXC:UNIX="/sn/bin/RTDB_sync_check >/dev/null
+    2>&1"
+      SAVESHDB  Y   Sat 23:25    N  SAVE:DB=SHRTDB28C
+      XML24HR   Y   Sun  0:04    N  OP:MEAS=PLNT24,XML
+      BKUPORA   Y   Sun  1:36    N  BACKUP:SITEDB=ORACLE
+      BLICLEAN  Y   Sun  1:47    N  AUD:BILL,INT
+      MEASJOB   Y   Sun  2:17    N  AUD:MEASJOB,DAYS=7
+      CDRCLEAN  Y   Sun  2:40    N  AUD:CDR,HOURS=168
+      DELALM    Y   Sun  3:45    N  CLR:ALMTBL,AGE=1
+      CLRORAIP  Y   Sun  4:45    N  CLR:LOGFILE,DIR="/oracle/network/log",NAME="
+   listener.log",MAXSIZE=100,ARCHIVE=NO
+      RMVXML    Y   Sun  5:00    N  CLR:MEASFILE,NAME=A*,AGE=1,UCL
+      TTCOMPAC  Y   Wed  3:00    N  EXC:TTCOMPACT
+      BKPAIDB   Y   Sun  0:05    N  BACKUP:DB=AIRTDB28C,DEST="/RTDB_DUMP/dump/sixdee/AIDump_`date +%YSuccess8805184`.csv"
+      BKPCTDB1  Y   Thu 14:45    N  BACKUP:DB=CTRTDB28C,DEST="/ubilling/RTDB_BKP
+   /CounterDump_`date +%YSuccess8805184`_1.csv"
+      BKPSMDB1  Y   Thu 14:50    N  BACKUP:DB=SIMDB28C,DEST="/ubilling/RTDB_BKP/
+   SIMDump_`date +%YSuccess8805184`_1.csv"
+   
+   197148330
+   
+   
+ 29 KE_saf2@2021
+ 30saf1_KE@2021
+ 

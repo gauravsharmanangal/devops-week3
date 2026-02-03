@@ -1,0 +1,116 @@
+As per your requirement, please find the DB sync MOP:
+DB Sync Process:
+
+Process 1(Non Live Site)
+/cs/sn/bin/RTDB_recover_from_mate SIMDB28C
+
+/cs/sn/bin/RTDB_recover_from_mate CTRTDB28C
+
+/cs/sn/bin/RTDB_recover_from_mate SYDB287
+
+/cs/sn/bin/RTDB_recover_from_mate SGLDB286
+
+/cs/sn/bin/RTDB_recover_from_mate AIRTDB28C
+
+/cs/sn/bin/RTDB_recover_from_mate SHRTDB28C
+
+/cs/sn/bin/RTDB_recover_from_mate TIDDB28C
+
+/cs/sn/bin/RTDB_recover_from_mate SSDDB28C
+
+ 
+
+OR
+
+Process 2:
+
+
+
+Live Site:
+
+A.       Backup:
+
+BACKUP:DB=SIMDB28C,DEST="/ubilling/Jaya_Backup/SIM_Backup.csv"
+
+BACKUP:DB=SGLDB286,DEST="/ubilling/Jaya_Backup/SGLDB286_Backup.csv"
+
+BACKUP:DB=SYDB287,DEST="/ubilling/Jaya_Backup/SYDB287_Backup.csv"
+
+BACKUP:DB=AIRTDB28C,DEST="/ubilling/Jaya_Backup/AIRTDB28C_Backup.csv"
+
+BACKUP:DB=SHRTDB28C,DEST="/ubilling/Jaya_Backup/SHRTDB28C_Backup.csv"
+
+BACKUP:DB=SSDDB28C,DEST="/ubilling/Jaya_Backup/SSDDB28C_Backup.csv"
+
+BACKUP:DB=CTRTDB28C,DEST="/ubilling/Jaya_Backup/CTRTDB28C_Backup.csv"
+
+BACKUP:DB=TIDDB28C,DEST="/ubilling/Jaya_Backup/TIDDB28C_Backup.csv"
+
+B.      Convert into zip :
+
+gzip /ubilling/Jaya_Backup/SIM_Backup.csv
+
+gzip /ubilling/Jaya_Backup/SGLDB286_Backup.csv
+
+gzip /ubilling/Jaya_Backup/SYDB287_Backup.csv
+
+gzip/ubilling/Jaya_Backup/AIRTDB28C_Backup.csv
+
+gzip /ubilling/Jaya_Backup/SHRTDB28C_Backup.csv
+
+gzip /ubilling/Jaya_Backup/SSDDB28C_Backup.csv
+
+gzip/ubilling/Jaya_Backup/CTRTDB28C_Backup.csv
+
+gzip/ubilling/Jaya_Backup/TIDDB28C_Backup.csv
+
+ 
+
+C.      EDROCS3 Transport/Transfer the DB backup file to EPROCS3
+
+scp -r *.csv.gz ainet@10.200.1.11:/ubilling/Jaya_Backup/
+
+
+
+At Live Site:
+
+D.      gunzip /tmp/
+
+gunzip/ubilling/Jaya_Backup/SIM_Backup.csv.gz
+
+gunzip/ubilling/Jaya_Backup/SGLDB286_Backup.csv
+
+gunzip/ubilling/Jaya_Backup/SYDB287_Backup.csv
+
+gunzip/ubilling/Jaya_Backup/AIRTDB28C_Backup.csv
+
+gunzip/ubilling/Jaya_Backup/SHRTDB28C_Backup.csv
+
+gunzip //ubilling/Jaya_Backup/SSDDB28C_Backup.csv
+
+gunzip/ubilling/Jaya_Backup/CTRTDB28C_Backup.csv
+
+gunzip/ubilling/Jaya_Backup/TIDDB28C_Backup.csv
+
+ 
+
+ 
+
+E.    Load:
+
+LOAD:DB=SIMDB28C,FILE="/ubilling/Jaya_Backup/SIM_Backup.csv”,FULL;
+
+LOAD:DB=SGLDB286,FILE="/ubilling/Jaya_Backup/SGLDB286_Backup.csv”,FULL;
+
+LOAD:DB=SYDB287,FILE="/ubilling/Jaya_Backup/SYDB287_Backup.csv”,FULL;
+
+LOAD:DB=AIRTDB28C,FILE="/ubilling/Jaya_Backup/AIRTDB28C_Backup.csv”,FULL;
+
+LOAD:DB=SHRTDB28C,FILE="/ubilling/Jaya_Backup/SHRTDB28C_Backup.csv”,FULL;
+
+LOAD:DB=SSDDB28C,FILE="/ubilling/Jaya_Backup/SSDDB28C_Backup.csv”,FULL;
+
+LOAD:DB=CTRTDB28C,FILE="/ubilling/Jaya_Backup/CTRTDB28C_Backup.csv”,FULL;
+
+LOAD:DB=TIDDB28C,FILE="/ubilling/Jaya_Backup/TIDDB28C_Backup.csv”,FULL;
+

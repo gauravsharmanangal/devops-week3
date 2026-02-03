@@ -1,0 +1,437 @@
+7742129444 --NR IT team
+SIMDump backup path
+/ubilling/Subscriber_Backup_dump
+9811132355 --yash kumar
+9650943210--sunny
+
+cd cdl 9478044630
+grep msissdn *
+------------
+
+1.nned to make separte filesystem 1tb --workspace
+
+/cs/sn/bin/DisplayAll |grep -i r1vg2lun0|grep -i free
+
+4)	Create the LV “bkptodolog” of 50 GB in repluser1 VG using below command from root user on active db blade:
+AddLV vg=r1vg2lun0 name=workspace size=1500g  mount=/workspace critical=no
+################################ESM VG extent##########
+lvdisplay /dev/smsvg00/DB03Vol
+lvextend -L 96000 /dev/smsvg00/DB05ArchVol
+fsadm -F vxfs -b 1024000000 /db01
+
+lvdisplay /dev/vg00/lvol5
+lvextend -l 2048 /dev/vg00/lvol5 (size in MB)
+fsadm -F vxfs -b 2097152 /opt     (current size+extended size)
+
+
+
+
+
+#####################decode ama########
+/TRACE_DUMP/prashant/decode_ama
+event label---1---MOC
+event label---131---Bundle expiration
+event label---133--Bundle promotion renewal
+event label---137---Remove bundle subcription
+event label-- 275 ----it means cdrs send to ctop successfully ---1
+event label---19  class of service chnage
+
+convert epoc to date time
+=(D3/86400)+25569
+
+/TRACE_DUMP/prashant/decode_ama v28c -c -m 918279106171 /ubilling/primary/2024110 /cs/sn/bill/ama.filter 2048 | grep -v Decode|grep 918279106171 > /TRACE_DUMP/918279106171_23Apr2024.csv &
+/TRACE_DUMP/prashant/decode_ama v28c -c -m 915752050689371 /billtemp/backup/backup_6D/mcas11.20240206002930.ama.0024 /cs/sn/bill/ama.filter 2048 | grep -v Decode|grep 919454532613 > /TRACE_DUMP/919454532613_9feb2024.csv &
+/TRACE_DUMP/prashant/decode_ama v28c -c /billtemp/backup/mcas24.20240318132800.ama.0808 /cs/sn/bill/ama.filter 2048  |grep -v Decode> /TRACE_DUMP/mcas24.20240318132700_0808.txt &
+ 
+/TRACE_DUMP/prashant/decode_ama v28c   /TRACE_DUMP/mcas14.20231215192500.ama.1165 /cs/sn/bill/ama.filter 2048  > /TRACE_DUMP/20231215192500_1165.txt
+/TRACE_DUMP/prashant/decode_ama v28c   /ubilling/CDR_issue/2022236 /cs/sn/bill/ama.filter 2048  > /ubilling/CDR_issue/24082022_atca3.txt &
+/TRACE_DUMP/prashant/decode_ama v28c -c  /ubilling/CDR_issue/2022235 /cs/sn/bill/ama.filter 2048 | grep -v Decode > /ubilling/CDR_issue/23082022_atca3.csv &
+918396813143--MCAS4_10998_20230109201427.pcap.gz
+11jan---
+12jan---
+Reserved_Flag_4/Reserved_Flag_5/Reserved_String_4/Reserved_String_5
+egrep "Reserved_Flag_4|Reserved_String_4"
+
+SND TEXT="SUB:DTPBUNDLE,MSISDN=919412352931,PTP_ID=ZT1,TRANS_ID=AUTO_RCHG"
+############################
+smartctl -a /dev/sdb
+smartctl -a /dev/sda
+clia fruinfo -v board 13 | grep "Board Serial Number"
+
+
+    Please share the below log:
+
+·       /opt/config/log/*   -à fro pilot & 0-0-9 blade
+        /opt/config/log/InstallPlatform.out
+·       /sn/tmp/log/PRMlog* --à from the 0-0-9 blade
+
+·       /var/log/message
+1. /var/log/message =è( From 0-0-9 & active pilot)
+2 /PRMlog( From 0-0-9 & active pilot)
+3 /debug log
+4 /meas log
+5 /OM log
+6 /InstallPlatform.out
+7 Op:status,machine=all
+8 HLPME platform
+9 smartctl -a -d scsi /dev/sda è from 0-0-9
+10 martctl -a -d cciss,0 /dev/sda è from 0-0-9
+11 op:almtable
+free-m
+/cs/sn/ft/FTlsicli -a 0-0 show all
+Uptime from 0-0-9  
+
+##################
+/opt/config/bin/SwitchPortStats 0-1-8 SFP5|grep "Speed (Mbps)" ;
+/opt/config/bin/SwitchPortStats 0-1-7 SFP2|grep "Speed (Mbps)" ;
+/opt/config/bin/SwitchPortStats 0-1-7 SFP3|grep "Speed (Mbps)" ;
+/opt/config/bin/SwitchPortStats 0-1-7 SFP5|grep "Speed (Mbps)" ;
+/opt/config/bin/SwitchPortStats 0-1-7 SFP9|grep "Speed (Mbps)" ;
+/opt/config/bin/SwitchPortStats 0-1-7 SFP10|grep "Speed (Mbps)";
+/opt/config/bin/SwitchPortStats 0-1-7 SFP11|grep "Speed (Mbps)";
+/opt/config/bin/SwitchPortStats 0-1-7 SFP12|grep "Speed (Mbps)";
+ 
+
+/opt/config/bin/SwitchPortConfigure 0-0-8 SFP1 on 1000fdx
+SwitchPortStats 0-0-8 sfp4
+SwitchPortStats 0-0-7 sfp5
+SwitchPortStats 0-0-7 sfp5
+SwitchPortStats 0-0-8 sfp0
+SwitchPortDisable 0-0-7-SWITCH sfp0
+SwitchPortDisable 0-0-7-SWITCH sfp1
+
+SwitchPortDisable 0-0-7-SWITCH sfp0
+SwitchPortEnable 0-0-7-SWITCH sfp1
+
+SwitchPortEnable 0-0-8-SWITCH sfp0
+/opt/config/bin/SwitchPortEnable 0-0-7 sfp0
+/opt/config/bin/SwitchPortEnable 0-0-7 sfp5
+/opt/config/bin/SwitchPortEnable 0-0-8 sfp0
+/opt/config/bin/SwitchPortEnable 0-0-8 sfp1
+
+/opt/config/bin/AuditMalbanSwitchConf 
+/opt/config/bin/ChangeSwitchConfig 0-1-8
+###############3HDD check commnds########## all execute on  active pilot
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray healthStatus;'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld02_0"] actionProgress;'           --not 
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allVolumes;' | egrep -A9 'Volumes sub-tabs'  --optimal
+/cs/sn/ft/FTlsicli -a 0-0 show all
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'save storageArray supportData file = "/TRACE_DUMP/Nth2OCS5_supportdata_14Mar2024.zip";'  
+copy the dump using winscp to ypur laptop
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allControllers;' | egrep -A9 'Controller in Tray'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray healthStatus;'   (chek the removal status sholuld yes ,then you can remove hdd)
+if removal yes then go for replacement
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld02_0"] actionProgress;'
+-------------------------------------------------------------------------
+hwclock -r
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set storageArray time;'  ---- controller clock sync
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'save storageArray supportData file = "/TRACE_DUMP/Nth2OCS5_supportdata_14Mar2024.zip";'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'save storageArray dbmDatabase sourceLocation=onboard controller[b] contentType=all file="/TRACE_DUMP/Nth1ocs2dbm_b.zip";'  (to take dbm backup )
+/usr/bin/SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'save storageArray firmwareInventory file="/TRACE_DUMP/FW_MainATCA1_28022023.txt";'  (to get netapp firmware information)
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld01_0"] actionProgress;'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show volume ["ld03_0"] actionProgress;'
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'reset storageArray volumeDistribution;'-----------------vg not on prefred path
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray healthStatus;'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c "show storageArray dbmDatabase;"
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c "show auditLog summary;"
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allVolumes;' | egrep -A9 'Volumes sub-tabs'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show Volume ["ld01_0"];'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allDrives;'
+/cs/sn/ft/FTlsicli -a 0-0 show all
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show drives [1,21];'           where X is tray and Y is disk
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c "show replaceableDrives;"
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allControllers;'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show allControllers;' | egrep -A9 'Controller in Tray'
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set drive [1,24] hotSpare=TRUE;'    (it will make ot hdd as hotspare)
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c "revive allvolumeGroup;"
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'revive volumeGroup [ld05];'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray unreadableSectors;'
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'clear allVolumes unreadableSectors;'
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -f '/PLATsoftware/recov.txt';  --
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'set storageArray ([userLabel="Nth2OCS5-0-0-RAID"])
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray;'
+
+save storageArray dbmDatabase
+[sourceLocation=(disk | onboard)]
+[controller [(a|b)]]
+[contentType= all]
+file="fileName"
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c "show storageArray dbmDatabase;"
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'reset controller [b];'  (when batery show failed )
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArray batteryAge;'
+
+SMcli 0-0-RAID_LSN0 0-0-RAID_LSN1 -c 'show storageArrayLabel all;'
+
+---------------------------------------------------------------------------------
+mount /dev/mapper/platform-PLATsoftware /PLATsoftware
+touch /opt/config/status/softchk
+touch /root/do_not_boot
+iscsiadm -m discovery -t sendtargets -p 169.254.0.254
+-----hdd make failed----------
+/cs/sn/ft/FTlsicli -a 0-0 set drive Tray.01.Drive.19 failed
+/usr/bin/SMcli 169.254.104.1 169.254.168.1 -c 'start drive [0,14] initialize;' 
+/usr/bin/SMcli 169.254.104.1 169.254.168.1 -c 'start drive [0,14] reconstruct;'
+
+vdmReconstructPieceStart [1,21];'
+
+----------------------------------
+du -sh *|egrep -v "RTDB_BACKUP|billtemp|localBackup|cust_use|RTDB_DUMP|DP_LOG_PATH|TRACE_DUMP|platdb|snlog|repsysdata|oam|ubilling|netboot|PLATDB_DUMP|Custom_Log_Bkup|DEBUG_DUMP|cdr|sncore|PLATsoftware"|sort -nr
+
+#############daily task############
+save:db=SYDB287;
+################
+-------these files should be avilable on db blades
+ls -l /opt/config/servers//local/sn/init/initlist.*app_SIM*
+##########log path#########
+/var/log  ----------IPMlog
+/opt/sn/tmp/log--->prmlog
+ls -lrth /DEBUG_DUMP/PRMlog*|more
+/snlog/omlog 
+/Custom_Log_Bkup/omlog   (backup logs) 
+
+
+###################
+du -kH *|sort -nr |head -30
+gzip arch859574129_1_1793*.log
+=============to check esm archive file applied status==========
+/sms/smsvar/ha/db_mon.log
+--------ESM logs---------
+
+getconf MACHINE_SERIAL  ----togetserial no of esm
+24 sessions 2500 req per sessions.
+1)/sms/smslog/wsagent/wsagent_0
+  tail -f wsagent_0 > wsagent_TR.txt
+  
+  !!!North Zone In ESM, Provisioning!!!!!
+
+cd /sms/billing/archive_wsagentlog     ---------------------cc WEB APP API logs
+
+cd /sms/smslog/wsagent
+
+ls -lrt | wc -l
+
+grep specified wsagent_*.20211020*
+
+2)/sms/smstmp/debug/plat/easNeTrace -> EASNE
+
+  tail -f easNeTrace > easNeTrace_TR.txt
+
+3)/sms/smslog/ne/        -> NEI Log(gui log )
+
+4)NEintf -> /sms/smslog/neintf
+
+5)/sms/smslog/snmpalarm -> snmplog
+
+6)WO logs -> /sms/smslog/workorder
+
+7)UserTask ->/sms/smslog/usertask/uol*
+
+               /sms/smsapp/bin/logCat uol* > uol_deletion.log
+
+8)aheasync -> /sms/smslog/aheasync/ahe*
+
+9)asyncmgr -> /sms/smslog/asyncmgr
+
+10)Error Log/smserr- > /sms/smslog/smserr
+
+11)alarm -> /sms/smslog/alarm
+
+12)devlog -> /sms/smslog/devlog
+
+sysaccess logs----/db03/templogs/sysacc/
+
+lsnrctl status nsms (to check lisner status ,there should be instance)
+
+logCat -d /sms/smslog/aheasync -l ahe -a"11/28/2022 00:00" -z"11/28/2022 11:30" > eSM_SMS_ahe_28Nov.log
+logCat -d /sms/smslog/ne -l cor -a"11/28/2022 00:00" -z"11/28/2022 11:30" > eSM_SMS_cor_28Nov.log
+logCat -d /sms/smslog/smserr -l err -a"11/28/2022 00:00" -z"11/28/2022 11:30" > eSM_SMS_err_28Nov.log
+logCat -d /sms/smslog/usertask -l uol -a"11/28/2022 00:00" -z"11/28/2022 11:30" > eSM_SMS_usertask_28Nov.log
+
+/opt/omni/lbin/Mount.sh
+----to check esm all backup----------------
+check from root user
+ /opt/omni/lbin/devbra -device
+/opt/omni/lbin/devbra -dev
+
+cd /opt/omni/bin/
+./omnidb -session        to check sessions from putty
+./omnidb -session session id -report            to check session in detail
+
+ to make poor to good
+cd /opt/omni/bin
+./omnimm -reset_poor 0a938036:55ffda46:2a46:0001
+
+if any drive is yellow ----untick diable device
+
+fair case ----pool-->right click on yellow pool ---->properties --->condition tab   (change the validity) 
+
+---------------------------------shutdown----------------------
+login cpu A
+shutdown -hy
+
+
+
+
+-------------------
+snd:text="ADJ:LIFECYCLE,ACCOUNTID=919488453540,NEWSTATE=ACTIVE,IDTYPE=S,EVENTID=0",rk="PPSIMOMKey" -----> to update GP1 and GP2 date w.r.t CED date
+snd:text="ADJ:BALANCE,MSISDN=919415039363,AMOUNT=107.0000,ADJ=INCR,BAL=P,NO_LC=N,RECHARGE=Y,UCL=N,Rchg_Type=0,NEG_CREDIT=N,CV_Delta=0,USERID=Correction,TRANS_ID=Correction",rk=PPSIMOMKey;
+##############Moved from /usr/share/golddisk to /Trace_dump at 20 oct 2021
+Nth1OCS4-0-0-1:/usr/share-# cd golddisk
+Nth1OCS4-0-0-1:/usr/share/golddisk-# ls -lrth
+total 798M
+-rwxr-xr-x 1 root root  13K May 16  2016 pxelinux.0
+-rw-r--r-- 1 root root  32M May 16  2016 initrd.gz.delivered
+-rw-r--r-- 1 root root 2.2M May 16  2016 hds_jbalarm.load
+-rwxr-xr-x 1 root root 4.1M May 16  2016 vmlinuz
+drwxr-xr-x 2 root root 4.0K May 16  2016 scripts
+-rw-r--r-- 1 root root 760M Jun 10  2017 golddisk.tgz
+Nth1OCS4-0-0-1:/usr/share/golddisk-# df -kh
+###################to clear / of blades #########
+truncated and copied on 25Oct21
+ cd /usr/lib/locale;ls -lrth
+scp  locale-archive /PLATsoftware
+ls -lrth /PLATsoftware
+>locale-archive
+l
+2./root/eahmwas/
+Port_SFP120-0-8_20210731_23H50M38S.log  (delete old files)
+
+############atca 1 sms not receiving################
+Two things were there: if subscribers are not receiving messages but Auto validity is running successfully then there could be three reasons for that: 
+Improper timings,Permission issue and Sms utility issue. 
+
+Here it was due to two reasons:
+
+Timing issue- SMS script generating messages file before actual Auto Validity script finishes. So changed timing in crontab to generate SMS file at 7:30 am.
+Absence of SMPP.pm -Delivering SMS through SMSC, blade uses SMPP.pm utility. After blade reboot, this file and its directory was not present. So directory (Net) was created and files were copied from other ATCA and then the script ran successfully.
+######################
+-------------IN connectivty with smsc------------
+IP can be retrieved in /etc/hosts of all ATCA except DROUTER.
+For configuration details can be found in Surepay -> Global Surepay -> SMPP PROT FSM access Table.
+-----------------------------------
+
+Please take the below data & share it to BSNL for Surepay.
+
+ kanan--9880333466
+
+SMPP Configuration:
+
+SMPP Protocol FSM Access (SurePay/Global SurePay)
+
+Server Connect Conf Table (NWTPPS/Network)
+
+Note : In this table, please filter SMPP Connection alone.
+
+ 
+
+Notification List:
+
+Surepay View -> Class of Service -> Notification COSP
+
+ 
+Configuration can be checked from GUI or from db.
+
+ 
+
+From DB:
+
+ 
+
+pcs102 linus> dbsmp
+
+select option psmf/fepsms
+
+SQL> select ADDR_RG,DEST_POR,LINK_SC,LINKNAME,STATUS from  SMPP_LIN_P;
+
+SQL> select ACCTIM,OP_CL,OWNER,PASS,RI,SYS_ID,IPADDR from SMSC_P;
+
+--------------------
+grep -A6 "# Tokens #" /tmp/rtdb_config
+
+
+rtdb_config can be created using:
+trace:proc=RTDB, mode=1031, UCL;
+trace:proc=RTDB, mode=off, UCL;
+
+The file will be created /tmp/rtdb_config
+
+The high level steps being below. Once changes done, verify by creating rtdb_config file as mentioned above.
+
+To enable the Feature create on Active Pilot the:
+/sysdata1/RDB/RDBconfigData file [ you will need to create RDB dir as well]
+
+RDBconfigData File as:
+MAX_SAVE_DB           12
+MAX_WRITE_THROUGHPUT  40
+
+scp to standby pilot
+init proc on RTDB (level=1)
+
+operative procedure:
+
+(1) mkdir -p /sysdata1/RDB [on both pilots]
+cat <<-! > /sysdata1/RDB/RDBconfigData
+MAX_SAVE_DB      12
+MAX_WRITE_THROUGHPUT  40
+!
+(2) cd /sysdata1/RDB
+scp * 0-0-9:$PWD (Assuming 0-0-9 is the standby pilot)
+
+(3) subshl
+op:init,proc=RTDB
+init:proc=RTDB,level=1,ucl;
+
+
+Note: “RTDB” process on pilot handles upstream provision (eSM) and manage mate update routing management.
+The impact would be minimum as the re-init is quick enough.
+Initializing RTDB process “CPROC” doesn’t impact call processing like voice, diameter, etc.
+
+---------
+
+Nth2OCS5-0-0-9:/root-# ntpq -p
+     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
++10.147.204.111  .GPS.            1 u   22   64  377    0.727  49138.9  78.792
+*10.149.8.30     .GPS.            1 u   38   64  377    1.096  49208.6  92.045
+
+
+
+
+
+Block Prov. User
+SMI Block in ESM
+SMI Block in ATCA
+
+Disable Mateupd
+inh:mateupd
+
+CHeck SPAMEAS
+op:meas=TRFC5,table="SA_SPAMEAS"
+REstart EPPSA SPA
+abt:spa=EPPSA29C;
+install:spa=EPPSA29C,proc
+rst:spa=EPPSA29C
+
+CHeck SPAMEAS
+Enable Mateupd
+SMI UnBlock in ATCA
+SMI UNBlock in ESM
+UnBlock Prov. User
+
+ESM -> ACTIVE / INACTIVE -> 4.5
+
+tailer O
+tailer d
+
+0,10,20,30,40,50 * * * * cd /root/eahmwas; perl port_chek.pl
+20 02 * * * cd /usr/share/doc/perl-LDAP-0.40/bin; chmod 777 ldap
+

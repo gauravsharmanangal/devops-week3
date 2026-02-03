@@ -1,0 +1,508 @@
+controller b
+
+Using username "ainet".
+Pre-authentication banner message from server:
+|
+|                               WARNING!
+| This computer system and network is PRIVATE and PROPRIETARY and                                                                               may
+| only be accessed by authorized users. Unauthorized use of this c                                                                              omputer
+| system or network is strictly prohibited and may be subject to c                                                                              riminal
+| prosecution, employee discipline up to and including discharge,                                                                               or the
+| termination of vendor/service contracts. The owner, or its agent                                                                              s, may
+| monitor any activity or communication on the computer system or                                                                               network.
+| The owner, or its agents, may retrieve any information stored wi                                                                              thin the
+| computer system or network. By accessing and using this computer                                                                               system
+| or network, you are consenting to such monitoring and informatio                                                                              n
+| retrieval for law enforcement and other purposes. Users should h                                                                              ave no
+| expectation of privacy as to any communication on or information                                                                               stored
+| within the computer system or network, including information sto                                                                              red
+| locally or remotely on a hard drive or other media in use with t                                                                              his
+| computer system or network.
+|
+End of banner message from server
+ainet@10.147.136.14's password:
+Last login: Fri Nov  8 17:21:05 IST 2024 from 10.147.225.198 on pts/0
+
+                              WARNING!
+This computer system and network is PRIVATE and PROPRIETARY and may
+only be accessed by authorized users. Unauthorized use of this computer
+system or network is strictly prohibited and may be subject to criminal
+prosecution, employee discipline up to and including discharge, or the
+termination of vendor/service contracts. The owner, or its agents, may
+monitor any activity or communication on the computer system or network.
+The owner, or its agents, may retrieve any information stored within the
+computer system or network. By accessing and using this computer system
+or network, you are consenting to such monitoring and information
+retrieval for law enforcement and other purposes. Users should have no
+expectation of privacy as to any communication on or information stored
+within the computer system or network, including information stored
+locally or remotely on a hard drive or other media in use with this
+computer system or network.
+
+
+No mail for ainet
+$ su -
+Password:
+Last login: Fri Nov  8 17:26:01 IST 2024 on cron
+No mail for root
+Term type is now xterm
+Nth2OCS3-0-0-9:/root-# ssh InReach@10.147.136.46
+Welcome to the MRV Communications' LX Series Server
+InReach@10.147.136.46's password:
+InReach:0 >show port async 14 char
+ Time:                                          Fri, 08 Nov 2024 16:44:29 UTC
+ Port Number:                       14  Port Name:                    Port_14
+
+ Access:                    Databuffer  Device Name:             /dev/ttyGN13
+ Speed:                           9600  Banner:                banner.default
+ Bits per Character:                 8  MOTD:                    motd.default
+ Stop Bits:                          1  Local Prompt:                   Login
+ Parity:                          None  Autobaud Retry:                     5
+ Flow Control:                    None  Max Mirror Connections:             1
+ Autohangup:                  Disabled
+ DSR Wait:                    Disabled
+ DTR Drop Time:                      2  Break:                        Enabled
+ DTR Wait:                    Disabled  Break String/Control:          Ctrl X
+ Authentication:                 Local  Special Break String:
+ Auth. FallBack Attempts:            0  Verification:                 Enabled
+ RADIUS Accounting:           Disabled  IdleBuffer:                   Enabled
+ TACACS+ Accounting:          Disabled  Transparent Mode:            Disabled
+
+ Connect Prompt:              Disabled
+ Connect Prompt String:                               Type a key to continue.
+ Connect Command:
+InReach:0 >connect port async 14
+
+
+-> vdmShowDriveList
+Total Drives: 48
+
+DriveAddr  Devnum      T/S  Secure  PI Med BlkFmt State       Ord/VG# Vols WWN
+===========================================================================================================
+0x0a1080f0 0x00010004  0/5  Capable  2 HDD  512n  Acc/GrA/Opt   5/1      1 5000c50039f9334f0000000000000000
+0x0a228c88 0x0001010f  1/16 Capable  2 HDD  512n  Acc/GrA/NCF   2/6      1 5000c5004810a88f0000000000000000
+0x0c6dd0a8 0x0001010a  1/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/5      1 5000c5004828aac30000000000000000
+0x0a252c88 0x00010115  1/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c500482904a30000000000000000
+0x0a156020 0x00010108  1/9  Capable  2 HDD  512n  Acc/GrA/Opt   2/5      1 5000c500484d60130000000000000000
+0x0a0e41d0 0x0001000a  0/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/2      1 5000c500484e6b9b0000000000000000
+0x0a258c88 0x00010117  1/24 Capable  2 HDD  512n  Acc/UnA/NCF              5000c500484e6c2b0000000000000000
+0x0b7e20d8 0x0001010c  1/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/5      1 5000c500484e8f430000000000000000
+0x0a20ac88 0x00010109  1/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/5      1 5000c5004850aafb0000000000000000
+0x0a24cc88 0x00010116  1/23 Capable  2 HDD  512n  Acc/UnA/NCF              5000c5004850d5a30000000000000000
+0x0a1aad80 0x00010103  1/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/4      1 5000c50048516c670000000000000000
+0x0b6da598 0x00010000  0/1  Capable  2 HDD  512n  Acc/GrA/Opt   1/1      1 5000c500486dc26b0000000000000000
+0x0a156f20 0x00010012  0/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/3      1 5000c500486dc52f0000000000000000
+0x0a162ea8 0x00010014  0/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/3      1 5000c500486dd41f0000000000000000
+0x0a15cee8 0x00010013  0/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/3      1 5000c500486f1be70000000000000000
+0x0a246c88 0x00010114  1/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/6      1 5000c500486f220b0000000000000000
+0x0a1140b8 0x0001000b  0/12 Capable  2 HDD  512n  Acc/GrA/Opt   5/2      1 5000c500486f26230000000000000000
+0x09c56440 0x00010002  0/3  Capable  2 HDD  512n  Acc/GrA/NCF   3/1      1 5000c500486f40ef0000000000000000
+0x0a204c88 0x00010105  1/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/4      1 5000c500486f57270000000000000000
+0x0a23ac88 0x00010112  1/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/6      1 5000c500486f97970000000000000000
+0x0a0f0160 0x00010007  0/8  Capable  2 HDD  512n  Acc/GrA/Opt   1/2      1 5000c500486fb50f0000000000000000
+0x09c56168 0x00010003  0/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/1      1 5000c500487159ef0000000000000000
+0x0a21cc88 0x0001010d  1/14 Capable  2 HDD  512n  Acc/GrA/Opt   7/5      1 5000c5004b98b3370000000000000000
+0x0a240c88 0x00010113  1/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/6      1 5000c5004b98ccef0000000000000000
+0x0a0ea198 0x00010006  0/7  Capable  2 HDD  512n  Acc/GrA/Opt   7/1      1 5000c5004b98d60f0000000000000000
+0x0a222c88 0x0001010e  1/15 Capable  2 HDD  512n  Acc/GrA/Opt   1/6      1 5000c5004b98d9530000000000000000
+0x0a19edc0 0x00010011  0/18 Capable  2 HDD  512n  Acc/GrA/Opt   4/3      1 5000c5004b98ff730000000000000000
+0x0a192de0 0x00010017  0/24 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004b99063f0000000000000000
+0x0a1020b8 0x00010101  1/2  Capable  2 HDD  512n  Acc/GrA/Opt   2/4      1 5000c5004b9dff7f0000000000000000
+0x0a1c8d68 0x00010005  0/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/1      1 5000c5004b9e080b0000000000000000
+0x0a11a0b8 0x0001000c  0/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/2      1 5000c5004bc53aa30000000000000000
+0x0a17ae38 0x00010015  0/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc53f0b0000000000000000
+0x09c568f8 0x00010001  0/2  Capable  2 HDD  512n  Acc/GrA/F     2/1      1 5000c5004bc77adb0000000000000000
+0x0a1fec88 0x0001000f  0/16 Capable  2 HDD  512n  Acc/GrA/Opt   2/3      1 5000c5004bc7c0e70000000000000000
+0x0a186e20 0x00010016  0/23 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc970130000000000000000
+0x0a216c88 0x0001010b  1/12 Capable  2 HDD  512n  Inc/GrA/Opt   5/5      1 5000c5005413ecb70000000000000000
+0x0a138020 0x00010111  1/18 Capable  0 HDD  512n  Acc/GrA/Opt   4/6      1 5000c5005413fabb0000000000000000
+0x0a0f6128 0x00010009  0/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/2      1 5000c500541a047b0000000000000000
+0x0a150020 0x00010100  1/1  No       2 HDD  512n  Acc/GrA/Opt   1/4      1 5000c500890fd93f0000000000000000
+0x0a234c88 0x00010010  0/17 No       2 HDD  512n  Acc/GrA/Opt   3/3      1 5000c5009e7eb46f0000000000000000
+0x0a1200b8 0x00010104  1/5  No       2 HDD  512n  Acc/GrA/Opt   5/4      1 5000c5009e7eb4730000000000000000
+0x0a1f8c98 0x00010110  1/17 No       2 HDD  512n  Acc/GrA/Opt   3/6      1 5000c5009e92fc630000000000000000
+0x0a22ec88 0x0001000d  0/14 No       2 HDD  512n  Acc/GrA/Opt   7/2      1 5000c5009e92ff4f0000000000000000
+0x0a0de210 0x00010102  1/3  No       2 HDD  512n  Acc/GrA/Opt   3/4      1 5000cca02f0631580000000000000000
+0x0a16ee78 0x00010008  0/9  No       2 HDD  512n  Acc/GrA/Opt   2/2      1 5000cca02f0667080000000000000000
+0x0a25ec88 0x0001000e  0/15 Capable  0 HDD  512n  Acc/GrA/NCF   1/3      1 5000cca03c07eed40000000000000000
+0x0a1f2ce8 0x00010106  1/7  No       2 HDD  512n  Acc/GrA/Opt   7/4      1 5000cca056c2c0f80000000000000000
+0x0a1e6d28 0x00010107  1/8  No       2 HDD  512n  Acc/GrA/Opt   1/5      1 5000cca07d153ff40000000000000000
+
+value = 1 = 0x1
+-> vdmRecoverAllRAIDVols
+vdmRecoverAllRAIDVols started in a background task.  Please wait...
+value = 0 = 0x0
+-> Recovery completed: Return Code = 0
+
+-> vdmShowDriveList
+Total Drives: 48
+
+DriveAddr  Devnum      T/S  Secure  PI Med BlkFmt State       Ord/VG# Vols WWN
+===========================================================================================================
+0x0a1080f0 0x00010004  0/5  Capable  2 HDD  512n  Acc/GrA/Opt   5/1      1 5000c50039f9334f0000000000000000
+0x0a228c88 0x0001010f  1/16 Capable  2 HDD  512n  Acc/GrA/NCF   2/6      1 5000c5004810a88f0000000000000000
+0x0c6dd0a8 0x0001010a  1/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/5      1 5000c5004828aac30000000000000000
+0x0a252c88 0x00010115  1/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c500482904a30000000000000000
+0x0a156020 0x00010108  1/9  Capable  2 HDD  512n  Acc/GrA/Opt   2/5      1 5000c500484d60130000000000000000
+0x0a0e41d0 0x0001000a  0/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/2      1 5000c500484e6b9b0000000000000000
+0x0a258c88 0x00010117  1/24 Capable  2 HDD  512n  Acc/UnA/NCF              5000c500484e6c2b0000000000000000
+0x0b7e20d8 0x0001010c  1/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/5      1 5000c500484e8f430000000000000000
+0x0a20ac88 0x00010109  1/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/5      1 5000c5004850aafb0000000000000000
+0x0a24cc88 0x00010116  1/23 Capable  2 HDD  512n  Acc/UnA/NCF              5000c5004850d5a30000000000000000
+0x0a1aad80 0x00010103  1/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/4      1 5000c50048516c670000000000000000
+0x0b6da598 0x00010000  0/1  Capable  2 HDD  512n  Acc/GrA/Opt   1/1      1 5000c500486dc26b0000000000000000
+0x0a156f20 0x00010012  0/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/3      1 5000c500486dc52f0000000000000000
+0x0a162ea8 0x00010014  0/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/3      1 5000c500486dd41f0000000000000000
+0x0a15cee8 0x00010013  0/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/3      1 5000c500486f1be70000000000000000
+0x0a246c88 0x00010114  1/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/6      1 5000c500486f220b0000000000000000
+0x0a1140b8 0x0001000b  0/12 Capable  2 HDD  512n  Acc/GrA/Opt   5/2      1 5000c500486f26230000000000000000
+0x09c56440 0x00010002  0/3  Capable  2 HDD  512n  Acc/GrA/NCF   3/1      1 5000c500486f40ef0000000000000000
+0x0a204c88 0x00010105  1/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/4      1 5000c500486f57270000000000000000
+0x0a23ac88 0x00010112  1/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/6      1 5000c500486f97970000000000000000
+0x0a0f0160 0x00010007  0/8  Capable  2 HDD  512n  Acc/GrA/Opt   1/2      1 5000c500486fb50f0000000000000000
+0x09c56168 0x00010003  0/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/1      1 5000c500487159ef0000000000000000
+0x0a21cc88 0x0001010d  1/14 Capable  2 HDD  512n  Acc/GrA/Opt   7/5      1 5000c5004b98b3370000000000000000
+0x0a240c88 0x00010113  1/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/6      1 5000c5004b98ccef0000000000000000
+0x0a0ea198 0x00010006  0/7  Capable  2 HDD  512n  Acc/GrA/Opt   7/1      1 5000c5004b98d60f0000000000000000
+0x0a222c88 0x0001010e  1/15 Capable  2 HDD  512n  Acc/GrA/Opt   1/6      1 5000c5004b98d9530000000000000000
+0x0a19edc0 0x00010011  0/18 Capable  2 HDD  512n  Acc/GrA/Opt   4/3      1 5000c5004b98ff730000000000000000
+0x0a192de0 0x00010017  0/24 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004b99063f0000000000000000
+0x0a1020b8 0x00010101  1/2  Capable  2 HDD  512n  Acc/GrA/Opt   2/4      1 5000c5004b9dff7f0000000000000000
+0x0a1c8d68 0x00010005  0/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/1      1 5000c5004b9e080b0000000000000000
+0x0a11a0b8 0x0001000c  0/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/2      1 5000c5004bc53aa30000000000000000
+0x0a17ae38 0x00010015  0/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc53f0b0000000000000000
+0x09c568f8 0x00010001  0/2  Capable  2 HDD  512n  Acc/GrA/F     2/1      1 5000c5004bc77adb0000000000000000
+0x0a1fec88 0x0001000f  0/16 Capable  2 HDD  512n  Acc/GrA/Opt   2/3      1 5000c5004bc7c0e70000000000000000
+0x0a186e20 0x00010016  0/23 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc970130000000000000000
+0x0a216c88 0x0001010b  1/12 Capable  2 HDD  512n  Inc/GrA/Opt   5/5      1 5000c5005413ecb70000000000000000
+0x0a138020 0x00010111  1/18 Capable  0 HDD  512n  Acc/GrA/Opt   4/6      1 5000c5005413fabb0000000000000000
+0x0a0f6128 0x00010009  0/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/2      1 5000c500541a047b0000000000000000
+0x0a150020 0x00010100  1/1  No       2 HDD  512n  Acc/GrA/Opt   1/4      1 5000c500890fd93f0000000000000000
+0x0a234c88 0x00010010  0/17 No       2 HDD  512n  Acc/GrA/Opt   3/3      1 5000c5009e7eb46f0000000000000000
+0x0a1200b8 0x00010104  1/5  No       2 HDD  512n  Acc/GrA/Opt   5/4      1 5000c5009e7eb4730000000000000000
+0x0a1f8c98 0x00010110  1/17 No       2 HDD  512n  Acc/GrA/Opt   3/6      1 5000c5009e92fc630000000000000000
+0x0a22ec88 0x0001000d  0/14 No       2 HDD  512n  Acc/GrA/Opt   7/2      1 5000c5009e92ff4f0000000000000000
+0x0a0de210 0x00010102  1/3  No       2 HDD  512n  Acc/GrA/Opt   3/4      1 5000cca02f0631580000000000000000
+0x0a16ee78 0x00010008  0/9  No       2 HDD  512n  Acc/GrA/Opt   2/2      1 5000cca02f0667080000000000000000
+0x0a25ec88 0x0001000e  0/15 Capable  0 HDD  512n  Acc/GrA/NCF   1/3      1 5000cca03c07eed40000000000000000
+0x0a1f2ce8 0x00010106  1/7  No       2 HDD  512n  Acc/GrA/Opt   7/4      1 5000cca056c2c0f80000000000000000
+0x0a1e6d28 0x00010107  1/8  No       2 HDD  512n  Acc/GrA/Opt   1/5      1 5000cca07d153ff40000000000000000
+
+value = 1 = 0x1
+->
+Fri Nov  8 17:50:02 2024
+Your terminal (/dev/pts/3) has been idle for 18 min.
+Press Enter key or you will logged out any time after 41 min.
+
+Fri Nov  8 18:05:02 2024
+Your terminal (/dev/pts/3) has been idle for 33 min.
+Press Enter key or you will logged out any time after 26 min.
+
+Fri Nov  8 18:20:01 2024
+Your terminal (/dev/pts/3) has been idle for 48 min.
+Press Enter key or you will logged out any time after 11 min.
+
+->
+->
+-> vmdShowDriveList
+C interp: unknown symbol name 'vmdShowDriveList'.
+-> vdmShowDriveList
+Total Drives: 48
+
+DriveAddr  Devnum      T/S  Secure  PI Med BlkFmt State       Ord/VG# Vols WWN
+===========================================================================================================
+0x0a1080f0 0x00010004  0/5  Capable  2 HDD  512n  Acc/GrA/Opt   5/1      1 5000c50039f9334f0000000000000000
+0x0a228c88 0x0001010f  1/16 Capable  2 HDD  512n  Acc/GrA/NCF   2/6      1 5000c5004810a88f0000000000000000
+0x0c6dd0a8 0x0001010a  1/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/5      1 5000c5004828aac30000000000000000
+0x0a252c88 0x00010115  1/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c500482904a30000000000000000
+0x0a156020 0x00010108  1/9  Capable  2 HDD  512n  Acc/GrA/Opt   2/5      1 5000c500484d60130000000000000000
+0x0a0e41d0 0x0001000a  0/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/2      1 5000c500484e6b9b0000000000000000
+0x0a258c88 0x00010117  1/24 Capable  2 HDD  512n  Acc/UnA/NCF              5000c500484e6c2b0000000000000000
+0x0b7e20d8 0x0001010c  1/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/5      1 5000c500484e8f430000000000000000
+0x0a20ac88 0x00010109  1/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/5      1 5000c5004850aafb0000000000000000
+0x0a24cc88 0x00010116  1/23 Capable  2 HDD  512n  Acc/UnA/NCF              5000c5004850d5a30000000000000000
+0x0a1aad80 0x00010103  1/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/4      1 5000c50048516c670000000000000000
+0x0b6da598 0x00010000  0/1  Capable  2 HDD  512n  Acc/GrA/Opt   1/1      1 5000c500486dc26b0000000000000000
+0x0a156f20 0x00010012  0/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/3      1 5000c500486dc52f0000000000000000
+0x0a162ea8 0x00010014  0/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/3      1 5000c500486dd41f0000000000000000
+0x0a15cee8 0x00010013  0/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/3      1 5000c500486f1be70000000000000000
+0x0a246c88 0x00010114  1/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/6      1 5000c500486f220b0000000000000000
+0x0a1140b8 0x0001000b  0/12 Capable  2 HDD  512n  Acc/GrA/Opt   5/2      1 5000c500486f26230000000000000000
+0x09c56440 0x00010002  0/3  Capable  2 HDD  512n  Acc/GrA/NCF   3/1      1 5000c500486f40ef0000000000000000
+0x0a204c88 0x00010105  1/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/4      1 5000c500486f57270000000000000000
+0x0a23ac88 0x00010112  1/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/6      1 5000c500486f97970000000000000000
+0x0a0f0160 0x00010007  0/8  Capable  2 HDD  512n  Acc/GrA/Opt   1/2      1 5000c500486fb50f0000000000000000
+0x09c56168 0x00010003  0/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/1      1 5000c500487159ef0000000000000000
+0x0a21cc88 0x0001010d  1/14 Capable  2 HDD  512n  Acc/GrA/Opt   7/5      1 5000c5004b98b3370000000000000000
+0x0a240c88 0x00010113  1/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/6      1 5000c5004b98ccef0000000000000000
+0x0a0ea198 0x00010006  0/7  Capable  2 HDD  512n  Acc/GrA/Opt   7/1      1 5000c5004b98d60f0000000000000000
+0x0a222c88 0x0001010e  1/15 Capable  2 HDD  512n  Acc/GrA/Opt   1/6      1 5000c5004b98d9530000000000000000
+0x0a19edc0 0x00010011  0/18 Capable  2 HDD  512n  Acc/GrA/Opt   4/3      1 5000c5004b98ff730000000000000000
+0x0a192de0 0x00010017  0/24 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004b99063f0000000000000000
+0x0a1020b8 0x00010101  1/2  Capable  2 HDD  512n  Acc/GrA/Opt   2/4      1 5000c5004b9dff7f0000000000000000
+0x0a1c8d68 0x00010005  0/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/1      1 5000c5004b9e080b0000000000000000
+0x0a11a0b8 0x0001000c  0/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/2      1 5000c5004bc53aa30000000000000000
+0x0a17ae38 0x00010015  0/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc53f0b0000000000000000
+0x09c568f8 0x00010001  0/2  Capable  2 HDD  512n  Acc/GrA/F     2/1      1 5000c5004bc77adb0000000000000000
+0x0a1fec88 0x0001000f  0/16 Capable  2 HDD  512n  Acc/GrA/Opt   2/3      1 5000c5004bc7c0e70000000000000000
+0x0a186e20 0x00010016  0/23 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc970130000000000000000
+0x0a216c88 0x0001010b  1/12 Capable  2 HDD  512n  Inc/GrA/Opt   5/5      1 5000c5005413ecb70000000000000000
+0x0a138020 0x00010111  1/18 Capable  0 HDD  512n  Acc/GrA/Opt   4/6      1 5000c5005413fabb0000000000000000
+0x0a0f6128 0x00010009  0/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/2      1 5000c500541a047b0000000000000000
+0x0a150020 0x00010100  1/1  No       2 HDD  512n  Acc/GrA/Opt   1/4      1 5000c500890fd93f0000000000000000
+0x0a234c88 0x00010010  0/17 No       2 HDD  512n  Acc/GrA/Opt   3/3      1 5000c5009e7eb46f0000000000000000
+0x0a1200b8 0x00010104  1/5  No       2 HDD  512n  Acc/GrA/Opt   5/4      1 5000c5009e7eb4730000000000000000
+0x0a1f8c98 0x00010110  1/17 No       2 HDD  512n  Acc/GrA/Opt   3/6      1 5000c5009e92fc630000000000000000
+0x0a22ec88 0x0001000d  0/14 No       2 HDD  512n  Acc/GrA/Opt   7/2      1 5000c5009e92ff4f0000000000000000
+0x0a0de210 0x00010102  1/3  No       2 HDD  512n  Acc/GrA/Opt   3/4      1 5000cca02f0631580000000000000000
+0x0a16ee78 0x00010008  0/9  No       2 HDD  512n  Acc/GrA/Opt   2/2      1 5000cca02f0667080000000000000000
+0x0a25ec88 0x0001000e  0/15 Capable  0 HDD  512n  Acc/GrA/NCF   1/3      1 5000cca03c07eed40000000000000000
+0x0a1f2ce8 0x00010106  1/7  No       2 HDD  512n  Acc/GrA/Opt   7/4      1 5000cca056c2c0f80000000000000000
+0x0a1e6d28 0x00010107  1/8  No       2 HDD  512n  Acc/GrA/Opt   1/5      1 5000cca07d153ff40000000000000000
+
+value = 1 = 0x1
+-> rep???
+C interp: token ' not recognized.
+-> loadDebug
+value = 1 = 0x1
+-> replaceDrive_MT "5000c5004bc77adb0000000000000000",0x0010001
+ReturnCode = 0x19a
+value = 410 = 0x19a
+-> vdmShowDriveList
+Total Drives: 48
+
+DriveAddr  Devnum      T/S  Secure  PI Med BlkFmt State       Ord/VG# Vols WWN
+===========================================================================================================
+0x0a1080f0 0x00010004  0/5  Capable  2 HDD  512n  Acc/GrA/Opt   5/1      1 5000c50039f9334f0000000000000000
+0x0a228c88 0x0001010f  1/16 Capable  2 HDD  512n  Acc/GrA/NCF   2/6      1 5000c5004810a88f0000000000000000
+0x0c6dd0a8 0x0001010a  1/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/5      1 5000c5004828aac30000000000000000
+0x0a252c88 0x00010115  1/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c500482904a30000000000000000
+0x0a156020 0x00010108  1/9  Capable  2 HDD  512n  Acc/GrA/Opt   2/5      1 5000c500484d60130000000000000000
+0x0a0e41d0 0x0001000a  0/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/2      1 5000c500484e6b9b0000000000000000
+0x0a258c88 0x00010117  1/24 Capable  2 HDD  512n  Acc/UnA/NCF              5000c500484e6c2b0000000000000000
+0x0b7e20d8 0x0001010c  1/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/5      1 5000c500484e8f430000000000000000
+0x0a20ac88 0x00010109  1/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/5      1 5000c5004850aafb0000000000000000
+0x0a24cc88 0x00010116  1/23 Capable  2 HDD  512n  Acc/UnA/NCF              5000c5004850d5a30000000000000000
+0x0a1aad80 0x00010103  1/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/4      1 5000c50048516c670000000000000000
+0x0b6da598 0x00010000  0/1  Capable  2 HDD  512n  Acc/GrA/Opt   1/1      1 5000c500486dc26b0000000000000000
+0x0a156f20 0x00010012  0/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/3      1 5000c500486dc52f0000000000000000
+0x0a162ea8 0x00010014  0/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/3      1 5000c500486dd41f0000000000000000
+0x0a15cee8 0x00010013  0/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/3      1 5000c500486f1be70000000000000000
+0x0a246c88 0x00010114  1/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/6      1 5000c500486f220b0000000000000000
+0x0a1140b8 0x0001000b  0/12 Capable  2 HDD  512n  Acc/GrA/Opt   5/2      1 5000c500486f26230000000000000000
+0x09c56440 0x00010002  0/3  Capable  2 HDD  512n  Acc/GrA/NCF   3/1      1 5000c500486f40ef0000000000000000
+0x0a204c88 0x00010105  1/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/4      1 5000c500486f57270000000000000000
+0x0a23ac88 0x00010112  1/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/6      1 5000c500486f97970000000000000000
+0x0a0f0160 0x00010007  0/8  Capable  2 HDD  512n  Acc/GrA/Opt   1/2      1 5000c500486fb50f0000000000000000
+0x09c56168 0x00010003  0/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/1      1 5000c500487159ef0000000000000000
+0x0a21cc88 0x0001010d  1/14 Capable  2 HDD  512n  Acc/GrA/Opt   7/5      1 5000c5004b98b3370000000000000000
+0x0a240c88 0x00010113  1/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/6      1 5000c5004b98ccef0000000000000000
+0x0a0ea198 0x00010006  0/7  Capable  2 HDD  512n  Acc/GrA/Opt   7/1      1 5000c5004b98d60f0000000000000000
+0x0a222c88 0x0001010e  1/15 Capable  2 HDD  512n  Acc/GrA/Opt   1/6      1 5000c5004b98d9530000000000000000
+0x0a19edc0 0x00010011  0/18 Capable  2 HDD  512n  Acc/GrA/Opt   4/3      1 5000c5004b98ff730000000000000000
+0x0a192de0 0x00010017  0/24 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004b99063f0000000000000000
+0x0a1020b8 0x00010101  1/2  Capable  2 HDD  512n  Acc/GrA/Opt   2/4      1 5000c5004b9dff7f0000000000000000
+0x0a1c8d68 0x00010005  0/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/1      1 5000c5004b9e080b0000000000000000
+0x0a11a0b8 0x0001000c  0/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/2      1 5000c5004bc53aa30000000000000000
+0x0a17ae38 0x00010015  0/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc53f0b0000000000000000
+0x09c568f8 0x00010001  0/2  Capable  2 HDD  512n  Acc/GrA/F     2/1      1 5000c5004bc77adb0000000000000000
+0x0a1fec88 0x0001000f  0/16 Capable  2 HDD  512n  Acc/GrA/Opt   2/3      1 5000c5004bc7c0e70000000000000000
+0x0a186e20 0x00010016  0/23 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc970130000000000000000
+0x0a216c88 0x0001010b  1/12 Capable  2 HDD  512n  Inc/GrA/Opt   5/5      1 5000c5005413ecb70000000000000000
+0x0a138020 0x00010111  1/18 Capable  0 HDD  512n  Acc/GrA/Opt   4/6      1 5000c5005413fabb0000000000000000
+0x0a0f6128 0x00010009  0/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/2      1 5000c500541a047b0000000000000000
+0x0a150020 0x00010100  1/1  No       2 HDD  512n  Acc/GrA/Opt   1/4      1 5000c500890fd93f0000000000000000
+0x0a234c88 0x00010010  0/17 No       2 HDD  512n  Acc/GrA/Opt   3/3      1 5000c5009e7eb46f0000000000000000
+0x0a1200b8 0x00010104  1/5  No       2 HDD  512n  Acc/GrA/Opt   5/4      1 5000c5009e7eb4730000000000000000
+0x0a1f8c98 0x00010110  1/17 No       2 HDD  512n  Acc/GrA/Opt   3/6      1 5000c5009e92fc630000000000000000
+0x0a22ec88 0x0001000d  0/14 No       2 HDD  512n  Acc/GrA/Opt   7/2      1 5000c5009e92ff4f0000000000000000
+0x0a0de210 0x00010102  1/3  No       2 HDD  512n  Acc/GrA/Opt   3/4      1 5000cca02f0631580000000000000000
+0x0a16ee78 0x00010008  0/9  No       2 HDD  512n  Acc/GrA/Opt   2/2      1 5000cca02f0667080000000000000000
+0x0a25ec88 0x0001000e  0/15 Capable  0 HDD  512n  Acc/GrA/NCF   1/3      1 5000cca03c07eed40000000000000000
+0x0a1f2ce8 0x00010106  1/7  No       2 HDD  512n  Acc/GrA/Opt   7/4      1 5000cca056c2c0f80000000000000000
+0x0a1e6d28 0x00010107  1/8  No       2 HDD  512n  Acc/GrA/Opt   1/5      1 5000cca07d153ff40000000000000000
+
+value = 1 = 0x1
+-> setDriveToOptimal_MT 0x00010001
+11/08/24-12:55:32 (symTask2): WARN:  *** User is reviving Drive 0x10001 ***
+11/08/24-12:55:33 (symTask2): NOTE:  *** Volume 0 is now OPTIMAL ***
+ReturnCode: 0x1 = RETCODE_OK
+ReturnCode: 0x1 = RETCODE_OK
+value = 1 = 0x1
+-> vdmShowDriveList
+Total Drives: 48
+
+DriveAddr  Devnum      T/S  Secure  PI Med BlkFmt State       Ord/VG# Vols WWN
+===========================================================================================================
+0x0a1080f0 0x00010004  0/5  Capable  2 HDD  512n  Acc/GrA/Opt   5/1      1 5000c50039f9334f0000000000000000
+0x0a228c88 0x0001010f  1/16 Capable  2 HDD  512n  Acc/GrA/NCF   2/6      1 5000c5004810a88f0000000000000000
+0x0c6dd0a8 0x0001010a  1/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/5      1 5000c5004828aac30000000000000000
+0x0a252c88 0x00010115  1/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c500482904a30000000000000000
+0x0a156020 0x00010108  1/9  Capable  2 HDD  512n  Acc/GrA/Opt   2/5      1 5000c500484d60130000000000000000
+0x0a0e41d0 0x0001000a  0/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/2      1 5000c500484e6b9b0000000000000000
+0x0a258c88 0x00010117  1/24 Capable  2 HDD  512n  Acc/UnA/NCF              5000c500484e6c2b0000000000000000
+0x0b7e20d8 0x0001010c  1/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/5      1 5000c500484e8f430000000000000000
+0x0a20ac88 0x00010109  1/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/5      1 5000c5004850aafb0000000000000000
+0x0a24cc88 0x00010116  1/23 Capable  2 HDD  512n  Acc/UnA/NCF              5000c5004850d5a30000000000000000
+0x0a1aad80 0x00010103  1/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/4      1 5000c50048516c670000000000000000
+0x0b6da598 0x00010000  0/1  Capable  2 HDD  512n  Acc/GrA/Opt   1/1      1 5000c500486dc26b0000000000000000
+0x0a156f20 0x00010012  0/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/3      1 5000c500486dc52f0000000000000000
+0x0a162ea8 0x00010014  0/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/3      1 5000c500486dd41f0000000000000000
+0x0a15cee8 0x00010013  0/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/3      1 5000c500486f1be70000000000000000
+0x0a246c88 0x00010114  1/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/6      1 5000c500486f220b0000000000000000
+0x0a1140b8 0x0001000b  0/12 Capable  2 HDD  512n  Acc/GrA/Opt   5/2      1 5000c500486f26230000000000000000
+0x09c56440 0x00010002  0/3  Capable  2 HDD  512n  Acc/GrA/NCF   3/1      1 5000c500486f40ef0000000000000000
+0x0a204c88 0x00010105  1/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/4      1 5000c500486f57270000000000000000
+0x0a23ac88 0x00010112  1/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/6      1 5000c500486f97970000000000000000
+0x0a0f0160 0x00010007  0/8  Capable  2 HDD  512n  Acc/GrA/Opt   1/2      1 5000c500486fb50f0000000000000000
+0x09c56168 0x00010003  0/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/1      1 5000c500487159ef0000000000000000
+0x0a21cc88 0x0001010d  1/14 Capable  2 HDD  512n  Acc/GrA/Opt   7/5      1 5000c5004b98b3370000000000000000
+0x0a240c88 0x00010113  1/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/6      1 5000c5004b98ccef0000000000000000
+0x0a0ea198 0x00010006  0/7  Capable  2 HDD  512n  Acc/GrA/Opt   7/1      1 5000c5004b98d60f0000000000000000
+0x0a222c88 0x0001010e  1/15 Capable  2 HDD  512n  Acc/GrA/Opt   1/6      1 5000c5004b98d9530000000000000000
+0x0a19edc0 0x00010011  0/18 Capable  2 HDD  512n  Acc/GrA/Opt   4/3      1 5000c5004b98ff730000000000000000
+0x0a192de0 0x00010017  0/24 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004b99063f0000000000000000
+0x0a1020b8 0x00010101  1/2  Capable  2 HDD  512n  Acc/GrA/Opt   2/4      1 5000c5004b9dff7f0000000000000000
+0x0a1c8d68 0x00010005  0/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/1      1 5000c5004b9e080b0000000000000000
+0x0a11a0b8 0x0001000c  0/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/2      1 5000c5004bc53aa30000000000000000
+0x0a17ae38 0x00010015  0/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc53f0b0000000000000000
+0x09c568f8 0x00010001  0/2  Capable  2 HDD  512n  Acc/GrA/Opt   2/1      1 5000c5004bc77adb0000000000000000
+0x0a1fec88 0x0001000f  0/16 Capable  2 HDD  512n  Acc/GrA/Opt   2/3      1 5000c5004bc7c0e70000000000000000
+0x0a186e20 0x00010016  0/23 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc970130000000000000000
+0x0a216c88 0x0001010b  1/12 Capable  2 HDD  512n  Inc/GrA/Opt   5/5      1 5000c5005413ecb70000000000000000
+0x0a138020 0x00010111  1/18 Capable  0 HDD  512n  Acc/GrA/Opt   4/6      1 5000c5005413fabb0000000000000000
+0x0a0f6128 0x00010009  0/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/2      1 5000c500541a047b0000000000000000
+0x0a150020 0x00010100  1/1  No       2 HDD  512n  Acc/GrA/Opt   1/4      1 5000c500890fd93f0000000000000000
+0x0a234c88 0x00010010  0/17 No       2 HDD  512n  Acc/GrA/Opt   3/3      1 5000c5009e7eb46f0000000000000000
+0x0a1200b8 0x00010104  1/5  No       2 HDD  512n  Acc/GrA/Opt   5/4      1 5000c5009e7eb4730000000000000000
+0x0a1f8c98 0x00010110  1/17 No       2 HDD  512n  Acc/GrA/Opt   3/6      1 5000c5009e92fc630000000000000000
+0x0a22ec88 0x0001000d  0/14 No       2 HDD  512n  Acc/GrA/Opt   7/2      1 5000c5009e92ff4f0000000000000000
+0x0a0de210 0x00010102  1/3  No       2 HDD  512n  Acc/GrA/Opt   3/4      1 5000cca02f0631580000000000000000
+0x0a16ee78 0x00010008  0/9  No       2 HDD  512n  Acc/GrA/Opt   2/2      1 5000cca02f0667080000000000000000
+0x0a25ec88 0x0001000e  0/15 Capable  0 HDD  512n  Acc/GrA/NCF   1/3      1 5000cca03c07eed40000000000000000
+0x0a1f2ce8 0x00010106  1/7  No       2 HDD  512n  Acc/GrA/Opt   7/4      1 5000cca056c2c0f80000000000000000
+0x0a1e6d28 0x00010107  1/8  No       2 HDD  512n  Acc/GrA/Opt   1/5      1 5000cca07d153ff40000000000000000
+
+value = 1 = 0x1
+-> setDriveToOptimal_MT 0x0001010b
+ReturnCode: 0x4 = RETCODE_ILLEGAL_PARAM
+ReturnCode: 0x4 = RETCODE_ILLEGAL_PARAM
+value = 4 = 0x4
+-> setDriveToFailed_MT 0x0001010b
+ReturnCode: 0x4 = RETCODE_ILLEGAL_PARAM
+ReturnCode: 0x4 = RETCODE_ILLEGAL_PARAM
+value = 4 = 0x4
+-> adoptAllDrives_MT
+ReturnCode: 0x1d0 = RETCODE_NO_DRIVES_ADOPTED
+value = 464 = 0x1d0
+-> vdmShowRAIDVolList
+
+Total RAIDVolumes: 6
+
+                                  Curr  Prim
+RVAddr     Ssid   State       Pcs Owner Owner VG# PI ExclOp
+===========================================================
+0x0afb4020 000000 RV_OPTIMAL    7 Alt   Alt     1  0 MEDIA SCAN
+0x0b014020 000001 RV_OPTIMAL    7 This  This    2  0 MEDIA SCAN
+0x0b018020 000002 RV_OPTIMAL    7 Alt   Alt     3  0 MEDIA SCAN
+0x0b020020 000003 RV_OPTIMAL    7 This  This    4  0 MEDIA SCAN
+0x0b028020 000004 RV_OPTIMAL    7 Alt   Alt     5  0 MEDIA SCAN
+0x0b030020 000005 RV_OPTIMAL    7 This  This    6  0 MEDIA SCAN
+
+value = 0 = 0x0
+->
+Fri Nov  8 19:15:02 2024
+Your terminal (/dev/pts/3) has been idle for 19 min.
+Press Enter key or you will logged out any time after 40 min.
+11/08/24-13:21:14 (IOSched): WARN:  SESAccessPort - SESCamden I/O error 0x11
+11/08/24-13:21:14 (IOSched): WARN:  SESAccessPort - SESCamden I/O error 0x11
+11/08/24-13:22:19 (ProcessHandlers): NOTE:  Vol 4, Piece 4 (0x0001010b) reconstructPending
+11/08/24-13:22:19 (ProcessHandlers): WARN:  *** Volume 4 is now DEGRADED ***
+
+-> assignDrivesAsHotSpares_MT 1,0x10016
+connect: failed to create address: InvalidAddressException
+ReturnCode: 0x0 = RETCODE_UNINITIALIZED
+value = 0 = 0x0
+-> vdmShowDriveList
+Total Drives: 48
+
+DriveAddr  Devnum      T/S  Secure  PI Med BlkFmt State       Ord/VG# Vols WWN
+===========================================================================================================
+0x0a1080f0 0x00010004  0/5  Capable  2 HDD  512n  Acc/GrA/Opt   5/1      1 5000c50039f9334f0000000000000000
+0x0a228c88 0x0001010f  1/16 Capable  2 HDD  512n  Acc/GrA/NCF   2/6      1 5000c5004810a88f0000000000000000
+0x0c6dd0a8 0x0001010a  1/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/5      1 5000c5004828aac30000000000000000
+0x0a252c88 0x00010115  1/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c500482904a30000000000000000
+0x0a156020 0x00010108  1/9  Capable  2 HDD  512n  Acc/GrA/Opt   2/5      1 5000c500484d60130000000000000000
+0x0a0e41d0 0x0001000a  0/11 Capable  2 HDD  512n  Acc/GrA/Opt   4/2      1 5000c500484e6b9b0000000000000000
+0x0a258c88 0x00010117  1/24 Capable  2 HDD  512n  Acc/UnA/NCF              5000c500484e6c2b0000000000000000
+0x0b7e20d8 0x0001010c  1/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/5      1 5000c500484e8f430000000000000000
+0x0a2ace88 0x0001010b  1/12 Capable  0 HDD  512n  Acc/GrA/Opt   5/5      1 5000c500485061cf0000000000000000
+0x0a20ac88 0x00010109  1/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/5      1 5000c5004850aafb0000000000000000
+0x0a24cc88 0x00010116  1/23 Capable  2 HDD  512n  Acc/UnA/NCF              5000c5004850d5a30000000000000000
+0x0a1aad80 0x00010103  1/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/4      1 5000c50048516c670000000000000000
+0x0b6da598 0x00010000  0/1  Capable  2 HDD  512n  Acc/GrA/Opt   1/1      1 5000c500486dc26b0000000000000000
+0x0a156f20 0x00010012  0/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/3      1 5000c500486dc52f0000000000000000
+0x0a162ea8 0x00010014  0/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/3      1 5000c500486dd41f0000000000000000
+0x0a15cee8 0x00010013  0/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/3      1 5000c500486f1be70000000000000000
+0x0a246c88 0x00010114  1/21 Capable  2 HDD  512n  Acc/GrA/Opt   7/6      1 5000c500486f220b0000000000000000
+0x0a1140b8 0x0001000b  0/12 Capable  2 HDD  512n  Acc/GrA/Opt   5/2      1 5000c500486f26230000000000000000
+0x09c56440 0x00010002  0/3  Capable  2 HDD  512n  Acc/GrA/NCF   3/1      1 5000c500486f40ef0000000000000000
+0x0a204c88 0x00010105  1/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/4      1 5000c500486f57270000000000000000
+0x0a23ac88 0x00010112  1/19 Capable  2 HDD  512n  Acc/GrA/Opt   5/6      1 5000c500486f97970000000000000000
+0x0a0f0160 0x00010007  0/8  Capable  2 HDD  512n  Acc/GrA/Opt   1/2      1 5000c500486fb50f0000000000000000
+0x09c56168 0x00010003  0/4  Capable  2 HDD  512n  Acc/GrA/Opt   4/1      1 5000c500487159ef0000000000000000
+0x0a21cc88 0x0001010d  1/14 Capable  2 HDD  512n  Acc/GrA/Opt   7/5      1 5000c5004b98b3370000000000000000
+0x0a240c88 0x00010113  1/20 Capable  2 HDD  512n  Acc/GrA/Opt   6/6      1 5000c5004b98ccef0000000000000000
+0x0a0ea198 0x00010006  0/7  Capable  2 HDD  512n  Acc/GrA/Opt   7/1      1 5000c5004b98d60f0000000000000000
+0x0a222c88 0x0001010e  1/15 Capable  2 HDD  512n  Acc/GrA/Opt   1/6      1 5000c5004b98d9530000000000000000
+0x0a19edc0 0x00010011  0/18 Capable  2 HDD  512n  Acc/GrA/Opt   4/3      1 5000c5004b98ff730000000000000000
+0x0a192de0 0x00010017  0/24 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004b99063f0000000000000000
+0x0a1020b8 0x00010101  1/2  Capable  2 HDD  512n  Acc/GrA/Opt   2/4      1 5000c5004b9dff7f0000000000000000
+0x0a1c8d68 0x00010005  0/6  Capable  2 HDD  512n  Acc/GrA/Opt   6/1      1 5000c5004b9e080b0000000000000000
+0x0a11a0b8 0x0001000c  0/13 Capable  2 HDD  512n  Acc/GrA/Opt   6/2      1 5000c5004bc53aa30000000000000000
+0x0a17ae38 0x00010015  0/22 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc53f0b0000000000000000
+0x09c568f8 0x00010001  0/2  Capable  2 HDD  512n  Acc/GrA/Opt   2/1      1 5000c5004bc77adb0000000000000000
+0x0a1fec88 0x0001000f  0/16 Capable  2 HDD  512n  Acc/GrA/Opt   2/3      1 5000c5004bc7c0e70000000000000000
+0x0a186e20 0x00010016  0/23 Capable  2 HDD  512n  Acc/UnA/Opt              5000c5004bc970130000000000000000
+0x0a138020 0x00010111  1/18 Capable  0 HDD  512n  Acc/GrA/Opt   4/6      1 5000c5005413fabb0000000000000000
+0x0a0f6128 0x00010009  0/10 Capable  2 HDD  512n  Acc/GrA/Opt   3/2      1 5000c500541a047b0000000000000000
+0x0a150020 0x00010100  1/1  No       2 HDD  512n  Acc/GrA/Opt   1/4      1 5000c500890fd93f0000000000000000
+0x0a234c88 0x00010010  0/17 No       2 HDD  512n  Acc/GrA/Opt   3/3      1 5000c5009e7eb46f0000000000000000
+0x0a1200b8 0x00010104  1/5  No       2 HDD  512n  Acc/GrA/Opt   5/4      1 5000c5009e7eb4730000000000000000
+0x0a1f8c98 0x00010110  1/17 No       2 HDD  512n  Acc/GrA/Opt   3/6      1 5000c5009e92fc630000000000000000
+0x0a22ec88 0x0001000d  0/14 No       2 HDD  512n  Acc/GrA/Opt   7/2      1 5000c5009e92ff4f0000000000000000
+0x0a0de210 0x00010102  1/3  No       2 HDD  512n  Acc/GrA/Opt   3/4      1 5000cca02f0631580000000000000000
+0x0a16ee78 0x00010008  0/9  No       2 HDD  512n  Acc/GrA/Opt   2/2      1 5000cca02f0667080000000000000000
+0x0a25ec88 0x0001000e  0/15 Capable  0 HDD  512n  Acc/GrA/NCF   1/3      1 5000cca03c07eed40000000000000000
+0x0a1f2ce8 0x00010106  1/7  No       2 HDD  512n  Acc/GrA/Opt   7/4      1 5000cca056c2c0f80000000000000000
+0x0a1e6d28 0x00010107  1/8  No       2 HDD  512n  Acc/GrA/Opt   1/5      1 5000cca07d153ff40000000000000000
+
+value = 1 = 0x1
+-> assignDrivesAsHotSpares_MT 1, 0x00010016
+connect: failed to create address: InvalidAddressException
+ReturnCode: 0x0 = RETCODE_UNINITIALIZED
+value = 0 = 0x0
+-> vdmDrmShowHSDrives
+
+value = 1 = 0x1
+-> assignDrivesAsHotSpares_MT 1, 0x0a186e20
+connect: failed to create address: InvalidAddressException
+ReturnCode: 0x0 = RETCODE_UNINITIALIZED
+value = 0 = 0x0
+-> assignDrivesAsHotSpares_MT 1,0x10016
+connect: failed to create address: InvalidAddressException
+ReturnCode: 0x0 = RETCODE_UNINITIALIZED
+value = 0 = 0x0
+-> assignDrivesAsHotSpares_MT 1,0x00010016
+connect: failed to create address: InvalidAddressException
+ReturnCode: 0x0 = RETCODE_UNINITIALIZED
+value = 0 = 0x0
+->
+Fri Nov  8 20:00:02 2024
+Your terminal (/dev/pts/3) has been idle for 19 min.
+Press Enter key or you will logged out any time after 40 min.
+
+Fri Nov  8 20:15:01 2024
+Your terminal (/dev/pts/3) has been idle for 34 min.
+Press Enter key or you will logged out any time after 25 min.
+

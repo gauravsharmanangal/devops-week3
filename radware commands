@@ -1,0 +1,25 @@
+ Page of 1
+				
+Name 	Address 	Mask 	From IP 	To IP
+
+ATCA6_Dia
+Diameter_SEC53
+78 to 85 free index
+
+	ICMP---for ping
+	UDP---for traceroute
+	
+	
+	to view defined ip's
+	
+	Clases--->View active--Networks
+	To create or delete ip
+	
+	Clases--->Modify-->Networks-
+	Clases--->update policies
+	---------to define policies--
+	ACL--->Active Policies (to view existing defined polices)
+	ACL--->Modify Polices (to defined polices)
+	
+	
+	

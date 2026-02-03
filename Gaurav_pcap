@@ -1,0 +1,458 @@
+************************************ATM***************
+gsm_old.invokeID == -39
+gsm_old.localValue == 65	for invoke ATM Request  
+for returnResultLast				ATM	Response  
+frame[188:21] == 02:01:d9:30:10:02:01:41:30:0b:a3:09:30:07:03:05:03:00:00:00:00			returnResultLast
+gsm_map.address.digits == "919416009099"
+gsm_map.ms.odb_GeneralData == 80:01:10:00   Grace 1 to Grace 2
+gsm_map.ms.odb_GeneralData == 80:00:00:00	Active to Grace 1
+gsm_map.ms.odb_GeneralData == 00:00:00:00   Grace 1 to Active
+gsm_map.ms.allOG-CallsBarred == 1					Outgoing
+gsm_map.ms.allPacketOrientedServicesBarred == 1  	DATA
+gsm_map.ms.allIC-CallsBarred == 1					Incoming 
+**************************************************************
+
+
+*****************************USSD 123****************
+
+gsm_old.invokeID == 1
+gsm_old.localValue == 59	-- for invoke USSD Request -- localValue: processUnstructuredSS-Request (59) -----1st Message from sstp to selfcare
+gsm_map.address.digits == "919464922166" 
+gsm_map.ss.ussd_String == aa:98:6c:36:02  FOR USSD String: *123#
+gsm_old.localValue == 60	-- localValue: unstructuredSS-Request (60)		2nd message from selfcare to sstp
+gsm_old.localValue == 60	-- localValue: unstructuredSS-Request (60)		3rd message from Sstp to selfcare--
+
+
+*********************************************
+
+
+
+1
+8
+9
+titrffic
+Techops_Ind_2023_app
+
+
+
+
+
+e164.calling_party_number.digits == "919461768570"
+
+diameter.Session-Id == "CTOPUP;1111;3224027673" || diameter.Session-Id == "CTOPUP;6666;3224027673"
+
+MCAS3_47_004_01825_20240510160456.pcap.gz
+MCAS3_0012_47_01941_20240510162329.pcap.gz
+MCAS3_58_004_00278_20240510160720.pcap.gz
+ls -lrth  MCAS3_0012_47_*.pcap.gz
+
+gunzip MCAS3_0012_47_01939_20240510122446.pcap.gz
+gunzip MCAS3_47_004_01823_20240510120702.pcap.gz
+gunzip MCAS3_58_004_00277_20240510103854.pcap.gz
+gunzip MCAS3_0012_58_00163_20240510104524.pcap.gz
+
+diameter_unable_to_deliver
+
+Nth2OCS4-0-0-9:/Custom_Log_Bkup-# cat OMlog*May10*|grep -i ldap |wc -l
+203408
+Nth2OCS4-0-0-9:/Custom_Log_Bkup-# cat OMlog*May11*|grep -i ldap |wc -l
+0
+Nth2OCS4-0-0-9:/Custom_Log_Bkup-# cat OMlog*May12*|grep -i ldap |wc -l
+326408
+Nth2OCS4-0-0-9:/Custom_Log_Bkup-# cat OMlog*May13*|grep -i ldap |wc -l
+462512
+
+
+diameter_unable_to_deliver
+diameter.Origin-Host == "vPGW_NZCHDPB1_5"
+diameter.Origin-Host == "vPGW_NZCHDHR1_3"
+diameter.Result-Code == 2001					succ
+diameter.Result-Code == 3002
+diameter.Result-Code == 5003 
+diameter.CC-Request-Type == 1 || 
+ameter.Origin-Host == "GGZCHD2.OCS1"
+diameter.CC-Request-Type == 1   initital_request
+
+diameter.cmd.code == 8388635 ---SY
+diameter.avp.code == 2904--SLR
+diameter.Origin-Realm == "pcrfpb1.epc.mnc053.mcc404.3gppnetwork.org"  -pb 4g
+
+
+
+Scenario Location = event diameter!request_send_failed of state S_Diam_Waitin
+
+917589638513
+14:01:55
+
+
+echo "917009879745~PV2 & Normal Auto Validity successfully run on  subscribers resp for HP circle" >> /RTDB_DUMP/dump/sixdee/sms_file
+
+
+/TRACE_DUMP/SCRIPTS/last_restart.sh
+10 * * * * sh /TRACE_DUMP/SCRIPTS/last_restart.sh
+
+#####################last_restrat_script#############
+47 * * * * sh /TRACE_DUMP/SCRIPTS/last_restart.sh
+#####################AMA_CDRS_BKP####################
+10 7 * * * sh /TRACE_DUMP/SCRIPTS/fullama_copy.sh > /TRACE_DUMP/SCRIPTS/fullama_copy.log        2>&1
+10 8 * * * sh /TRACE_DUMP/SCRIPTS/fullama_remove30day_old.sh > /TRACE_DUMP/SCRIPTS/fullama_remove30day_old.log  2>&1
+############################################################
+
+mv mcas24.2024050813*.ama.* /billtemp/backup/
+mv mcas24.2024050111*.ama.* /billtemp/backup/
+mv mcas24.2024*.ama.* ajay_cdrs/
+
+
+
+cd /TRACE_DUMP/SCRIPTS/
+cd /cust_use/healthcheck/bin/;./health last_restart|grep restarted >> /TRACE_DUMP/SCRIPTS/Log_files/ALL_RAW_LAST_RESTART_LOG.txt
+cat /TRACE_DUMP/SCRIPTS/Log_files/ALL_RAW_LAST_RESTART_LOG.txt >> /TRACE_DUMP/SCRIPTS/Log_files/FINAL_ALL_RAW_LAST_RESTART_LOG.txt
+cat /TRACE_DUMP/SCRIPTS/Log_files/FINAL_ALL_RAW_LAST_RESTART_LOG.txt|sort|uniq > /TRACE_DUMP/SCRIPTS/Log_files/FINAL_ALL_RAW_LAST_RESTART_LOG.txt
+> /TRACE_DUMP/SCRIPTS/Log_files/ALL_RAW_LAST_RESTART_LOG.txt
+
+1.	decoded  AMA file of problematic subscriber, which contain event information of before  & after recharge 
+2.	Share the OM log & debug log 
+3.	Subtrace & pcap  trace file  of the problematic scenario 
+1)	MCAS version (op:version,history;)
+2)	pcap & subtrace file (successful & failed scenario )
+3)	measlog of  problematic duration 
+4)	Kindly share  the any changes done on the system 
+5)	Account history any of the problematic subscriber 
+6)	grep -e S7SCH -e STSCH -e SCTPSCH “/sn/init/initlist” (form I/O blade) 
+
+
+S7_TCAP_MEAS 
+
+ATCA 3
+1. decoded ama
+/TRACE_DUMP/prashant/decode_ama v28c -c -m 915752050689371 /ubilling/primary/2024115 /cs/sn/bill/ama.filter 2048 | grep -v Decode|grep 915752050689371 > /TRACE_DUMP/915752050689371_18Apr2024.csv &
+2.	Share the OM log & debug log 
+/Custom_Log_Bkup/OMlog**
+3.pcap trace
+4.measlogs
+5.account history
+
+918278247826
+
+-rwxrwxrwx 1 root root  14M Nov 24 17:00 MCAS1_58_004_00001_20251124165602.pcap
+-rwxrwxrwx 1 root root  30M Nov 24 17:00 MCAS1_47_004_00001_20251124165602.pcap
+-rwxrwxrwx 1 root root 447M Nov 24 17:01 MCAS1_47_0012_02659_20251124152746.pcap
+-rwxrwxrwx 1 root root 114M Nov 24 17:01 MCAS1_58_0012_00954_20251124163753.pcap
+
+editcap -A '2025-12-10 00:01:00' -B '2025-12-10 00:15:00' MCAS4_58_0012_00001_20251203121002.pcap  test1.pcap
+editcap -A '2025-12-10 00:01:00' -B '2025-12-10 00:15:00' MCAS4_58_004_00001_20251203120802.pcap  test2.pcap
+editcap -A '2025-12-10 00:01:00' -B '2025-12-10 00:15:00' MCAS4_47_004_00061_20251209202327.pcap  test3.pcap
+editcap -A '2025-12-10 00:01:00' -B '2025-12-10 00:15:00' MCAS4_47_0012_00061_20251209201011.pcap  test4.pcap
+
+
+editcap -A '2025-11-15 12:44:00' -B '2025-11-15 13:10:00' MCAS2_58_0012_01995_20251112185249.pcap  test1.pcap
+editcap -A '2025-11-15 12:44:00' -B '2025-11-15 13:10:00' MCAS2_47_004_08468_20251115115539.pcap  test2.pcap
+editcap -A '2025-11-15 12:44:00' -B '2025-11-15 13:10:00' MCAS2_47_0012_08140_20251115122428.pcap  test3.pcap
+
+editcap -A '2025-10-24 20:00:00' -B '2025-10-24 20:14:00'  MCAS3_0012_58_00703_20251024153028.pcap test4.pcap
+
+editcap -A '2025-12-02 12:00:00' -B '2025-12-02 15:46:00' MATED_MCAS2_58_004_00001_20251120155402.pcap  test1.pcap
+editcap -A '2025-12-02 12:00:00' -B '2025-12-02 15:46:00' MATED_MCAS2_47_004_00001_20251120155402.pcap  test2.pcap
+editcap -A '2025-12-02 12:00:00' -B '2025-12-02 15:46:00' MCAS2_58_0012_00001_20251120155402.pcap  test3.pcap
+editcap -A '2025-12-02 12:00:00' -B '2025-12-02 15:46:00' MCAS2_47_0012_00001_20251120155402.pcap  test4.pcap
+
+
+
+-rw------- 1 root root 230M Oct 16 12:22 MCAS4_0_0_4_58_00001_20251003103102.pcap
+-rw------- 1 root root 586M Oct 16 12:23 MCAS4_0_0_12_47_004_00137_20251015094513.pcap
+-rw------- 1 root root 586M Oct 16 12:23 MCAS4_0_0_4_47_00120_20251015103036.pcap
+-rw------- 1 root root 586M Oct 16 12:23 MCAS4_0_0_12_58_004_00036_20251014200553.pcap
+
+
+editcap -A '2025-11-2 11:00:00' -B '2025-11-28 17:10:00' MATED_MCAS2_47_004_00001_20251120155402.pcap test1.pcap
+editcap -A '2025-11-28 11:00:00' -B '2025-11-28 17:10:00' MATED_MCAS2_58_004_00001_20251120155402.pcap test2.pcap
+editcap -A '2025-11-28 11:00:00' -B '2025-11-28 17:10:00' MCAS2_58_0012_00001_20251120155402.pcap test3.pcap
+editcap -A '2025-11-28 11:00:00' -B '2025-11-28 17:10:00' MCAS2_47_0012_00001_20251120155402.pcap test4.pcap
+
+mergecap -w all_new_03122025_3rd.pcap *.pcap
+
+mergecap -w ATCIVE_TO_GRACE1orGRACE2.pcap test*.pcap
+
+
+cp MCAS4_47_0012_00061_20251209201011.pcap.gz /workspace/PCAP_DEtrace/test
+cp MCAS4_47_004_00061_20251209202327.pcap.gz /workspace/PCAP_DEtrace/test
+
+
+editcap -A '2024-05-23 08:49:00' -B '2024-05-23 08:56:00'  MCAS3_0012_47_02082_20240523060513.pcap test2.pcap
+
+editcap -A '2025-10-01 17:26:00' -B '2025-10-01 17:41:00'    MCAS4_0_0_4_58_00001_20251001101702.pcap test1.pcap
+editcap -A '2025-10-01 17:26:00' -B '2025-10-01 17:41:00'    MCAS4_0_0_12_58_004_00003_20251001154137.pcap test2.pcap
+editcap -A '2025-10-01 17:26:00' -B '2025-10-01 17:41:00'    MCAS4_0_0_12_47_004_00009_20251001163028.pcap test3.pcap
+editcap -A '2025-10-01 17:26:00' -B '2025-10-01 17:41:00'    MCAS4_0_0_4_47_00005_20251001164702.pcap test4.pcap
+
+
+MCAS3_0012_58_00201_20240523002808.pcap.gz
+MCAS3_0012_47_02082_20240523060513.pcap.gz
+
+gunzip MCAS3_0012_47_01939_20240510122446.pcap.gz
+gunzip MCAS3_47_004_01823_20240510120702.pcap.gz
+gunzip MCAS3_58_004_00277_20240510103854.pcap.gz
+gunzip MCAS3_0012_58_00163_20240510104524.pcap.gz
+
+MCAS3_0012_diameter_59217_20240525232716.pcap
+MCAS3_0012_diameter_59218_20240525233207.pcap
+MCAS3_0012_diameter_59219_20240525233704.pcap
+MCAS3_0012_diameter_59220_20240525234207.pcap
+
+918278161790
+919466733811 --7:28
+919485659982
+
+******************testing******************
+
+918278161790				-----  
+919466733811 				-----
+919485659982				-----
+
+
+
+mergecap -w all_new_1.pcap *.pcap
+
+diameter.Subscription-Id-Data == "919414102154"
+diameter.Subscription-Id-Data == "917589528660"
+diameter.Subscription-Id-Data == "918901092133"
+
+diameter.Session-Id == "GGZCHD4.OCS1;1716660340;1271951929;28633200"
+diameter.Session-Id == "GGZCHD4.OCS1;1716660403;1268231607;29365400"
+diameter.Session-Id == "GGZCHD3.OCS1;1716660561;1278579267;29985d00"
+
+
+
+
+
+
+
+
+gsm_map.address.digits == "918689005510"      ----fro ATM map
+gsm_map.address.digits == "919464215290" 
+
+
+ 917589178270
+ 919653250025
+ 919888072694
+ 
+ 
+ 
+ cp MCAS4_47_004_00054_20251209095714.pcap.gz /workspace/PCAP_DEtrace/test
+ cp MCAS4_47_0012_00054_20251209094729.pcap.gz /workspace/PCAP_DEtrace/test
+
+
+Nth1oth1_CTOP-0-0-4_04173_20240502123134.pcap.gz
+Nth1oth1_CTOP-0-0-4_04174_20240502123206.pcap.gz
+Nth1oth1_CTOP-0-0-4_04175_20240502123237.pcap.gz----not found
+Nth1oth1_CTOP-0-0-4_04176_20240502123309.pcap.gz
+strings Nth1oth1_CTOP-0-0-4_04176_20240502123309.pcap |grep 915752050689371---
+Nth1oth1_CTOP-0-0-4_04177_20240502123341.pcap.gz
+strings Nth1oth1_CTOP-0-0-4_04177_20240502123341.pcap |grep 915752050689371---
+Nth1oth1_CTOP-0-0-4_04178_20240502123412.pcap.gz
+strings Nth1oth1_CTOP-0-0-4_04178_20240502123412.pcap |grep 915752050689371
+
+
+
+
+2024-04-30 21:12:24   919465234801
+2024-04-30 21:33:13	  919465755056
+
+succ case :- 919469764919
+
+03:35
+
+scp 0-0-4:/PLATsoftware/cust_use/home/MCAS3_58_004_00257_20240430225336.pcap /workspace/
+scp 0-0-4:/PLATsoftware/cust_use/home/MCAS3_47_004_01737_20240501084918.pcap /workspace/
+scp 0-0-12:/PLATsoftware/cust_use/home/MCAS3_0012_58_00143_20240501080238.pcap /workspace/
+scp 0-0-12:/PLATsoftware/cust_use/home/MCAS3_0012_47_01853_20240501091203.pcap /workspace/
+
+
+
+
+OMlog15Apr30_21:15
+OMlog17Apr30_21:33
+/DEBUG_DUMP
+debuglog13Apr30_21:08
+debuglog14Apr30_21:19
+debuglog15Apr30_21:30
+
+ Error= @.session_id: GGZCHD3.OCS1;1714491393;1137590056;289d5a00 is unknown
+   END OF REPORT #168058++-
+
+   +++ NTH1OCS3 2024-04-30 21:33:13 ASSERT   #168059 0-0-5 >
+   REPT NETWORK ASSERT=201, SPA=EPAY29C
+   Network Message Error - ATM network failure.
+   Client ID = 5015
+   Subscriber ID = 919465755056
+   Call ID = DIAMETER_0_17::6666:3183519446
+   Call Instance ID = 646110
+   Scenario Location = event mapss7!transaction_closed
+   
+   gunzip MCAS3_58_004_00256_20240430164703.pcap.gz
+   gunzip MCAS3_47_004_01735_20240430205500.pcap.gz
+   gunzip MCAS3_0012_47_01851_20240430212452.pcap.gz
+   gunzip MCAS3_0012_58_00142_20240430181325.pcap.gz
+   
+   919465780736 06:35
+
+success case 
+
+
+
+MCAS3_58_004_00257_20240430225336.pcap
+MCAS3_0012_58_00143_20240501080238.pcap
+MCAS3_0012_47_01853_20240501091203.pcap
+MCAS3_47_004_01737_20240501084918.pcap
+
+
+
+
+0-0-4 restarted at Sun May  5 01:52:49 IST 2024
+
+
+•	/var/log/message =( From 0-0-4 & active pilot)    done
+•	/PRMlog( From 0-0-4 & active pilot)   done
+•	/debug log
+•	/meas log
+•	/OM log
+•	/InstallPlatform.out
+•	Op:status,machine=all
+•	HLPME platform
+•	smartctl -a -d scsi /dev/sda  from 0-0-4   
+•	smartctl -a -d cciss,0 /dev/sda  from 0-0-4
+•	smartctl -a -d scsi /dev/sdb  from 0-0-4
+•	smartctl -a -d cciss,0 /dev/sdb  from 0-0-4
+•	op:almtable
+•	free -m
+•	/cs/sn/ft/FTlsicli -a 0-0 show all
+•	Uptime from 0-0-4 
+
+
+
+
+
+
++++ NTH1OCS1 2024-05-08 00:00:05 SNMP /SNM001 #539102 0-0-9 >
+   <Alarm>
+        <AlarmIndex>3330</AlarmIndex>
+        <ObjectName>0-0-12#DATAVIEW NTH1OCS1_req_audit on NODE ID 7</ObjectName>
+        <SpecificProblem>DATAVIEW</SpecificProblem>
+        <ProbableCause>UnderlyingResourceUnavailable</ProbableCause>
+        <NotificationIdentifier>3330</NotificationIdentifier>
+        <Severity>Critical</Severity>
+        <AlarmType>ProcessingErrorAlarm</AlarmType>
+        <AdditionalText></AdditionalText>
+        <OMText>REPT DATAVIEW NO CONNECTION LEFT TO DATAVIEW (NTH1OCS1_req_audit)</O
+   MText>
+        <AlarmCode>944006</AlarmCode>
+        <AlarmSource>PLATFORM</AlarmSource>
+        <AlarmTime>Wed May 08 00:00:05 2024</AlarmTime>
+        <RepeatCount>0</RepeatCount>
+        <OMDBKey>/TI006</OMDBKey>
+        <AutoClear>1</AutoClear>
+        <AlarmUUID></AlarmUUID>
+        <VMFullName></VMFullName>
+        <VNFCFullName></VNFCFullName>
+        <SystemName>Nth1OCS1</SystemName>
+   </Alarm>
+
+
+
+
+
+
+
+
+02 00 * * * /TRACE_DUMP/script/ATM/atm_script.sh
+30 08 * * * sh /TRACE_DUMP/script/ATM/atm_final.sh
+#####################last_restrat_script#############
+47 * * * * sh /TRACE_DUMP/SCRIPTS/last_restart.sh
+#####################AMA_CDRS_BKP####################
+10 7 * * * sh /TRACE_DUMP/SCRIPTS/fullama_copy.sh > /TRACE_DUMP/SCRIPTS/fullama_copy.log        2>&1
+10 8 * * * sh /TRACE_DUMP/SCRIPTS/fullama_remove30day_old.sh > /TRACE_DUMP/SCRIPTS/fullama_remove30day_old.log  2>&1
+############################################################
+
+zgrep -A10 -B2 -i throttled  /Custom_Log_Bkup/OMlog*May8*.gz  >> /workspace/tempwork/8may.txt
+zgrep -A10 -B2 -i throttled  /Custom_Log_Bkup/OMlog*May9*.gz  >> /workspace/tempwork/9may.txt
+zgrep -A10 -B2 -i throttled  /Custom_Log_Bkup/OMlog*May10*.gz  >> /workspace/tempwork/10may.txt
+zgrep -A10 -B2 -i throttled  /Custom_Log_Bkup/OMlog*May11*.gz  >> /workspace/tempwork/11may.txt
+zgrep -A10 -B2 -i throttled  /Custom_Log_Bkup/OMlog*May12*.gz  >> /workspace/tempwork/12may.txt
+zgrep -A10 -B2 -i throttled  /Custom_Log_Bkup/OMlog*May13*.gz  >> /workspace/tempwork/13may.txt
+
+
+
+cat /workspace/tempwork/8may.txt|grep -i 'Subscriber ID'|awk -F "=" '{print $2}'
+cat /workspace/tempwork/9may.txt|grep -i 'Subscriber ID'|awk -F "=" '{print $2}'
+
+
+
+**************************
+diameter.Subscription-Id-Data == "919413800417"
+919466519047
+
+snd:text="QRY:SUBTRACE",rk=PPSIMOMKey;											-----this is for check configured numbers for subtraces
+   snd:text="SET:SUBTRACE,MSISDN=914200280003,mode=off",rk=PPSIMOMKey;				------for removing from config
+   
+   snd:text="SET:SUBTRACE,MSISDN=918901092133,mode=1179,1170,1178,1208,1192,IDTYPE=S",rk=PPSIMOMKey; ---- for configure 
+	From Active pilot blade:
+	(go to root user)
+	cd /workspace
+	tailer d >918901092133_21062024_MAIN_1.tra
+	Make call
+	./LogCMB 919423685550.tra
+	
+	
+mai d	
+	DIAMETER_0012_03793_20240621132943.pcap
+	DIAMETER_0012_03794_20240621133023.pcap
+
+mated 
+MCAS4_0012_diameter_00022_20240618203153.pcap
+
+918901092133_21062024_1.tra
+
+Nth1Oth1-0-0-12:/PLATsoftware/cust_use/trace_move-# strings DIAMETER_0012_03793_20240621132943.pcap |grep 918901092133
+918901092133
+918901092133
+918901092133
+Nth1Oth1-0-0-12:/PLATsoftware/cust_use/trace_move-# strings DIAMETER_0012_03794_20240621133023.pcap |grep 918901092133
+Nth1Oth1-0-0-12:/PLATsoftware/cust_use/trace_move-# strings DIAMETER_0012_03795_20240621133104.pcap |grep 918901092133
+918901092133
+918901092133
+918901092133
+918901092133
+918901092133
+
+
+
+Drouter
+Nth2oth1__CTOP-0-0-12_00006_20240621140503.pcap
+
+
+Main
+MCAS4_diameter_06068_20240621140639.pcap
+MCAS4_diameter_06069_20240621141112.pcap
+
+
+
+
+	
+	
+((((((((((((((((((((((((((((((((((((
+SIMDB28C
+SYDB287
+backup:db=SIMDB28C,DEST="/workspace/919464246046.SIMDB28C.csv",PARTIALKEY=919464246046;
+
+BACKUP:DB= SYDB287,DEST="/workspace/SYDB287_06062024.csv"
+
+date -d @1690362367
+
+	
+!!!!!!!!!!pcap trace at selfcare!!!!!!!!!!!!!!!
+
+/usr/sbin/tshark -i any -b filesize:1000000 -w /workspace/Trace_ussd_test29july2024.pcap
+/usr/sbin/tshark -i any -b filesize:1000000 -w /workspace/Trace_SPL111_1.pcap	
+	
+	
+	

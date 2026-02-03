@@ -1,0 +1,33 @@
+
+Step1 :- dbs ussdgw
+
+1. slee/ussdgw1
+
+Which DB to connect ?
+1. SHMDB(P)
+2. ORACLE
+Enter the Nb correponding to the DB type : 2
+
+SQL*Plus: Release 10.2.0.4.0 - Production on Tue Apr 11 15:32:54 2017
+
+Copyright (c) 1982, 2007, Oracle.  All Rights Reserved.
+
+Enter password:
+Error accessing PRODUCT_USER_PROFILE
+Warning:  Product user profile information not loaded!
+You may need to run PUPBLD.SQL as SYSTEM
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.4.0 - 64bit Production
+With the Partitioning, Data Mining and Real Application Testing options
+SQL> alter session set nls_date_format='DD/MM/RRRR HH24:MI:SS';
+
+Session altered.
+
+SQL> select mview_name, LAST_REFRESH_DATE from user_mviews;
+
+MVIEW_NAME                     LAST_REFRESH_DATE
+------------------------------ -------------------
+S05_SIM_RTDB                   11/04/2017 14:32:49
+
+
